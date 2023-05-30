@@ -1,0 +1,66 @@
+// ======================================================
+// Abstracts :: Variables
+// ======================================================
+
+/* Colors */
+$color-primary: #000;
+$color-secondary: #FFF;
+$color-tertiary: #D9D9D9;
+$color-default: $color-primary;
+$color-header: $color-secondary;
+$color-placeholder: #E6E6E6;
+$color-disabled: #AAA;
+$color-button: #333;
+
+/* Background Colors */
+$bg-color-primary: #F8FAFD;
+$bg-color-secondary: $color-secondary;
+
+/* Background Size */
+$bg-size-primary: 16px;
+$bg-size-secondary: 10px;
+
+/* Border Colors */
+$border-main: $color-placeholder;
+$border-modal: #DFE0EB;
+$border-form: #CCC;
+
+/* Font-Family */
+$font-primary: 'Rubik', sans-serif;
+$font-secondary: 'Noto Sans', sans-serif;
+$font-tertiary: 'Dancing Script', cursive;
+$default-family: $font-primary;
+$secondary-family: $font-secondary;
+$tertiary-family: $font-tertiary;
+
+/* Font-Size */
+$text-small: 11px;
+$text-medium: 13px;
+$text-large: 18px;
+
+/* Font-Weight */
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+/* Body */
+$text-color-body: $color-default;
+$text-size-body: $text-medium;
+$font-weight-body: $font-weight-regular;
+$font-family-body: $default-family;
+
+/* Header */
+$text-slogan: $text-large;
+$text-slogan-medium: 24px;
+$text-profile: 18px;
+$line-height-profile: 22px;
+
+/* Buttons */
+$text-button-small: 12px;
+$text-button-medium: 14px;
+$text-button-large: 16px;
+$color-btn-secondary: $color-button;
+$bg-color-btn-primary: $bg-color-primary;
+
+/* Width */
+$page-max-width: 1440px;

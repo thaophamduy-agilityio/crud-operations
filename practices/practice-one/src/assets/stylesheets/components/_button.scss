@@ -1,0 +1,41 @@
+// ======================================================
+// Components :: Button
+// ======================================================
+
+.storybook {
+  &-button {
+    @extend %inline-block;
+    @extend %cursor-pointer;
+    @extend %border-0;
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    border-radius: 30px;
+    line-height: 1;
+
+    &--primary {
+      color: $color-secondary;
+      background-color: $bg-color-btn-primary;
+    }
+
+    &--secondary {
+      @extend %bg-transparent;
+      color: $color-btn-secondary;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+    }
+
+    &--small {
+      font-size: $text-button-small;
+      padding: 10px 16px;
+    }
+
+    &--medium {
+      font-size: $text-button-medium;
+      padding: 11px 20px;
+    }
+
+    &--large {
+      font-size: $text-button-large;
+      padding: 12px 24px;
+    }
+  }
+}
