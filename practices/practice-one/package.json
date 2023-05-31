@@ -48,7 +48,6 @@
     "prop-types": "^15.8.1",
     "storybook": "^7.0.18",
     "typescript": "^5.0.4",
-    "vite": "^4.3.9",
-    "{config-conventional,cli}": "link:@commitlint/{config-conventional,cli}"
+    "vite": "^4.3.9"
   }
 }
