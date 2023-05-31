@@ -14,8 +14,10 @@
     "prepare": "cd ../.. && husky install practices/practice-one/.husky"
   },
   "dependencies": {
+    "@storybook/addon-styling": "^1.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.62.1",
     "vite-plugin-environment": "^1.1.3",
     "vite-tsconfig-paths": "^4.2.0"
   },
