@@ -4,16 +4,16 @@
 
 /* Colors */
 $color-primary: #000;
-$color-secondary: #FFF;
-$color-tertiary: #D9D9D9;
+$color-secondary: #fff;
+$color-tertiary: #d9d9d9;
 $color-default: $color-primary;
 $color-header: $color-secondary;
-$color-placeholder: #E6E6E6;
-$color-disabled: #AAA;
+$color-placeholder: #e6e6e6;
+$color-disabled: #aaa;
 $color-button: #333;
 
 /* Background Colors */
-$bg-color-primary: #F8FAFD;
+$bg-color-primary: #f8fafd;
 $bg-color-secondary: $color-secondary;
 
 /* Background Size */
@@ -22,8 +22,8 @@ $bg-size-secondary: 10px;
 
 /* Border Colors */
 $border-main: $color-placeholder;
-$border-modal: #DFE0EB;
-$border-form: #CCC;
+$border-modal: #dfe0eb;
+$border-form: #ccc;
 
 /* Font-Family */
 $font-primary: 'Rubik', sans-serif;
@@ -63,4 +63,4 @@ $color-btn-secondary: $color-button;
 $bg-color-btn-primary: $bg-color-primary;
 
 /* Width */
-$page-max-width: 1440px;
+$page-max-width: 1260px;
