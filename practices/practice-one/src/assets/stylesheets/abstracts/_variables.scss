@@ -24,6 +24,7 @@ $bg-size-secondary: 10px;
 $border-main: $color-placeholder;
 $border-modal: #dfe0eb;
 $border-form: #ccc;
+$border-input: #e3e6eb;
 
 /* Font-Family */
 $font-primary: 'Rubik', sans-serif;
@@ -55,12 +56,18 @@ $text-slogan-medium: 24px;
 $text-profile: 18px;
 $line-height-profile: 22px;
 
+/* Input */
+$text-input-small: 12px;
+$text-input-medium: 14px;
+$text-input-large: 16px;
+$color-btn-secondary: $color-button;
+
 /* Buttons */
 $text-button-small: 12px;
 $text-button-medium: 14px;
 $text-button-large: 16px;
 $color-btn-secondary: $color-button;
-$bg-color-btn-primary: $bg-color-primary;
+$bg-color-btn-primary: #1ea7fd;
 
 /* Width */
 $page-max-width: 1260px;
