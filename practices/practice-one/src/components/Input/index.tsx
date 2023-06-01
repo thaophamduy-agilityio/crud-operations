@@ -1,3 +1,4 @@
+// Define the props for the Input component
 interface InputProps {
   value?: string;
   defaultValue?: string;
