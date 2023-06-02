@@ -1,23 +1,11 @@
 interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
   primary?: boolean;
-  /**
-   * What background color to use
-   */
+  filter?: boolean;
+  display?: 'grid' | 'list';
+  sort?: boolean;
   backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
   size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
   label: string;
-  /**
-   * Optional click handler
-   */
   onClick?: () => void;
 }
 
@@ -26,20 +14,32 @@ interface ButtonProps {
  */
 export const Button = ({
   primary = false,
-  size = 'medium',
+  filter = false,
+  display,
+  sort,
+  size,
   backgroundColor,
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary ? 'btn-primary' : 'btn-secondary';
+  const filterBtn = filter ? 'btn-filter' : '';
+  const filterBtnSort = sort ? 'btn-sort' : '';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={[
+        'btn btn-display',
+        `btn-${size}`,
+        mode,
+        filterBtn,
+        `btn-display-${display}`,
+        filterBtnSort,
+      ].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >
-      {label}
+      {label != null && `${label}`}
     </button>
   );
 };

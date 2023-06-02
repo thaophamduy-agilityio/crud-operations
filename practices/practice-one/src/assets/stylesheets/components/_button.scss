@@ -2,40 +2,83 @@
 // Components :: Button
 // ======================================================
 
-.storybook {
-  &-button {
-    @extend %inline-block;
-    @extend %cursor-pointer;
-    @extend %border-0;
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    border-radius: 30px;
-    line-height: 1;
+.btn {
+  @extend %flex;
+  @extend %cursor-pointer;
+  @extend %border-0;
+  font-family: $default-family;
+  font-weight: $font-weight-regular;
+  border-radius: 30px;
+  line-height: 1;
 
-    &--primary {
-      color: $color-secondary;
-      background-color: $bg-color-btn-primary;
+  &-primary {
+    color: $color-secondary;
+    background-color: $bg-color-btn-primary;
+  }
+
+  &-secondary {
+    @extend %bg-transparent;
+    color: $color-btn-secondary;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  }
+
+  &-small {
+    font-size: $text-button-small;
+    padding: 10px 16px;
+  }
+
+  &-medium {
+    font-size: $text-button-medium;
+    padding: 11px 19px;
+  }
+
+  &-large {
+    font-size: $text-button-large;
+    padding: 12px 24px;
+  }
+
+  &-filter {
+    background: url('./src/assets/images/filter.svg') 16px no-repeat;
+    background-color: $bg-color-primary;
+    color: $filter-button-color;
+    border: 1px solid $border-input;
+    margin: 10px 0px;
+    padding: 14px 28px 14px 55px;
+    box-sizing: border-box;
+  }
+
+  &-display {
+    &-grid {
+      @include square(40px);
+      border-radius: 50%;
+      background: url('./src/assets/images/grid.svg') 13px no-repeat;
+      background-color: $bg-color-primary;
+      color: $filter-button-color;
+      border: 1px solid $border-display-grid;
+      margin: 10px 0px;
+      box-sizing: border-box;
     }
 
-    &--secondary {
-      @extend %bg-transparent;
-      color: $color-btn-secondary;
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+    &-list {
+      @include square(40px);
+      border-radius: 50%;
+      background: url('./src/assets/images/list.svg') 13px no-repeat;
+      background-color: $bg-color-primary;
+      color: $filter-button-color;
+      border: 1px solid $border-display-grid;
+      margin: 10px 0px;
+      box-sizing: border-box;
     }
+  }
 
-    &--small {
-      font-size: $text-button-small;
-      padding: 10px 16px;
-    }
-
-    &--medium {
-      font-size: $text-button-medium;
-      padding: 11px 20px;
-    }
-
-    &--large {
-      font-size: $text-button-large;
-      padding: 12px 24px;
-    }
+  &-sort {
+    background: url('./src/assets/images/arrow-down.svg') 90% no-repeat;
+    background-color: $bg-color-sort;
+    color: $color-primary;
+    border: 1px solid $border-display-grid;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 15px 40px 15px 15px;
+    box-sizing: border-box;
   }
 }

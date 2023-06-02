@@ -16,6 +16,47 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const Filter: Story = {
+  args: {
+    filter: true,
+    label: 'Filter',
+  },
+};
+
+export const DisplayGrid: Story = {
+  args: {
+    filter: false,
+    display: 'grid',
+    sort: false,
+    label: '',
+  },
+};
+
+export const DisplayList: Story = {
+  args: {
+    filter: false,
+    display: 'list',
+    sort: false,
+    label: '',
+  },
+};
+
+export const SortAlphabet: Story = {
+  args: {
+    filter: false,
+    sort: true,
+    label: 'Alphabetical Order',
+  },
+};
+
+export const SortOrder: Story = {
+  args: {
+    filter: false,
+    sort: true,
+    label: 'Release Year',
+  },
+};
+
 export const Primary: Story = {
   args: {
     primary: true,
