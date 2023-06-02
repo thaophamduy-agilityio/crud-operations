@@ -1,5 +1,6 @@
 @import 'abstracts/variables';
 @import 'abstracts/placeholder';
+@import 'abstracts/mixins';
 
 @import 'base/reset';
 @import 'base/fonts';
@@ -10,3 +11,4 @@
 @import 'components/button';
 @import 'components/input';
 @import 'components/image';
+@import 'components/filter';
