@@ -29,7 +29,7 @@ export const Button = ({
     <button
       type="button"
       className={[
-        'btn btn-display',
+        'btn',
         `btn-${size}`,
         mode,
         filterBtn,

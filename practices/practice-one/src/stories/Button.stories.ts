@@ -19,6 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Filter: Story = {
   args: {
     filter: true,
+    sort: false,
     label: 'Filter',
   },
 };
