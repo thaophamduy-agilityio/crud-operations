@@ -15,24 +15,29 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Search: Story = {
   args: {
-    search: true,
-    type: 'text',
+    value: '',
     placeholder: 'Search books',
-    required: false,
+    className: 'input input-search',
+    type: 'text',
+    isRequire: false,
   },
 };
 
 export const Default: Story = {
   args: {
+    value: '',
+    placeholder: 'text',
+    className: 'input input-default',
     labelName: 'Input name',
     type: 'text',
-    placeholder: 'text',
-    required: false,
+    isRequire: false,
   },
 };
 
 export const Upload: Story = {
   args: {
+    value: '',
+    className: 'input',
     labelName: 'Upload Photo',
     type: 'file',
   },

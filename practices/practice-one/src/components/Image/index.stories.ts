@@ -18,7 +18,7 @@ export const Default: Story = {
     loading: 'lazy',
     imageSrc: 'https://picsum.photos/200/200',
     altText: 'image',
-    widthSize: 200,
-    heightSize: 200,
+    width: 200,
+    height: 200,
   },
 };

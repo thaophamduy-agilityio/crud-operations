@@ -5,4 +5,8 @@
 .img {
   @extend %flex;
   @extend %flex-column;
+
+  &-item {
+    border-radius: 5px;
+  }
 }

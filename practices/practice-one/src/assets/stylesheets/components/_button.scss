@@ -9,6 +9,7 @@
   font-family: $default-family;
   font-weight: $font-weight-regular;
   border-radius: 30px;
+  padding: 10px 20px;
   line-height: 1;
 
   &-primary {
@@ -51,7 +52,7 @@
     &-grid {
       @include square(40px);
       border-radius: 50%;
-      background: url('./src/assets/images/grid.svg') 13px no-repeat;
+      background: url('./src/assets/images/grid.svg') 14px no-repeat;
       background-color: $bg-color-secondary;
       color: $filter-button-color;
       border: 1px solid $border-display-grid;
@@ -59,7 +60,7 @@
       box-sizing: border-box;
 
       &.selected {
-        background: url('./src/assets/images/grid-selected.svg') 13px no-repeat;
+        background: url('./src/assets/images/grid-selected.svg') 14px no-repeat;
         background-color: $bg-color-filter-seleted;
         border: 1px solid transparent;
       }

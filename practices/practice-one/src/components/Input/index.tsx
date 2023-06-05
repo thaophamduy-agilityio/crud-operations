@@ -1,40 +1,36 @@
 // Define the props for the Input component
 interface InputProps {
-  value?: string;
-  defaultValue?: string;
+  value: string;
   name?: string;
   placeholder?: string;
+  className?: string;
   isDisabled?: boolean;
   labelName: string;
-  required?: boolean;
-  search?: boolean;
-  type?: string;
+  isRequire?: boolean;
+  type: string;
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const Input = ({
-  defaultValue = '',
-  name = '',
-  placeholder = '',
+  name,
+  placeholder,
+  className,
   isDisabled = false,
-  labelName = '',
+  labelName,
   type,
-  search = false,
-  required = false,
+  isRequire = false,
 }: InputProps) => {
-  const mode = search ? 'input input--search' : 'input input--default';
   return (
     <>
       <label className="input-label">
         {labelName}
-        {required && <span className="labelRequired">*</span>}
+        {isRequire && <span className="labelisRequire">*</span>}
       </label>
       <input
-        defaultValue={defaultValue}
         name={name}
-        className={mode}
+        className={className}
         type={type}
         placeholder={placeholder}
         disabled={isDisabled}
