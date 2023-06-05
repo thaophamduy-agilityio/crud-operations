@@ -8,29 +8,18 @@
   border: 1px solid $border-input;
   margin: 10px 0px;
   padding: 18px;
-  background-color: $bg-color-primary;
+  background-color: $bg-color-secondary;
   box-sizing: border-box;
   width: 100%;
 
-  &--search {
-    background: url('./src/assets/images/search.svg');
-    background-position: 14px center;
-    background-repeat: no-repeat;
+  &-search {
+    background: url('./src/assets/images/search.svg') 14px no-repeat;
     background-color: $bg-color-primary;
     padding-left: 50px;
     border-radius: 30px;
   }
 
-  &--default {
+  &-default {
     border-radius: 10px;
   }
-}
-
-.labelRequired {
-  color: red;
-  margin-left: 3px;
-}
-
-.errorText {
-  color: rgb(233, 0, 0);
 }

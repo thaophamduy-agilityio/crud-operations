@@ -31,8 +31,7 @@
       "@services*": ["src/services*"],
       "@fonts*": ["src/assets/fonts*"],
       "@image*": ["src/assets/images*"],
-      "@stylesheets*": ["src/assets/stylesheets*"],
-      "@stories*": ["src/stories*"]
+      "@stylesheets*": ["src/assets/stylesheets*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

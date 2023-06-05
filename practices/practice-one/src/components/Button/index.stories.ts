@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from './Button';
+import { Button } from './';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -16,6 +16,48 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const Filter: Story = {
+  args: {
+    filter: true,
+    sort: false,
+    label: 'Filter',
+  },
+};
+
+export const DisplayGrid: Story = {
+  args: {
+    filter: false,
+    display: 'grid',
+    sort: false,
+    label: '',
+  },
+};
+
+export const DisplayList: Story = {
+  args: {
+    filter: false,
+    display: 'list',
+    sort: false,
+    label: '',
+  },
+};
+
+export const SortAlphabet: Story = {
+  args: {
+    filter: false,
+    sort: true,
+    label: 'Alphabetical Order',
+  },
+};
+
+export const SortOrder: Story = {
+  args: {
+    filter: false,
+    sort: true,
+    label: 'Release Year',
+  },
+};
+
 export const Primary: Story = {
   args: {
     primary: true,

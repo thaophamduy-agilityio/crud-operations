@@ -1,0 +1,37 @@
+// ======================================================
+// Abstracts :: Mixins
+// ======================================================
+
+/* Set up width & height for elements */
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+/* Set up square for elements */
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+/* Create mixin for text font */
+@mixin text-font($font-family, $font-size, $font-weight, $line-height) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+/* Breakpoints for tablet */
+@mixin only-for-tablet() {
+  @media screen and (min-width: $medium) {
+    @content;
+  }
+}
+
+/* Breakpoints for desktop */
+@mixin only-for-desktop() {
+  @media screen and (min-width: $large) {
+    @content;
+  }
+}

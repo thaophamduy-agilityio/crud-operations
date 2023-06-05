@@ -11,10 +11,12 @@ $color-header: $color-secondary;
 $color-placeholder: #e6e6e6;
 $color-disabled: #aaa;
 $color-button: #333;
+$color-filter: #58667e;
 
 /* Background Colors */
 $bg-color-primary: #f8fafd;
 $bg-color-secondary: $color-secondary;
+$bg-color-filter-seleted: #f8fafd;
 
 /* Background Size */
 $bg-size-primary: 16px;
@@ -25,6 +27,7 @@ $border-main: $color-placeholder;
 $border-modal: #dfe0eb;
 $border-form: #ccc;
 $border-input: #e3e6eb;
+$border-display-grid: rgba(196, 196, 196, 0.23);
 
 /* Font-Family */
 $font-primary: 'Rubik', sans-serif;
@@ -69,5 +72,12 @@ $text-button-large: 16px;
 $color-btn-secondary: $color-button;
 $bg-color-btn-primary: #1ea7fd;
 
+/* Buttons */
+$filter-button-color: $color-filter;
+
 /* Width */
 $page-max-width: 1260px;
+
+/* Breakpoints */
+$medium: 768px;
+$large: 1200px;
