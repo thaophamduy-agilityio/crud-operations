@@ -13,7 +13,7 @@ body {
   font: $font-weight-body $text-size-body $font-family-body;
   color: $text-color-body;
   background-color: $bg-color-primary;
-  line-height: 20px;
+  line-height: 22px;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,84 +21,41 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-#root {
-  max-width: 1280px;
+.container {
+  max-width: 1260px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-
-  &:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-
-  &.react {
-    &:hover {
-      filter: drop-shadow(0 0 2em #61dafbaa);
-    }
-  }
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 img {
   max-width: 100%;
 }
 
-.main {
-  @extend %relative;
-  @extend %margin-center;
-  max-width: $page-max-width;
-  font-family: $secondary-family;
+a {
+  @extend %text-decoration-none;
+  color: $color-primary;
 }
 
-.landing {
-  @extend %relative;
-  @extend %margin-center;
-  @extend %z-index-0;
-  padding: 23px 50px;
-  max-width: 1340px;
+.main-site {
+  @extend %flex;
+  @extend %flex-wrap;
+}
 
-  @media screen and (max-width: 1440px) {
-    padding: 25px;
+.column-sidebar {
+  width: $column-sidebar;
+  background-color: $bg-color-secondary;
+  border-right: 1px solid $border-sidebar;
+}
+
+.column-content {
+  background-color: $bg-color-secondary;
+  width: 100%;
+
+  @include only-for-desktop() {
+    width: $column-content;
   }
 }
 
 :focus {
   outline: 0;
-}
-
-.hidden {
-  @extend %none;
-}
-
-.visible {
-  @extend %flex;
 }
