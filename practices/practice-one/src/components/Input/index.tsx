@@ -5,29 +5,15 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   isDisabled?: boolean;
-  labelName: string;
-  isRequire?: boolean;
   type: string;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Input = ({
-  name,
-  placeholder,
-  className,
-  isDisabled = false,
-  labelName,
-  type,
-  isRequire = false,
-}: InputProps) => {
+export const Input = ({ name, placeholder, className, isDisabled = false, type }: InputProps) => {
   return (
     <>
-      <label className="input-label">
-        {labelName}
-        {isRequire && <span className="labelisRequire">*</span>}
-      </label>
       <input
         name={name}
         className={className}

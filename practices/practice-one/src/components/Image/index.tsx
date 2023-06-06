@@ -24,7 +24,7 @@ export const Image = ({ text, imageSrc, altText, width, height, loading }: Image
           alt={altText}
         />
       )}
-      {!!text && <h1>{text}</h1>}
+      {!!text && <h1 className="text">{text}</h1>}
     </div>
   );
 };

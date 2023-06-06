@@ -17,6 +17,12 @@
     background-color: $bg-color-primary;
     padding-left: 50px;
     border-radius: 30px;
+    margin: 0 20px 0;
+
+    @include only-for-desktop() {
+      width: $width-search;
+      margin-right: 0 75px 0;
+    }
   }
 
   &-default {
