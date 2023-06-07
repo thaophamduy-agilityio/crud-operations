@@ -48,7 +48,6 @@ a {
 }
 
 .column-content {
-  background-color: $bg-color-secondary;
   width: 100%;
 
   @include only-for-desktop() {
