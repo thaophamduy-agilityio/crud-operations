@@ -77,12 +77,18 @@ $text-button-small: 12px;
 $text-button-medium: 14px;
 $text-button-large: 16px;
 $color-btn-secondary: $color-button;
-$bg-color-btn-primary: #1ea7fd;
+$bg-color-btn-primary: #1ea7fa;
 $filter-button-color: $color-filter;
 
 /* Columns */
 $column-sidebar: 268px;
 $column-content: calc(100% - 269px);
+
+/* Card */
+$text-card-title: $text-large;
+$color-card-author: #757881;
+$font-family-card-author: $secondary-family;
+$font-weight-card-author: $font-weight-medium;
 
 /* Width */
 $page-max-width: 1260px;
