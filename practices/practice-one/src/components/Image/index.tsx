@@ -3,8 +3,8 @@ interface ImageProps {
   text?: string;
   loading: 'lazy' | 'eager';
   imageSrc: string;
-  width: number;
-  height: number;
+  width: string;
+  height: string;
   altText: string;
 }
 
@@ -19,8 +19,8 @@ export const Image = ({ text, imageSrc, altText, width, height, loading }: Image
           className="img-item"
           loading={loading}
           src={imageSrc}
-          width={`${width}px`}
-          height={`${height}px`}
+          width={width}
+          height={height}
           alt={altText}
         />
       )}
