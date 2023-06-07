@@ -1,0 +1,57 @@
+// ======================================================
+// Components :: Book
+// ======================================================
+
+.book {
+  &-list,
+  &-category {
+    @extend %flex;
+    @extend %flex-wrap;
+    @extend %list-style-type-none;
+    column-gap: 32px;
+    row-gap: 40px;
+
+    &-wrapper {
+      padding: 33px 40px;
+    }
+  }
+  &-category {
+    gap: 0;
+
+    &-wrapper {
+      padding: 14px;
+    }
+
+    &-title {
+      font-family: $default-family;
+      font-size: $text-category-title;
+      font-weight: $font-weight-medium;
+      line-height: 20px;
+      padding: 18px 40px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    &-list {
+      font-family: $default-family;
+      font-size: $text-category-list;
+      font-weight: $font-weight-regular;
+      line-height: 20px;
+      padding: 18px 40px 0;
+    }
+
+    &-item {
+      color: $color-category-item;
+      border-radius: 10px;
+      padding: 12px 24px;
+      flex-basis: 100%;
+
+      .selected {
+        background: $bg-color-primary;
+      }
+    }
+  }
+
+  &-item {
+    flex-basis: calc(33.33333333% - 22px);
+  }
+}
