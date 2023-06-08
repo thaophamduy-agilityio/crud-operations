@@ -7,10 +7,14 @@
   @extend %flex-column;
   border: 1px solid $border-input;
   margin: 10px 0px;
-  padding: 18px;
+  padding: 13px;
   background-color: $bg-color-secondary;
   box-sizing: border-box;
   width: 100%;
+
+  @include only-for-desktop() {
+    padding: 18px;
+  }
 
   &-search {
     background: url('./src/assets/images/search.svg') 14px no-repeat;
@@ -21,7 +25,7 @@
 
     @include only-for-desktop() {
       width: $width-search;
-      margin-right: 0 75px 0;
+      margin: 0 75px 0;
     }
   }
 
