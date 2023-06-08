@@ -3,17 +3,29 @@
 // ======================================================
 
 .filter {
-  @extend %relative;
+  @extend %absolute;
+  top: 65px;
+  right: 20px;
+
+  @include only-for-desktop() {
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
 
   &-box {
     @extend %absolute;
-    top: 70px;
+    top: 65px;
     right: 10px;
     background-color: $bg-color-secondary;
     border-radius: 5px;
     box-shadow: 0px 1px 4px $box-shadow-color;
     padding: 30px 20px 50px;
     min-width: 228px;
+
+    @include only-for-desktop() {
+      top: 70px;
+    }
 
     &:before {
       @extend %absolute;

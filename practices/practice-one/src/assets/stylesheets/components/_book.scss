@@ -12,7 +12,11 @@
     row-gap: 40px;
 
     &-wrapper {
-      padding: 33px 40px;
+      padding: 70px 40px 33px;
+
+      @include only-for-desktop() {
+        padding: 33px 40px;
+      }
     }
   }
   &-category {
@@ -118,12 +122,17 @@
 
   &-toolbar {
     &-wrapper {
+      @extend %relative;
       @extend %flex;
       @extend %item-center;
       @extend %justify-space-between;
       background-color: $bg-color-secondary;
       box-shadow: 1px 0px 2px $box-shadow-color;
-      padding: 0 40px;
+      padding: 20px;
+
+      @include only-for-desktop() {
+        padding: 0 40px;
+      }
     }
   }
 
