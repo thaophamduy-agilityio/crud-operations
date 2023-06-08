@@ -37,8 +37,16 @@
   display: flex;
 }
 
+%inline-flex {
+  display: inline-flex;
+}
+
 %grid {
   display: grid;
+}
+
+%inline-grid {
+  display: inline-grid;
 }
 
 %block {
@@ -98,6 +106,10 @@
 
 %item-center {
   align-items: center;
+}
+
+%item-start {
+  align-items: flex-start;
 }
 
 %item-end {

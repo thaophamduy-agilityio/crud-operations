@@ -16,18 +16,23 @@ $color-filter: #58667e;
 /* Background Colors */
 $bg-color-primary: #f8fafd;
 $bg-color-secondary: $color-secondary;
-$bg-color-filter-seleted: #f8fafd;
+$bg-color-filter-seleted: $bg-color-primary;
 
 /* Background Size */
 $bg-size-primary: 16px;
 $bg-size-secondary: 10px;
 
 /* Border Colors */
+$border-header: #e3e6eb;
 $border-main: $color-placeholder;
 $border-modal: #dfe0eb;
 $border-form: #ccc;
-$border-input: #e3e6eb;
+$border-input: $border-header;
+$border-sidebar: $border-header;
 $border-display-grid: rgba(196, 196, 196, 0.23);
+
+/* Box-Shadow */
+$box-shadow-color: rgba(0, 0, 0, 0.15);
 
 /* Font-Family */
 $font-primary: 'Rubik', sans-serif;
@@ -49,6 +54,7 @@ $font-weight-bold: 700;
 
 /* Body */
 $text-color-body: $color-default;
+$bg-color-body: #e5e5e5;
 $text-size-body: $text-medium;
 $font-weight-body: $font-weight-regular;
 $font-family-body: $default-family;
@@ -59,21 +65,67 @@ $text-slogan-medium: 24px;
 $text-profile: 18px;
 $line-height-profile: 22px;
 
+/* Logo */
+$text-logo: 36px;
+$line-height-logo: 43px;
+
 /* Input */
 $text-input-small: 12px;
 $text-input-medium: 14px;
 $text-input-large: 16px;
 $color-btn-secondary: $color-button;
+$width-search: 670px;
 
 /* Buttons */
 $text-button-small: 12px;
 $text-button-medium: 14px;
 $text-button-large: 16px;
 $color-btn-secondary: $color-button;
-$bg-color-btn-primary: #1ea7fd;
-
-/* Buttons */
+$bg-color-btn-primary: #1ea7fa;
 $filter-button-color: $color-filter;
+
+/* Columns */
+$column-sidebar: 268px;
+$column-content: calc(100% - 268px);
+
+/* Card */
+$text-card-title: $text-large;
+$color-card-author: #757881;
+$font-family-card-author: $secondary-family;
+$font-weight-card-author: $font-weight-medium;
+
+/* Book */
+$text-book-title: 14px;
+$text-book-results: 15px;
+$color-book-title: #0d75ff;
+$color-book-results: #222531;
+$bg-color-book-title: rgba(13, 117, 255, 0.05);
+
+/* Category */
+$text-category-title: $text-large;
+$text-category-list: 14px;
+$text-category-shorthand: 16px;
+$color-category-item: #222531;
+$bg-color-category-Adventure: #ff6231;
+$bg-color-category-Contemporary: #0da8ff;
+$bg-color-category-Romance: #f388b5;
+$bg-color-category-Fantasy: #770dff;
+$bg-color-category-Dystopian: #4f85ac;
+$bg-color-category-Mystery: #14282f;
+$bg-color-category-Horror: #f1121f;
+$bg-color-category-Thriller: #0d8bff;
+$bg-color-category-Paranormal: #ffd80d;
+$bg-color-category-Historical: #75828a;
+$bg-color-category-Scifi: #6f5a8a;
+$bg-color-category-Memoir: #94aae4;
+$bg-color-category-Sports: #b4bebf;
+
+/* Filter */
+$text-filter-title: 15px;
+$text-filter-display: $text-small;
+$text-filter-sort: $text-medium;
+$color-filter-title: $color-default;
+$color-filter-sort-selected: #0d75ff;
 
 /* Width */
 $page-max-width: 1260px;

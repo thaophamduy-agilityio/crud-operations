@@ -3,57 +3,47 @@
 // ======================================================
 
 .header {
-  &__page {
-    @extend %relative;
-    @extend %margin-center;
-    @extend %z-index-1;
-    padding: 54px 25px 34px;
-    background-color: $bg-color-primary;
-    max-width: 1390px;
-  }
-
-  &__wrapper {
+  &-site {
     @extend %flex;
     @extend %justify-space-between;
     @extend %item-center;
-    padding: 0 25px;
+    @extend %margin-center;
+    background-color: $bg-color-secondary;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 25px 10px 20px;
+
+    .img-item {
+      border-radius: 0;
+    }
+
+    @include only-for-desktop() {
+      padding: 8px 40px 8px 50px;
+    }
   }
 
-  &__slogan,
-  &__profile {
-    @extend %text-uppercase;
-    color: $color-secondary;
-  }
-
-  &__slogan {
-    font-size: $text-slogan;
-    line-height: 38px;
-  }
-
-  &__profile {
+  &-left {
     @extend %flex;
     @extend %item-center;
-    font-size: $text-profile;
-    line-height: 22px;
   }
 
-  &__name {
-    max-width: 100px;
-    text-align: right;
-    margin-right: 20px;
+  &-toogle {
+    .btn-container {
+      @extend %inline-flex;
+    }
+
+    @include only-for-desktop() {
+      display: none;
+    }
   }
 
-  &__avatar {
-    width: 60px;
-    aspect-ratio: 1 / 1;
+  &-logo {
+    .img-container {
+      @extend %inline-flex;
+    }
   }
-}
 
-.main {
-  &__nav {
-    @extend %text-left;
+  &-right {
     @extend %flex;
-    @extend %justify-center;
-    margin-top: 48px;
+    @extend %item-center;
   }
 }

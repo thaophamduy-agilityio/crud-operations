@@ -1,0 +1,85 @@
+// ======================================================
+// Components :: Filter
+// ======================================================
+
+.filter {
+  @extend %absolute;
+  top: 65px;
+  right: 20px;
+
+  @include only-for-desktop() {
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
+
+  &-box {
+    @extend %absolute;
+    top: 65px;
+    right: 10px;
+    background-color: $bg-color-secondary;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px $box-shadow-color;
+    padding: 30px 20px 50px;
+    min-width: 228px;
+
+    @include only-for-desktop() {
+      top: 70px;
+    }
+
+    &:before {
+      @extend %absolute;
+      right: 50px;
+      top: -6px;
+      content: '';
+      border-bottom: 10px solid #fff;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+
+    .text {
+      font-size: $text-filter-display;
+    }
+  }
+
+  &-title {
+    font-family: $default-family;
+    font-size: $text-filter-title;
+    font-weight: $font-weight-medium;
+    line-height: 28px;
+    margin-bottom: 10px;
+  }
+
+  &-display,
+  &-sort {
+    @extend %flex;
+    @extend %flex-column;
+    margin-bottom: 15px;
+
+    &-icons {
+      @extend %flex;
+    }
+
+    .btn-container {
+      @extend %flex;
+      @extend %flex-column;
+      @extend %item-center;
+      margin-right: 10px;
+    }
+  }
+
+  &-sort {
+    &-icons {
+      @extend %flex-column;
+    }
+
+    .btn-container {
+      @extend %item-start;
+      margin-right: 0;
+
+      .btn-sort {
+        width: 100%;
+      }
+    }
+  }
+}

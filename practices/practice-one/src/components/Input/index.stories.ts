@@ -19,7 +19,6 @@ export const Search: Story = {
     placeholder: 'Search books',
     className: 'input input-search',
     type: 'text',
-    isRequire: false,
   },
 };
 
@@ -28,9 +27,7 @@ export const Default: Story = {
     value: '',
     placeholder: 'text',
     className: 'input input-default',
-    labelName: 'Input name',
     type: 'text',
-    isRequire: false,
   },
 };
 
@@ -38,7 +35,6 @@ export const Upload: Story = {
   args: {
     value: '',
     className: 'input',
-    labelName: 'Upload Photo',
     type: 'file',
   },
 };

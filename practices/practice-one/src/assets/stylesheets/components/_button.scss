@@ -12,6 +12,16 @@
   padding: 10px 20px;
   line-height: 1;
 
+  &-hamburger {
+    background: url('./src/assets/images/hamburger.svg') 3px no-repeat;
+    box-sizing: border-box;
+  }
+
+  &-close {
+    background: url('./src/assets/images/close.svg') 3px no-repeat;
+    box-sizing: border-box;
+  }
+
   &-primary {
     color: $color-secondary;
     background-color: $bg-color-btn-primary;
@@ -43,8 +53,8 @@
     background-color: $bg-color-primary;
     color: $filter-button-color;
     border: 1px solid $border-input;
-    margin: 10px 0px;
-    padding: 14px 28px 14px 55px;
+    margin: 6px 0px;
+    padding: 15px 28px 14px 55px;
     box-sizing: border-box;
   }
 
@@ -56,7 +66,6 @@
       background-color: $bg-color-secondary;
       color: $filter-button-color;
       border: 1px solid $border-display-grid;
-      margin: 10px 0px;
       box-sizing: border-box;
 
       &.selected {
@@ -73,7 +82,6 @@
       background-color: $bg-color-secondary;
       color: $filter-button-color;
       border: 1px solid $border-display-grid;
-      margin: 10px 0px;
       box-sizing: border-box;
 
       &.selected {
@@ -88,15 +96,14 @@
     background: url('./src/assets/images/arrow-down.svg') 90% no-repeat;
     background-color: $bg-color-secondary;
     color: $color-primary;
-    border: 1px solid $border-display-grid;
     border-radius: 10px;
-    margin: 10px 0px;
     padding: 15px 40px 15px 15px;
     box-sizing: border-box;
 
     &.selected {
-      background: url('./src/assets/images/arrow-down-selected.svg') 13px no-repeat;
+      background: url('./src/assets/images/arrow-down-selected.svg') 90% no-repeat;
       background-color: $bg-color-filter-seleted;
+      color: $color-filter-sort-selected;
       border: 1px solid transparent;
     }
   }

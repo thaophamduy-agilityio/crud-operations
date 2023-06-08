@@ -1,0 +1,172 @@
+// ======================================================
+// Components :: Book
+// ======================================================
+
+.book {
+  &-list,
+  &-category {
+    @extend %flex;
+    @extend %flex-wrap;
+    @extend %list-style-type-none;
+    column-gap: 32px;
+    row-gap: 40px;
+
+    &-wrapper {
+      padding: 70px 40px 33px;
+
+      @include only-for-desktop() {
+        padding: 33px 40px;
+      }
+    }
+  }
+  &-category {
+    gap: 0;
+
+    &-wrapper {
+      padding: 14px;
+    }
+
+    &-title {
+      font-family: $default-family;
+      font-size: $text-category-title;
+      font-weight: $font-weight-medium;
+      line-height: 20px;
+      padding: 18px 40px;
+      box-shadow: 0px 0px 2px $box-shadow-color;
+    }
+
+    &-list {
+      font-family: $default-family;
+      font-size: $text-category-list;
+      font-weight: $font-weight-regular;
+      line-height: 20px;
+      padding: 18px 40px 0;
+    }
+
+    &-item {
+      @extend %cursor-pointer;
+      color: $color-category-item;
+      border-radius: 10px;
+      padding: 8px 24px;
+      flex-basis: 100%;
+
+      &.selected {
+        background: $bg-color-primary;
+      }
+    }
+
+    &-shorthand {
+      @include square(40px);
+      border-radius: 50%;
+      @extend %inline-flex;
+      @extend %item-center;
+      @extend %justify-center;
+      font-size: $text-category-shorthand;
+      font-weight: $font-weight-bold;
+      color: $color-secondary;
+      margin-right: 10px;
+    }
+
+    &-Adventure {
+      background-color: $bg-color-category-Adventure;
+    }
+
+    &-Contemporary {
+      background-color: $bg-color-category-Contemporary;
+    }
+
+    &-Romance {
+      background-color: $bg-color-category-Romance;
+    }
+
+    &-Fantasy {
+      background-color: $bg-color-category-Fantasy;
+    }
+
+    &-Dystopian {
+      background-color: $bg-color-category-Dystopian;
+    }
+
+    &-Mystery {
+      background-color: $bg-color-category-Mystery;
+    }
+
+    &-Horror {
+      background-color: $bg-color-category-Horror;
+    }
+
+    &-Thriller {
+      background-color: $bg-color-category-Thriller;
+    }
+
+    &-Paranormal {
+      background-color: $bg-color-category-Paranormal;
+    }
+
+    &-Historical {
+      background-color: $bg-color-category-Historical;
+    }
+
+    &-Scifi {
+      background-color: $bg-color-category-Scifi;
+    }
+
+    &-Memoir {
+      background-color: $bg-color-category-Memoir;
+    }
+
+    &-Sports {
+      background-color: $bg-color-category-Sports;
+    }
+  }
+
+  &-toolbar {
+    &-wrapper {
+      @extend %relative;
+      @extend %flex;
+      @extend %item-center;
+      @extend %justify-space-between;
+      background-color: $bg-color-secondary;
+      box-shadow: 1px 0px 2px $box-shadow-color;
+      padding: 20px;
+
+      @include only-for-desktop() {
+        padding: 0 40px;
+      }
+    }
+  }
+
+  &-title {
+    &-text {
+      color: $color-book-title;
+      background-color: $bg-color-book-title;
+      font-size: $text-book-title;
+      line-height: 17px;
+      border-radius: 30px;
+      padding: 12px 32px;
+    }
+
+    &-arrow {
+      margin: 0 20px;
+
+      .img-container {
+        @extend %inline-block;
+      }
+    }
+
+    &-results {
+      color: $color-book-results;
+      font-size: $text-book-results;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &-item {
+    @extend %cursor-pointer;
+    flex-basis: 100%;
+
+    @include only-for-desktop() {
+      flex-basis: calc(33.33333333% - 22px);
+    }
+  }
+}

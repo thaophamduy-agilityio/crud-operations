@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Image } from '.';
+import { Card } from '.';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: 'Example/Image',
-  component: Image,
+  title: 'Example/Card',
+  component: Card,
   tags: ['autodocs'],
-} satisfies Meta<typeof Image>;
+} satisfies Meta<typeof Card>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -16,9 +16,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     loading: 'lazy',
-    imageSrc: 'https://picsum.photos/200/200',
-    altText: 'image',
     width: '200',
     height: '200',
+    book: {
+      title: 'Angels and demons',
+      author: 'Stuart Matt',
+      image: 'https://picsum.photos/200/200',
+      published: '2021',
+    },
   },
 };

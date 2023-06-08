@@ -1,11 +1,10 @@
 interface ButtonProps {
   primary?: boolean;
-  filter?: boolean;
-  display?: 'grid' | 'list';
-  sort?: boolean;
+  className?: string;
   backgroundColor?: string;
   size?: 'small' | 'medium' | 'large';
   label: string;
+  text?: string;
   onClick?: () => void;
 }
 
@@ -14,32 +13,24 @@ interface ButtonProps {
  */
 export const Button = ({
   primary = false,
-  filter = false,
-  display,
-  sort,
   size,
   backgroundColor,
   label,
+  text,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'btn-primary' : 'btn-secondary';
-  const filterBtn = filter ? 'btn-filter' : '';
-  const filterBtnSort = sort ? 'btn-sort' : '';
   return (
-    <button
-      type="button"
-      className={[
-        'btn',
-        `btn-${size}`,
-        mode,
-        filterBtn,
-        `btn-display-${display}`,
-        filterBtnSort,
-      ].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {!!label && `${label}`}
-    </button>
+    <div className="btn-container">
+      <button
+        type="button"
+        className={['btn', `btn-${size}`, mode].join(' ')}
+        style={{ backgroundColor }}
+        {...props}
+      >
+        {!!label && `${label}`}
+      </button>
+      {!!text && <h4 className="text">{text}</h4>}
+    </div>
   );
 };
