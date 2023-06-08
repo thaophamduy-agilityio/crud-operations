@@ -1,3 +1,4 @@
+import { Button } from '@components/Button';
 import { Image } from '@components/Image/index';
 import { Input } from '@components/Input';
 import logo from '@image/book-shelter.svg';
@@ -7,20 +8,29 @@ const Header = () => {
   return (
     <header className="header-site">
       <section className="header-left">
+        <span className="header-toogle">
+          <Button
+            className="btn btn-hamburger"
+            label=""
+            onClick={() => {
+              ('');
+            }}
+          />
+        </span>
         <a className="header-logo" href="./" title="Book Shelter">
           <Image
             altText="Book Shelter"
-            height={44}
+            height="44"
             imageSrc={logo}
             loading="lazy"
-            width={54}
+            width="54"
             text="BookShelter"
           />
         </a>
       </section>
       <section className="header-right">
         <Input className="input input-search" placeholder="Search books" type="text" value="" />
-        <Image altText="Sunshine" height={23} imageSrc={sunshine} loading="lazy" width={23} />
+        <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" />
       </section>
     </header>
   );

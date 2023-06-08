@@ -10,7 +10,6 @@
     @extend %margin-center;
     background-color: $bg-color-secondary;
     border-radius: 10px 10px 0 0;
-    border-bottom: 1px solid $border-header;
     padding: 10px 25px 10px 20px;
 
     .img-item {
@@ -18,7 +17,28 @@
     }
 
     @include only-for-desktop() {
-      padding: 12px 40px 12px 50px;
+      padding: 8px 40px 8px 50px;
+    }
+  }
+
+  &-left {
+    @extend %flex;
+    @extend %item-center;
+  }
+
+  &-toogle {
+    .btn-container {
+      @extend %inline-flex;
+    }
+
+    @include only-for-desktop() {
+      display: none;
+    }
+  }
+
+  &-logo {
+    .img-container {
+      @extend %inline-flex;
     }
   }
 
