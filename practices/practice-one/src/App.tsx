@@ -1,16 +1,25 @@
 import './App.scss';
 import Header from '@components/Header';
-import { useCallback, useEffect, useState } from 'react';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from './interface/book';
 import endpoint from './helpers/endpoints-config';
+import { handleListByCategory } from './helpers/handle-by-category';
 import axios from 'axios';
 import { Image } from '@components/Image/index';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
+import { buttonCategory } from '@components/Category';
 import arrow from '@image/arrow-right.svg';
+import { useDebounce } from '@components/Search/use-debounce';
 
 const App = () => {
   const [books, setBooks] = useState<IBook[]>([]);
+  const [listDebounce, setListDebounce] = useState<IBook[]>([]);
+  const [listByCategory, setListByCategory] = useState<IBook[]>([]);
+  const [valueSearch, setValueSearch] = useState<string>('');
+
+  const valueDebounced = useDebounce<string>(valueSearch.trim(), 800);
+  const max = books.reduce((acc, book) => (acc = acc > book.id ? acc : book.id), 0);
 
   useEffect(() => {
     fetchData();
@@ -22,10 +31,31 @@ const App = () => {
         `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
       );
       setBooks(data);
+      setListByCategory(data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   }, []);
+
+  const handleCategoryBook = (e: SyntheticEvent, valueFilter: string) => {
+    const target = e.target as Element;
+    const allFilter = target.closest('ul')?.querySelectorAll('.book-category-item');
+
+    allFilter?.forEach((filter) => {
+      const dataId = filter.getAttribute('data-id');
+      const valueElement = filter.innerHTML;
+
+      if (dataId === valueFilter) {
+        filter.classList.add('selected');
+
+        const newListByCategory = handleListByCategory(listByCategory, valueElement);
+        console.log(newListByCategory);
+        setListByCategory(newListByCategory);
+      } else {
+        filter.classList.remove('selected');
+      }
+    });
+  };
 
   return (
     <div className="container">
@@ -36,23 +66,27 @@ const App = () => {
           <div className="book-category-list">A curated list of every book ever written</div>
           <div className="book-category-wrapper">
             <ul className="book-category">
-              {books.length > 0 && (
-                <>
-                  {books.map((book) => (
-                    <li className="book-category-item" key={book.category}>
-                      <span
-                        className={[
-                          'book-category-shorthand',
-                          `book-category-${book.category}`,
-                        ].join(' ')}
-                      >
-                        {JSON.stringify(book.category).slice(1, 3)}
-                      </span>
-                      {book.category}
-                    </li>
-                  ))}
-                </>
-              )}
+              {buttonCategory.map((item) => (
+                <li
+                  key={item.id}
+                  className={
+                    item.category === 'Adventure'
+                      ? 'book-category-item selected'
+                      : 'book-category-item'
+                  }
+                  data-id={item.id}
+                  onClick={(e) => handleCategoryBook(e, `${item.id}`)}
+                >
+                  <span
+                    className={['book-category-shorthand', `book-category-${item.category}`].join(
+                      ' '
+                    )}
+                  >
+                    {JSON.stringify(item.category).slice(1, 3)}
+                  </span>
+                  {item.category}
+                </li>
+              ))}
             </ul>
           </div>
         </aside>
@@ -119,23 +153,36 @@ const App = () => {
           </div>
           <div className="book-list-wrapper">
             <ul className="book-list">
-              {books.length > 0 && (
-                <>
-                  {books.map((book) => (
-                    <li className="book-item" key={book.id}>
+              {valueDebounced.length > 0 && listDebounce.length > 0
+                ? listDebounce.map((item) => (
+                    <li className="book-item" key={item.id}>
                       <Card
                         loading="lazy"
                         width="200"
                         height="200"
-                        book={book}
+                        book={item}
+                        onClick={() => {
+                          /* Handle pop up action */
+                        }}
+                      />
+                    </li>
+                  ))
+                : (valueDebounced.length > 0 && listDebounce.length <= 0) ||
+                  listByCategory.length === 0
+                ? 'Not found data!'
+                : listByCategory.map((item) => (
+                    <li className="book-item" key={item.id}>
+                      <Card
+                        loading="lazy"
+                        width="200"
+                        height="200"
+                        book={item}
                         onClick={() => {
                           /* Handle pop up action */
                         }}
                       />
                     </li>
                   ))}
-                </>
-              )}
             </ul>
           </div>
         </section>
