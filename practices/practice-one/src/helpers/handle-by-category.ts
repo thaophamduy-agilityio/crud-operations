@@ -1,6 +1,6 @@
 import { IBook } from '../interface/book';
 
-export const handleListByCategory = (listBooks: IBook[], value: string) => {
+export const handleListByCategory = (listBooks: IBook[], value?: string) => {
   switch (value) {
     case 'all':
       return listBooks;

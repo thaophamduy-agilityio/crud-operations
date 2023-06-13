@@ -1,6 +1,6 @@
 import './App.scss';
 import Header from '@components/Header';
-import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { IBook } from './interface/book';
 import endpoint from './helpers/endpoints-config';
 import { handleListByCategory } from './helpers/handle-by-category';
@@ -10,31 +10,21 @@ import { Card } from '@components/Card';
 import { Button } from '@components/Button';
 import { buttonCategory } from '@components/Category';
 import arrow from '@image/arrow-right.svg';
-import { useDebounce } from '@components/Search/use-debounce';
 
 const App = () => {
   const [books, setBooks] = useState<IBook[]>([]);
-  const [listDebounce, setListDebounce] = useState<IBook[]>([]);
   const [listByCategory, setListByCategory] = useState<IBook[]>([]);
-  const [valueSearch, setValueSearch] = useState<string>('');
-
-  const valueDebounced = useDebounce<string>(valueSearch.trim(), 800);
-  const max = books.reduce((acc, book) => (acc = acc > book.id ? acc : book.id), 0);
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = useCallback(async () => {
-    try {
+    const fetchData = async () => {
       const { data } = await axios.get<IBook[]>(
         `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
       );
       setBooks(data);
       setListByCategory(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+    };
+
+    fetchData();
   }, []);
 
   const handleCategoryBook = (e: SyntheticEvent, valueFilter: string) => {
@@ -43,13 +33,13 @@ const App = () => {
 
     allFilter?.forEach((filter) => {
       const dataId = filter.getAttribute('data-id');
-      const valueElement = filter.innerHTML;
+      const valueElement = filter.textContent?.slice(2);
 
       if (dataId === valueFilter) {
         filter.classList.add('selected');
 
-        const newListByCategory = handleListByCategory(listByCategory, valueElement);
-        console.log(newListByCategory);
+        const newListByCategory = handleListByCategory(books, valueElement);
+        console.log(valueElement);
         setListByCategory(newListByCategory);
       } else {
         filter.classList.remove('selected');
@@ -70,9 +60,7 @@ const App = () => {
                 <li
                   key={item.id}
                   className={
-                    item.category === 'Adventure'
-                      ? 'book-category-item selected'
-                      : 'book-category-item'
+                    item.category === 'All' ? 'book-category-item selected' : 'book-category-item'
                   }
                   data-id={item.id}
                   onClick={(e) => handleCategoryBook(e, `${item.id}`)}
@@ -153,22 +141,7 @@ const App = () => {
           </div>
           <div className="book-list-wrapper">
             <ul className="book-list">
-              {valueDebounced.length > 0 && listDebounce.length > 0
-                ? listDebounce.map((item) => (
-                    <li className="book-item" key={item.id}>
-                      <Card
-                        loading="lazy"
-                        width="200"
-                        height="200"
-                        book={item}
-                        onClick={() => {
-                          /* Handle pop up action */
-                        }}
-                      />
-                    </li>
-                  ))
-                : (valueDebounced.length > 0 && listDebounce.length <= 0) ||
-                  listByCategory.length === 0
+              {listByCategory.length === 0
                 ? 'Not found data!'
                 : listByCategory.map((item) => (
                     <li className="book-item" key={item.id}>
