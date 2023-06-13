@@ -18,8 +18,15 @@
   }
 
   &-close {
+    @extend %absolute;
+    top: 10px;
+    right: -10px;
     background: url('./src/assets/images/close.svg') 3px no-repeat;
     box-sizing: border-box;
+
+    @include only-for-desktop() {
+      display: none;
+    }
   }
 
   &-primary {

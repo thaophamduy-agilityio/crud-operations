@@ -1,11 +1,13 @@
 import './App.scss';
-import Header from '@components/Header';
-import { SyntheticEvent, useEffect, useState } from 'react';
+import logo from '@image/book-shelter.svg';
+import sunshine from '@image/sunshine.svg';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from './interface/book';
 import endpoint from './helpers/endpoints-config';
 import { handleListByCategory } from './helpers/handle-by-category';
 import axios from 'axios';
 import { Image } from '@components/Image/index';
+import { Input } from '@components/Input';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
 import { buttonCategory } from '@components/Category';
@@ -14,6 +16,8 @@ import arrow from '@image/arrow-right.svg';
 const App = () => {
   const [books, setBooks] = useState<IBook[]>([]);
   const [listByCategory, setListByCategory] = useState<IBook[]>([]);
+  const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
+  const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +30,18 @@ const App = () => {
 
     fetchData();
   }, []);
+
+  const toggleFilter = (): void => {
+    setIsOpenFilter(!isOpenFilter);
+  };
+
+  const toggleSideBar = (): void => {
+    setIsOpenSideBar(!isOpenSideBar);
+  };
+
+  const handleCloseSideBar = useCallback(() => {
+    setIsOpenSideBar(!isOpenSideBar);
+  }, [isOpenSideBar]);
 
   const handleCategoryBook = (e: SyntheticEvent, valueFilter: string) => {
     const target = e.target as Element;
@@ -41,6 +57,8 @@ const App = () => {
         const newListByCategory = handleListByCategory(books, valueElement);
         console.log(valueElement);
         setListByCategory(newListByCategory);
+        setIsOpenSideBar(false);
+        setIsOpenFilter(false);
       } else {
         filter.classList.remove('selected');
       }
@@ -49,9 +67,30 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
+      <header className={`header-site ${isOpenSideBar ? 'open' : ''}`}>
+        <section className="header-left">
+          <span className="header-toogle">
+            <Button className="btn btn-hamburger" label="" onClick={toggleSideBar} />
+          </span>
+          <a className="header-logo" href="./" title="Book Shelter">
+            <Image
+              altText="Book Shelter"
+              height="44"
+              imageSrc={logo}
+              loading="lazy"
+              width="54"
+              text="BookShelter"
+            />
+          </a>
+        </section>
+        <section className="header-right">
+          <Input className="input input-search" placeholder="Search books" type="text" value="" />
+          <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" />
+        </section>
+      </header>
       <main className="main-site">
         <aside className="column-sidebar">
+          <Button className="btn btn-close" label="" onClick={handleCloseSideBar} />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <div className="book-category-wrapper">
@@ -87,14 +126,8 @@ const App = () => {
               </span>
               <span className="book-title-results">Showing 18 Result(s)</span>
             </div>
-            <div className="filter">
-              <Button
-                className="btn btn-filter"
-                label="Filter"
-                onClick={() => {
-                  ('');
-                }}
-              />
+            <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
+              <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
                 <div className="filter-display">
                   <div className="filter-title">Display Options</div>
@@ -151,7 +184,7 @@ const App = () => {
                         height="200"
                         book={item}
                         onClick={() => {
-                          /* Handle pop up action */
+                          ('');
                         }}
                       />
                     </li>

@@ -19,6 +19,17 @@
     @include only-for-desktop() {
       padding: 8px 40px 8px 50px;
     }
+
+    &.open {
+      + .main-site {
+        .column-sidebar {
+          @extend %block;
+          @extend %absolute;
+          @extend %z-index-1;
+          top: 0;
+        }
+      }
+    }
   }
 
   &-left {
