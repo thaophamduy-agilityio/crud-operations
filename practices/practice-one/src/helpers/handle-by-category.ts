@@ -1,22 +1,23 @@
 import { IBook } from '../interface/book';
+import { CATEGORIES } from '@constants/categories';
 
 export const handleListByCategory = (listBooks: IBook[], value?: string) => {
   switch (value) {
-    case 'all':
+    case CATEGORIES.ALL_BOOKS:
       return listBooks;
-    case 'Adventure':
-    case 'Contemporary':
-    case 'Romance':
-    case 'Fantasy':
-    case 'Dystopian':
-    case 'Mystery':
-    case 'Horror':
-    case 'Thriller':
-    case 'Paranormal':
-    case 'Historical Fi':
-    case 'Scifi':
-    case 'Memoir':
-    case 'Sports':
+    case CATEGORIES.ADVENTURE:
+    case CATEGORIES.CONTEMPORARY:
+    case CATEGORIES.ROMANCE:
+    case CATEGORIES.FANTASY:
+    case CATEGORIES.DYSTOPIAN:
+    case CATEGORIES.MYSTERY:
+    case CATEGORIES.HORROR:
+    case CATEGORIES.THRILLER:
+    case CATEGORIES.PARANORMAL:
+    case CATEGORIES.HISTORICAL_FI:
+    case CATEGORIES.SCIFI:
+    case CATEGORIES.MEMOIR:
+    case CATEGORIES.SPORTS:
       return listBooks.filter((item) => item.category?.toLowerCase().includes(value.toLowerCase()));
     default:
       return [];

@@ -10,7 +10,7 @@ import { Image } from '@components/Image/index';
 import { Input } from '@components/Input';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
-import { buttonCategory } from '@components/Category';
+import { buttonCategory } from '@helpers/list-categories';
 import arrow from '@image/arrow-right.svg';
 
 const App = () => {
