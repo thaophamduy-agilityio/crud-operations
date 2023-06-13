@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import { CATEGORIES } from '@constants/categories';
 
 export interface CategoryProps {
   id?: string;
@@ -9,54 +10,54 @@ export interface CategoryProps {
 export const buttonCategory: Partial<CategoryProps>[] = [
   {
     id: '1',
-    category: 'Adventure',
+    category: CATEGORIES.ADVENTURE,
   },
   {
     id: '2',
-    category: 'Contemporary',
+    category: CATEGORIES.CONTEMPORARY,
   },
   {
     id: '3',
-    category: 'Romance',
+    category: CATEGORIES.ROMANCE,
   },
   {
     id: '4',
-    category: 'Fantasy',
+    category: CATEGORIES.FANTASY,
   },
   {
     id: '5',
-    category: 'Dystopian',
+    category: CATEGORIES.DYSTOPIAN,
   },
   {
     id: '6',
-    category: 'Mystery',
+    category: CATEGORIES.MYSTERY,
   },
   {
     id: '7',
-    category: 'Horror',
+    category: CATEGORIES.HORROR,
   },
   {
     id: '8',
-    category: 'Thriller',
+    category: CATEGORIES.THRILLER,
   },
   {
     id: '9',
-    category: 'Paranormal',
+    category: CATEGORIES.PARANORMAL,
   },
   {
     id: '10',
-    category: 'Historical Fi',
+    category: CATEGORIES.HISTORICAL_FI,
   },
   {
     id: '11',
-    category: 'Scifi',
+    category: CATEGORIES.SCIFI,
   },
   {
     id: '12',
-    category: 'Memoir',
+    category: CATEGORIES.MEMOIR,
   },
   {
     id: '13',
-    category: 'Sports',
+    category: CATEGORIES.SPORTS,
   },
 ];
