@@ -1,7 +1,7 @@
 import './App.scss';
 import logo from '@image/book-shelter.svg';
 import sunshine from '@image/sunshine.svg';
-import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import endpoint from '@helpers/endpoints-config';
 import { filterListByCategory } from '@helpers/filter-categories';
@@ -14,16 +14,22 @@ import { prosCategory } from '@constants/categories-pros';
 import arrow from '@image/arrow-right.svg';
 import { sortedBooklist } from '@helpers/sort-book';
 import { BOOKS_MESSAGES } from '@constants/error-messages';
+import { useDebounce } from './hooks/use-debounce';
+import { TIME_OUT } from '@constants/time-out';
 
 const App = () => {
   const [isBooks, setIsBooks] = useState<IBook[]>([]);
   const [isBooksFilter, setIsBooksFilter] = useState<IBook[]>([]);
+  const [isBooksDebounce, setIsBooksDebounce] = useState<IBook[]>([]);
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(false);
   const [isDisplayList, setIsDisplayList] = useState<boolean>(false);
   const [isSortAlphabet, setIsSortAlphabet] = useState({ title: false });
   const [isSortYear, setIsSortYear] = useState({ published: false });
+  const [valueSearch, setValueSearch] = useState<string>('');
+
+  const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
   sortedBooklist(isBooksFilter, isSortAlphabet, isSortYear);
 
@@ -42,6 +48,23 @@ const App = () => {
 
     fetchData();
   }, []);
+
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setValueSearch(value);
+  };
+
+  useEffect(() => {
+    const result = isBooksFilter.filter(({ title, category }) => {
+      const keyword = valueDebounced.toLowerCase();
+      const isMatchWithTitle = title?.toLowerCase().includes(keyword);
+      const isMatchWithCategory = category.toLowerCase().includes(keyword);
+
+      return isMatchWithTitle || isMatchWithCategory;
+    });
+
+    setIsBooksDebounce(result);
+  }, [valueDebounced]);
 
   const toggleFilter = (): void => {
     setIsOpenFilter(!isOpenFilter);
@@ -89,6 +112,7 @@ const App = () => {
 
       if (dataId === valueFilter) {
         filter.classList.add('selected');
+        setValueSearch('');
 
         const newListByCategory = filterListByCategory(isBooks, valueElement);
         console.log(valueElement);
@@ -120,7 +144,14 @@ const App = () => {
           </a>
         </section>
         <section className="header-right">
-          <Input className="input input-search" placeholder="Search books" type="text" value="" />
+          {/* <Input className="input input-search" placeholder="Search books" type="text" value="" /> */}
+          <input
+            type="search"
+            className="input input-search"
+            placeholder="Search books"
+            value={valueSearch}
+            onChange={handleSearchChange}
+          />
           <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" />
         </section>
       </header>
@@ -202,8 +233,23 @@ const App = () => {
           </div>
           <div className="book-list-wrapper">
             <ul className="book-list">
-              {isBooksFilter.length === 0
+              {(valueDebounced.length > 0 && isBooksDebounce.length <= 0) ||
+              isBooksFilter.length === 0
                 ? BOOKS_MESSAGES.NO_DATA
+                : valueDebounced.length > 0 && isBooksDebounce.length > 0
+                ? isBooksDebounce.map((item) => (
+                    <li key={item.id} className={`book-item ${isDisplayList ? 'list' : ''}`}>
+                      <Card
+                        loading="lazy"
+                        width="200"
+                        height="200"
+                        book={item}
+                        onClick={() => {
+                          ('');
+                        }}
+                      />
+                    </li>
+                  ))
                 : isBooksFilter.map((item) => (
                     <li key={item.id} className={`book-item ${isDisplayList ? 'list' : ''}`}>
                       <Card
