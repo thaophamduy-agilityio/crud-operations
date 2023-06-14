@@ -12,6 +12,7 @@ import { Card } from '@components/Card';
 import { Button } from '@components/Button';
 import { buttonCategory } from '@helpers/list-categories';
 import arrow from '@image/arrow-right.svg';
+import { sortedBooklist } from '@helpers/sort-book';
 
 const App = () => {
   const [books, setBooks] = useState<IBook[]>([]);
@@ -20,6 +21,10 @@ const App = () => {
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(false);
   const [isDisplayList, setIsDisplayList] = useState<boolean>(false);
+  const [isSortAlphabet, setIsSortAlphabet] = useState({ title: false });
+  const [isSortYear, setIsSortYear] = useState({ published: false });
+
+  sortedBooklist(listByCategory, isSortAlphabet, isSortYear);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,6 +59,18 @@ const App = () => {
   const handleDisplayList = (): void => {
     setIsDisplayList(true);
     setIsDisplayGrid(false);
+    setIsOpenFilter(false);
+  };
+
+  const handleSortAlphabet = () => {
+    setIsSortAlphabet({ title: true });
+    setIsSortYear({ published: false });
+    setIsOpenFilter(false);
+  };
+
+  const handleSortYear = () => {
+    setIsSortAlphabet({ title: false });
+    setIsSortYear({ published: true });
     setIsOpenFilter(false);
   };
 
@@ -164,18 +181,14 @@ const App = () => {
                   <div className="filter-title">Sort By</div>
                   <div className="filter-sort-icons">
                     <Button
-                      className="btn btn-sort selected"
+                      className={`btn btn-sort ${isSortAlphabet.title ? 'selected' : ''}`}
                       label="Alphabetical Order"
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleSortAlphabet}
                     />
                     <Button
-                      className="btn btn-sort"
+                      className={`btn btn-sort ${isSortYear.published ? 'selected' : ''}`}
                       label="Release Year"
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleSortYear}
                     />
                   </div>
                 </div>
