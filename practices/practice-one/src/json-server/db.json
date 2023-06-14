@@ -8,7 +8,7 @@
       "image": "src/assets/images/books/book1.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "2",
@@ -18,7 +18,7 @@
       "image": "src/assets/images/books/book2.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "3",
@@ -28,7 +28,7 @@
       "image": "src/assets/images/books/book3.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "4",
@@ -38,7 +38,7 @@
       "image": "src/assets/images/books/book4.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "5",
@@ -48,7 +48,7 @@
       "image": "src/assets/images/books/book5.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
 
@@ -59,7 +59,7 @@
       "image": "src/assets/images/books/book6.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "7",
@@ -69,7 +69,7 @@
       "image": "src/assets/images/books/book1.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "8",
@@ -79,7 +79,7 @@
       "image": "src/assets/images/books/book2.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "9",
@@ -89,7 +89,7 @@
       "image": "src/assets/images/books/book3.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "10",
@@ -99,7 +99,7 @@
       "image": "src/assets/images/books/book4.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "11",
@@ -109,7 +109,7 @@
       "image": "src/assets/images/books/book5.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
 
@@ -120,7 +120,7 @@
       "image": "src/assets/images/books/book6.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "13",
@@ -130,7 +130,7 @@
       "image": "src/assets/images/books/book1.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "14",
@@ -140,7 +140,7 @@
       "image": "src/assets/images/books/book2.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "15",
@@ -150,7 +150,7 @@
       "image": "src/assets/images/books/book3.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "16",
@@ -160,7 +160,7 @@
       "image": "src/assets/images/books/book4.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
       "id": "17",
@@ -170,7 +170,7 @@
       "image": "src/assets/images/books/book5.webp",
       "author": "Stuart Matt",
       "published": "2021",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     },
     {
 
@@ -181,7 +181,7 @@
       "image": "src/assets/images/books/book6.webp",
       "author": "Jamal Kasper",
       "published": "1996",
-      "Publishers": "Hollman"
+      "publishers": "Hollman"
     }
   ]
 }

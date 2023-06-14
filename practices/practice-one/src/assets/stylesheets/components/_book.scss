@@ -31,8 +31,12 @@
       font-size: $text-category-title;
       font-weight: $font-weight-medium;
       line-height: 20px;
-      padding: 18px 40px;
-      box-shadow: 0px 0px 2px $box-shadow-color;
+      padding: 40px 40px 18px;
+
+      @include only-for-desktop() {
+        padding: 18px 40px;
+        box-shadow: 0px 0px 2px $box-shadow-color;
+      }
     }
 
     &-list {
