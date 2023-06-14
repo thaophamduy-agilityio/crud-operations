@@ -2,21 +2,22 @@ import './App.scss';
 import logo from '@image/book-shelter.svg';
 import sunshine from '@image/sunshine.svg';
 import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
-import { IBook } from './interface/book';
-import endpoint from './helpers/endpoints-config';
-import { handleListByCategory } from './helpers/handle-by-category';
+import { IBook } from '@interface/book';
+import endpoint from '@helpers/endpoints-config';
+import { filterListByCategory } from '@helpers/filter-categories';
 import axios from 'axios';
 import { Image } from '@components/Image/index';
 import { Input } from '@components/Input';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
-import { buttonCategory } from '@helpers/list-categories';
+import { prosCategory } from '@constants/categories-pros';
 import arrow from '@image/arrow-right.svg';
 import { sortedBooklist } from '@helpers/sort-book';
+import { BOOKS_MESSAGES } from '@constants/error-messages';
 
 const App = () => {
-  const [books, setBooks] = useState<IBook[]>([]);
-  const [listByCategory, setListByCategory] = useState<IBook[]>([]);
+  const [isBooks, setIsBooks] = useState<IBook[]>([]);
+  const [isBooksFilter, setIsBooksFilter] = useState<IBook[]>([]);
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(false);
@@ -24,15 +25,19 @@ const App = () => {
   const [isSortAlphabet, setIsSortAlphabet] = useState({ title: false });
   const [isSortYear, setIsSortYear] = useState({ published: false });
 
-  sortedBooklist(listByCategory, isSortAlphabet, isSortYear);
+  sortedBooklist(isBooksFilter, isSortAlphabet, isSortYear);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get<IBook[]>(
-        `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
-      );
-      setBooks(data);
-      setListByCategory(data);
+      try {
+        const { data } = await axios.get<IBook[]>(
+          `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
+        );
+        setIsBooks(data);
+        setIsBooksFilter(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
 
     fetchData();
@@ -85,9 +90,9 @@ const App = () => {
       if (dataId === valueFilter) {
         filter.classList.add('selected');
 
-        const newListByCategory = handleListByCategory(books, valueElement);
+        const newListByCategory = filterListByCategory(isBooks, valueElement);
         console.log(valueElement);
-        setListByCategory(newListByCategory);
+        setIsBooksFilter(newListByCategory);
         setIsOpenSideBar(false);
         setIsOpenFilter(false);
       } else {
@@ -126,7 +131,7 @@ const App = () => {
           <div className="book-category-list">A curated list of every book ever written</div>
           <div className="book-category-wrapper">
             <ul className="book-category">
-              {buttonCategory.map((item) => (
+              {prosCategory.map((item) => (
                 <li
                   key={item.id}
                   className={
@@ -197,9 +202,9 @@ const App = () => {
           </div>
           <div className="book-list-wrapper">
             <ul className="book-list">
-              {listByCategory.length === 0
-                ? 'Not found data!'
-                : listByCategory.map((item) => (
+              {isBooksFilter.length === 0
+                ? BOOKS_MESSAGES.NO_DATA
+                : isBooksFilter.map((item) => (
                     <li key={item.id} className={`book-item ${isDisplayList ? 'list' : ''}`}>
                       <Card
                         loading="lazy"

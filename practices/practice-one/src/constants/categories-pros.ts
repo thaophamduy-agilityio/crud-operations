@@ -7,7 +7,7 @@ export interface CategoryProps {
   onClick?: (e: MouseEvent<HTMLElement>) => void;
 }
 
-export const buttonCategory: Partial<CategoryProps>[] = [
+export const prosCategory: Partial<CategoryProps>[] = [
   {
     id: '1',
     category: CATEGORIES.ADVENTURE,

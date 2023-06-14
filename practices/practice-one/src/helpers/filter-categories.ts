@@ -1,7 +1,7 @@
-import { IBook } from '../interface/book';
+import { IBook } from '@interface/book';
 import { CATEGORIES } from '@constants/categories';
 
-export const handleListByCategory = (listBooks: IBook[], value?: string) => {
+export const filterListByCategory = (listBooks: IBook[], value?: string) => {
   switch (value) {
     case CATEGORIES.ALL_BOOKS:
       return listBooks;
