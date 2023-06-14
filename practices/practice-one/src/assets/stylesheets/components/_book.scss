@@ -169,6 +169,55 @@
     @extend %cursor-pointer;
     flex-basis: 100%;
 
+    &.list {
+      flex-basis: 100%;
+
+      .card {
+        &-container {
+          @extend %flex;
+          @extend %item-center;
+
+          &-img {
+            margin-right: 20px;
+
+            @include only-for-desktop() {
+              margin-right: 30px;
+            }
+          }
+        }
+
+        &-title {
+          font-size: $text-card-title;
+          font-weight: $font-weight-medium;
+          line-height: 20px;
+          margin-top: 20px;
+
+          @include only-for-desktop() {
+            margin-top: 0;
+            font-size: $text-card-title-list;
+            line-height: $line-height-card-title-list;
+          }
+        }
+
+        &-author,
+        &-published {
+          @include only-for-desktop() {
+            font-size: $text-card-author-list;
+            line-height: $line-height-card-author-list;
+          }
+        }
+      }
+
+      .img-item {
+        @include square(auto);
+
+        @include only-for-desktop() {
+          width: $img-card-width;
+          height: $img-card-height;
+        }
+      }
+    }
+
     @include only-for-desktop() {
       flex-basis: calc(33.33333333% - 22px);
     }

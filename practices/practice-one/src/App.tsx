@@ -18,6 +18,8 @@ const App = () => {
   const [listByCategory, setListByCategory] = useState<IBook[]>([]);
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
+  const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(false);
+  const [isDisplayList, setIsDisplayList] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +44,18 @@ const App = () => {
   const handleCloseSideBar = useCallback(() => {
     setIsOpenSideBar(!isOpenSideBar);
   }, [isOpenSideBar]);
+
+  const handleDisplayGrid = (): void => {
+    setIsDisplayGrid(true);
+    setIsDisplayList(false);
+    setIsOpenFilter(false);
+  };
+
+  const handleDisplayList = (): void => {
+    setIsDisplayList(true);
+    setIsDisplayGrid(false);
+    setIsOpenFilter(false);
+  };
 
   const handleCategoryBook = (e: SyntheticEvent, valueFilter: string) => {
     const target = e.target as Element;
@@ -133,19 +147,15 @@ const App = () => {
                   <div className="filter-title">Display Options</div>
                   <div className="filter-display-icons">
                     <Button
-                      className="btn btn-display-grid selected"
+                      className={`btn btn-display-grid ${isDisplayGrid ? 'selected' : ''}`}
                       label=""
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleDisplayGrid}
                       text="Grid"
                     />
                     <Button
-                      className="btn btn-display-list"
+                      className={`btn btn-display-grid ${isDisplayList ? 'selected' : ''}`}
                       label=""
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleDisplayList}
                       text="List"
                     />
                   </div>
@@ -177,7 +187,7 @@ const App = () => {
               {listByCategory.length === 0
                 ? 'Not found data!'
                 : listByCategory.map((item) => (
-                    <li className="book-item" key={item.id}>
+                    <li key={item.id} className={`book-item ${isDisplayList ? 'list' : ''}`}>
                       <Card
                         loading="lazy"
                         width="200"
