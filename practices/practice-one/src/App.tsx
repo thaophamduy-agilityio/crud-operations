@@ -1,16 +1,15 @@
 import './App.scss';
 import logo from '@image/book-shelter.svg';
 import sunshine from '@image/sunshine.svg';
-import { ChangeEvent, SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import endpoint from '@helpers/endpoints-config';
 import { filterListByCategory } from '@helpers/filter-categories';
 import axios from 'axios';
 import { Image } from '@components/Image/index';
-import { Input } from '@components/Input';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
-import { prosCategory } from '@constants/categories-pros';
+import { CategoryProps, categoryList } from '@constants/list-categories';
 import arrow from '@image/arrow-right.svg';
 import { sortedBooklist } from '@helpers/sort-book';
 import { BOOKS_MESSAGES } from '@constants/error-messages';
@@ -18,9 +17,10 @@ import { useDebounce } from './hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 
 const App = () => {
-  const [isBooks, setIsBooks] = useState<IBook[]>([]);
-  const [isBooksFilter, setIsBooksFilter] = useState<IBook[]>([]);
-  const [isBooksDebounce, setIsBooksDebounce] = useState<IBook[]>([]);
+  const [listBooks, setListBooks] = useState<IBook[]>([]);
+  const [listBooksFilter, setListBooksFilter] = useState<IBook[]>([]);
+  const [listCategory, setListCategory] = useState(categoryList);
+  const [listBooksDebounce, setListBooksDebounce] = useState<IBook[]>([]);
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(false);
@@ -31,7 +31,7 @@ const App = () => {
 
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
-  sortedBooklist(isBooksFilter, isSortAlphabet, isSortYear);
+  sortedBooklist(listBooksFilter, isSortAlphabet, isSortYear);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +39,8 @@ const App = () => {
         const { data } = await axios.get<IBook[]>(
           `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
         );
-        setIsBooks(data);
-        setIsBooksFilter(data);
+        setListBooks(data);
+        setListBooksFilter(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -55,7 +55,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    const result = isBooksFilter.filter(({ title, category }) => {
+    const result = listBooksFilter.filter(({ title, category }) => {
       const keyword = valueDebounced.toLowerCase();
       const isMatchWithTitle = title?.toLowerCase().includes(keyword);
       const isMatchWithCategory = category.toLowerCase().includes(keyword);
@@ -63,7 +63,7 @@ const App = () => {
       return isMatchWithTitle || isMatchWithCategory;
     });
 
-    setIsBooksDebounce(result);
+    setListBooksDebounce(result);
   }, [valueDebounced]);
 
   const toggleFilter = (): void => {
@@ -102,27 +102,18 @@ const App = () => {
     setIsOpenFilter(false);
   };
 
-  const handleCategoryBook = (e: SyntheticEvent, valueFilter: string) => {
-    const target = e.target as Element;
-    const allFilter = target.closest('ul')?.querySelectorAll('.book-category-item');
+  const handleCategoryListBook = (item: CategoryProps) => {
+    const index = categoryList.findIndex((category) => category.id === item.id);
+    const updateCategories = categoryList[index].category;
+    categoryList[index].isFilter = true;
 
-    allFilter?.forEach((filter) => {
-      const dataId = filter.getAttribute('data-id');
-      const valueElement = filter.textContent?.slice(2);
+    const newListByCategory = filterListByCategory(listBooks, `${updateCategories}`);
 
-      if (dataId === valueFilter) {
-        filter.classList.add('selected');
-        setValueSearch('');
+    setListBooksFilter(newListByCategory);
+    setIsOpenSideBar(false);
+    setIsOpenFilter(false);
 
-        const newListByCategory = filterListByCategory(isBooks, valueElement);
-        console.log(valueElement);
-        setIsBooksFilter(newListByCategory);
-        setIsOpenSideBar(false);
-        setIsOpenFilter(false);
-      } else {
-        filter.classList.remove('selected');
-      }
-    });
+    console.log(updateCategories);
   };
 
   return (
@@ -162,14 +153,12 @@ const App = () => {
           <div className="book-category-list">A curated list of every book ever written</div>
           <div className="book-category-wrapper">
             <ul className="book-category">
-              {prosCategory.map((item) => (
+              {categoryList.map((item) => (
                 <li
                   key={item.id}
-                  className={
-                    item.category === 'All' ? 'book-category-item selected' : 'book-category-item'
-                  }
+                  className={item.isFilter ? 'book-category-item selected' : 'book-category-item'}
                   data-id={item.id}
-                  onClick={(e) => handleCategoryBook(e, `${item.id}`)}
+                  onClick={() => handleCategoryListBook(item)}
                 >
                   <span
                     className={['book-category-shorthand', `book-category-${item.category}`].join(
@@ -206,7 +195,7 @@ const App = () => {
                       text="Grid"
                     />
                     <Button
-                      className={`btn btn-display-grid ${isDisplayList ? 'selected' : ''}`}
+                      className={`btn btn-display-list ${isDisplayList ? 'selected' : ''}`}
                       label=""
                       onClick={handleDisplayList}
                       text="List"
@@ -233,11 +222,11 @@ const App = () => {
           </div>
           <div className="book-list-wrapper">
             <ul className="book-list">
-              {(valueDebounced.length > 0 && isBooksDebounce.length <= 0) ||
-              isBooksFilter.length === 0
+              {(valueDebounced.length > 0 && listBooksDebounce.length <= 0) ||
+              listBooksFilter.length === 0
                 ? BOOKS_MESSAGES.NO_DATA
-                : valueDebounced.length > 0 && isBooksDebounce.length > 0
-                ? isBooksDebounce.map((item) => (
+                : valueDebounced.length > 0 && listBooksDebounce.length > 0
+                ? listBooksDebounce.map((item) => (
                     <li key={item.id} className={`book-item ${isDisplayList ? 'list' : ''}`}>
                       <Card
                         loading="lazy"
@@ -250,7 +239,7 @@ const App = () => {
                       />
                     </li>
                   ))
-                : isBooksFilter.map((item) => (
+                : listBooksFilter.map((item) => (
                     <li key={item.id} className={`book-item ${isDisplayList ? 'list' : ''}`}>
                       <Card
                         loading="lazy"
