@@ -3,75 +3,61 @@ import { CATEGORIES } from '@constants/categories';
 
 export interface CategoryProps {
   id?: string;
-  category: React.ReactNode | string;
+  categoryName: React.ReactNode | string;
   onClick?: (e: MouseEvent<HTMLElement>) => void;
-  isFilter: boolean;
 }
 
 export const categoryList: Partial<CategoryProps>[] = [
   {
     id: '1',
-    category: CATEGORIES.ADVENTURE,
-    isFilter: false,
+    categoryName: CATEGORIES.ADVENTURE,
   },
   {
     id: '2',
-    category: CATEGORIES.CONTEMPORARY,
-    isFilter: false,
+    categoryName: CATEGORIES.CONTEMPORARY,
   },
   {
     id: '3',
-    category: CATEGORIES.ROMANCE,
-    isFilter: false,
+    categoryName: CATEGORIES.ROMANCE,
   },
   {
     id: '4',
-    category: CATEGORIES.FANTASY,
-    isFilter: false,
+    categoryName: CATEGORIES.FANTASY,
   },
   {
     id: '5',
-    category: CATEGORIES.DYSTOPIAN,
-    isFilter: false,
+    categoryName: CATEGORIES.DYSTOPIAN,
   },
   {
     id: '6',
-    category: CATEGORIES.MYSTERY,
-    isFilter: false,
+    categoryName: CATEGORIES.MYSTERY,
   },
   {
     id: '7',
-    category: CATEGORIES.HORROR,
-    isFilter: false,
+    categoryName: CATEGORIES.HORROR,
   },
   {
     id: '8',
-    category: CATEGORIES.THRILLER,
-    isFilter: false,
+    categoryName: CATEGORIES.THRILLER,
   },
   {
     id: '9',
-    category: CATEGORIES.PARANORMAL,
-    isFilter: false,
+    categoryName: CATEGORIES.PARANORMAL,
   },
   {
     id: '10',
-    category: CATEGORIES.HISTORICAL_FI,
-    isFilter: false,
+    categoryName: CATEGORIES.HISTORICAL_FI,
   },
   {
     id: '11',
-    category: CATEGORIES.SCIFI,
-    isFilter: false,
+    categoryName: CATEGORIES.SCIFI,
   },
   {
     id: '12',
-    category: CATEGORIES.MEMOIR,
-    isFilter: false,
+    categoryName: CATEGORIES.MEMOIR,
   },
   {
     id: '13',
-    category: CATEGORIES.SPORTS,
-    isFilter: false,
+    categoryName: CATEGORIES.SPORTS,
   },
 ];
