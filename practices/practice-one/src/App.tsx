@@ -22,8 +22,7 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
-  const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(true);
-  const [isDisplayList, setIsDisplayList] = useState<boolean>(false);
+  const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
   const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
 
@@ -76,15 +75,13 @@ const App = () => {
     setIsOpenSideBar(!isOpenSideBar);
   }, [isOpenSideBar]);
 
-  const handleDisplayGrid = (): void => {
-    setIsDisplayGrid(true);
-    setIsDisplayList(false);
-    setIsOpenFilter(false);
-  };
-
-  const handleDisplayList = (): void => {
-    setIsDisplayList(true);
-    setIsDisplayGrid(false);
+  const handleDisplay = () => {
+    setDisplayOption((prev) => {
+      return {
+        grid: !prev.grid,
+        list: !prev.list,
+      };
+    });
     setIsOpenFilter(false);
   };
 
@@ -188,15 +185,15 @@ const App = () => {
                   <div className="filter-title">Display Options</div>
                   <div className="filter-display-icons">
                     <Button
-                      className={`btn btn-display-grid ${isDisplayGrid ? 'selected' : ''}`}
+                      className={`btn btn-display-grid ${displayOption.grid ? 'selected' : ''}`}
                       label=""
-                      onClick={handleDisplayGrid}
+                      onClick={handleDisplay}
                       text="Grid"
                     />
                     <Button
-                      className={`btn btn-display-list ${isDisplayList ? 'selected' : ''}`}
+                      className={`btn btn-display-list ${displayOption.list ? 'selected' : ''}`}
                       label=""
-                      onClick={handleDisplayList}
+                      onClick={handleDisplay}
                       text="List"
                     />
                   </div>
@@ -224,7 +221,7 @@ const App = () => {
               {listBooksFilter.length === 0
                 ? BOOKS_MESSAGES.NO_DATA
                 : listBooksFilter.map((item) => (
-                    <li key={item.id} className={`book-item ${isDisplayList ? 'list' : ''}`}>
+                    <li key={item.id} className={`book-item ${displayOption.list ? 'list' : ''}`}>
                       <Card
                         loading="lazy"
                         width="200"
