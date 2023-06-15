@@ -24,13 +24,12 @@ const App = () => {
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(true);
   const [isDisplayList, setIsDisplayList] = useState<boolean>(false);
-  const [isSortAlphabet, setIsSortAlphabet] = useState({ title: true });
-  const [isSortYear, setIsSortYear] = useState({ published: false });
+  const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
 
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
-  sortedBooklist(listBooksFilter, isSortAlphabet, isSortYear);
+  sortedBooklist(listBooksFilter, sortOption);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,15 +88,13 @@ const App = () => {
     setIsOpenFilter(false);
   };
 
-  const handleSortAlphabet = () => {
-    setIsSortAlphabet({ title: true });
-    setIsSortYear({ published: false });
-    setIsOpenFilter(false);
-  };
-
-  const handleSortYear = () => {
-    setIsSortAlphabet({ title: false });
-    setIsSortYear({ published: true });
+  const handleSort = () => {
+    setSortOption((prev) => {
+      return {
+        title: !prev.title,
+        published: !prev.published,
+      };
+    });
     setIsOpenFilter(false);
   };
 
@@ -208,14 +205,14 @@ const App = () => {
                   <div className="filter-title">Sort By</div>
                   <div className="filter-sort-icons">
                     <Button
-                      className={`btn btn-sort ${isSortAlphabet.title ? 'selected' : ''}`}
+                      className={`btn btn-sort ${sortOption.title ? 'selected' : ''}`}
                       label="Alphabetical Order"
-                      onClick={handleSortAlphabet}
+                      onClick={handleSort}
                     />
                     <Button
-                      className={`btn btn-sort ${isSortYear.published ? 'selected' : ''}`}
+                      className={`btn btn-sort ${sortOption.published ? 'selected' : ''}`}
                       label="Release Year"
-                      onClick={handleSortYear}
+                      onClick={handleSort}
                     />
                   </div>
                 </div>

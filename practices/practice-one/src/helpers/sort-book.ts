@@ -1,10 +1,7 @@
 import { IBook } from '../interface/book';
 
-interface SortAlphabet {
+interface sortOption {
   title: boolean;
-}
-
-interface SortYear {
   published: boolean;
 }
 
@@ -15,11 +12,7 @@ interface SortYear {
  * @param {SortYear} { published }:  sort option year
  * @returns {IBook[]} list book that have been sorted
  */
-export const sortedBooklist = (
-  listBook: IBook[],
-  { title }: SortAlphabet,
-  { published }: SortYear
-) => {
+export const sortedBooklist = (listBook: IBook[], { title, published }: sortOption) => {
   if (title) {
     listBook.sort((preBook: IBook, nextBook: IBook) => (preBook.title > nextBook.title ? 1 : -1));
   }
