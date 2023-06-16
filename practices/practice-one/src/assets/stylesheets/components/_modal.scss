@@ -4,10 +4,8 @@
 
 .modal {
   @extend %fixed;
-  @extend %margin-center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
   z-index: 4;
   font-family: $secondary-family;
 
@@ -32,13 +30,34 @@
   }
 
   /* Modal header */
-  &-header {
-    @extend %text-center;
-    margin-top: 30px;
+  &-header,
+  &-footer {
+    padding: 40px 25px 15px;
+
+    @include only-for-desktop() {
+      background-color: $bg-color-header-modal;
+      padding: 23px 30px;
+      width: $width-modal-desktop;
+      max-width: calc(100% - 60px);
+    }
+  }
+
+  /* Modal content */
+  &-content {
+    padding: 25px;
+    overflow-y: auto;
+    height: calc(100vh - 184px);
+
+    @include only-for-desktop() {
+      height: calc(100vh - 176px);
+    }
+
+    &.dark-theme {
+      background-color: $color-modal-btn-escape;
+    }
   }
 
   &-title {
-    @extend %text-uppercase;
     font-family: $secondary-family;
     font-size: $text-modal-title;
     font-weight: $font-weight-medium;
@@ -46,132 +65,83 @@
 
   /* Modal container */
   &-container {
-    @extend %margin-center;
-    max-width: 800px;
+    width: $width-modal-mobile;
+    max-width: 100%;
+    min-height: 100vh;
     background-color: $bg-color-secondary;
-    border: solid 1px $border-modal-container;
-    border-radius: 8px;
+
+    @include only-for-desktop() {
+      width: $width-modal-desktop;
+    }
+
+    &-img {
+      @extend %text-center;
+      margin-top: 15px;
+
+      .img-item {
+        @include size(128px, 170px);
+      }
+    }
+
+    &-text {
+      color: $color-modal-text;
+      padding: 20px 10px;
+
+      &-title {
+        font-size: $text-modal-text;
+        font-weight: $font-weight-medium;
+        color: $color-modal-text-title;
+      }
+
+      &-content {
+        font-size: $text-modal-text;
+        font-weight: $font-weight-medium;
+        color: $color-modal-text-content;
+        background: $bg-color-modal-text-content;
+        margin-left: 10px;
+        padding: 5px 20px;
+        border-radius: 30px;
+      }
+    }
   }
 
-  /* Modal label */
-  &-label {
-    margin: 10px 0 5px;
-    font-size: $text-modal-label;
+  &-desc {
+    margin: 15px 0px 30px;
+  }
+
+  &-author,
+  &-published,
+  &-publishers {
+    margin: 20px 0px;
+  }
+
+  &-escape {
+    @extend %flex;
+    @extend %item-center;
+    font-size: $text-button-small;
     font-weight: $font-weight-medium;
-  }
+    line-height: $line-height-modal-footer;
+    margin-right: 40px;
 
-  &-body {
-    padding: 20px;
-  }
+    &-btn {
+      color: $color-secondary;
+      background-color: $color-modal-btn-escape;
+      border-radius: 5px;
+      margin-right: 8px;
+      padding: 6px 10px;
+    }
 
-  &-message {
-    margin: 20px;
+    &-text {
+      color: $color-modal-text;
+    }
   }
 
   /* Modal footer */
   &-footer {
     @extend %flex;
-    @extend %justify-center;
-    margin: 20px 0;
-  }
-}
-
-/* Modal form */
-.product-form,
-.input-row {
-  @extend %flex;
-  @extend %flex-column;
-}
-
-.product-form {
-  min-width: 600px;
-  margin: 20px;
-
-  &.detail {
-    @extend %flex-row;
+    @extend %item-center;
+    @extend %justify-end;
     margin-top: 0;
+    padding: 5px 30px;
   }
-}
-
-.input-row {
-  &.error {
-    .validate-message {
-      display: block;
-    }
-  }
-
-  &.success {
-    .validate-message {
-      display: none;
-    }
-  }
-}
-
-/* Display/hide attributes */
-.display {
-  @extend %visibility;
-}
-
-.hide {
-  @extend %none;
-}
-
-/* Modal input */
-.form-input {
-  font-family: $secondary-family;
-  margin: 5px 0;
-  padding: 8px 10px;
-  border: 1px solid $border-form-input;
-  border-radius: 5px;
-}
-
-.validate-message {
-  font-size: $text-modal-validate;
-  color: $color-danger;
-}
-
-/* Modal radio button */
-.form-radio {
-  margin: 10px 0;
-}
-
-/* Close icon */
-button {
-  @extend %border-0;
-  @extend %padding-0;
-  @extend %cursor-pointer;
-  background: 0 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  &#close {
-    @extend %absolute;
-    top: 15px;
-    right: 20px;
-    font-size: $text-modal-close;
-    font-weight: 700;
-    line-height: 1;
-    color: $color-primary;
-    text-shadow: 0 1px 0 $color-secondary;
-    opacity: 0.2;
-
-    &:hover,
-    &:focus {
-      @extend %cursor-pointer;
-      @extend %text-decoration-none;
-      color: $color-primary;
-      opacity: 0.5;
-    }
-  }
-}
-
-/* Confirm modal */
-.confirm-modal {
-  @extend %fixed;
-  @extend %margin-center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
 }

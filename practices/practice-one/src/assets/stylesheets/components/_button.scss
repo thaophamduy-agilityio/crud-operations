@@ -18,14 +18,53 @@
   }
 
   &-close {
-    @extend %absolute;
-    top: 10px;
-    right: -10px;
-    background: url('./src/assets/images/close.svg') 3px no-repeat;
+    &-menu,
+    &-modal {
+      @extend %absolute;
+      top: 10px;
+      right: -5px;
+      background: url('./src/assets/images/close-mobile.svg') 3px no-repeat;
+      box-sizing: border-box;
+    }
+
+    &-menu {
+      @include only-for-desktop() {
+        display: none;
+      }
+    }
+
+    &-modal {
+      @include only-for-desktop() {
+        top: 23px;
+        right: 0;
+        background: url('./src/assets/images/close-desktop.svg') 3px no-repeat;
+      }
+    }
+  }
+
+  &-sunshine {
+    @include square($height-button-sunshine);
+    background: url('./src/assets/images/sunshine.svg') 100% no-repeat;
+    background-size: $height-button-sunshine;
     box-sizing: border-box;
 
-    @include only-for-desktop() {
-      display: none;
+    &.dark {
+      background: url('./src/assets/images/sunshine-dark.svg') 100% no-repeat;
+    }
+
+    &-modal {
+      background: url('./src/assets/images/sunshine.svg') 10px no-repeat;
+      background-color: $bg-color-primary;
+      color: $filter-button-color;
+      border: 1px solid $border-input;
+      margin: 6px 0px;
+      padding: 17px 22px 17px 55px;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12);
+      box-sizing: border-box;
+
+      &.dark {
+        background-color: $color-modal-btn-escape;
+      }
     }
   }
 
@@ -59,7 +98,6 @@
     background: url('./src/assets/images/filter.svg') 16px no-repeat;
     background-color: $bg-color-primary;
     color: $filter-button-color;
-    border: 1px solid $border-input;
     margin: 6px 0px;
     padding: 15px 28px 14px 55px;
     box-sizing: border-box;
