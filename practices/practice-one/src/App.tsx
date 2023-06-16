@@ -15,6 +15,7 @@ import { sortedBooklist } from '@helpers/sort-book';
 import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { useDebounce } from './hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
+import { Modal } from '@components/Modal';
 
 const App = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -25,6 +26,18 @@ const App = () => {
   const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
   const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [bookSelected, setbookSelected] = useState<IBook>({
+    id: '',
+    title: '',
+    categoryName: '',
+    description: '',
+    image: '',
+    author: '',
+    published: '',
+    publishers: '',
+  });
+  const [isThemePage, setIsThemePage] = useState<boolean>(true);
 
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
@@ -62,6 +75,16 @@ const App = () => {
 
     setListBooksFilter(result);
   }, [valueDebounced]);
+
+  // Function to handle toggle the modal theme
+  const toggleThemePage = () => {
+    setIsThemePage(!isThemePage);
+  };
+
+  const toggleModal = (item?: IBook) => {
+    setIsOpenModal(!isOpenModal);
+    item && setbookSelected(item);
+  };
 
   const toggleFilter = (): void => {
     setIsOpenFilter(!isOpenFilter);
@@ -134,12 +157,17 @@ const App = () => {
             value={valueSearch}
             onChange={handleSearchChange}
           />
-          <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" />
+          {/* <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" /> */}
+          <Button
+            className={`${isThemePage ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
+            label=""
+            onClick={toggleThemePage}
+          />
         </section>
       </header>
       <main className="main-site">
         <aside className="column-sidebar">
-          <Button className="btn btn-close" label="" onClick={handleCloseSideBar} />
+          <Button className="btn btn-close-menu" label="" onClick={handleCloseSideBar} />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <div className="book-category-wrapper">
@@ -216,7 +244,11 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="book-list-wrapper">
+          <div
+            className={`${
+              isThemePage ? 'book-category-wrapper' : 'book-category-wrapper dark-theme'
+            }`}
+          >
             <ul className="book-list">
               {listBooksFilter.length === 0
                 ? BOOKS_MESSAGES.NO_DATA
@@ -227,13 +259,12 @@ const App = () => {
                         width="200"
                         height="200"
                         book={item}
-                        onClick={() => {
-                          ('');
-                        }}
+                        onClick={() => toggleModal(item)}
                       />
                     </li>
                   ))}
             </ul>
+            <Modal showModal={isOpenModal} closeModal={toggleModal} book={bookSelected} />
           </div>
         </section>
       </main>
