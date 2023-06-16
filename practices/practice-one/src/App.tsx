@@ -1,35 +1,90 @@
 import './App.scss';
 import logo from '@image/book-shelter.svg';
 import sunshine from '@image/sunshine.svg';
-import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
-import { IBook } from './interface/book';
-import endpoint from './helpers/endpoints-config';
-import { handleListByCategory } from './helpers/handle-by-category';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { IBook } from '@interface/book';
+import endpoint from '@helpers/endpoints-config';
+import { filterListByCategories } from '@helpers/filter-categories';
 import axios from 'axios';
 import { Image } from '@components/Image/index';
-import { Input } from '@components/Input';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
-import { buttonCategory } from '@helpers/list-categories';
+import { categoryList } from '@constants/list-categories';
 import arrow from '@image/arrow-right.svg';
+import { sortedBooklist } from '@helpers/sort-book';
+import { BOOKS_MESSAGES } from '@constants/error-messages';
+import { useDebounce } from './hooks/use-debounce';
+import { TIME_OUT } from '@constants/time-out';
+import { Modal } from '@components/Modal';
 
 const App = () => {
-  const [books, setBooks] = useState<IBook[]>([]);
-  const [listByCategory, setListByCategory] = useState<IBook[]>([]);
+  const [listBooks, setListBooks] = useState<IBook[]>([]);
+  const [listBooksFilter, setListBooksFilter] = useState<IBook[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
+  const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
+  const [sortOption, setSortOption] = useState({ title: true, published: false });
+  const [valueSearch, setValueSearch] = useState<string>('');
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [bookSelected, setbookSelected] = useState<IBook>({
+    id: '',
+    title: '',
+    categoryName: '',
+    description: '',
+    image: '',
+    author: '',
+    published: '',
+    publishers: '',
+  });
+  const [isThemePage, setIsThemePage] = useState<boolean>(true);
+
+  const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
+
+  sortedBooklist(listBooksFilter, sortOption);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get<IBook[]>(
-        `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
-      );
-      setBooks(data);
-      setListByCategory(data);
+      try {
+        const { data } = await axios.get<IBook[]>(
+          `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
+        );
+        setListBooks(data);
+        setListBooksFilter(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
 
     fetchData();
   }, []);
+
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setValueSearch(value);
+  };
+
+  useEffect(() => {
+    const result = listBooks.filter(({ title, categoryName }) => {
+      const keyword = valueDebounced.toLowerCase();
+      const isMatchWithTitle = title.toLowerCase().includes(keyword);
+      const isMatchWithCategory = categoryName.toLowerCase().includes(keyword);
+
+      return isMatchWithTitle || isMatchWithCategory;
+    });
+
+    setListBooksFilter(result);
+  }, [valueDebounced]);
+
+  // Function to handle toggle the modal theme
+  const toggleThemePage = () => {
+    setIsThemePage(!isThemePage);
+  };
+
+  const toggleModal = (item?: IBook) => {
+    setIsOpenModal(!isOpenModal);
+    item && setbookSelected(item);
+  };
 
   const toggleFilter = (): void => {
     setIsOpenFilter(!isOpenFilter);
@@ -43,26 +98,36 @@ const App = () => {
     setIsOpenSideBar(!isOpenSideBar);
   }, [isOpenSideBar]);
 
-  const handleCategoryBook = (e: SyntheticEvent, valueFilter: string) => {
-    const target = e.target as Element;
-    const allFilter = target.closest('ul')?.querySelectorAll('.book-category-item');
-
-    allFilter?.forEach((filter) => {
-      const dataId = filter.getAttribute('data-id');
-      const valueElement = filter.textContent?.slice(2);
-
-      if (dataId === valueFilter) {
-        filter.classList.add('selected');
-
-        const newListByCategory = handleListByCategory(books, valueElement);
-        console.log(valueElement);
-        setListByCategory(newListByCategory);
-        setIsOpenSideBar(false);
-        setIsOpenFilter(false);
-      } else {
-        filter.classList.remove('selected');
-      }
+  const handleDisplay = () => {
+    setDisplayOption((prev) => {
+      return {
+        grid: !prev.grid,
+        list: !prev.list,
+      };
     });
+    setIsOpenFilter(false);
+  };
+
+  const handleSort = () => {
+    setSortOption((prev) => {
+      return {
+        title: !prev.title,
+        published: !prev.published,
+      };
+    });
+    setIsOpenFilter(false);
+  };
+
+  const handleFilterListByCategories = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+
+    const newListByCategory = filterListByCategories(listBooks, categoryName);
+
+    setListBooksFilter(newListByCategory);
+    setIsOpenSideBar(false);
+    setIsOpenFilter(false);
+
+    console.log(newListByCategory);
   };
 
   return (
@@ -84,34 +149,49 @@ const App = () => {
           </a>
         </section>
         <section className="header-right">
-          <Input className="input input-search" placeholder="Search books" type="text" value="" />
-          <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" />
+          {/* <Input className="input input-search" placeholder="Search books" type="text" value="" /> */}
+          <input
+            type="search"
+            className="input input-search"
+            placeholder="Search books"
+            value={valueSearch}
+            onChange={handleSearchChange}
+          />
+          {/* <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" /> */}
+          <Button
+            className={`${isThemePage ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
+            label=""
+            onClick={toggleThemePage}
+          />
         </section>
       </header>
       <main className="main-site">
         <aside className="column-sidebar">
-          <Button className="btn btn-close" label="" onClick={handleCloseSideBar} />
+          <Button className="btn btn-close-menu" label="" onClick={handleCloseSideBar} />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <div className="book-category-wrapper">
             <ul className="book-category">
-              {buttonCategory.map((item) => (
+              {categoryList.map((item) => (
                 <li
                   key={item.id}
                   className={
-                    item.category === 'All' ? 'book-category-item selected' : 'book-category-item'
+                    item.categoryName === selectedCategory
+                      ? 'book-category-item selected'
+                      : 'book-category-item'
                   }
                   data-id={item.id}
-                  onClick={(e) => handleCategoryBook(e, `${item.id}`)}
+                  onClick={() => handleFilterListByCategories(`${item.categoryName}`)}
                 >
                   <span
-                    className={['book-category-shorthand', `book-category-${item.category}`].join(
-                      ' '
-                    )}
+                    className={[
+                      'book-category-shorthand',
+                      `book-category-${item.categoryName}`,
+                    ].join(' ')}
                   >
-                    {JSON.stringify(item.category).slice(1, 3)}
+                    {JSON.stringify(item.categoryName).slice(1, 3)}
                   </span>
-                  {item.category}
+                  {item.categoryName}
                 </li>
               ))}
             </ul>
@@ -120,11 +200,11 @@ const App = () => {
         <section className="column-content">
           <div className="book-toolbar-wrapper">
             <div className="book-title">
-              <span className="book-title-text">Romance</span>
+              <span className="book-title-text">{selectedCategory || 'All Books'}</span>
               <span className="book-title-arrow">
                 <Image altText="arrow" height="8" imageSrc={arrow} loading="lazy" width="22" />
               </span>
-              <span className="book-title-results">Showing 18 Result(s)</span>
+              <span className="book-title-results">Showing {listBooksFilter.length} Result(s)</span>
             </div>
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
@@ -133,19 +213,15 @@ const App = () => {
                   <div className="filter-title">Display Options</div>
                   <div className="filter-display-icons">
                     <Button
-                      className="btn btn-display-grid selected"
+                      className={`btn btn-display-grid ${displayOption.grid ? 'selected' : ''}`}
                       label=""
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleDisplay}
                       text="Grid"
                     />
                     <Button
-                      className="btn btn-display-list"
+                      className={`btn btn-display-list ${displayOption.list ? 'selected' : ''}`}
                       label=""
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleDisplay}
                       text="List"
                     />
                   </div>
@@ -154,42 +230,41 @@ const App = () => {
                   <div className="filter-title">Sort By</div>
                   <div className="filter-sort-icons">
                     <Button
-                      className="btn btn-sort selected"
+                      className={`btn btn-sort ${sortOption.title ? 'selected' : ''}`}
                       label="Alphabetical Order"
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleSort}
                     />
                     <Button
-                      className="btn btn-sort"
+                      className={`btn btn-sort ${sortOption.published ? 'selected' : ''}`}
                       label="Release Year"
-                      onClick={() => {
-                        ('');
-                      }}
+                      onClick={handleSort}
                     />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="book-list-wrapper">
+          <div
+            className={`${
+              isThemePage ? 'book-category-wrapper' : 'book-category-wrapper dark-theme'
+            }`}
+          >
             <ul className="book-list">
-              {listByCategory.length === 0
-                ? 'Not found data!'
-                : listByCategory.map((item) => (
-                    <li className="book-item" key={item.id}>
+              {listBooksFilter.length === 0
+                ? BOOKS_MESSAGES.NO_DATA
+                : listBooksFilter.map((item) => (
+                    <li key={item.id} className={`book-item ${displayOption.list ? 'list' : ''}`}>
                       <Card
                         loading="lazy"
                         width="200"
                         height="200"
                         book={item}
-                        onClick={() => {
-                          ('');
-                        }}
+                        onClick={() => toggleModal(item)}
                       />
                     </li>
                   ))}
             </ul>
+            <Modal showModal={isOpenModal} closeModal={toggleModal} book={bookSelected} />
           </div>
         </section>
       </main>

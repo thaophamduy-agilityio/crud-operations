@@ -28,6 +28,7 @@
       "@constants*": ["src/constants*"],
       "@layouts*": ["src/layouts*"],
       "@helpers*": ["src/helpers*"],
+      "@interface*": ["src/interface*"],
       "@services*": ["src/services*"],
       "@fonts*": ["src/assets/fonts*"],
       "@image*": ["src/assets/images*"],

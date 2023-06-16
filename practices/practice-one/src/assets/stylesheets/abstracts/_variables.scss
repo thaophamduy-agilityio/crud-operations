@@ -25,8 +25,6 @@ $bg-size-secondary: 10px;
 /* Border Colors */
 $border-header: #e3e6eb;
 $border-main: $color-placeholder;
-$border-modal: #dfe0eb;
-$border-form: #ccc;
 $border-input: $border-header;
 $border-sidebar: $border-header;
 $border-display-grid: rgba(196, 196, 196, 0.23);
@@ -83,6 +81,7 @@ $text-button-large: 16px;
 $color-btn-secondary: $color-button;
 $bg-color-btn-primary: #1ea7fa;
 $filter-button-color: $color-filter;
+$height-button-sunshine: 24px;
 
 /* Columns */
 $column-sidebar: 268px;
@@ -90,6 +89,12 @@ $column-content: calc(100% - 268px);
 
 /* Card */
 $text-card-title: $text-large;
+$text-card-title-list: $text-logo;
+$text-card-author-list: $text-large;
+$line-height-card-title-list: 42px;
+$line-height-card-author-list: 24px;
+$img-card-width: 353px;
+$img-card-height: 144px;
 $color-card-author: #757881;
 $font-family-card-author: $secondary-family;
 $font-weight-card-author: $font-weight-medium;
@@ -126,6 +131,22 @@ $text-filter-display: $text-small;
 $text-filter-sort: $text-medium;
 $color-filter-title: $color-default;
 $color-filter-sort-selected: #0d75ff;
+
+/* Modal */
+$text-modal-message: $text-medium;
+$text-modal-title: 24px;
+$color-modal-text: #58667e;
+$text-modal-text: 14px;
+$color-modal-text-title: #222531;
+$color-modal-text-content: #0d75ff;
+$bg-color-modal-text-content: rgba(13, 117, 255, 0.09);
+$color-modal-btn-escape: #a6b0c3;
+$line-height-modal-footer: 16px;
+$text-modal-validate: 12px;
+$text-modal-close: $text-large;
+$width-modal-mobile: 314px;
+$width-modal-desktop: 485px;
+$bg-color-header-modal: $bg-color-primary;
 
 /* Width */
 $page-max-width: 1260px;
