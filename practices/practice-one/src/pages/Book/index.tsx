@@ -9,7 +9,7 @@ import { Card } from '@components/Card';
 import { Button } from '@components/Button';
 import { categoryList } from '@constants/list-categories';
 import arrow from '@image/arrow-right.svg';
-import { sortedBooklist } from '@helpers/book';
+import { sortedBooklist } from '@helpers/sort';
 import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
@@ -256,7 +256,14 @@ const Home = () => {
                     </li>
                   ))}
             </ul>
-            <Modal showModal={isOpenModal} closeModal={toggleModal} book={bookSelected} />
+            <Modal
+              showModal={isOpenModal}
+              closeModal={toggleModal}
+              loading="lazy"
+              width="128"
+              height="170"
+              book={bookSelected}
+            />
           </div>
         </section>
       </main>
