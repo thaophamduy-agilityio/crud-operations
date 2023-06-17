@@ -24,7 +24,7 @@ body {
 .container {
   max-width: 1260px;
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 img {
@@ -46,6 +46,7 @@ a {
   width: $column-sidebar;
   background-color: $bg-color-secondary;
   box-shadow: 0px 3px 2px $box-shadow-color;
+  border-radius: 0 0 0 10px;
 
   @include only-for-desktop() {
     display: block;
@@ -55,6 +56,7 @@ a {
 .column-content {
   background-color: $bg-color-primary;
   width: 100%;
+  border-radius: 0 0 10px 0;
 
   @include only-for-desktop() {
     width: $column-content;
