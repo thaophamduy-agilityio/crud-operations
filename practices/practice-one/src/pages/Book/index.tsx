@@ -1,9 +1,7 @@
 import logo from '@image/book-shelter.svg';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
-import endpoint from '@helpers/endpoints-config';
 import { filterListByCategories } from '@helpers/categories';
-import axios from 'axios';
 import { Image } from '@components/Image/index';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
@@ -14,6 +12,7 @@ import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
+import { getAPI } from '@services/api-request';
 
 const Home = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -37,30 +36,49 @@ const Home = () => {
   });
   const [isThemePage, setIsThemePage] = useState<boolean>(true);
 
-  const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
-
   sortedBooklist(listBooksFilter, sortOption);
 
+  /**
+   * Get data from API and set to list books & list books filter
+   */
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const { data } = await axios.get<IBook[]>(
-          `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`
-        );
-        setListBooks(data);
-        setListBooksFilter(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+      const data = await getAPI();
+      setListBooks(data);
+      setListBooksFilter(data);
     };
 
     fetchData();
   }, []);
 
+  /**
+   * Search product by name
+   * @param {categoryName} string
+   * @returns {list items} books
+   */
+  const handleFilterListByCategories = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+
+    const newListByCategory = filterListByCategories(listBooks, categoryName);
+
+    setListBooksFilter(newListByCategory);
+    setIsOpenSideBar(false);
+    setIsOpenFilter(false);
+
+    console.log(newListByCategory);
+  };
+
+  /**
+   * Search product by keyword
+   * @param {function} handleSearchChange
+   * @returns {list items} list books with keyword search
+   */
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
   };
+
+  const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
   useEffect(() => {
     const result = listBooks.filter(({ title, categoryName }) => {
@@ -74,29 +92,52 @@ const Home = () => {
     setListBooksFilter(result);
   }, [valueDebounced]);
 
-  // Function to handle toggle the modal theme
-  const toggleThemePage = () => {
+  /**
+   * Handle toggle the modal theme
+   * @param {function} toggleThemePage
+   */
+  const toggleThemePage = (): void => {
     setIsThemePage(!isThemePage);
   };
 
-  const toggleModal = (item?: IBook) => {
+  /**
+   * Handle toggle the modal item
+   * @param {function} toggleModal
+   */
+  const toggleModal = (item?: IBook): void => {
     setIsOpenModal(!isOpenModal);
     item && setbookSelected(item);
   };
 
+  /**
+   * Handle toggle show/hide filter box
+   * @param {function} toggleFilter
+   */
   const toggleFilter = (): void => {
     setIsOpenFilter(!isOpenFilter);
   };
 
+  /**
+   * Handle toggle show sidebar
+   * @param {function} toggleSideBar
+   */
   const toggleSideBar = (): void => {
     setIsOpenSideBar(!isOpenSideBar);
   };
 
+  /**
+   * Handle toggle hide sidebar
+   * @param {function} handleCloseSideBar
+   */
   const handleCloseSideBar = useCallback(() => {
     setIsOpenSideBar(!isOpenSideBar);
   }, [isOpenSideBar]);
 
-  const handleDisplay = () => {
+  /**
+   * Handle display option is grid or list
+   * @param {function} handleDisplay
+   */
+  const handleDisplay = (): void => {
     setDisplayOption((prev) => {
       return {
         grid: !prev.grid,
@@ -106,7 +147,12 @@ const Home = () => {
     setIsOpenFilter(false);
   };
 
-  const handleSort = () => {
+  /**
+   * Handle sort option width title or published
+   * @param {function} handleSort
+   * @returns {list items} list books with sort keys
+   */
+  const handleSort = (): void => {
     setSortOption((prev) => {
       return {
         title: !prev.title,
@@ -114,18 +160,6 @@ const Home = () => {
       };
     });
     setIsOpenFilter(false);
-  };
-
-  const handleFilterListByCategories = (categoryName: string) => {
-    setSelectedCategory(categoryName);
-
-    const newListByCategory = filterListByCategories(listBooks, categoryName);
-
-    setListBooksFilter(newListByCategory);
-    setIsOpenSideBar(false);
-    setIsOpenFilter(false);
-
-    console.log(newListByCategory);
   };
 
   return (
