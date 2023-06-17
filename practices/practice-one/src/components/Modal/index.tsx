@@ -6,7 +6,6 @@ import { IBook } from 'src/interface/book';
 interface ModalProps {
   closeModal: () => void;
   showModal: boolean;
-  id: string;
   loading: 'lazy' | 'eager';
   width: string;
   height: string;

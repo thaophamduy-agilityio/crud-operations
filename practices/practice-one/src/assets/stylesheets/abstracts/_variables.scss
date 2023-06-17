@@ -98,6 +98,7 @@ $img-card-height: 144px;
 $color-card-author: #757881;
 $font-family-card-author: $secondary-family;
 $font-weight-card-author: $font-weight-medium;
+$box-shadow-card-box: rgba(0, 0, 0, 0.1);
 
 /* Book */
 $text-book-title: 14px;
@@ -131,6 +132,8 @@ $text-filter-display: $text-small;
 $text-filter-sort: $text-medium;
 $color-filter-title: $color-default;
 $color-filter-sort-selected: #0d75ff;
+$border-filter-button: rgba(227, 230, 235, 0.23);
+$box-shadow-color-filter: $box-shadow-card-box;
 
 /* Modal */
 $text-modal-message: $text-medium;

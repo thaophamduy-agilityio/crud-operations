@@ -80,6 +80,11 @@
 
       .img-item {
         @include size(128px, 170px);
+
+        @include only-for-desktop() {
+          width: 201px;
+          height: 263px;
+        }
       }
     }
 
