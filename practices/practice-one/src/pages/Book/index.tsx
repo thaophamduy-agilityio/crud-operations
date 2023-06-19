@@ -1,8 +1,8 @@
 import logo from '@image/book-shelter.svg';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
-import { ICategory } from '@interface/categories';
-import { filterListByCategories } from '@helpers/categories';
+import { ICategory } from '@interface/category';
+import { filterListByCategories } from '@helpers/category';
 import { Image } from '@components/Image/index';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';

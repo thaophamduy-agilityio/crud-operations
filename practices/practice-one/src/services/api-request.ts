@@ -1,7 +1,7 @@
 import axios from 'axios';
 import endpoint from '@helpers/endpoints-config';
 import { IBook } from '@interface/book';
-import { ICategory } from '@interface/categories';
+import { ICategory } from '@interface/category';
 
 /**
  * This is method get API from JSON server
@@ -29,6 +29,4 @@ export const getCategories = async () => {
   } catch (error) {
     console.error('Error fetching data:', error);
   }
-
-  console.log(data);
 };
