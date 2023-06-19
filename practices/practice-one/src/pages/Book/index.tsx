@@ -14,7 +14,7 @@ import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
 import { getAPI, getCategories } from '@services/api-request';
 
-const Home = () => {
+const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
   const [listBooksFilter, setListBooksFilter] = useState<IBook[]>([]);
   const [listCategories, setListCategories] = useState<ICategory[]>([]);
@@ -318,4 +318,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Book;
