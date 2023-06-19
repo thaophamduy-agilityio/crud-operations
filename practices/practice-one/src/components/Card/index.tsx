@@ -1,9 +1,8 @@
-import { memo } from 'react';
 import { IBook } from 'src/interface/book';
 
 // Define the props for the Logo component
 interface CardProps {
-  loading: 'lazy' | 'eager';
+  loading: string;
   width: string;
   height: string;
 
@@ -14,7 +13,7 @@ interface CardProps {
 /**
  * Primary UI component for user interaction
  */
-export const Card = memo(({ loading, width, height, book, onClick }: CardProps) => {
+export const Card = ({ loading, width, height, book, onClick }: CardProps) => {
   const { title, author, published, image } = book;
 
   return (
@@ -38,4 +37,4 @@ export const Card = memo(({ loading, width, height, book, onClick }: CardProps) 
       </figure>
     </div>
   );
-});
+};

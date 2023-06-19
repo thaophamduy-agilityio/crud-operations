@@ -1,12 +1,12 @@
 import { Button } from '@components/Button';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import { IBook } from 'src/interface/book';
 
 // Define the props for the Logo component
 interface ModalProps {
   closeModal: () => void;
   showModal: boolean;
-  loading: 'lazy' | 'eager';
+  loading: string;
   width: string;
   height: string;
   book: IBook;
@@ -14,7 +14,7 @@ interface ModalProps {
 /**
  * Primary UI component for user interaction
  */
-export const Modal = memo(({ closeModal, showModal, loading, width, height, book }: ModalProps) => {
+export const Modal = ({ closeModal, showModal, loading, width, height, book }: ModalProps) => {
   const [isThemeModal, setIsThemeModal] = useState<boolean>(true);
   const { title, description, author, published, publishers, image } = book;
 
@@ -100,4 +100,4 @@ export const Modal = memo(({ closeModal, showModal, loading, width, height, book
       </div>
     </>
   ) : null;
-});
+};
