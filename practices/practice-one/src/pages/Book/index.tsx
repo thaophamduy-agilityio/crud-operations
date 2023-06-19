@@ -12,7 +12,7 @@ import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
-import { getAPI, getCategories } from '@services/api-request';
+import { getListBook, getCategories } from '@services/api-request';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -25,7 +25,7 @@ const Book = () => {
   const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const [bookSelected, setbookSelected] = useState<IBook>({
+  const [bookSelected, setBookSelected] = useState<IBook>({
     id: '',
     title: '',
     categoryName: '',
@@ -44,7 +44,7 @@ const Book = () => {
    */
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getAPI();
+      const data = await getListBook();
       setListBooks(data);
       setListBooksFilter(data);
     };
@@ -117,7 +117,7 @@ const Book = () => {
    */
   const toggleModal = (item?: IBook): void => {
     setIsOpenModal(!isOpenModal);
-    item && setbookSelected(item);
+    item && setBookSelected(item);
   };
 
   /**

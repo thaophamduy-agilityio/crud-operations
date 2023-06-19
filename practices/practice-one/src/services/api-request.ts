@@ -9,7 +9,7 @@ import { ICategory } from '@interface/category';
  * @returns Array
  */
 
-export const getAPI = async () => {
+export const getListBook = async () => {
   const url = `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`;
   const res = await axios.get<IBook[]>(url);
 
