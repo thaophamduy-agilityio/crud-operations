@@ -77,8 +77,6 @@ const Book = () => {
     setListBooksFilter(newListByCategory);
     setIsOpenSideBar(false);
     setIsOpenFilter(false);
-
-    console.log(newListByCategory);
   };
 
   /**
