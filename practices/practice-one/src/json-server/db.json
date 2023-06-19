@@ -183,5 +183,59 @@
       "published": "1996",
       "publishers": "Hollman"
     }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "categoryName": "Adventure"
+    },
+    {
+      "id": "2",
+      "categoryName": "Contemporary"
+    },
+    {
+      "id": "3",
+      "categoryName": "Romance"
+    },
+    {
+      "id": "4",
+      "categoryName": "Fantasy"
+    },
+    {
+      "id": "5",
+      "categoryName": "Dystopian"
+    },
+    {
+      "id": "6",
+      "categoryName": "Mystery"
+    },
+    {
+      "id": "7",
+      "categoryName": "Horror"
+    },
+    {
+      "id": "8",
+      "categoryName": "Thriller"
+    },
+    {
+      "id": "9",
+      "categoryName": "Paranormal"
+    },
+    {
+      "id": "10",
+      "categoryName": "Historical Fi"
+    },
+    {
+      "id": "11",
+      "categoryName": "Scifi"
+    },
+    {
+      "id": "12",
+      "categoryName": "Memoir"
+    },
+    {
+      "id": "13",
+      "categoryName": "Sports"
+    }
   ]
 }

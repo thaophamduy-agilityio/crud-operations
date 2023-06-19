@@ -1,22 +1,23 @@
 import logo from '@image/book-shelter.svg';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
+import { ICategory } from '@interface/categories';
 import { filterListByCategories } from '@helpers/categories';
 import { Image } from '@components/Image/index';
 import { Card } from '@components/Card';
 import { Button } from '@components/Button';
-import { categoryList } from '@constants/list-categories';
 import arrow from '@image/arrow-right.svg';
 import { sortedBooklist } from '@helpers/sort';
 import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
-import { getAPI } from '@services/api-request';
+import { getAPI, getCategories } from '@services/api-request';
 
 const Home = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
   const [listBooksFilter, setListBooksFilter] = useState<IBook[]>([]);
+  const [listCategories, setListCategories] = useState<ICategory[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
@@ -49,6 +50,18 @@ const Home = () => {
     };
 
     fetchData();
+  }, []);
+
+  /**
+   * Get categories from API
+   */
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const data = await getCategories();
+      setListCategories(data);
+    };
+
+    fetchCategories();
   }, []);
 
   /**
@@ -202,7 +215,7 @@ const Home = () => {
           <div className="book-category-list">A curated list of every book ever written</div>
           <div className="book-category-wrapper">
             <ul className="book-category">
-              {categoryList.map((item) => (
+              {listCategories.map((item) => (
                 <li
                   key={item.id}
                   className={
