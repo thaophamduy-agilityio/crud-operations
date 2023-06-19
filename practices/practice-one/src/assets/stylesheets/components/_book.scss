@@ -64,7 +64,7 @@
     }
 
     &-shorthand {
-      @include square(40px);
+      @include size(40px, 40px);
       border-radius: 50%;
       @extend %inline-flex;
       @extend %item-center;
@@ -139,7 +139,7 @@
       padding: 20px;
 
       @include only-for-desktop() {
-        padding: 1px 40px;
+        padding: 0 40px;
       }
     }
   }
@@ -213,7 +213,7 @@
       }
 
       .img-item {
-        @include square(auto);
+        @include size(auto, auto);
 
         @include only-for-desktop() {
           width: $img-card-width;

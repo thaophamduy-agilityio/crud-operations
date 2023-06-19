@@ -43,7 +43,7 @@
   }
 
   &-sunshine {
-    @include square($height-button-sunshine);
+    @include size($height-button-sunshine, $height-button-sunshine);
     background: url('./src/assets/images/sunshine.svg') 100% no-repeat;
     background-size: $height-button-sunshine;
     box-sizing: border-box;
@@ -115,7 +115,7 @@
 
   &-display {
     &-grid {
-      @include square(40px);
+      @include size(40px, 40px);
       border-radius: 50%;
       background: url('./src/assets/images/grid.svg') 14px no-repeat;
       background-color: $bg-color-secondary;
@@ -131,7 +131,7 @@
     }
 
     &-list {
-      @include square(40px);
+      @include size(40px, 40px);
       border-radius: 50%;
       background: url('./src/assets/images/list.svg') 13px no-repeat;
       background-color: $bg-color-secondary;
