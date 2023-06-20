@@ -13,6 +13,8 @@ import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
 import { getListBook, getCategories } from '@services/api-request';
+import ListCategory from '@components/Category/list-category';
+import { Input } from '@components/Input';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -192,7 +194,7 @@ const Book = () => {
           </a>
         </section>
         <section className="header-right">
-          <input
+          <Input
             type="search"
             className="input input-search"
             placeholder="Search books"
@@ -211,32 +213,11 @@ const Book = () => {
           <Button className="btn btn-close-menu" label="" onClick={handleCloseSideBar} />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
-          <div className="book-category-wrapper">
-            <ul className="book-category">
-              {listCategories.map((item) => (
-                <li
-                  key={item.id}
-                  className={
-                    item.categoryName === selectedCategory
-                      ? 'book-category-item selected'
-                      : 'book-category-item'
-                  }
-                  data-id={item.id}
-                  onClick={() => handleFilterListByCategories(`${item.categoryName}`)}
-                >
-                  <span
-                    className={[
-                      'book-category-shorthand',
-                      `book-category-${item.categoryName}`,
-                    ].join(' ')}
-                  >
-                    {JSON.stringify(item.categoryName).slice(1, 3)}
-                  </span>
-                  {item.categoryName}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ListCategory
+            categoryList={listCategories}
+            categorySelected={selectedCategory}
+            handleSelectCategory={handleFilterListByCategories}
+          />
         </aside>
         <section className="column-content">
           <div className="book-toolbar-wrapper">
