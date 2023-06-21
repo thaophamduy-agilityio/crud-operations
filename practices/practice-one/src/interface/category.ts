@@ -1,7 +1,7 @@
 import { MouseEvent } from 'react';
 
 export interface ICategory {
-  id?: string;
+  id: string;
   categoryName: React.ReactNode | string;
-  onClick?: (e: MouseEvent<HTMLElement>) => void;
+  onClick: (e: MouseEvent<HTMLElement>) => void;
 }
