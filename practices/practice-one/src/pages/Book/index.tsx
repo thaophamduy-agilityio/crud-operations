@@ -4,17 +4,16 @@ import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
 import { filterListByCategories } from '@helpers/category';
 import { Image } from '@components/Image/index';
-import { Card } from '@components/Card';
 import { Button } from '@components/Button';
 import arrow from '@image/arrow-right.svg';
 import { sortedBooklist } from '@helpers/sort';
-import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
 import { getListBook, getCategories } from '@services/api-request';
 import ListCategory from '@components/Category/list-category';
 import { Input } from '@components/Input';
+import ListBook from '@components/Book/list-book';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -37,7 +36,7 @@ const Book = () => {
     published: '',
     publishers: '',
   });
-  const [isThemePage, setIsThemePage] = useState<boolean>(true);
+  const [isChangeDarkThem, setIsChangeDarkThem] = useState<boolean>(true);
 
   sortedBooklist(listBooksFilter, sortOption);
 
@@ -67,13 +66,14 @@ const Book = () => {
   }, []);
 
   /**
-   * Search product by name
+   * List books when click category name
    * @param {categoryName} string
    * @returns {list items} books
    */
   const handleFilterListByCategories = (categoryName: string) => {
     setSelectedCategory(categoryName);
 
+    // Get list filter books with category name
     const newListByCategory = filterListByCategories(listBooks, categoryName);
 
     setListBooksFilter(newListByCategory);
@@ -110,7 +110,7 @@ const Book = () => {
    * @param {function} toggleThemePage
    */
   const toggleThemePage = (): void => {
-    setIsThemePage(!isThemePage);
+    setIsChangeDarkThem(!isChangeDarkThem);
   };
 
   /**
@@ -202,7 +202,7 @@ const Book = () => {
             onChange={handleSearchChange}
           />
           <Button
-            className={`${isThemePage ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
+            className={`${isChangeDarkThem ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
             label=""
             onClick={toggleThemePage}
           />
@@ -266,31 +266,20 @@ const Book = () => {
               </div>
             </div>
           </div>
-          <div className={`${isThemePage ? 'book-list-wrapper' : 'book-list-wrapper dark-theme'}`}>
-            <ul className="book-list">
-              {listBooksFilter.length === 0
-                ? BOOKS_MESSAGES.NO_DATA
-                : listBooksFilter.map((item) => (
-                    <li key={item.id} className={`book-item ${displayOption.list ? 'list' : ''}`}>
-                      <Card
-                        loading="lazy"
-                        width="200"
-                        height="200"
-                        book={item}
-                        onClick={() => toggleModal(item)}
-                      />
-                    </li>
-                  ))}
-            </ul>
-            <Modal
-              showModal={isOpenModal}
-              closeModal={toggleModal}
-              loading="lazy"
-              width="128"
-              height="170"
-              book={bookSelected}
-            />
-          </div>
+          <ListBook
+            isDarkTheme={isChangeDarkThem}
+            listBook={listBooksFilter}
+            display={displayOption}
+            toggleModal={toggleModal}
+          />
+          <Modal
+            showModal={isOpenModal}
+            closeModal={toggleModal}
+            loading="lazy"
+            width="128"
+            height="170"
+            book={bookSelected}
+          />
         </section>
       </main>
     </div>
