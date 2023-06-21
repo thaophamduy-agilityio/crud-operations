@@ -3,6 +3,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
 import { filterListByCategories } from '@helpers/category';
+import { Search } from '@helpers/search';
 import { Image } from '@components/Image/index';
 import { Button } from '@components/Button';
 import arrow from '@image/arrow-right.svg';
@@ -94,15 +95,7 @@ const Book = () => {
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
   useEffect(() => {
-    const result = listBooks.filter(({ title, categoryName }) => {
-      const keyword = valueDebounced.toLowerCase();
-      const isMatchWithTitle = title.toLowerCase().includes(keyword);
-      const isMatchWithCategory = categoryName.toLowerCase().includes(keyword);
-
-      return isMatchWithTitle || isMatchWithCategory;
-    });
-
-    setListBooksFilter(result);
+    setListBooksFilter(Search({ listBooks, valueSearch }));
   }, [valueDebounced]);
 
   /**
