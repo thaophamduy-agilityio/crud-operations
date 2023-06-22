@@ -3,11 +3,11 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
 import { filterListByCategories } from '@helpers/category';
-import { Search } from '@helpers/search';
+import { Search } from '@helpers/book';
 import { Image } from '@components/Image/index';
 import { Button } from '@components/Button';
 import arrow from '@image/arrow-right.svg';
-import { sortedBooklist } from '@helpers/sort';
+import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
@@ -24,7 +24,7 @@ const Book = () => {
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
-  const [sortOption, setSortOption] = useState({ title: true, published: false });
+  const [isSortByYear, setIsSortByYear] = useState<boolean>(false);
   const [valueSearch, setValueSearch] = useState<string>('');
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [bookSelected, setBookSelected] = useState<IBook>({
@@ -40,31 +40,30 @@ const Book = () => {
   const [isChangeDarkTheme, setIsChangeDarkTheme] = useState<boolean>(true);
   const [isThemeModal, setIsThemeModal] = useState<boolean>(true);
 
-  sortedBooklist(listBooksFilter, sortOption);
-
   /**
    * Get data from API and set to list books & list books filter
+   *
    */
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getListBook();
-      setListBooks(data);
-      setListBooksFilter(data);
-    };
+  const fetchBooks = async () => {
+    const data = await getListBook();
+    setListBooks(data);
+    setListBooksFilter(data);
+  };
 
-    fetchData();
+  useEffect(() => {
+    fetchBooks();
   }, []);
 
   /**
    * Get categories from API
    */
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const data = await getCategories();
-      setListCategories(data);
-    };
+  const fetchCategory = async () => {
+    const data = await getCategories();
+    setListCategories(data);
+  };
 
-    fetchCategories();
+  useEffect(() => {
+    fetchCategory();
   }, []);
 
   /**
@@ -96,7 +95,7 @@ const Book = () => {
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
   useEffect(() => {
-    setListBooksFilter(Search({ listBooks, valueSearch }));
+    setListBooksFilter(Search(listBooks, valueSearch));
   }, [valueDebounced]);
 
   /**
@@ -177,14 +176,16 @@ const Book = () => {
    * @param {function} handleSort
    * @returns {list items} list books with sort keys
    */
-  const handleSort = (): void => {
-    setSortOption((prev) => {
-      return {
-        title: !prev.title,
-        published: !prev.published,
-      };
-    });
-    setIsOpenFilter(false);
+  const handleSortByAlphabet = (): void => {
+    const listBookSorted = sortedBookList(listBooksFilter, false);
+    setListBooksFilter(listBookSorted);
+    setIsSortByYear(false);
+  };
+
+  const handleSortByYear = (): void => {
+    const listBookSorted = sortedBookList(listBooksFilter, true);
+    setListBooksFilter(listBookSorted);
+    setIsSortByYear(true);
   };
 
   return (
@@ -264,14 +265,14 @@ const Book = () => {
                   <div className="filter-title">Sort By</div>
                   <div className="filter-sort-icons">
                     <Button
-                      className={`btn btn-sort ${sortOption.title ? 'selected' : ''}`}
+                      className={`btn btn-sort ${!isSortByYear ? 'selected' : ''}`}
                       label="Alphabetical Order"
-                      onClick={handleSort}
+                      onClick={handleSortByAlphabet}
                     />
                     <Button
-                      className={`btn btn-sort ${sortOption.published ? 'selected' : ''}`}
+                      className={`btn btn-sort ${isSortByYear ? 'selected' : ''}`}
                       label="Release Year"
-                      onClick={handleSort}
+                      onClick={handleSortByYear}
                     />
                   </div>
                 </div>
