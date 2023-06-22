@@ -15,6 +15,7 @@ import ListCategory from '@components/Category/list-category';
 import { Input } from '@components/Input';
 import ListBook from '@components/Book/list-book';
 import BreadCrumb from '@components/BreadCrumb';
+import FilterDisplay from '@components/FilterDisplay';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -238,23 +239,7 @@ const Book = () => {
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
-                <div className="filter-display">
-                  <div className="filter-title">Display Options</div>
-                  <div className="filter-display-icons">
-                    <Button
-                      className={`btn btn-display-grid ${displayOption.grid ? 'selected' : ''}`}
-                      label=""
-                      onClick={handleDisplay}
-                      text="Grid"
-                    />
-                    <Button
-                      className={`btn btn-display-list ${displayOption.list ? 'selected' : ''}`}
-                      label=""
-                      onClick={handleDisplay}
-                      text="List"
-                    />
-                  </div>
-                </div>
+                <FilterDisplay displayOption={displayOption} handleDisplay={handleDisplay} />
                 <div className="filter-sort">
                   <div className="filter-title">Sort By</div>
                   <div className="filter-sort-icons">
