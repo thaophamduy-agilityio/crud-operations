@@ -6,7 +6,6 @@ import { filterListByCategories } from '@helpers/category';
 import { Search } from '@helpers/book';
 import { Image } from '@components/Image/index';
 import { Button } from '@components/Button';
-import arrow from '@image/arrow-right.svg';
 import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
@@ -15,6 +14,7 @@ import { getListBook, getCategories } from '@services/api-request';
 import ListCategory from '@components/Category/list-category';
 import { Input } from '@components/Input';
 import ListBook from '@components/Book/list-book';
+import BreadCrumb from '@components/BreadCrumb';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -234,13 +234,7 @@ const Book = () => {
         </aside>
         <section className="column-content">
           <div className="book-toolbar-wrapper">
-            <div className="book-title">
-              <span className="book-title-text">{selectedCategory || 'All Books'}</span>
-              <span className="book-title-arrow">
-                <Image altText="arrow" height="8" imageSrc={arrow} loading="lazy" width="22" />
-              </span>
-              <span className="book-title-results">Showing {listBooksFilter.length} Result(s)</span>
-            </div>
+            <BreadCrumb selectedCategory={selectedCategory} listBooksFilter={listBooksFilter} />
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
