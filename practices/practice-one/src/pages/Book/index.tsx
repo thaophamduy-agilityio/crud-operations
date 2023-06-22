@@ -37,7 +37,8 @@ const Book = () => {
     published: '',
     publishers: '',
   });
-  const [isChangeDarkThem, setIsChangeDarkThem] = useState<boolean>(true);
+  const [isChangeDarkTheme, setIsChangeDarkTheme] = useState<boolean>(true);
+  const [isThemeModal, setIsThemeModal] = useState<boolean>(true);
 
   sortedBooklist(listBooksFilter, sortOption);
 
@@ -103,7 +104,7 @@ const Book = () => {
    * @param {function} toggleThemePage
    */
   const toggleThemePage = (): void => {
-    setIsChangeDarkThem(!isChangeDarkThem);
+    setIsChangeDarkTheme(!isChangeDarkTheme);
   };
 
   /**
@@ -113,6 +114,24 @@ const Book = () => {
   const toggleModal = (item?: IBook): void => {
     setIsOpenModal(!isOpenModal);
     item && setBookSelected(item);
+    document.removeEventListener('keydown', handleKeyDown);
+  };
+
+  // Function to handle keydown events
+  const handleKeyDown = (event: KeyboardEvent): void => {
+    if (event.key === 'Escape') {
+      toggleModal();
+    }
+  };
+
+  // Add event listener for keydown events when the modal is show
+  if (isOpenModal) {
+    document.addEventListener('keydown', handleKeyDown);
+  }
+
+  // Function to handle toggle the modal theme
+  const toggleThemeModal = () => {
+    setIsThemeModal(!isThemeModal);
   };
 
   /**
@@ -195,7 +214,7 @@ const Book = () => {
             onChange={handleSearchChange}
           />
           <Button
-            className={`${isChangeDarkThem ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
+            className={`${isChangeDarkTheme ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
             label=""
             onClick={toggleThemePage}
           />
@@ -260,7 +279,7 @@ const Book = () => {
             </div>
           </div>
           <ListBook
-            isDarkTheme={isChangeDarkThem}
+            isDarkTheme={isChangeDarkTheme}
             listBook={listBooksFilter}
             display={displayOption}
             toggleModal={toggleModal}
@@ -268,6 +287,8 @@ const Book = () => {
           <Modal
             showModal={isOpenModal}
             closeModal={toggleModal}
+            toggleThemeModal={toggleThemeModal}
+            isThemeModal={isThemeModal}
             loading="lazy"
             width="128"
             height="170"

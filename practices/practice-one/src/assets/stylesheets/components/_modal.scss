@@ -7,7 +7,7 @@
   top: 0;
   right: 0;
   z-index: 4;
-  font-family: $secondary-family;
+  font-family: $default-family;
 
   /* Overlay */
   &-overlay {
@@ -58,7 +58,6 @@
   }
 
   &-title {
-    font-family: $secondary-family;
     font-size: $text-modal-title;
     font-weight: $font-weight-medium;
   }
@@ -94,17 +93,15 @@
 
       &-title {
         font-size: $text-modal-text;
-        font-weight: $font-weight-medium;
         color: $color-modal-text-title;
       }
 
       &-content {
         font-size: $text-modal-text;
-        font-weight: $font-weight-medium;
         color: $color-modal-text-content;
         background: $bg-color-modal-text-content;
         margin-left: 10px;
-        padding: 5px 20px;
+        padding: 4.5px 23.5px;
         border-radius: 30px;
       }
     }
