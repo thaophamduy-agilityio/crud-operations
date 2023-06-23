@@ -1,4 +1,4 @@
-import { IBook } from 'src/interface/book';
+import { IBook } from '@interface/book';
 
 // Define the props for the Logo component
 interface CardProps {

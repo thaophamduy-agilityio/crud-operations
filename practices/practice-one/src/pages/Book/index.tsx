@@ -1,20 +1,20 @@
-import Header from '@components/Header';
+import Header from '@components/sessions/Header';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
 import { filterListByCategories } from '@helpers/category';
 import { Search } from '@helpers/book';
-import { Button } from '@components/Button';
+import { Button } from '@components/common/Button';
 import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
-import { Modal } from '@components/Modal';
+import { Modal } from '@components/common/Modal';
 import { getListBook, getCategories } from '@services/api-request';
-import ListCategory from '@components/Category/list-category';
-import ListBook from '@components/Book/list-book';
-import BreadCrumb from '@components/BreadCrumb';
-import FilterDisplay from '@components/FilterDisplay';
-import FilterSort from '@components/FilterSort';
+import ListCategory from '@components/sessions/Category/list-category';
+import ListBook from '@components/sessions/Book/list-book';
+import BreadCrumb from '@components/sessions/BreadCrumb';
+import FilterDisplay from '@components/sessions/FilterDisplay';
+import FilterSort from '@components/sessions/FilterSort';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);

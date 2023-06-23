@@ -1,5 +1,5 @@
-import { Button } from '@components/Button';
-import { IBook } from 'src/interface/book';
+import { Button } from '@components/common/Button/index';
+import { IBook } from '@interface/book';
 
 // Define the props for the Logo component
 interface ModalProps {

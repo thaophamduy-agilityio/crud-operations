@@ -1,6 +1,6 @@
-import { Button } from '@components/Button';
-import { Image } from '@components/Image/index';
-import { Input } from '@components/Input';
+import { Button } from '@components/common/Button/index';
+import { Image } from '@components/common/Image/index';
+import { Input } from '@components/common/Input/index';
 import logo from '@image/book-shelter.svg';
 import { ChangeEvent } from 'react';
 

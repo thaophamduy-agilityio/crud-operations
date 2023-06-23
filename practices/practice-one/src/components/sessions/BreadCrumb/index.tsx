@@ -1,5 +1,5 @@
 import { IBook } from '@interface/book';
-import { Image } from '@components/Image/index';
+import { Image } from '@components/common/Image/index';
 import arrow from '@image/arrow-right.svg';
 
 interface BreadCrumbProps {

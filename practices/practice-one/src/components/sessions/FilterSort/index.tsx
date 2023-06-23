@@ -1,4 +1,4 @@
-import { Button } from '@components/Button/index';
+import { Button } from '@components/common/Button/index';
 
 interface FilterSortProps {
   handleSort: () => void;
