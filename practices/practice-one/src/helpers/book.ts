@@ -1,5 +1,10 @@
 import { IBook } from '../interface/book';
 
+interface sortOption {
+  title: boolean;
+  published: boolean;
+}
+
 /**
  * Sort list book by create at
  * @param {IBook[]} listBook: list book that have not been sorted
@@ -7,14 +12,17 @@ import { IBook } from '../interface/book';
  * @param {SortYear} { published }:  sort option year
  * @returns {IBook[]} list book that have been sorted
  */
-export const sortedBookList = (listBook: IBook[], isSortSelected: boolean) => {
-  if (isSortSelected) {
-    listBook.sort((preBook: IBook, nextBook: IBook) =>
-      preBook.published > nextBook.published ? 1 : -1
-    );
-  } else {
-    listBook.sort((preBook: IBook, nextBook: IBook) => (preBook.title > nextBook.title ? 1 : -1));
+export const sortedBookList = (listBook: IBook[], { title, published }: sortOption) => {
+  if (title) {
+    listBook.sort((preBook: IBook, nextBook: IBook) => (nextBook.title > preBook.title ? 1 : -1));
   }
+
+  if (published) {
+    listBook.sort((preBook: IBook, nextBook: IBook) =>
+      nextBook.published > preBook.published ? 1 : -1
+    );
+  }
+
   return listBook;
 };
 

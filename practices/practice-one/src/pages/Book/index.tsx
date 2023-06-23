@@ -16,6 +16,7 @@ import { Input } from '@components/Input';
 import ListBook from '@components/Book/list-book';
 import BreadCrumb from '@components/BreadCrumb';
 import FilterDisplay from '@components/FilterDisplay';
+import FilterSort from '@components/FilterSort';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[]>([]);
@@ -25,7 +26,7 @@ const Book = () => {
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
-  const [isSortByYear, setIsSortByYear] = useState<boolean>(false);
+  const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [bookSelected, setBookSelected] = useState<IBook>({
@@ -177,16 +178,15 @@ const Book = () => {
    * @param {function} handleSort
    * @returns {list items} list books with sort keys
    */
-  const handleSortByAlphabet = (): void => {
-    const listBookSorted = sortedBookList(listBooksFilter, false);
-    setListBooksFilter(listBookSorted);
-    setIsSortByYear(false);
-  };
-
-  const handleSortByYear = (): void => {
-    const listBookSorted = sortedBookList(listBooksFilter, true);
-    setListBooksFilter(listBookSorted);
-    setIsSortByYear(true);
+  const handleSort = (): void => {
+    sortedBookList(listBooksFilter, sortOption);
+    setSortOption((prev) => {
+      return {
+        title: !prev.title,
+        published: !prev.published,
+      };
+    });
+    setIsOpenFilter(false);
   };
 
   return (
@@ -240,21 +240,7 @@ const Book = () => {
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
                 <FilterDisplay displayOption={displayOption} handleDisplay={handleDisplay} />
-                <div className="filter-sort">
-                  <div className="filter-title">Sort By</div>
-                  <div className="filter-sort-icons">
-                    <Button
-                      className={`btn btn-sort ${!isSortByYear ? 'selected' : ''}`}
-                      label="Alphabetical Order"
-                      onClick={handleSortByAlphabet}
-                    />
-                    <Button
-                      className={`btn btn-sort ${isSortByYear ? 'selected' : ''}`}
-                      label="Release Year"
-                      onClick={handleSortByYear}
-                    />
-                  </div>
-                </div>
+                <FilterSort handleSort={handleSort} sortOption={sortOption} />
               </div>
             </div>
           </div>
