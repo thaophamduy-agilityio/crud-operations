@@ -2,20 +2,30 @@ import { Button } from '@components/Button';
 import { Image } from '@components/Image/index';
 import { Input } from '@components/Input';
 import logo from '@image/book-shelter.svg';
-import sunshine from '@image/sunshine.svg';
+import { ChangeEvent } from 'react';
 
-const Header = () => {
+interface HeaderProps {
+  isOpenSideBar: boolean;
+  toggleSideBar: () => void;
+  valueSearch: string;
+  handleSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  isChangeDarkTheme: boolean;
+  toggleThemePage: () => void;
+}
+
+const Header = ({
+  isOpenSideBar,
+  toggleSideBar,
+  valueSearch,
+  handleSearchChange,
+  isChangeDarkTheme,
+  toggleThemePage,
+}: HeaderProps) => {
   return (
-    <header className="header-site">
+    <header className={`header-site ${isOpenSideBar ? 'open' : ''}`}>
       <section className="header-left">
         <span className="header-toogle">
-          <Button
-            className="btn btn-hamburger"
-            label=""
-            onClick={() => {
-              ('');
-            }}
-          />
+          <Button className="btn btn-hamburger" label="" onClick={toggleSideBar} />
         </span>
         <a className="header-logo" href="./" title="Book Shelter">
           <Image
@@ -29,8 +39,18 @@ const Header = () => {
         </a>
       </section>
       <section className="header-right">
-        <Input className="input input-search" placeholder="Search books" type="text" value="" />
-        <Image altText="Sunshine" height="23" imageSrc={sunshine} loading="lazy" width="23" />
+        <Input
+          type="search"
+          className="input input-search"
+          placeholder="Search books"
+          value={valueSearch}
+          onChange={handleSearchChange}
+        />
+        <Button
+          className={`${isChangeDarkTheme ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
+          label=""
+          onClick={toggleThemePage}
+        />
       </section>
     </header>
   );

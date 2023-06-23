@@ -1,10 +1,9 @@
-import logo from '@image/book-shelter.svg';
+import Header from '@components/Header';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
 import { filterListByCategories } from '@helpers/category';
 import { Search } from '@helpers/book';
-import { Image } from '@components/Image/index';
 import { Button } from '@components/Button';
 import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
@@ -12,7 +11,6 @@ import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/Modal';
 import { getListBook, getCategories } from '@services/api-request';
 import ListCategory from '@components/Category/list-category';
-import { Input } from '@components/Input';
 import ListBook from '@components/Book/list-book';
 import BreadCrumb from '@components/BreadCrumb';
 import FilterDisplay from '@components/FilterDisplay';
@@ -191,37 +189,14 @@ const Book = () => {
 
   return (
     <div className="container">
-      <header className={`header-site ${isOpenSideBar ? 'open' : ''}`}>
-        <section className="header-left">
-          <span className="header-toogle">
-            <Button className="btn btn-hamburger" label="" onClick={toggleSideBar} />
-          </span>
-          <a className="header-logo" href="./" title="Book Shelter">
-            <Image
-              altText="Book Shelter"
-              height="44"
-              imageSrc={logo}
-              loading="lazy"
-              width="54"
-              text="BookShelter"
-            />
-          </a>
-        </section>
-        <section className="header-right">
-          <Input
-            type="search"
-            className="input input-search"
-            placeholder="Search books"
-            value={valueSearch}
-            onChange={handleSearchChange}
-          />
-          <Button
-            className={`${isChangeDarkTheme ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
-            label=""
-            onClick={toggleThemePage}
-          />
-        </section>
-      </header>
+      <Header
+        isOpenSideBar={isOpenSideBar}
+        toggleSideBar={toggleSideBar}
+        valueSearch={valueSearch}
+        handleSearchChange={handleSearchChange}
+        isChangeDarkTheme={isChangeDarkTheme}
+        toggleThemePage={toggleThemePage}
+      />
       <main className="main-site">
         <aside className="column-sidebar">
           <Button className="btn btn-close-menu" label="" onClick={handleCloseSideBar} />
