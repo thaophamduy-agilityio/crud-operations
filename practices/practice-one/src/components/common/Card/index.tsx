@@ -30,7 +30,7 @@ export const Card = ({ loading, width, height, book, onClick }: CardProps) => {
           />
         </div>
         <figcaption>
-          <h4 className="card-title">{title}</h4>
+          <h2 className="card-title">{title}</h2>
           <p className="card-author">{author}</p>
           <p className="card-published">{published}</p>
         </figcaption>
