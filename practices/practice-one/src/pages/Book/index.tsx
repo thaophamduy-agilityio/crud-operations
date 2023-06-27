@@ -21,6 +21,7 @@ const Book = () => {
   const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
   const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [numberItemOfCategory, setNumberItemOfCategory] = useState<number>();
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
@@ -81,6 +82,42 @@ const Book = () => {
     setIsOpenSideBar(false);
     setIsOpenFilter(false);
   };
+
+  /**
+   * Map over two arrays of objects
+   * @param {categoryList & categoryNumber} ICategory[]
+   * @returns {Categories with numberOf key} ICategory[]
+   */
+  const getNumberItemOfCategory = listCategories?.map((category) => {
+    const newListByCategory = filterListByCategories(listBooks, category.categoryName);
+    const numberOfItem = newListByCategory?.length;
+    console.log(newListByCategory);
+    return numberOfItem;
+  });
+
+  const categoryNumber = [
+    { id: '1', numberOf: getNumberItemOfCategory },
+    { id: '2', numberOf: 2 },
+    { id: '3', numberOf: 2 },
+    { id: '4', numberOf: 2 },
+    { id: '5', numberOf: 2 },
+    { id: '6', numberOf: 1 },
+    { id: '7', numberOf: 1 },
+    { id: '8', numberOf: 1 },
+    { id: '9', numberOf: 1 },
+    { id: '10', numberOf: 1 },
+    { id: '11', numberOf: 1 },
+    { id: '12', numberOf: 1 },
+    { id: '13', numberOf: 1 },
+  ];
+
+  const categoryListWidthNumber = listCategories?.map((category) => {
+    const numberItem = categoryNumber.find((number) => number.id === category.id);
+
+    category.numberOf = numberItem ? numberItem.numberOf : null;
+
+    return category;
+  });
 
   /**
    * Search product by keyword
@@ -203,7 +240,7 @@ const Book = () => {
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <ListCategory
-            categoryList={listCategories}
+            categoryList={categoryListWidthNumber}
             categorySelected={selectedCategory}
             handleSelectCategory={handleFilterListByCategories}
           />
