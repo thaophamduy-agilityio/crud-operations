@@ -12,13 +12,13 @@ interface sortOption {
  * @param {SortYear} { published }:  sort option year
  * @returns {IBook[]} list book that have been sorted
  */
-export const sortedBookList = (listBook: IBook[], { title, published }: sortOption) => {
+export const sortedBookList = (listBook: IBook[] | undefined, { title, published }: sortOption) => {
   if (title) {
-    listBook.sort((preBook: IBook, nextBook: IBook) => (nextBook.title > preBook.title ? 1 : -1));
+    listBook?.sort((preBook: IBook, nextBook: IBook) => (nextBook.title > preBook.title ? 1 : -1));
   }
 
   if (published) {
-    listBook.sort((preBook: IBook, nextBook: IBook) =>
+    listBook?.sort((preBook: IBook, nextBook: IBook) =>
       nextBook.published > preBook.published ? 1 : -1
     );
   }
@@ -32,8 +32,8 @@ export const sortedBookList = (listBook: IBook[], { title, published }: sortOpti
  * @param {valueSearch} { keyword }: value search
  * @returns {IBook[]} list books that have been searched
  */
-export const Search = (listBooks: IBook[], valueSearch: string) => {
-  const result = listBooks.filter(({ title, categoryName }) => {
+export const Search = (listBooks: IBook[] | undefined, valueSearch: string) => {
+  const result = listBooks?.filter(({ title, categoryName }) => {
     const keyword = valueSearch.toLowerCase();
     const isMatchWithTitle = title.toLowerCase().includes(keyword);
     const isMatchWithCategory = categoryName.toLowerCase().includes(keyword);

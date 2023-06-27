@@ -17,9 +17,9 @@ import FilterDisplay from '@components/sessions/FilterDisplay';
 import FilterSort from '@components/sessions/FilterSort';
 
 const Book = () => {
-  const [listBooks, setListBooks] = useState<IBook[]>([]);
-  const [listBooksFilter, setListBooksFilter] = useState<IBook[]>([]);
-  const [listCategories, setListCategories] = useState<ICategory[]>([]);
+  const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
+  const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
+  const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);

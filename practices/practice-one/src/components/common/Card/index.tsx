@@ -2,11 +2,11 @@ import { IBook } from '@interface/book';
 
 // Define the props for the Logo component
 interface CardProps {
-  loading: string;
+  loading: 'lazy' | 'eager';
   width: string;
   height: string;
 
-  book: IBook;
+  book: Partial<IBook>;
   onClick?: () => void;
 }
 

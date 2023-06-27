@@ -7,10 +7,10 @@ interface ModalProps {
   showModal: boolean;
   toggleThemeModal: () => void;
   isThemeModal: boolean;
-  loading: string;
+  loading: 'lazy' | 'eager';
   width: string;
   height: string;
-  book: IBook;
+  book: Partial<IBook>;
 }
 /**
  * Primary UI component for user interaction

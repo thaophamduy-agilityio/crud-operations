@@ -4,7 +4,7 @@ import Book from '.';
 
 interface ListBookProps {
   isDarkTheme: boolean;
-  listBook: IBook[];
+  listBook: IBook[] | undefined;
   display: {
     grid: boolean;
     list: boolean;
@@ -16,9 +16,9 @@ const ListBook = ({ isDarkTheme, listBook, display, toggleModal }: ListBookProps
   return (
     <div className={`${isDarkTheme ? 'book-list-wrapper' : 'book-list-wrapper dark-theme'}`}>
       <ul className="book-list">
-        {listBook.length === 0
+        {listBook?.length === 0
           ? BOOKS_MESSAGES.NO_DATA
-          : listBook.map((book) => (
+          : listBook?.map((book) => (
               <Book key={book.id} book={book} display={display} toggleModal={toggleModal} />
             ))}
       </ul>

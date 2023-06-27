@@ -4,7 +4,7 @@ import arrow from '@image/arrow-right.svg';
 
 interface BreadCrumbProps {
   selectedCategory: string;
-  listBooksFilter: IBook[];
+  listBooksFilter: IBook[] | undefined;
 }
 
 const BreadCrumb = ({ selectedCategory, listBooksFilter }: BreadCrumbProps) => {
@@ -14,7 +14,7 @@ const BreadCrumb = ({ selectedCategory, listBooksFilter }: BreadCrumbProps) => {
       <span className="book-title-arrow">
         <Image altText="arrow" height="8" imageSrc={arrow} loading="lazy" width="22" />
       </span>
-      <span className="book-title-results">Showing {listBooksFilter.length} Result(s)</span>
+      <span className="book-title-results">Showing {listBooksFilter?.length} Result(s)</span>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { ICategory } from '@interface/category';
 import Category from '.';
 
 interface ListCategoryProps {
-  categoryList: ICategory[];
+  categoryList: ICategory[] | undefined;
   categorySelected: string;
   handleSelectCategory: (categoryName: string) => void;
 }
@@ -15,7 +15,7 @@ const ListCategory = ({
   return (
     <div className="book-category-wrapper">
       <ul className="book-category">
-        {categoryList.map((category) => (
+        {categoryList?.map((category) => (
           <Category
             key={category.id}
             category={category}

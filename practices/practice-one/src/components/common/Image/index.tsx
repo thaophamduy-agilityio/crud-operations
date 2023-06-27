@@ -1,7 +1,7 @@
 // Define the props for the Logo component
 interface ImageProps {
   text?: string;
-  loading: string;
+  loading: 'lazy' | 'eager';
   imageSrc: string;
   width: string;
   height: string;
