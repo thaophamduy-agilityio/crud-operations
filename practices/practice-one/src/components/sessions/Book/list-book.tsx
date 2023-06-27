@@ -16,7 +16,7 @@ const ListBook = ({ isDarkTheme, listBook, display, toggleModal }: ListBookProps
   return (
     <div className={`${isDarkTheme ? 'book-list-wrapper' : 'book-list-wrapper dark-theme'}`}>
       <ul className="book-list">
-        {listBook?.length === 0
+        {!listBook?.length
           ? BOOKS_MESSAGES.NO_DATA
           : listBook?.map((book) => (
               <Book key={book.id} book={book} display={display} toggleModal={toggleModal} />
