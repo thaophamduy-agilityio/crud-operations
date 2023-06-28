@@ -1,5 +1,4 @@
-import { memo } from 'react';
-import { IBook } from 'src/interface/book';
+import { IBook } from '@interface/book';
 
 // Define the props for the Logo component
 interface CardProps {
@@ -7,14 +6,14 @@ interface CardProps {
   width: string;
   height: string;
 
-  book: IBook;
+  book: Partial<IBook>;
   onClick?: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Card = memo(({ loading, width, height, book, onClick }: CardProps) => {
+export const Card = ({ loading, width, height, book, onClick }: CardProps) => {
   const { title, author, published, image } = book;
 
   return (
@@ -31,11 +30,11 @@ export const Card = memo(({ loading, width, height, book, onClick }: CardProps) 
           />
         </div>
         <figcaption>
-          <h4 className="card-title">{title}</h4>
+          <h2 className="card-title">{title}</h2>
           <p className="card-author">{author}</p>
           <p className="card-published">{published}</p>
         </figcaption>
       </figure>
     </div>
   );
-});
+};

@@ -13,7 +13,7 @@
   line-height: 1;
 
   &-hamburger {
-    background: url('./src/assets/images/hamburger.svg') 3px no-repeat;
+    background: url('/src/assets/images/hamburger.svg') 3px no-repeat;
     box-sizing: border-box;
   }
 
@@ -23,7 +23,7 @@
       @extend %absolute;
       top: 10px;
       right: -5px;
-      background: url('./src/assets/images/close-mobile.svg') 3px no-repeat;
+      background: url('/src/assets/images/close-mobile.svg') 3px no-repeat;
       box-sizing: border-box;
     }
 
@@ -37,23 +37,23 @@
       @include only-for-desktop() {
         top: 23px;
         right: 0;
-        background: url('./src/assets/images/close-desktop.svg') 3px no-repeat;
+        background: url('/src/assets/images/close-desktop.svg') 3px no-repeat;
       }
     }
   }
 
   &-sunshine {
-    @include square($height-button-sunshine);
-    background: url('./src/assets/images/sunshine.svg') 100% no-repeat;
+    @include size($height-button-sunshine, $height-button-sunshine);
+    background: url('/src/assets/images/sunshine.svg') 100% no-repeat;
     background-size: $height-button-sunshine;
     box-sizing: border-box;
 
     &.dark {
-      background: url('./src/assets/images/sunshine-dark.svg') 100% no-repeat;
+      background: url('/src/assets/images/sunshine-dark.svg') 100% no-repeat;
     }
 
     &-modal {
-      background: url('./src/assets/images/sunshine.svg') 10px no-repeat;
+      background: url('/src/assets/images/sunshine.svg') 10px no-repeat;
       background-color: $bg-color-primary;
       color: $filter-button-color;
       border: 1px solid $border-input;
@@ -95,7 +95,7 @@
   }
 
   &-filter {
-    background: url('./src/assets/images/filter.svg') 16px no-repeat;
+    background: url('/src/assets/images/filter.svg') 16px no-repeat;
     background-color: $bg-color-secondary;
     color: $filter-button-color;
     margin: 6px 0px;
@@ -115,32 +115,32 @@
 
   &-display {
     &-grid {
-      @include square(40px);
+      @include size(40px, 40px);
       border-radius: 50%;
-      background: url('./src/assets/images/grid.svg') 14px no-repeat;
+      background: url('/src/assets/images/grid.svg') 14px no-repeat;
       background-color: $bg-color-secondary;
       color: $filter-button-color;
       border: 1px solid $border-display-grid;
       box-sizing: border-box;
 
       &.selected {
-        background: url('./src/assets/images/grid-selected.svg') 14px no-repeat;
+        background: url('/src/assets/images/grid-selected.svg') 14px no-repeat;
         background-color: $bg-color-filter-seleted;
         border: 1px solid transparent;
       }
     }
 
     &-list {
-      @include square(40px);
+      @include size(40px, 40px);
       border-radius: 50%;
-      background: url('./src/assets/images/list.svg') 13px no-repeat;
+      background: url('/src/assets/images/list.svg') 13px no-repeat;
       background-color: $bg-color-secondary;
       color: $filter-button-color;
       border: 1px solid $border-display-grid;
       box-sizing: border-box;
 
       &.selected {
-        background: url('./src/assets/images/list-selected.svg') 13px no-repeat;
+        background: url('/src/assets/images/list-selected.svg') 13px no-repeat;
         background-color: $bg-color-filter-seleted;
         border: 1px solid transparent;
       }
@@ -148,7 +148,7 @@
   }
 
   &-sort {
-    background: url('./src/assets/images/arrow-down.svg') 90% no-repeat;
+    background: url('/src/assets/images/arrow-down.svg') 90% no-repeat;
     background-color: $bg-color-secondary;
     color: $color-primary;
     border-radius: 10px;
@@ -156,7 +156,7 @@
     box-sizing: border-box;
 
     &.selected {
-      background: url('./src/assets/images/arrow-down-selected.svg') 90% no-repeat;
+      background: url('/src/assets/images/arrow-down-selected.svg') 90% no-repeat;
       background-color: $bg-color-filter-seleted;
       color: $color-filter-sort-selected;
       border: 1px solid transparent;

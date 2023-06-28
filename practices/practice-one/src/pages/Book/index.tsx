@@ -1,30 +1,34 @@
-import logo from '@image/book-shelter.svg';
+import Header from '@components/sessions/Header';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
-import { filterListByCategories } from '@helpers/categories';
-import { Image } from '@components/Image/index';
-import { Card } from '@components/Card';
-import { Button } from '@components/Button';
-import { categoryList } from '@constants/list-categories';
-import arrow from '@image/arrow-right.svg';
-import { sortedBooklist } from '@helpers/sort';
-import { BOOKS_MESSAGES } from '@constants/error-messages';
+import { ICategory } from '@interface/category';
+import { filterListByCategories } from '@helpers/category';
+import { Search } from '@helpers/book';
+import { Button } from '@components/common/Button';
+import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
-import { Modal } from '@components/Modal';
-import { getAPI } from '@services/api-request';
+import { Modal } from '@components/common/Modal';
+import { getListBook, getCategories } from '@services/api-request';
+import ListCategory from '@components/sessions/Category/list-category';
+import ListBook from '@components/sessions/Book/list-book';
+import BreadCrumb from '@components/sessions/BreadCrumb';
+import FilterDisplay from '@components/sessions/FilterDisplay';
+import FilterSort from '@components/sessions/FilterSort';
 
-const Home = () => {
-  const [listBooks, setListBooks] = useState<IBook[]>([]);
-  const [listBooksFilter, setListBooksFilter] = useState<IBook[]>([]);
+const Book = () => {
+  const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
+  const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
+  const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [numberItemOfCategory, setNumberItemOfCategory] = useState<number>();
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
   const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const [bookSelected, setbookSelected] = useState<IBook>({
+  const [bookSelected, setBookSelected] = useState<IBook>({
     id: '',
     title: '',
     categoryName: '',
@@ -34,39 +38,64 @@ const Home = () => {
     published: '',
     publishers: '',
   });
-  const [isThemePage, setIsThemePage] = useState<boolean>(true);
-
-  sortedBooklist(listBooksFilter, sortOption);
+  const [isChangeDarkTheme, setIsChangeDarkTheme] = useState<boolean>(true);
+  const [isThemeModal, setIsThemeModal] = useState<boolean>(true);
 
   /**
    * Get data from API and set to list books & list books filter
+   *
    */
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getAPI();
-      setListBooks(data);
-      setListBooksFilter(data);
-    };
+  const fetchBooks = async () => {
+    const data = await getListBook();
+    setListBooks(data);
+    setListBooksFilter(data);
+  };
 
-    fetchData();
+  useEffect(() => {
+    fetchBooks();
   }, []);
 
   /**
-   * Search product by name
+   * Get categories from API
+   */
+  const fetchCategory = async () => {
+    const data = await getCategories();
+    setListCategories(data);
+  };
+
+  useEffect(() => {
+    fetchCategory();
+  }, []);
+
+  /**
+   * List books when click category name
    * @param {categoryName} string
    * @returns {list items} books
    */
   const handleFilterListByCategories = (categoryName: string) => {
     setSelectedCategory(categoryName);
 
+    // Get list filter books with category name
     const newListByCategory = filterListByCategories(listBooks, categoryName);
 
     setListBooksFilter(newListByCategory);
     setIsOpenSideBar(false);
     setIsOpenFilter(false);
-
-    console.log(newListByCategory);
   };
+
+  /**
+   * Map over two arrays of objects
+   * @param {listCategories} ICategory[]
+   * @returns {List categories with total item of category} ICategory[]
+   */
+  const categoriesFormated = listCategories?.map((category) => {
+    const temp = filterListByCategories(listBooks, category.categoryName);
+
+    return {
+      ...category,
+      total: temp?.length,
+    };
+  });
 
   /**
    * Search product by keyword
@@ -81,15 +110,7 @@ const Home = () => {
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
   useEffect(() => {
-    const result = listBooks.filter(({ title, categoryName }) => {
-      const keyword = valueDebounced.toLowerCase();
-      const isMatchWithTitle = title.toLowerCase().includes(keyword);
-      const isMatchWithCategory = categoryName.toLowerCase().includes(keyword);
-
-      return isMatchWithTitle || isMatchWithCategory;
-    });
-
-    setListBooksFilter(result);
+    setListBooksFilter(Search(listBooks, valueSearch));
   }, [valueDebounced]);
 
   /**
@@ -97,7 +118,7 @@ const Home = () => {
    * @param {function} toggleThemePage
    */
   const toggleThemePage = (): void => {
-    setIsThemePage(!isThemePage);
+    setIsChangeDarkTheme(!isChangeDarkTheme);
   };
 
   /**
@@ -106,7 +127,25 @@ const Home = () => {
    */
   const toggleModal = (item?: IBook): void => {
     setIsOpenModal(!isOpenModal);
-    item && setbookSelected(item);
+    item && setBookSelected(item);
+    document.removeEventListener('keydown', handleKeyDown);
+  };
+
+  // Function to handle keydown events
+  const handleKeyDown = (event: KeyboardEvent): void => {
+    if (event.key === 'Escape') {
+      toggleModal();
+    }
+  };
+
+  // Add event listener for keydown events when the modal is show
+  if (isOpenModal) {
+    document.addEventListener('keydown', handleKeyDown);
+  }
+
+  // Function to handle toggle the modal theme
+  const toggleThemeModal = () => {
+    setIsThemeModal(!isThemeModal);
   };
 
   /**
@@ -153,6 +192,7 @@ const Home = () => {
    * @returns {list items} list books with sort keys
    */
   const handleSort = (): void => {
+    sortedBookList(listBooksFilter, sortOption);
     setSortOption((prev) => {
       return {
         title: !prev.title,
@@ -164,145 +204,59 @@ const Home = () => {
 
   return (
     <div className="container">
-      <header className={`header-site ${isOpenSideBar ? 'open' : ''}`}>
-        <section className="header-left">
-          <span className="header-toogle">
-            <Button className="btn btn-hamburger" label="" onClick={toggleSideBar} />
-          </span>
-          <a className="header-logo" href="./" title="Book Shelter">
-            <Image
-              altText="Book Shelter"
-              height="44"
-              imageSrc={logo}
-              loading="lazy"
-              width="54"
-              text="BookShelter"
-            />
-          </a>
-        </section>
-        <section className="header-right">
-          <input
-            type="search"
-            className="input input-search"
-            placeholder="Search books"
-            value={valueSearch}
-            onChange={handleSearchChange}
-          />
-          <Button
-            className={`${isThemePage ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
-            label=""
-            onClick={toggleThemePage}
-          />
-        </section>
-      </header>
+      <Header
+        isOpenSideBar={isOpenSideBar}
+        toggleSideBar={toggleSideBar}
+        valueSearch={valueSearch}
+        handleSearchChange={handleSearchChange}
+        isChangeDarkTheme={isChangeDarkTheme}
+        toggleThemePage={toggleThemePage}
+      />
       <main className="main-site">
         <aside className="column-sidebar">
           <Button className="btn btn-close-menu" label="" onClick={handleCloseSideBar} />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
-          <div className="book-category-wrapper">
-            <ul className="book-category">
-              {categoryList.map((item) => (
-                <li
-                  key={item.id}
-                  className={
-                    item.categoryName === selectedCategory
-                      ? 'book-category-item selected'
-                      : 'book-category-item'
-                  }
-                  data-id={item.id}
-                  onClick={() => handleFilterListByCategories(`${item.categoryName}`)}
-                >
-                  <span
-                    className={[
-                      'book-category-shorthand',
-                      `book-category-${item.categoryName}`,
-                    ].join(' ')}
-                  >
-                    {JSON.stringify(item.categoryName).slice(1, 3)}
-                  </span>
-                  {item.categoryName}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ListCategory
+            categoryList={categoriesFormated}
+            categorySelected={selectedCategory}
+            handleSelectCategory={handleFilterListByCategories}
+          />
         </aside>
         <section className="column-content">
           <div className="book-toolbar-wrapper">
-            <div className="book-title">
-              <span className="book-title-text">{selectedCategory || 'All Books'}</span>
-              <span className="book-title-arrow">
-                <Image altText="arrow" height="8" imageSrc={arrow} loading="lazy" width="22" />
-              </span>
-              <span className="book-title-results">Showing {listBooksFilter.length} Result(s)</span>
-            </div>
+            <BreadCrumb
+              selectedCategory={selectedCategory}
+              numberOfBook={listBooksFilter?.length}
+            />
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
-                <div className="filter-display">
-                  <div className="filter-title">Display Options</div>
-                  <div className="filter-display-icons">
-                    <Button
-                      className={`btn btn-display-grid ${displayOption.grid ? 'selected' : ''}`}
-                      label=""
-                      onClick={handleDisplay}
-                      text="Grid"
-                    />
-                    <Button
-                      className={`btn btn-display-list ${displayOption.list ? 'selected' : ''}`}
-                      label=""
-                      onClick={handleDisplay}
-                      text="List"
-                    />
-                  </div>
-                </div>
-                <div className="filter-sort">
-                  <div className="filter-title">Sort By</div>
-                  <div className="filter-sort-icons">
-                    <Button
-                      className={`btn btn-sort ${sortOption.title ? 'selected' : ''}`}
-                      label="Alphabetical Order"
-                      onClick={handleSort}
-                    />
-                    <Button
-                      className={`btn btn-sort ${sortOption.published ? 'selected' : ''}`}
-                      label="Release Year"
-                      onClick={handleSort}
-                    />
-                  </div>
-                </div>
+                <FilterDisplay displayOption={displayOption} handleDisplay={handleDisplay} />
+                <FilterSort handleSort={handleSort} sortOption={sortOption} />
               </div>
             </div>
           </div>
-          <div className={`${isThemePage ? 'book-list-wrapper' : 'book-list-wrapper dark-theme'}`}>
-            <ul className="book-list">
-              {listBooksFilter.length === 0
-                ? BOOKS_MESSAGES.NO_DATA
-                : listBooksFilter.map((item) => (
-                    <li key={item.id} className={`book-item ${displayOption.list ? 'list' : ''}`}>
-                      <Card
-                        loading="lazy"
-                        width="200"
-                        height="200"
-                        book={item}
-                        onClick={() => toggleModal(item)}
-                      />
-                    </li>
-                  ))}
-            </ul>
-            <Modal
-              showModal={isOpenModal}
-              closeModal={toggleModal}
-              loading="lazy"
-              width="128"
-              height="170"
-              book={bookSelected}
-            />
-          </div>
+          <ListBook
+            isDarkTheme={isChangeDarkTheme}
+            listBook={listBooksFilter}
+            display={displayOption}
+            toggleModal={toggleModal}
+          />
+          <Modal
+            showModal={isOpenModal}
+            closeModal={toggleModal}
+            toggleThemeModal={toggleThemeModal}
+            isThemeModal={isThemeModal}
+            loading="lazy"
+            width="128"
+            height="170"
+            book={bookSelected}
+          />
         </section>
       </main>
     </div>
   );
 };
 
-export default Home;
+export default Book;

@@ -23,6 +23,7 @@ export const Button = ({
   return (
     <div className="btn-container">
       <button
+        aria-label={`Aria ${text}`}
         type="button"
         className={['btn', `btn-${size}`, mode].join(' ')}
         style={{ backgroundColor }}
@@ -30,7 +31,7 @@ export const Button = ({
       >
         {!!label && `${label}`}
       </button>
-      {!!text && <h4 className="text">{text}</h4>}
+      {!!text && <h2 className="text">{text}</h2>}
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 // Define the props for the Input component
 interface InputProps {
   value: string;
@@ -6,12 +8,20 @@ interface InputProps {
   className?: string;
   isDisabled?: boolean;
   type: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Input = ({ name, placeholder, className, isDisabled = false, type }: InputProps) => {
+export const Input = ({
+  name,
+  placeholder,
+  className,
+  isDisabled = false,
+  type,
+  onChange,
+}: InputProps) => {
   return (
     <>
       <input
@@ -20,6 +30,7 @@ export const Input = ({ name, placeholder, className, isDisabled = false, type }
         type={type}
         placeholder={placeholder}
         disabled={isDisabled}
+        onChange={onChange}
       />
     </>
   );

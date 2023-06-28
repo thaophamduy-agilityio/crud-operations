@@ -51,9 +51,16 @@ export const SortOrder: Story = {
   },
 };
 
-export const Close: Story = {
+export const CloseModal: Story = {
   args: {
-    className: 'btn btn-close',
+    className: 'btn btn-close-modal',
+    label: '',
+  },
+};
+
+export const CloseMenu: Story = {
+  args: {
+    className: 'btn btn-close-menu',
     label: '',
   },
 };
