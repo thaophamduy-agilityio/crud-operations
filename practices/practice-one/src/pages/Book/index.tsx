@@ -85,38 +85,16 @@ const Book = () => {
 
   /**
    * Map over two arrays of objects
-   * @param {categoryList & categoryNumber} ICategory[]
-   * @returns {Categories with numberOf key} ICategory[]
+   * @param {listCategories} ICategory[]
+   * @returns {List categories with total item of category} ICategory[]
    */
-  const getNumberItemOfCategory = listCategories?.map((category) => {
-    const newListByCategory = filterListByCategories(listBooks, category.categoryName);
-    const numberOfItem = newListByCategory?.length;
-    console.log(newListByCategory);
-    return numberOfItem;
-  });
+  const categoriesFormated = listCategories?.map((category) => {
+    const temp = filterListByCategories(listBooks, category.categoryName);
 
-  const categoryNumber = [
-    { id: '1', numberOf: getNumberItemOfCategory },
-    { id: '2', numberOf: 2 },
-    { id: '3', numberOf: 2 },
-    { id: '4', numberOf: 2 },
-    { id: '5', numberOf: 2 },
-    { id: '6', numberOf: 1 },
-    { id: '7', numberOf: 1 },
-    { id: '8', numberOf: 1 },
-    { id: '9', numberOf: 1 },
-    { id: '10', numberOf: 1 },
-    { id: '11', numberOf: 1 },
-    { id: '12', numberOf: 1 },
-    { id: '13', numberOf: 1 },
-  ];
-
-  const categoryListWidthNumber = listCategories?.map((category) => {
-    const numberItem = categoryNumber.find((number) => number.id === category.id);
-
-    category.numberOf = numberItem ? numberItem.numberOf : null;
-
-    return category;
+    return {
+      ...category,
+      total: temp?.length,
+    };
   });
 
   /**
@@ -240,7 +218,7 @@ const Book = () => {
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <ListCategory
-            categoryList={categoryListWidthNumber}
+            categoryList={categoriesFormated}
             categorySelected={selectedCategory}
             handleSelectCategory={handleFilterListByCategories}
           />

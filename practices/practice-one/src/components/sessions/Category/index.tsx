@@ -27,7 +27,7 @@ const Category = ({ category, categorySelected, handleSelectCategory }: Category
         </span>
         {category.categoryName}
       </div>
-      <div className="book-category-total">{`${category.numberOf}`}</div>
+      <div className="book-category-total">{`${category.total}`}</div>
     </li>
   );
 };
