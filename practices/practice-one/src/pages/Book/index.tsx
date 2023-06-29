@@ -10,8 +10,8 @@ import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/common/Modal';
 import { getListBook, getCategories } from '@services/api-request';
-import ListCategory from '@components/sessions/Category/list-category';
-import ListBook from '@components/sessions/Book/list-book';
+import ListCategory from '@components/sessions/Category';
+import ListBook from '@components/sessions/Book';
 import BreadCrumb from '@components/sessions/BreadCrumb';
 import FilterDisplay from '@components/sessions/FilterDisplay';
 import FilterSort from '@components/sessions/FilterSort';
@@ -21,7 +21,6 @@ const Book = () => {
   const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
   const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [numberItemOfCategory, setNumberItemOfCategory] = useState<number>();
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
   const [displayOption, setDisplayOption] = useState({ grid: true, list: false });
@@ -110,7 +109,8 @@ const Book = () => {
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
   useEffect(() => {
-    setListBooksFilter(Search(listBooks, valueSearch));
+    const search = Search(listBooks, valueSearch);
+    setListBooksFilter(search);
   }, [valueDebounced]);
 
   /**

@@ -1,8 +1,10 @@
-import { Card } from '@components/common/Card';
+import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { IBook } from '@interface/book';
+import Book from './book';
 
-interface BookProps {
-  book: IBook;
+interface ListBookProps {
+  isDarkTheme: boolean;
+  listBook: IBook[] | undefined;
   display: {
     grid: boolean;
     list: boolean;
@@ -10,12 +12,18 @@ interface BookProps {
   toggleModal: (book: IBook) => void;
 }
 
-const Book = ({ book, display, toggleModal }: BookProps) => {
+const ListBook = ({ isDarkTheme, listBook, display, toggleModal }: ListBookProps) => {
   return (
-    <li className={`book-item ${display.list ? 'list' : ''}`}>
-      <Card loading="lazy" width="200" height="200" book={book} onClick={() => toggleModal(book)} />
-    </li>
+    <div className={`${isDarkTheme ? 'book-list-wrapper' : 'book-list-wrapper dark-theme'}`}>
+      <ul className="book-list">
+        {!listBook?.length
+          ? BOOKS_MESSAGES.NO_DATA
+          : listBook?.map((book) => (
+              <Book key={book.id} book={book} display={display} toggleModal={toggleModal} />
+            ))}
+      </ul>
+    </div>
   );
 };
 
-export default Book;
+export default ListBook;
