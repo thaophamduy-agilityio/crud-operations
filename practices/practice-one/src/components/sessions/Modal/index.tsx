@@ -1,7 +1,8 @@
 import { Button } from '@components/common/Button/index';
 import { IBook } from '@interface/book';
+import { DetailModal } from './DetailModal';
 
-// Define the props for the Logo component
+// Define the props for the Modal component
 interface ModalProps {
   closeModal: () => void;
   showModal: boolean;
@@ -25,8 +26,6 @@ export const Modal = ({
   height,
   book,
 }: ModalProps) => {
-  const { title, description, author, published, publishers, image } = book;
-
   return showModal ? (
     <>
       <div className="modal-overlay" onClick={closeModal}></div>
@@ -34,40 +33,18 @@ export const Modal = ({
         <div className="modal-container">
           {/* Modal header */}
           <div className="modal-header">
-            <h2 className="modal-title">{title}</h2>
+            <h2 className="modal-title">{book.title}</h2>
             {/* Close button */}
             <Button className="btn btn-close-modal" label="" onClick={closeModal} />
           </div>
           {/* Modal content */}
-          <div className={`${isThemeModal ? 'modal-content' : 'modal-content dark-theme'}`}>
-            <figure className="modal-container-content">
-              <div className="modal-container-img">
-                <img
-                  className="img-item"
-                  loading={loading}
-                  src={image}
-                  width={width}
-                  height={height}
-                  alt={title}
-                />
-              </div>
-              <figcaption className="modal-container-text">
-                <p className="modal-desc">{description}</p>
-                <p className="modal-author">
-                  <span className="modal-container-text-title">Author:</span>
-                  <span className="modal-container-text-content">{author}</span>
-                </p>
-                <p className="modal-published">
-                  <span className="modal-container-text-title">Published:</span>
-                  <span className="modal-container-text-content">{published}</span>
-                </p>
-                <p className="modal-publishers">
-                  <span className="modal-container-text-title">Publishers:</span>
-                  <span className="modal-container-text-content">{publishers}</span>
-                </p>
-              </figcaption>
-            </figure>
-          </div>
+          <DetailModal
+            isThemeModal={isThemeModal}
+            loading={loading}
+            width={width}
+            height={height}
+            book={book}
+          />
           {/* Modal footer */}
           <div className="modal-footer">
             <div className="modal-escape">

@@ -27,16 +27,7 @@ const Book = () => {
   const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const [bookSelected, setBookSelected] = useState<IBook>({
-    id: '',
-    title: '',
-    categoryName: '',
-    description: '',
-    image: '',
-    author: '',
-    published: '',
-    publishers: '',
-  });
+  const [bookSelected, setBookSelected] = useState<IBook>({} as IBook);
   const [isChangeDarkTheme, setIsChangeDarkTheme] = useState<boolean>(true);
   const [isThemeModal, setIsThemeModal] = useState<boolean>(true);
 
