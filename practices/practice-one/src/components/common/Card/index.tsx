@@ -1,6 +1,6 @@
 import { IBook } from '@interface/book';
 
-// Define the props for the Logo component
+// Define the props for the Card component
 interface CardProps {
   loading: 'lazy' | 'eager';
   width: string;

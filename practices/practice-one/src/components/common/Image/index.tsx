@@ -1,4 +1,4 @@
-// Define the props for the Logo component
+// Define the props for the Image component
 interface ImageProps {
   text?: string;
   loading: 'lazy' | 'eager';
