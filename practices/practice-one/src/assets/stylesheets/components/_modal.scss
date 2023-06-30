@@ -79,6 +79,7 @@
 
       .img-item {
         @include size(128px, 170px);
+        aspect-ratio: 3 / 4;
 
         @include only-for-desktop() {
           width: 201px;

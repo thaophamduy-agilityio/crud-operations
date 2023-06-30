@@ -226,7 +226,8 @@
       }
 
       .img-item {
-        @include size(auto, auto);
+        @include size(100%, auto);
+        aspect-ratio: 5 / 2;
 
         @include only-for-desktop() {
           width: $img-card-width;
