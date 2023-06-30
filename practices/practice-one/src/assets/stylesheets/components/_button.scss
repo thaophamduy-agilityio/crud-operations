@@ -49,7 +49,7 @@
     box-sizing: border-box;
 
     &.dark {
-      background: url('/src/assets/images/sunshine-dark.svg') 100% no-repeat;
+      background: url('/src/assets/images/moon.svg') 100% no-repeat;
     }
 
     &-modal {
@@ -63,6 +63,7 @@
       box-sizing: border-box;
 
       &.dark {
+        background: url('/src/assets/images/moon.svg') 10px no-repeat;
         background-color: $color-modal-btn-escape;
       }
     }

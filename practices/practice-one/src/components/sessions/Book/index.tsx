@@ -3,7 +3,6 @@ import { IBook } from '@interface/book';
 import Book from './book';
 
 interface ListBookProps {
-  isDarkTheme: boolean;
   listBook: IBook[] | undefined;
   display: {
     grid: boolean;
@@ -12,9 +11,9 @@ interface ListBookProps {
   toggleModal: (book: IBook) => void;
 }
 
-const ListBook = ({ isDarkTheme, listBook, display, toggleModal }: ListBookProps) => {
+const ListBook = ({ listBook, display, toggleModal }: ListBookProps) => {
   return (
-    <div className={`${isDarkTheme ? 'book-list-wrapper' : 'book-list-wrapper dark-theme'}`}>
+    <div className="book-list-wrapper">
       <ul className="book-list">
         {!listBook?.length
           ? BOOKS_MESSAGES.NO_DATA

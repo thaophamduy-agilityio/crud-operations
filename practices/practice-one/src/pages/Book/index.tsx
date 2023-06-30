@@ -194,7 +194,7 @@ const Book = () => {
   };
 
   return (
-    <div className="container">
+    <div className={`${isChangeDarkTheme ? 'container' : 'container dark-theme'}`}>
       <Header
         isOpenSideBar={isOpenSideBar}
         toggleSideBar={toggleSideBar}
@@ -228,12 +228,7 @@ const Book = () => {
               </div>
             </div>
           </div>
-          <ListBook
-            isDarkTheme={isChangeDarkTheme}
-            listBook={listBooksFilter}
-            display={displayOption}
-            toggleModal={toggleModal}
-          />
+          <ListBook listBook={listBooksFilter} display={displayOption} toggleModal={toggleModal} />
           <Modal
             showModal={isOpenModal}
             closeModal={toggleModal}

@@ -29,7 +29,7 @@ export const Modal = ({
   return showModal ? (
     <>
       <div className="modal-overlay" onClick={closeModal}></div>
-      <div className="modal">
+      <div className={`${isThemeModal ? 'modal' : 'modal dark-theme'}`}>
         <div className="modal-container">
           {/* Modal header */}
           <div className="modal-header">

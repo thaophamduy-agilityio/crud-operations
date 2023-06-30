@@ -2,7 +2,6 @@ import { IBook } from '@interface/book';
 
 // Define the props for the Modal Detail component
 interface DetailModalProps {
-  isThemeModal: boolean;
   loading: 'lazy' | 'eager';
   width: string;
   height: string;
@@ -12,7 +11,6 @@ interface DetailModalProps {
  * Primary UI component for user interaction
  */
 export const DetailModal = ({
-  isThemeModal,
   loading,
   width,
   height,
@@ -20,7 +18,7 @@ export const DetailModal = ({
 }: DetailModalProps) => {
   return (
     <>
-      <div className={`${isThemeModal ? 'modal-content' : 'modal-content dark-theme'}`}>
+      <div className="modal-content">
         <figure className="modal-container-content">
           <div className="modal-container-img">
             <img

@@ -9,6 +9,14 @@
   z-index: 4;
   font-family: $default-family;
 
+  &.dark-theme {
+    .modal-header,
+    .modal-content,
+    .modal-footer {
+      background-color: $color-modal-btn-escape;
+    }
+  }
+
   /* Overlay */
   &-overlay {
     @extend %fixed;
@@ -50,10 +58,6 @@
 
     @include only-for-desktop() {
       height: calc(100vh - 176px);
-    }
-
-    &.dark-theme {
-      background-color: $color-modal-btn-escape;
     }
   }
 
