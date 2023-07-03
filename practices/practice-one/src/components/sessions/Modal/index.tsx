@@ -38,13 +38,7 @@ export const Modal = ({
             <Button className="btn btn-close-modal" label="" onClick={closeModal} />
           </div>
           {/* Modal content */}
-          <DetailModal
-            isThemeModal={isThemeModal}
-            loading={loading}
-            width={width}
-            height={height}
-            book={book}
-          />
+          <DetailModal loading={loading} width={width} height={height} book={book} />
           {/* Modal footer */}
           <div className="modal-footer">
             <div className="modal-escape">
