@@ -48,7 +48,7 @@
 - Apply typescript
 - Apply storybook
 - Performance minimum 98%
-- Deploy to vercel
+- [Deploy to Vercel](https://reactjs-five-pi.vercel.app/)
 
 ## Getting started
 
