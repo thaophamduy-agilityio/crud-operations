@@ -118,15 +118,11 @@ const Book = () => {
 
   // Function to handle keydown events
   const handleKeyDown = (event: KeyboardEvent): void => {
-    if (event.key === 'Escape') {
-      toggleModal();
-    }
+    event.key === 'Escape' && toggleModal();
   };
 
   // Add event listener for keydown events when the modal is show
-  if (isOpenModal) {
-    document.addEventListener('keydown', handleKeyDown);
-  }
+  isOpenModal && document.addEventListener('keydown', handleKeyDown);
 
   // Function to handle toggle the modal theme
   const toggleThemeModal = () => {
