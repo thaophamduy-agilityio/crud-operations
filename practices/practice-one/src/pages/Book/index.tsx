@@ -2,7 +2,7 @@ import Header from '@components/sessions/Header';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
-import { filterListByCategories } from '@helpers/category';
+import { filterListByCategories, categoriesMap } from '@helpers/category';
 import { Search } from '@helpers/book';
 import { Button } from '@components/common/Button';
 import { sortedBookList } from '@helpers/book';
@@ -75,17 +75,10 @@ const Book = () => {
 
   /**
    * Map over two arrays of objects
-   * @param {listCategories} ICategory[]
+   * @param {listCategories, listBooks} ICategory[], IBook[]
    * @returns {List categories with total item of category} ICategory[]
    */
-  const categoriesFormated = listCategories?.map((category) => {
-    const temp = filterListByCategories(listBooks, category.categoryName);
-
-    return {
-      ...category,
-      total: temp?.length,
-    };
-  });
+  const categoriesFormated = categoriesMap(listCategories, listBooks);
 
   /**
    * Search product by keyword
@@ -95,14 +88,15 @@ const Book = () => {
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setValueSearch(value);
+    setSelectedCategory('All Books');
   };
 
   const valueDebounced: string = useDebounce<string>(valueSearch.trim(), TIME_OUT.DEBOUNCE);
 
   useEffect(() => {
-    const search = Search(listBooks, valueSearch);
+    const search = Search(listBooks, valueDebounced);
     setListBooksFilter(search);
-  }, [valueDebounced]);
+  }, [listBooks, valueDebounced]);
 
   /**
    * Handle toggle the modal theme
