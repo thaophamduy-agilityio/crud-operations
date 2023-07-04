@@ -1,6 +1,6 @@
 import { Button } from '@components/common/Button/index';
 import { IBook } from '@interface/book';
-import { DetailModal } from './DetailModal';
+import { ReactNode } from 'react';
 
 // Define the props for the Modal component
 interface ModalProps {
@@ -8,10 +8,8 @@ interface ModalProps {
   showModal: boolean;
   toggleThemeModal: () => void;
   isThemeModal: boolean;
-  loading: 'lazy' | 'eager';
-  width: string;
-  height: string;
   book: Partial<IBook>;
+  children: ReactNode;
 }
 /**
  * Primary UI component for user interaction
@@ -21,10 +19,8 @@ export const Modal = ({
   showModal,
   toggleThemeModal,
   isThemeModal,
-  loading,
-  width,
-  height,
   book,
+  children,
 }: ModalProps) => {
   return showModal ? (
     <>
@@ -38,7 +34,7 @@ export const Modal = ({
             <Button className="btn btn-close-modal" label="" onClick={closeModal} />
           </div>
           {/* Modal content */}
-          <DetailModal loading={loading} width={width} height={height} book={book} />
+          {children}
           {/* Modal footer */}
           <div className="modal-footer">
             <div className="modal-escape">

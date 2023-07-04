@@ -15,6 +15,7 @@ import ListBook from '@components/sessions/Book';
 import BreadCrumb from '@components/sessions/BreadCrumb';
 import FilterDisplay from '@components/sessions/FilterDisplay';
 import FilterSort from '@components/sessions/FilterSort';
+import { DetailModal } from '@components/sessions/Modal/DetailModal';
 
 const Book = () => {
   const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
@@ -224,11 +225,10 @@ const Book = () => {
             closeModal={toggleModal}
             toggleThemeModal={toggleThemeModal}
             isThemeModal={isThemeModal}
-            loading="lazy"
-            width="128"
-            height="170"
             book={bookSelected}
-          />
+          >
+            <DetailModal loading="lazy" width="128" height="170" book={bookSelected} />
+          </Modal>
         </section>
       </main>
     </div>
