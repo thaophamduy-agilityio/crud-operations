@@ -23,15 +23,13 @@ export const Input = ({
   onChange,
 }: InputProps) => {
   return (
-    <>
-      <input
-        name={name}
-        className={className}
-        type={type}
-        placeholder={placeholder}
-        disabled={isDisabled}
-        onChange={onChange}
-      />
-    </>
+    <input
+      name={name}
+      className={className}
+      type={type}
+      placeholder={placeholder}
+      disabled={isDisabled}
+      onChange={onChange}
+    />
   );
 };
