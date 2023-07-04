@@ -25,7 +25,7 @@ const Header = ({
     <header className={`header-site ${isOpenSideBar ? 'open' : ''}`}>
       <section className="header-left">
         <span className="header-toogle">
-          <Button className="btn btn-hamburger" label="" onClick={toggleSideBar} />
+          <Button className="btn btn-hamburger" onClick={toggleSideBar} />
         </span>
         <a className="header-logo" href="./" title="Book Shelter">
           <Image
@@ -48,7 +48,6 @@ const Header = ({
         />
         <Button
           className={`${isChangeDarkTheme ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
-          label=""
           onClick={toggleThemePage}
         />
       </section>

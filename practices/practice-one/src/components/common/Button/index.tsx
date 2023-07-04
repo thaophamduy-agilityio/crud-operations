@@ -1,31 +1,28 @@
 interface ButtonProps {
-  primary?: boolean;
   className?: string;
   backgroundColor?: string;
   size?: 'small' | 'medium' | 'large';
-  label: string;
+  label?: string;
   text?: string;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({
-  primary = false,
-  size,
+  size = 'medium',
   backgroundColor,
   label,
   text,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'btn-primary' : 'btn-secondary';
   return (
     <div className="btn-container">
       <button
-        aria-label={`Aria ${text}`}
+        aria-label={`Aria button`}
         type="button"
-        className={['btn', `btn-${size}`, mode].join(' ')}
+        className={['btn', `btn-${size}`].join(' ')}
         style={{ backgroundColor }}
         {...props}
       >

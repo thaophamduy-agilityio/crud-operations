@@ -196,7 +196,7 @@ const Book = () => {
       />
       <main className="main-site">
         <aside className="column-sidebar">
-          <Button className="btn btn-close-menu" label="" onClick={handleCloseSideBar} />
+          <Button className="btn btn-close-menu" onClick={handleCloseSideBar} />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <ListCategory

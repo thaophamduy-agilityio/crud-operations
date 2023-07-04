@@ -15,13 +15,11 @@ const FilterDisplay = ({ displayOption, handleDisplay }: FilterDisplayProps) => 
       <div className="filter-display-icons">
         <Button
           className={`btn btn-display-grid ${displayOption.grid ? 'selected' : ''}`}
-          label=""
           onClick={handleDisplay}
           text="Grid"
         />
         <Button
           className={`btn btn-display-list ${displayOption.list ? 'selected' : ''}`}
-          label=""
           onClick={handleDisplay}
           text="List"
         />

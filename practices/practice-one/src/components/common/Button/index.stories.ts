@@ -26,14 +26,12 @@ export const Filter: Story = {
 export const DisplayGrid: Story = {
   args: {
     className: 'btn btn-display-grid',
-    label: '',
   },
 };
 
 export const DisplayList: Story = {
   args: {
     className: 'btn btn-display-list',
-    label: '',
   },
 };
 
@@ -54,33 +52,31 @@ export const SortOrder: Story = {
 export const CloseModal: Story = {
   args: {
     className: 'btn btn-close-modal',
-    label: '',
   },
 };
 
 export const CloseMenu: Story = {
   args: {
     className: 'btn btn-close-menu',
-    label: '',
   },
 };
 
 export const Hamburger: Story = {
   args: {
     className: 'btn btn-hamburger',
-    label: '',
   },
 };
 
 export const Primary: Story = {
   args: {
-    primary: true,
+    className: 'btn btn-primary',
     label: 'Button',
   },
 };
 
 export const Secondary: Story = {
   args: {
+    className: 'btn btn-secondary',
     label: 'Button',
   },
 };
