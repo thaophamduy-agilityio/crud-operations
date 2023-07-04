@@ -14,7 +14,7 @@ interface ImageProps {
 export const Image = ({ text, imageSrc, altText, width, height, loading }: ImageProps) => {
   return (
     <div className="img-container">
-      {!!imageSrc && (
+      {
         <img
           className="img-item"
           loading={loading}
@@ -23,7 +23,7 @@ export const Image = ({ text, imageSrc, altText, width, height, loading }: Image
           height={height}
           alt={altText}
         />
-      )}
+      }
       {!!text && <h1 className="text">{text}</h1>}
     </div>
   );
