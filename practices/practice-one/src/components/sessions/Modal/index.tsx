@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 interface ModalProps {
   closeModal: () => void;
   showModal: boolean;
-  toggleThemeModal: () => void;
+  onToggleThemeModal: () => void;
   isThemeModal: boolean;
   book: Partial<IBook>;
   children: ReactNode;
@@ -17,7 +17,7 @@ interface ModalProps {
 export const Modal = ({
   closeModal,
   showModal,
-  toggleThemeModal,
+  onToggleThemeModal,
   isThemeModal,
   book,
   children,
@@ -45,7 +45,7 @@ export const Modal = ({
               className={`${
                 isThemeModal ? 'btn btn-sunshine-modal' : 'btn btn-sunshine-modal dark'
               }`}
-              onClick={toggleThemeModal}
+              onClick={onToggleThemeModal}
             />
           </div>
         </div>

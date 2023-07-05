@@ -23,9 +23,6 @@ export const Default: Story = {
       ('');
     },
     isThemeModal: false,
-    loading: 'lazy',
-    width: '',
-    height: '',
     book: {
       title: 'Angels and demons',
       description:
@@ -35,5 +32,6 @@ export const Default: Story = {
       published: '2021',
       publishers: 'Hollman',
     },
+    children: 'Modal content here!',
   },
 };
