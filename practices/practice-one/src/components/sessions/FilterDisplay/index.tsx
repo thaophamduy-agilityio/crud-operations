@@ -1,23 +1,23 @@
 import { Button } from '@components/common/Button/index';
 
 interface FilterDisplayProps {
+  onDisplay: () => void;
   displayOption: boolean;
-  handleDisplay: () => void;
 }
 
-const FilterDisplay = ({ displayOption, handleDisplay }: FilterDisplayProps) => {
+const FilterDisplay = ({ onDisplay, displayOption }: FilterDisplayProps) => {
   return (
     <div className="filter-display">
       <div className="filter-title">Display Options</div>
       <div className="filter-display-icons">
         <Button
           className={`btn btn-display-grid ${displayOption ? '' : 'selected'}`}
-          onClick={handleDisplay}
+          onClick={onDisplay}
           text="Grid"
         />
         <Button
           className={`btn btn-display-list ${displayOption ? 'selected' : ''}`}
-          onClick={handleDisplay}
+          onClick={onDisplay}
           text="List"
         />
       </div>

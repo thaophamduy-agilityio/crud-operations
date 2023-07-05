@@ -1,14 +1,14 @@
 import { Button } from '@components/common/Button/index';
 
 interface FilterSortProps {
-  handleSort: () => void;
+  onSort: () => void;
   sortOption: {
     title: boolean;
     published: boolean;
   };
 }
 
-const FilterSort = ({ handleSort, sortOption }: FilterSortProps) => {
+const FilterSort = ({ onSort, sortOption }: FilterSortProps) => {
   return (
     <div className="filter-sort">
       <div className="filter-title">Sort By</div>
@@ -16,12 +16,12 @@ const FilterSort = ({ handleSort, sortOption }: FilterSortProps) => {
         <Button
           className={`btn btn-sort ${sortOption.title ? 'selected' : ''}`}
           label="Alphabetical Order"
-          onClick={handleSort}
+          onClick={onSort}
         />
         <Button
           className={`btn btn-sort ${sortOption.published ? 'selected' : ''}`}
           label="Release Year"
-          onClick={handleSort}
+          onClick={onSort}
         />
       </div>
     </div>

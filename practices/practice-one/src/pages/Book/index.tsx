@@ -202,15 +202,12 @@ const Book = () => {
         </aside>
         <section className="column-content">
           <div className="book-toolbar-wrapper">
-            <BreadCrumb
-              selectedCategory={selectedCategory}
-              numberOfBook={listBooksFilter?.length}
-            />
+            <BreadCrumb selectedCategory={selectedCategory} total={listBooksFilter?.length} />
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
-                <FilterDisplay displayOption={isDisplayGrid} handleDisplay={handleDisplay} />
-                <FilterSort handleSort={handleSort} sortOption={sortOption} />
+                <FilterDisplay onDisplay={handleDisplay} displayOption={isDisplayGrid} />
+                <FilterSort onSort={handleSort} sortOption={sortOption} />
               </div>
             </div>
           </div>
