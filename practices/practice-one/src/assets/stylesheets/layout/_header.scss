@@ -9,7 +9,6 @@
     @extend %item-center;
     @extend %margin-center;
     background-color: $bg-color-secondary;
-    border-radius: 10px 10px 0 0;
     padding: 10px 25px 10px 20px;
 
     .img-item {
@@ -17,6 +16,7 @@
     }
 
     @include only-for-desktop() {
+      border-radius: 10px 10px 0 0;
       padding: 8px 40px 8px 50px;
     }
 

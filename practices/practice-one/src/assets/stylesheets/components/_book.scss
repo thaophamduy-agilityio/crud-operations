@@ -176,14 +176,22 @@
       font-size: $text-book-title;
       line-height: 17px;
       border-radius: 30px;
-      padding: 12px 32px;
+      padding: 12px 20px;
+
+      @include only-for-desktop() {
+        padding: 12px 32px;
+      }
     }
 
     &-arrow {
-      margin: 0 20px;
+      margin: 0 15px;
 
       .img-container {
         @extend %inline-block;
+      }
+
+      @include only-for-desktop() {
+        margin: 0 20px;
       }
     }
 

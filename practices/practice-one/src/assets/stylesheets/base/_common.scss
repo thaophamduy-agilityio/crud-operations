@@ -24,15 +24,18 @@ body {
 .container {
   max-width: 1260px;
   width: 100%;
-  margin: 20px auto;
 
   &.dark-theme {
     .header-site,
     .column-sidebar,
     .column-content,
     .book-list-wrapper {
-      background-color: $color-modal-btn-escape;
+      background-color: $bg-color-dark-mode;
     }
+  }
+
+  @include only-for-desktop() {
+    margin: 20px auto;
   }
 }
 
@@ -55,20 +58,20 @@ a {
   width: $column-sidebar;
   background-color: $bg-color-secondary;
   box-shadow: 0px 3px 2px $box-shadow-color;
-  border-radius: 0 0 0 10px;
 
   @include only-for-desktop() {
     display: block;
+    border-radius: 0 0 0 10px;
   }
 }
 
 .column-content {
   background-color: $bg-color-secondary;
   width: 100%;
-  border-radius: 0 0 10px 0;
 
   @include only-for-desktop() {
     width: $column-content;
+    border-radius: 0 0 10px 0;
   }
 }
 
