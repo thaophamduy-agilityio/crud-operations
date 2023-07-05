@@ -1,55 +1,31 @@
-import { Button } from '@components/common/Button/index';
-import { Image } from '@components/common/Image/index';
-import { Input } from '@components/common/Input/index';
-import logo from '@image/book-shelter.svg';
 import { ChangeEvent } from 'react';
+import Logo from '../Logo';
+import Search from '../Search';
+import DarkTheme from '../Theme';
 
 interface HeaderProps {
   isOpenSideBar: boolean;
-  toggleSideBar: () => void;
+  onToggleSideBar: () => void;
   valueSearch: string;
-  handleSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
   isChangeDarkTheme: boolean;
-  toggleThemePage: () => void;
+  onToggleThemePage: () => void;
 }
 
 const Header = ({
   isOpenSideBar,
-  toggleSideBar,
+  onToggleSideBar,
   valueSearch,
-  handleSearchChange,
+  onSearchChange,
   isChangeDarkTheme,
-  toggleThemePage,
+  onToggleThemePage,
 }: HeaderProps) => {
   return (
     <header className={`header-site ${isOpenSideBar ? 'open' : ''}`}>
-      <section className="header-left">
-        <span className="header-toogle">
-          <Button className="btn btn-hamburger" onClick={toggleSideBar} />
-        </span>
-        <a className="header-logo" href="./" title="Book Shelter">
-          <Image
-            altText="Book Shelter"
-            height="44"
-            imageSrc={logo}
-            loading="lazy"
-            width="54"
-            text="BookShelter"
-          />
-        </a>
-      </section>
+      <Logo toggleSideBar={onToggleSideBar} />
       <section className="header-right">
-        <Input
-          type="search"
-          className="input input-search"
-          placeholder="Search books"
-          value={valueSearch}
-          onChange={handleSearchChange}
-        />
-        <Button
-          className={`${isChangeDarkTheme ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
-          onClick={toggleThemePage}
-        />
+        <Search valueSearch={valueSearch} handleSearchChange={onSearchChange} />
+        <DarkTheme isChangeDarkTheme={isChangeDarkTheme} toggleThemePage={onToggleThemePage} />
       </section>
     </header>
   );

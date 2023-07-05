@@ -183,11 +183,11 @@ const Book = () => {
     <div className={`${isChangeDarkTheme ? 'container' : 'container dark-theme'}`}>
       <Header
         isOpenSideBar={isOpenSideBar}
-        toggleSideBar={toggleSideBar}
+        onToggleSideBar={toggleSideBar}
         valueSearch={valueSearch}
-        handleSearchChange={handleSearchChange}
+        onSearchChange={handleSearchChange}
         isChangeDarkTheme={isChangeDarkTheme}
-        toggleThemePage={toggleThemePage}
+        onToggleThemePage={toggleThemePage}
       />
       <main className="main-site">
         <aside className="column-sidebar">
@@ -222,7 +222,7 @@ const Book = () => {
           <Modal
             showModal={isOpenModal}
             closeModal={toggleModal}
-            toggleThemeModal={toggleThemeModal}
+            onToggleThemeModal={toggleThemeModal}
             isThemeModal={isThemeModal}
             book={bookSelected}
           >

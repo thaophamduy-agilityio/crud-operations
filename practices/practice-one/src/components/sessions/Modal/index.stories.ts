@@ -19,7 +19,7 @@ export const Default: Story = {
     closeModal: () => {
       ('');
     },
-    toggleThemeModal: () => {
+    onToggleThemeModal: () => {
       ('');
     },
     isThemeModal: false,
