@@ -6,3 +6,7 @@ export enum ERROR_MESSAGES {
 export const BOOKS_MESSAGES = {
   NO_DATA: 'Not found data!',
 };
+
+export const CATEGORY_MESSAGES = {
+  NO_CATEGORY: 'Not found category!',
+};

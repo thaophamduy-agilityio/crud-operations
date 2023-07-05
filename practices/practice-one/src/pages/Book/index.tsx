@@ -197,7 +197,7 @@ const Book = () => {
           <ListCategory
             categoryList={categoriesFormated}
             categorySelected={selectedCategory}
-            handleSelectCategory={handleFilterListByCategories}
+            onSelectCategory={handleFilterListByCategories}
           />
         </aside>
         <section className="column-content">
@@ -217,7 +217,7 @@ const Book = () => {
           <ListBook
             listBook={listBooksFilter}
             displayOption={isDisplayGrid}
-            toggleModal={toggleModal}
+            onToggleModal={toggleModal}
           />
           <Modal
             showModal={isOpenModal}

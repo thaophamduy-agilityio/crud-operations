@@ -7,16 +7,16 @@ interface BookProps {
   toggleModal: (book: IBook) => void;
 }
 
-const Book = ({ book, displayOption, toggleModal }: BookProps) => {
-  const handleClick = () => {
+const BookItem = ({ book, displayOption, toggleModal }: BookProps) => {
+  const onToggleModal = () => {
     toggleModal(book);
   };
 
   return (
     <li className={`book-item ${displayOption ? 'list' : ''}`}>
-      <Card loading="lazy" width="200" height="200" book={book} onClick={handleClick} />
+      <Card loading="lazy" width="200" height="200" book={book} onClick={onToggleModal} />
     </li>
   );
 };
 
-export default Book;
+export default BookItem;

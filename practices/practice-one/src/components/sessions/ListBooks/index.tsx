@@ -1,27 +1,29 @@
 import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { IBook } from '@interface/book';
-import Book from '../Book';
+import BookItem from '../Book';
 
 interface ListBookProps {
   listBook: IBook[] | undefined;
   displayOption: boolean;
-  toggleModal: (book: IBook) => void;
+  onToggleModal: (book: IBook) => void;
 }
 
-const ListBook = ({ listBook, displayOption, toggleModal }: ListBookProps) => {
+const ListBook = ({ listBook, displayOption, onToggleModal }: ListBookProps) => {
   return (
     <div className="book-list-wrapper">
       <ul className="book-list">
-        {!listBook?.length
-          ? BOOKS_MESSAGES.NO_DATA
-          : listBook?.map((book) => (
-              <Book
-                key={book.id}
-                book={book}
-                displayOption={displayOption}
-                toggleModal={toggleModal}
-              />
-            ))}
+        {!listBook?.length ? (
+          <li className="book-item not-found">{BOOKS_MESSAGES.NO_DATA}</li>
+        ) : (
+          listBook?.map((book) => (
+            <BookItem
+              key={book.id}
+              book={book}
+              displayOption={displayOption}
+              toggleModal={onToggleModal}
+            />
+          ))
+        )}
       </ul>
     </div>
   );

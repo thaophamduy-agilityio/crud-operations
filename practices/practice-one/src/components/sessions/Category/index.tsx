@@ -7,7 +7,7 @@ interface CategoryProps {
 }
 
 const Category = ({ category, categorySelected, handleSelectCategory }: CategoryProps) => {
-  const handleClick = () => {
+  const onSelectCategory = () => {
     handleSelectCategory(`${category.categoryName}`);
   };
 
@@ -19,7 +19,7 @@ const Category = ({ category, categorySelected, handleSelectCategory }: Category
           : 'book-category-item'
       }
       data-id={category.id}
-      onClick={handleClick}
+      onClick={onSelectCategory}
     >
       <div className="book-category-name">
         <span
