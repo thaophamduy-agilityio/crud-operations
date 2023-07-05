@@ -8,9 +8,13 @@ interface BookProps {
 }
 
 const Book = ({ book, displayOption, toggleModal }: BookProps) => {
+  const handleClick = () => {
+    toggleModal(book);
+  };
+
   return (
     <li className={`book-item ${displayOption ? 'list' : ''}`}>
-      <Card loading="lazy" width="200" height="200" book={book} onClick={() => toggleModal(book)} />
+      <Card loading="lazy" width="200" height="200" book={book} onClick={handleClick} />
     </li>
   );
 };

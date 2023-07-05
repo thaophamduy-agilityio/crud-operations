@@ -7,6 +7,10 @@ interface CategoryProps {
 }
 
 const Category = ({ category, categorySelected, handleSelectCategory }: CategoryProps) => {
+  const handleClick = () => {
+    handleSelectCategory(`${category.categoryName}`);
+  };
+
   return (
     <li
       className={
@@ -15,7 +19,7 @@ const Category = ({ category, categorySelected, handleSelectCategory }: Category
           : 'book-category-item'
       }
       data-id={category.id}
-      onClick={() => handleSelectCategory(`${category.categoryName}`)}
+      onClick={handleClick}
     >
       <div className="book-category-name">
         <span
