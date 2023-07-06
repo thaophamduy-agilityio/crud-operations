@@ -17,7 +17,7 @@ import FilterDisplay from '@components/sessions/FilterDisplay';
 import FilterSort from '@components/sessions/FilterSort';
 import { DetailModal } from '@components/sessions/Modal/DetailModal';
 
-const Book = () => {
+const Home = () => {
   const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
   const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
   const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
@@ -231,4 +231,4 @@ const Book = () => {
   );
 };
 
-export default Book;
+export default Home;

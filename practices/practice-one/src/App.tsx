@@ -1,8 +1,8 @@
 import '@stylesheets/app.scss';
-import Book from '@pages/Book/';
+import Home from '@pages/Home';
 
 const App = () => {
-  return <Book />;
+  return <Home />;
 };
 
 export default App;
