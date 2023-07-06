@@ -9,20 +9,24 @@ interface ListCategoryProps {
 }
 
 const ListCategory = ({ categoryList, categorySelected, onSelectCategory }: ListCategoryProps) => {
+  const renderListCategory = () => {
+    return categoryList?.map((category) => (
+      <Category
+        key={category.id}
+        category={category}
+        categorySelected={categorySelected}
+        handleSelectCategory={onSelectCategory}
+      />
+    ));
+  };
+
   return (
     <div className="book-category-wrapper">
       <ul className="book-category">
         {!categoryList?.length ? (
           <li className="book-category-item not-found">{CATEGORY_MESSAGES.NO_CATEGORY}</li>
         ) : (
-          categoryList?.map((category) => (
-            <Category
-              key={category.id}
-              category={category}
-              categorySelected={categorySelected}
-              handleSelectCategory={onSelectCategory}
-            />
-          ))
+          renderListCategory()
         )}
       </ul>
     </div>

@@ -9,20 +9,24 @@ interface ListBookProps {
 }
 
 const ListBook = ({ listBook, displayOption, onToggleModal }: ListBookProps) => {
+  const renderListBook = () => {
+    return listBook?.map((book) => (
+      <BookItem
+        key={book.id}
+        book={book}
+        displayOption={displayOption}
+        toggleModal={onToggleModal}
+      />
+    ));
+  };
+
   return (
     <div className="book-list-wrapper">
       <ul className="book-list">
         {!listBook?.length ? (
           <li className="book-item not-found">{BOOKS_MESSAGES.NO_DATA}</li>
         ) : (
-          listBook?.map((book) => (
-            <BookItem
-              key={book.id}
-              book={book}
-              displayOption={displayOption}
-              toggleModal={onToggleModal}
-            />
-          ))
+          renderListBook()
         )}
       </ul>
     </div>
