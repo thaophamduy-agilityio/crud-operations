@@ -6,7 +6,7 @@ import { ICategory } from '@interface/category';
  * @param {listBooks, categoryName} IBook[], string
  * @returns {List books with categoryName} IBook[]
  */
-export const filterListByCategories = (listBooks: IBook[] | undefined, categoryName: string) => {
+export const filterBooksByCategoryName = (listBooks: IBook[] | undefined, categoryName: string) => {
   return listBooks?.filter((item) => item?.categoryName === categoryName);
 };
 
@@ -15,12 +15,12 @@ export const filterListByCategories = (listBooks: IBook[] | undefined, categoryN
  * @param {listCategories, listBooks} ICategory[], IBook[]
  * @returns {List categories with total item of category} ICategory[]
  */
-export const categoriesMap = (
+export const getCategoryWithTotalItem = (
   listCategories: ICategory[] | undefined,
   listBooks: IBook[] | undefined
 ) =>
   listCategories?.map((category) => {
-    const temp = filterListByCategories(listBooks, category.categoryName);
+    const temp = filterBooksByCategoryName(listBooks, category.categoryName);
 
     return {
       ...category,

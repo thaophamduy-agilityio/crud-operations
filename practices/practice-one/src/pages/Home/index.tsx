@@ -2,7 +2,7 @@ import Header from '@components/sessions/Header';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
-import { filterListByCategories, categoriesMap } from '@helpers/category';
+import { filterBooksByCategoryName, getCategoryWithTotalItem } from '@helpers/category';
 import { Search } from '@helpers/book';
 import { Button } from '@components/common/Button';
 import { sortedBookList } from '@helpers/book';
@@ -63,11 +63,11 @@ const Home = () => {
    * @param {categoryName} string
    * @returns {list items} books
    */
-  const handleFilterListByCategories = (categoryName: string) => {
+  const handleFilterBooksByCategoryName = (categoryName: string) => {
     setSelectedCategory(categoryName);
 
     // Get list filter books with category name
-    const newListByCategory = filterListByCategories(listBooks, categoryName);
+    const newListByCategory = filterBooksByCategoryName(listBooks, categoryName);
 
     setListBooksFilter(newListByCategory);
     setIsOpenSideBar(false);
@@ -79,7 +79,7 @@ const Home = () => {
    * @param {listCategories, listBooks} ICategory[], IBook[]
    * @returns {List categories with total item of category} ICategory[]
    */
-  const categoriesFormated = categoriesMap(listCategories, listBooks);
+  const categoriesFormated = getCategoryWithTotalItem(listCategories, listBooks);
 
   /**
    * Search product by keyword
@@ -197,7 +197,7 @@ const Home = () => {
           <ListCategory
             categoryList={categoriesFormated}
             categorySelected={selectedCategory}
-            onSelectCategory={handleFilterListByCategories}
+            onSelectCategory={handleFilterBooksByCategoryName}
           />
         </aside>
         <section className="column-content">
