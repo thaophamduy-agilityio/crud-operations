@@ -1,5 +1,4 @@
 import { Button } from '@components/common/Button/index';
-import { IBook } from '@interface/book';
 import { ReactNode } from 'react';
 
 // Define the props for the Modal component
@@ -8,7 +7,7 @@ interface ModalProps {
   showModal: boolean;
   onToggleThemeModal: () => void;
   isThemeModal: boolean;
-  book: Partial<IBook>;
+  title: string;
   children: ReactNode;
 }
 /**
@@ -19,7 +18,7 @@ export const Modal = ({
   showModal,
   onToggleThemeModal,
   isThemeModal,
-  book,
+  title,
   children,
 }: ModalProps) => {
   return showModal ? (
@@ -29,7 +28,7 @@ export const Modal = ({
         <div className="modal-container">
           {/* Modal header */}
           <div className="modal-header">
-            <h2 className="modal-title">{book.title}</h2>
+            <h2 className="modal-title">{title}</h2>
             {/* Close button */}
             <Button className="btn btn-close-modal" onClick={closeModal} />
           </div>
