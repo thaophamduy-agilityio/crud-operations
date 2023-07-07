@@ -162,19 +162,19 @@ const Home = () => {
 
   /**
    * Handle display option is grid or list
-   * @param {function} handleDisplay
+   * @param {function} handleDisplayBooks
    */
-  const handleDisplay = (): void => {
+  const handleDisplayBooks = (): void => {
     setIsDisplayGrid((prev) => !prev);
     setIsOpenFilter(false);
   };
 
   /**
    * Handle sort option width title or published
-   * @param {function} handleSort
+   * @param {function} handleSortBooks
    * @returns {list items} list books with sort keys
    */
-  const handleSort = (): void => {
+  const handleSortBooks = (): void => {
     sortedBookList(listBooksFilter, sortOption);
     setSortOption((prev) => {
       return {
@@ -212,8 +212,8 @@ const Home = () => {
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
-                <FilterDisplay onDisplay={handleDisplay} isDisplayBooks={isDisplayGrid} />
-                <FilterSort onSort={handleSort} sortOption={sortOption} />
+                <FilterDisplay onDisplayBooks={handleDisplayBooks} isDisplayBooks={isDisplayGrid} />
+                <FilterSort onSortBooks={handleSortBooks} sortOption={sortOption} />
               </div>
             </div>
           </div>
