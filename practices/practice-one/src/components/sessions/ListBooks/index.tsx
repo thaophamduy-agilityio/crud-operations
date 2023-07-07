@@ -22,6 +22,9 @@ const ListBook = ({ listBook, displayOption, onToggleModal }: ListBookProps) => 
 
   return (
     <div className="book-list-wrapper">
+      <div className="loading-indicator">
+        <div className="loading"></div>
+      </div>
       <ul className="book-list">
         {!listBook?.length ? (
           <li className="book-item not-found">{BOOKS_MESSAGES.NO_DATA}</li>

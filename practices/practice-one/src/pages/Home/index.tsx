@@ -3,7 +3,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
 import { filterBooksByCategoryName, getCategoryWithTotalItem } from '@helpers/category';
-import { Search } from '@helpers/book';
+import { Search, loadingBooks } from '@helpers/book';
 import { Button } from '@components/common/Button';
 import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
@@ -37,7 +37,10 @@ const Home = () => {
    *
    */
   const fetchBooks = async () => {
+    loadingBooks(true);
     const data = await getListBook();
+    loadingBooks(false);
+
     setListBooks(data);
     setListBooksFilter(data);
   };
