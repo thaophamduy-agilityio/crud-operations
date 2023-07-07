@@ -20,8 +20,9 @@
   &-close {
     &-menu,
     &-modal {
+      @include size(30px, 30px);
       @extend %absolute;
-      top: 10px;
+      top: 5px;
       right: -5px;
       background: url('/src/assets/images/close-mobile.svg') 3px no-repeat;
       box-sizing: border-box;

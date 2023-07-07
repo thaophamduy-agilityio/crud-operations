@@ -24,7 +24,7 @@ const Home = () => {
   const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
-  const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(false);
+  const [isOpenCategoriesOnMobile, setIsOpenCategoriesOnMobile] = useState<boolean>(false);
   const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(false);
   const [sortOption, setSortOption] = useState({ title: true, published: false });
   const [valueSearch, setValueSearch] = useState<string>('');
@@ -76,7 +76,7 @@ const Home = () => {
     const newListByCategory = filterBooksByCategoryName(listBooks, categoryName);
 
     setListBooksFilter(newListByCategory);
-    setIsOpenSideBar(false);
+    setIsOpenCategoriesOnMobile(false);
     setIsOpenFilter(false);
   };
 
@@ -145,20 +145,20 @@ const Home = () => {
   };
 
   /**
-   * Handle toggle show sidebar
-   * @param {function} toggleSideBar
+   * Handle toggle show categories on mobile
+   * @param {function} toggleCategoriesOnMobile
    */
-  const toggleSideBar = (): void => {
-    setIsOpenSideBar(!isOpenSideBar);
+  const toggleCategoriesOnMobile = (): void => {
+    setIsOpenCategoriesOnMobile(!isOpenCategoriesOnMobile);
   };
 
   /**
-   * Handle toggle hide sidebar
-   * @param {function} handleCloseSideBar
+   * Handle toggle hide categories on mobile
+   * @param {function} handleCloseCategoriesOnMobile
    */
-  const handleCloseSideBar = useCallback(() => {
-    setIsOpenSideBar(!isOpenSideBar);
-  }, [isOpenSideBar]);
+  const handleCloseCategoriesOnMobile = useCallback(() => {
+    setIsOpenCategoriesOnMobile(!isOpenCategoriesOnMobile);
+  }, [isOpenCategoriesOnMobile]);
 
   /**
    * Handle display option is grid or list
@@ -188,8 +188,8 @@ const Home = () => {
   return (
     <div className={`${isChangeDarkTheme ? 'container' : 'container dark-theme'}`}>
       <Header
-        isOpenSideBar={isOpenSideBar}
-        onToggleSideBar={toggleSideBar}
+        isOpenCategoriesOnMobile={isOpenCategoriesOnMobile}
+        onToggleSideBar={toggleCategoriesOnMobile}
         valueSearch={valueSearch}
         onSearchChange={handleSearchChange}
         isChangeDarkTheme={isChangeDarkTheme}
@@ -197,7 +197,7 @@ const Home = () => {
       />
       <main className="main-site">
         <aside className="column-sidebar">
-          <Button className="btn btn-close-menu" onClick={handleCloseSideBar} />
+          <Button className="btn btn-close-menu" onClick={handleCloseCategoriesOnMobile} />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <ListCategory

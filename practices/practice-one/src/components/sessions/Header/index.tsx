@@ -4,7 +4,7 @@ import Search from '../Search';
 import DarkTheme from '../Theme';
 
 interface HeaderProps {
-  isOpenSideBar: boolean;
+  isOpenCategoriesOnMobile: boolean;
   onToggleSideBar: () => void;
   valueSearch: string;
   onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -13,7 +13,7 @@ interface HeaderProps {
 }
 
 const Header = ({
-  isOpenSideBar,
+  isOpenCategoriesOnMobile,
   onToggleSideBar,
   valueSearch,
   onSearchChange,
@@ -21,7 +21,7 @@ const Header = ({
   onToggleThemePage,
 }: HeaderProps) => {
   return (
-    <header className={`header-site ${isOpenSideBar ? 'open' : ''}`}>
+    <header className={`header-site ${isOpenCategoriesOnMobile ? 'open' : ''}`}>
       <Logo toggleSideBar={onToggleSideBar} />
       <section className="header-right">
         <Search valueSearch={valueSearch} handleSearchChange={onSearchChange} />
