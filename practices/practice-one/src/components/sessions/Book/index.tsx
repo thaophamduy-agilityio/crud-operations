@@ -3,17 +3,17 @@ import { IBook } from '@interface/book';
 
 interface BookProps {
   book: IBook;
-  displayOption: boolean;
+  isDisplayBooks: boolean;
   toggleModal: (book: IBook) => void;
 }
 
-const BookItem = ({ book, displayOption, toggleModal }: BookProps) => {
+const BookItem = ({ book, isDisplayBooks, toggleModal }: BookProps) => {
   const onToggleModal = () => {
     toggleModal(book);
   };
 
   return (
-    <li className={`book-item ${displayOption ? 'list' : ''}`}>
+    <li className={`book-item ${isDisplayBooks ? 'list' : ''}`}>
       <Card loading="lazy" width="200" height="200" book={book} onClick={onToggleModal} />
     </li>
   );

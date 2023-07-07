@@ -212,14 +212,14 @@ const Home = () => {
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
               <div className="filter-box">
-                <FilterDisplay onDisplay={handleDisplay} displayOption={isDisplayGrid} />
+                <FilterDisplay onDisplay={handleDisplay} isDisplayBooks={isDisplayGrid} />
                 <FilterSort onSort={handleSort} sortOption={sortOption} />
               </div>
             </div>
           </div>
           <ListBook
             listBook={listBooksFilter}
-            displayOption={isDisplayGrid}
+            isDisplayBooks={isDisplayGrid}
             onToggleModal={toggleModal}
           />
           <Modal

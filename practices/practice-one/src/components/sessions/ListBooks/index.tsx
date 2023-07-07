@@ -4,17 +4,17 @@ import BookItem from '../Book';
 
 interface ListBookProps {
   listBook: IBook[] | undefined;
-  displayOption: boolean;
+  isDisplayBooks: boolean;
   onToggleModal: (book: IBook) => void;
 }
 
-const ListBook = ({ listBook, displayOption, onToggleModal }: ListBookProps) => {
+const ListBook = ({ listBook, isDisplayBooks, onToggleModal }: ListBookProps) => {
   const renderListBook = () => {
     return listBook?.map((book) => (
       <BookItem
         key={book.id}
         book={book}
-        displayOption={displayOption}
+        isDisplayBooks={isDisplayBooks}
         toggleModal={onToggleModal}
       />
     ));
