@@ -23,15 +23,7 @@ export const Default: Story = {
       ('');
     },
     isThemeModal: false,
-    book: {
-      title: 'Angels and demons',
-      description:
-        'Culpa nulla pariatur cupidatat nisi incididunt ea do ipsum. Incididunt quis mollit elit commodo cillum eiusmod reprehenderit labore irure.',
-      author: 'Stuart Matt',
-      image: 'https://picsum.photos/200/200',
-      published: '2021',
-      publishers: 'Hollman',
-    },
+    title: 'Angels and demons',
     children: 'Modal content here!',
   },
 };
