@@ -3,11 +3,11 @@ import { ICategory } from '@interface/category';
 
 /**
  * Get list filter books with category name
- * @param {listBooks, categoryName} IBook[], string
- * @returns {List books with categoryName} IBook[]
+ * @param {listBooks, name} IBook[], string
+ * @returns {List books with name} IBook[]
  */
-export const filterBooksByCategoryName = (listBooks: IBook[] | undefined, categoryName: string) => {
-  return listBooks?.filter((item) => item?.categoryName === categoryName);
+export const filterBooksByCategoryName = (listBooks: IBook[] | undefined, name: string) => {
+  return listBooks?.filter((item) => item?.categoryName === name);
 };
 
 /**
@@ -20,7 +20,7 @@ export const getCategoryWithTotalItem = (
   listBooks: IBook[] | undefined
 ) =>
   listCategories?.map((category) => {
-    const temp = filterBooksByCategoryName(listBooks, category.categoryName);
+    const temp = filterBooksByCategoryName(listBooks, category.name);
 
     return {
       ...category,

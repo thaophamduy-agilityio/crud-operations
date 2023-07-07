@@ -187,55 +187,55 @@
   "categories": [
     {
       "id": "1",
-      "categoryName": "Adventure"
+      "name": "Adventure"
     },
     {
       "id": "2",
-      "categoryName": "Contemporary"
+      "name": "Contemporary"
     },
     {
       "id": "3",
-      "categoryName": "Romance"
+      "name": "Romance"
     },
     {
       "id": "4",
-      "categoryName": "Fantasy"
+      "name": "Fantasy"
     },
     {
       "id": "5",
-      "categoryName": "Dystopian"
+      "name": "Dystopian"
     },
     {
       "id": "6",
-      "categoryName": "Mystery"
+      "name": "Mystery"
     },
     {
       "id": "7",
-      "categoryName": "Horror"
+      "name": "Horror"
     },
     {
       "id": "8",
-      "categoryName": "Thriller"
+      "name": "Thriller"
     },
     {
       "id": "9",
-      "categoryName": "Paranormal"
+      "name": "Paranormal"
     },
     {
       "id": "10",
-      "categoryName": "Historical Fi"
+      "name": "Historical Fi"
     },
     {
       "id": "11",
-      "categoryName": "Scifi"
+      "name": "Scifi"
     },
     {
       "id": "12",
-      "categoryName": "Memoir"
+      "name": "Memoir"
     },
     {
       "id": "13",
-      "categoryName": "Sports"
+      "name": "Sports"
     }
   ]
 }

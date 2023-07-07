@@ -54,26 +54,26 @@ const Home = () => {
   /**
    * Get categories from API
    */
-  const fetchCategory = async () => {
+  const fetchCategories = async () => {
     const url = `${process.env.API_ENDPOINT}/${endpoint.CategoriesBaseUrl}`;
     const data = await getData(url);
     setListCategories(data);
   };
 
   useEffect(() => {
-    fetchCategory();
+    fetchCategories();
   }, []);
 
   /**
    * List books when click category name
-   * @param {categoryName} string
+   * @param {name} string
    * @returns {list items} books
    */
-  const handleFilterBooksByCategoryName = (categoryName: string) => {
-    setSelectedCategory(categoryName);
+  const handleFilterBooksByCategoryName = (name: string) => {
+    setSelectedCategory(name);
 
     // Get list filter books with category name
-    const newListByCategory = filterBooksByCategoryName(listBooks, categoryName);
+    const newListByCategory = filterBooksByCategoryName(listBooks, name);
 
     setListBooksFilter(newListByCategory);
     setIsOpenCategoriesOnMobile(false);
