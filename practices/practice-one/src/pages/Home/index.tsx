@@ -189,7 +189,7 @@ const Home = () => {
     <div className={`${isChangeDarkTheme ? 'container' : 'container dark-theme'}`}>
       <Header
         isOpenCategoriesOnMobile={isOpenCategoriesOnMobile}
-        onToggleSideBar={toggleCategoriesOnMobile}
+        onToggleCategoriesOnMobile={toggleCategoriesOnMobile}
         valueSearch={valueSearch}
         onSearchChange={handleSearchChange}
         isChangeDarkTheme={isChangeDarkTheme}

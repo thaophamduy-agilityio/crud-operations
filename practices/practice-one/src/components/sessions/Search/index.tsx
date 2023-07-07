@@ -3,17 +3,17 @@ import { ChangeEvent } from 'react';
 
 interface SearchProps {
   valueSearch: string;
-  handleSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Search = ({ valueSearch, handleSearchChange }: SearchProps) => {
+const Search = ({ valueSearch, onSearchChange }: SearchProps) => {
   return (
     <Input
       type="search"
       className="input input-search"
       placeholder="Search books"
       value={valueSearch}
-      onChange={handleSearchChange}
+      onChange={onSearchChange}
     />
   );
 };

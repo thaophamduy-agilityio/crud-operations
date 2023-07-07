@@ -9,17 +9,19 @@ interface FilterSortProps {
 }
 
 const FilterSort = ({ onSortBooks, sortOption }: FilterSortProps) => {
+  const { title, published } = sortOption || {};
+
   return (
     <div className="filter-sort">
       <div className="filter-title">Sort By</div>
       <div className="filter-sort-icons">
         <Button
-          className={`btn btn-sort ${sortOption.title ? 'selected' : ''}`}
+          className={`btn btn-sort ${title ? 'selected' : ''}`}
           label="Alphabetical Order"
           onClick={onSortBooks}
         />
         <Button
-          className={`btn btn-sort ${sortOption.published ? 'selected' : ''}`}
+          className={`btn btn-sort ${published ? 'selected' : ''}`}
           label="Release Year"
           onClick={onSortBooks}
         />

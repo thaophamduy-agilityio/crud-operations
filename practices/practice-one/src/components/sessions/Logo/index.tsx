@@ -3,14 +3,14 @@ import { Image } from '@components/common/Image/index';
 import logo from '@image/book-shelter.svg';
 
 interface LogoProps {
-  toggleSideBar: () => void;
+  onToggleCategoriesOnMobile: () => void;
 }
 
-const Logo = ({ toggleSideBar }: LogoProps) => {
+const Logo = ({ onToggleCategoriesOnMobile }: LogoProps) => {
   return (
     <section className="header-left">
       <span className="header-toogle">
-        <Button className="btn btn-hamburger" onClick={toggleSideBar} />
+        <Button className="btn btn-hamburger" onClick={onToggleCategoriesOnMobile} />
       </span>
       <a className="header-logo" href="./" title="Book Shelter">
         <Image

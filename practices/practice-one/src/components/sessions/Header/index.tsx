@@ -5,7 +5,7 @@ import DarkTheme from '../Theme';
 
 interface HeaderProps {
   isOpenCategoriesOnMobile: boolean;
-  onToggleSideBar: () => void;
+  onToggleCategoriesOnMobile: () => void;
   valueSearch: string;
   onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
   isChangeDarkTheme: boolean;
@@ -14,7 +14,7 @@ interface HeaderProps {
 
 const Header = ({
   isOpenCategoriesOnMobile,
-  onToggleSideBar,
+  onToggleCategoriesOnMobile,
   valueSearch,
   onSearchChange,
   isChangeDarkTheme,
@@ -22,9 +22,9 @@ const Header = ({
 }: HeaderProps) => {
   return (
     <header className={`header-site ${isOpenCategoriesOnMobile ? 'open' : ''}`}>
-      <Logo toggleSideBar={onToggleSideBar} />
+      <Logo onToggleCategoriesOnMobile={onToggleCategoriesOnMobile} />
       <section className="header-right">
-        <Search valueSearch={valueSearch} handleSearchChange={onSearchChange} />
+        <Search valueSearch={valueSearch} onSearchChange={onSearchChange} />
         <DarkTheme isChangeDarkTheme={isChangeDarkTheme} toggleThemePage={onToggleThemePage} />
       </section>
     </header>

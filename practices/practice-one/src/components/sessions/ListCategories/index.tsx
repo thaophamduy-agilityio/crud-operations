@@ -15,7 +15,7 @@ const ListCategory = ({ categoryList, categorySelected, onSelectCategory }: List
         key={category.id}
         category={category}
         categorySelected={categorySelected}
-        handleSelectCategory={onSelectCategory}
+        onSelectCategory={onSelectCategory}
       />
     ));
   };

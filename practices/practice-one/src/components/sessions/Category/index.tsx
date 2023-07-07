@@ -3,21 +3,21 @@ import { ICategory } from '@interface/category';
 interface CategoryProps {
   category: ICategory;
   categorySelected: string;
-  handleSelectCategory: (name: string) => void;
+  onSelectCategory: (name: string) => void;
 }
 
-const Category = ({ category, categorySelected, handleSelectCategory }: CategoryProps) => {
+const Category = ({ category, categorySelected, onSelectCategory }: CategoryProps) => {
   const { id, name, total } = category || {};
 
-  const onSelectCategory = () => {
-    handleSelectCategory(name);
+  const handleSelectCategory = () => {
+    onSelectCategory(name);
   };
 
   return (
     <li
       className={name === categorySelected ? 'book-category-item selected' : 'book-category-item'}
       data-id={id}
-      onClick={onSelectCategory}
+      onClick={handleSelectCategory}
     >
       <div className="book-category-name">
         <span className={['book-category-shorthand', `book-category-${name}`].join(' ')}>
