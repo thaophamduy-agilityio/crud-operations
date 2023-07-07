@@ -1,7 +1,7 @@
 import { IBook } from '@interface/book';
 
 // Define the props for the Modal Detail component
-interface DetailModalProps {
+interface BookDetailProps {
   loading: 'lazy' | 'eager';
   width: string;
   height: string;
@@ -10,12 +10,12 @@ interface DetailModalProps {
 /**
  * Primary UI component for user interaction
  */
-export const DetailModal = ({
+export const BookDetail = ({
   loading,
   width,
   height,
   book: { title, description, author, published, publishers, image },
-}: DetailModalProps) => {
+}: BookDetailProps) => {
   return (
     <>
       <div className="modal-content">
