@@ -9,8 +9,7 @@ import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/sessions/Modal';
-import { getData } from '@services/api-request';
-import endpoint from '@helpers/endpoints-config';
+import { getCategories, getListBook } from '@services/api-request';
 import ListCategory from '@components/sessions/ListCategories';
 import ListBook from '@components/sessions/ListBooks';
 import BreadCrumb from '@components/sessions/BreadCrumb';
@@ -39,8 +38,7 @@ const Home = () => {
    */
   const fetchBooks = async () => {
     loadingBooks(true);
-    const url = `${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`;
-    const data = await getData(url);
+    const data = await getListBook();
     loadingBooks(false);
 
     setListBooks(data);
@@ -55,8 +53,7 @@ const Home = () => {
    * Get categories from API
    */
   const fetchCategories = async () => {
-    const url = `${process.env.API_ENDPOINT}/${endpoint.CategoriesBaseUrl}`;
-    const data = await getData(url);
+    const data = await getCategories();
     setListCategories(data);
   };
 
