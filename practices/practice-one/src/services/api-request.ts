@@ -12,7 +12,7 @@ import { ICategory } from '@interface/category';
 export const getData = <T>(url: string) => axios.get<T>(url);
 
 export const getListBook = async (): Promise<IBook[] | undefined> => {
-  const res = await getData<IBook[]>(`${process.env.API_ENDPOINT}/${endpoint.BooksBaseUrl}`);
+  const res = await getData<IBook[]>(`${process.env.VITE_BASE_URL}/${endpoint.BooksBaseUrl}`);
 
   try {
     return res.data;
@@ -23,7 +23,7 @@ export const getListBook = async (): Promise<IBook[] | undefined> => {
 
 export const getCategories = async (): Promise<ICategory[] | undefined> => {
   const res = await getData<ICategory[]>(
-    `${process.env.API_ENDPOINT}/${endpoint.CategoriesBaseUrl}`
+    `${process.env.VITE_BASE_URL}/${endpoint.CategoriesBaseUrl}`
   );
 
   try {
