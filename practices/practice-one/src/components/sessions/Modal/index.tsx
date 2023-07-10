@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 // Define the props for the Modal component
 interface ModalProps {
-  closeModal: () => void;
+  onCloseModal: () => void;
   showModal: boolean;
   onToggleThemeModal: () => void;
   isThemeModal: boolean;
@@ -14,7 +14,7 @@ interface ModalProps {
  * Primary UI component for user interaction
  */
 export const Modal = ({
-  closeModal,
+  onCloseModal,
   showModal,
   onToggleThemeModal,
   isThemeModal,
@@ -23,14 +23,14 @@ export const Modal = ({
 }: ModalProps) => {
   return showModal ? (
     <>
-      <div className="modal-overlay" onClick={closeModal}></div>
+      <div className="modal-overlay" onClick={onCloseModal}></div>
       <div className={`${isThemeModal ? 'modal' : 'modal dark-theme'}`}>
         <div className="modal-container">
           {/* Modal header */}
           <div className="modal-header">
             <h2 className="modal-title">{title}</h2>
             {/* Close button */}
-            <Button className="btn btn-close-modal" onClick={closeModal} />
+            <Button className="btn btn-close-modal" onClick={onCloseModal} />
           </div>
           {/* Modal content */}
           {children}

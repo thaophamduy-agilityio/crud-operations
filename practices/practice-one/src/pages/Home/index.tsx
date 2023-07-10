@@ -221,7 +221,7 @@ const Home = () => {
           />
           <Modal
             showModal={isOpenModal}
-            closeModal={toggleModal}
+            onCloseModal={toggleModal}
             onToggleThemeModal={toggleThemeModal}
             isThemeModal={isThemeModal}
             title={bookSelected.title}

@@ -15,14 +15,8 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
   args: {
-    showModal: false,
-    closeModal: () => {
-      ('');
-    },
-    onToggleThemeModal: () => {
-      ('');
-    },
-    isThemeModal: false,
+    showModal: true,
+    isThemeModal: true,
     title: 'Angels and demons',
     children: 'Modal content here!',
   },
