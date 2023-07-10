@@ -7,7 +7,7 @@ import { ICategory } from '@interface/category';
  * @returns {List books with name} IBook[]
  */
 export const filterBooksByCategoryName = (listBooks: IBook[] | undefined, name: string) => {
-  return listBooks?.filter((item) => item?.categoryName === name);
+  return listBooks?.filter((item) => item?.category === name);
 };
 
 /**

@@ -34,10 +34,10 @@ export const sortedBookList = (listBook: IBook[] | undefined, { title, published
  * @returns {IBook[]} list books that have been searched
  */
 export const Search = (listBooks: IBook[] | undefined, valueSearch: string) => {
-  const result = listBooks?.filter(({ title, categoryName }) => {
+  const result = listBooks?.filter(({ title, category }) => {
     const keyword = valueSearch.toLowerCase();
     const isMatchWithTitle = title.toLowerCase().includes(keyword);
-    const isMatchWithCategory = categoryName.toLowerCase().includes(keyword);
+    const isMatchWithCategory = category.toLowerCase().includes(keyword);
 
     return isMatchWithTitle || isMatchWithCategory;
   });
