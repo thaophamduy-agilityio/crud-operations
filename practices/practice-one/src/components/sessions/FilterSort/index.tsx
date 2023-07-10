@@ -3,25 +3,25 @@ import { Button } from '@components/common/Button/index';
 interface FilterSortProps {
   onSortBooks: () => void;
   sortOption: {
-    title: boolean;
-    published: boolean;
+    isSortByAlphabet: boolean;
+    isSortByYear: boolean;
   };
 }
 
 const FilterSort = ({ onSortBooks, sortOption }: FilterSortProps) => {
-  const { title, published } = sortOption || {};
+  const { isSortByAlphabet, isSortByYear } = sortOption || {};
 
   return (
     <div className="filter-sort">
       <div className="filter-title">Sort By</div>
       <div className="filter-sort-icons">
         <Button
-          className={`btn btn-sort ${title ? 'selected' : ''}`}
+          className={`btn btn-sort ${isSortByAlphabet ? 'selected' : ''}`}
           label="Alphabetical Order"
           onClick={onSortBooks}
         />
         <Button
-          className={`btn btn-sort ${published ? 'selected' : ''}`}
+          className={`btn btn-sort ${isSortByYear ? 'selected' : ''}`}
           label="Release Year"
           onClick={onSortBooks}
         />

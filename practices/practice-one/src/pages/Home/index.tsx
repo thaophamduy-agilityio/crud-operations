@@ -25,7 +25,7 @@ const Home = () => {
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenCategoriesOnMobile, setIsOpenCategoriesOnMobile] = useState<boolean>(false);
   const [isDisplayGrid, setIsDisplayGrid] = useState<boolean>(false);
-  const [sortOption, setSortOption] = useState({ title: true, published: false });
+  const [sortOption, setSortOption] = useState({ isSortByAlphabet: true, isSortByYear: false });
   const [valueSearch, setValueSearch] = useState<string>('');
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [bookSelected, setBookSelected] = useState<IBook>({} as IBook);
@@ -175,8 +175,8 @@ const Home = () => {
     sortedBookList(listBooksFilter, sortOption);
     setSortOption((prev) => {
       return {
-        title: !prev.title,
-        published: !prev.published,
+        isSortByAlphabet: !prev.isSortByAlphabet,
+        isSortByYear: !prev.isSortByYear,
       };
     });
     setIsOpenFilter(false);

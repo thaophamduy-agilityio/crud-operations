@@ -2,8 +2,8 @@ import { IBook } from '@interface/book';
 import { displayElement } from './display-element';
 
 interface sortOption {
-  title: boolean;
-  published: boolean;
+  isSortByAlphabet: boolean;
+  isSortByYear: boolean;
 }
 
 /**
@@ -13,12 +13,15 @@ interface sortOption {
  * @param {SortYear} { published }:  sort option year
  * @returns {IBook[]} list book that have been sorted
  */
-export const sortedBookList = (listBook: IBook[] | undefined, { title, published }: sortOption) => {
-  if (title) {
+export const sortedBookList = (
+  listBook: IBook[] | undefined,
+  { isSortByAlphabet, isSortByYear }: sortOption
+) => {
+  if (isSortByAlphabet) {
     listBook?.sort((preBook: IBook, nextBook: IBook) => (nextBook.title > preBook.title ? 1 : -1));
   }
 
-  if (published) {
+  if (isSortByYear) {
     listBook?.sort((preBook: IBook, nextBook: IBook) =>
       nextBook.published > preBook.published ? 1 : -1
     );
