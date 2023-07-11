@@ -3,7 +3,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
 import { filterBooksByCategoryName, getCategoryWithTotalItem } from '@helpers/category';
-import { Search, loadingBooks } from '@helpers/book';
+import { Search } from '@helpers/book';
 import { Button } from '@components/common/Button';
 import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
@@ -20,6 +20,7 @@ import { BookDetail } from '@components/sessions/Modal/BookDetail';
 const Home = () => {
   const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
   const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
@@ -37,9 +38,9 @@ const Home = () => {
    *
    */
   const fetchBooks = async () => {
-    loadingBooks(true);
+    setIsLoading(true);
     const data = await getListBook();
-    loadingBooks(false);
+    setIsLoading(false);
 
     setListBooks(data);
     setListBooksFilter(data);
@@ -214,11 +215,17 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <ListBook
-            listBook={listBooksFilter}
-            isDisplayBooks={isDisplayGrid}
-            onToggleModal={toggleModal}
-          />
+          {isLoading ? (
+            <div className="loading-indicator">
+              <div className="loading"></div>
+            </div>
+          ) : (
+            <ListBook
+              listBook={listBooksFilter}
+              isDisplayBooks={isDisplayGrid}
+              onToggleModal={toggleModal}
+            />
+          )}
           <Modal
             showModal={isOpenModal}
             onCloseModal={toggleModal}
