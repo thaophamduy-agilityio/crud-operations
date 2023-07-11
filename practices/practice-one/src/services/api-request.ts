@@ -11,7 +11,7 @@ import { ICategory } from '@interface/category';
 
 export const getData = <T>(url: string) => axios.get<T>(url);
 
-export const getListBook = async (): Promise<IBook[] | undefined> => {
+export const getBooks = async (): Promise<IBook[] | undefined> => {
   const res = await getData<IBook[]>(`${process.env.VITE_BASE_URL}/${endpoint.BooksBaseUrl}`);
 
   try {

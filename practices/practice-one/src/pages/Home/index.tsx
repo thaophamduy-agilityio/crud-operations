@@ -9,7 +9,7 @@ import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/sessions/Modal';
-import { getCategories, getListBook } from '@services/api-request';
+import { getCategories, getBooks } from '@services/api-request';
 import ListCategory from '@components/sessions/ListCategories';
 import ListBook from '@components/sessions/ListBooks';
 import BreadCrumb from '@components/sessions/BreadCrumb';
@@ -39,7 +39,7 @@ const Home = () => {
    */
   const fetchBooks = async () => {
     setIsLoading(true);
-    const data = await getListBook();
+    const data = await getBooks();
     setIsLoading(false);
 
     setListBooks(data);
