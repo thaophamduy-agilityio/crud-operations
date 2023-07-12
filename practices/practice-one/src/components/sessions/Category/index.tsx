@@ -21,7 +21,7 @@ const Category = ({ category, categorySelected, onSelectCategory }: CategoryProp
     >
       <div className="book-category-name">
         <span className={['book-category-shorthand', `book-category-${name}`].join(' ')}>
-          {JSON.stringify(name).slice(1, 3)}
+          {name.substring(0, 2)}
         </span>
         {name}
       </div>
