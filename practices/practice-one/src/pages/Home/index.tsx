@@ -16,6 +16,7 @@ import BreadCrumb from '@components/sessions/BreadCrumb';
 import FilterDisplay from '@components/sessions/FilterDisplay';
 import FilterSort from '@components/sessions/FilterSort';
 import { BookDetail } from '@components/sessions/Modal/BookDetail';
+import { LoadingIndicator } from '@components/common/LoadingIndicator';
 
 const Home = () => {
   const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
@@ -216,9 +217,7 @@ const Home = () => {
             </div>
           </div>
           {isLoading ? (
-            <div className="loading-indicator">
-              <div className="loading"></div>
-            </div>
+            <LoadingIndicator isLoading={true} />
           ) : (
             <ListBook
               listBook={listBooksFilter}
