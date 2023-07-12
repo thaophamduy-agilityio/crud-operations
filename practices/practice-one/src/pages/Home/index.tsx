@@ -16,7 +16,7 @@ import { Button } from '@components/common/Button';
 import { sortedBookList } from '@helpers/book';
 import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
-import { Modal } from '@components/sessions/Modal';
+import { Modal } from '@components/common/Modal';
 
 const Home = () => {
   const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
