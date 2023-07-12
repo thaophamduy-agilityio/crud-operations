@@ -17,7 +17,7 @@
 - Timeline
 
   - Estimate time: 10 days
-  - Actual time: 13 days
+  - Actual time: 15 days
 
 - Technical
 
@@ -47,7 +47,6 @@
 - HTML semantics
 - Apply typescript
 - Apply storybook
-- Performance minimum 98%
 - [Deploy to Vercel](https://reactjs-five-pi.vercel.app/)
 
 ## Getting started
