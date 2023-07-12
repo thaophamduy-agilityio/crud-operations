@@ -21,10 +21,11 @@
 
 - Technical
 
+  - HTML5/CSS3
   - Reactjs (v 18.2.0)
   - Storybook (v 7.0.18)
-  - Typescript
-  - React router v6
+  - Typescript (v 5.0.4)
+  - Vite (v 4.3.9)
   - Appy [Json server](https://www.npmjs.com/package/json-server)
 
 - Editor: Visual Studio Code
