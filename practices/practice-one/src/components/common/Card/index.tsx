@@ -13,8 +13,19 @@ interface CardProps {
 /**
  * Primary UI component for user interaction
  */
-export const Card = ({ loading, width, height, book, onClick }: CardProps) => {
-  const { title, author, published, image } = book;
+export const Card = ({
+  loading = 'lazy',
+  width = '200',
+  height = '200',
+  book,
+  onClick,
+}: CardProps) => {
+  const {
+    title = 'Angels and demons',
+    author = 'Stuart Matt',
+    published = '2021',
+    image = 'https://picsum.photos/200/200',
+  } = book;
 
   return (
     <div onClick={onClick}>
