@@ -226,7 +226,7 @@ const Home = () => {
             />
           )}
           <Modal
-            showModal={isOpenModal}
+            isShowModal={isOpenModal}
             onCloseModal={toggleModal}
             onToggleThemeModal={toggleThemeModal}
             isThemeModal={isThemeModal}

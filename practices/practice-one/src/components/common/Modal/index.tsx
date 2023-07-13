@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 // Define the props for the Modal component
 interface ModalProps {
   onCloseModal: () => void;
-  showModal: boolean;
+  isShowModal: boolean;
   onToggleThemeModal: () => void;
   isThemeModal: boolean;
   title: string;
@@ -15,13 +15,13 @@ interface ModalProps {
  */
 export const Modal = ({
   onCloseModal,
-  showModal,
+  isShowModal,
   onToggleThemeModal,
   isThemeModal,
   title,
   children,
 }: ModalProps) => {
-  return showModal ? (
+  return isShowModal ? (
     <>
       <div className="modal-overlay" onClick={onCloseModal}></div>
       <div className={`${isThemeModal ? 'modal' : 'modal dark-theme'}`}>
