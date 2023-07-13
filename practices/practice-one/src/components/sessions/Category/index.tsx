@@ -25,7 +25,7 @@ const Category = ({ category, categorySelected, onSelectCategory }: CategoryProp
         </span>
         {name}
       </div>
-      <div className="book-category-total">{`${total}`}</div>
+      <div className="book-category-total">{total}</div>
     </li>
   );
 };
