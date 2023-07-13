@@ -185,7 +185,7 @@ const Home = () => {
   };
 
   return (
-    <div className={`${isChangeDarkTheme ? 'container' : 'container dark-theme'}`}>
+    <div className={`container ${isChangeDarkTheme ? '' : 'dark-theme'}`}>
       <Header
         isOpenCategoriesOnMobile={isOpenCategoriesOnMobile}
         onToggleCategoriesOnMobile={toggleCategoriesOnMobile}

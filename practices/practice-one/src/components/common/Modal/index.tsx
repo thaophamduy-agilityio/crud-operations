@@ -24,7 +24,7 @@ export const Modal = ({
   return isShowModal ? (
     <>
       <div className="modal-overlay" onClick={onCloseModal}></div>
-      <div className={`${isThemeModal ? 'modal' : 'modal dark-theme'}`}>
+      <div className={`modal ${isThemeModal ? '' : 'dark-theme'}`}>
         <div className="modal-container">
           {/* Modal header */}
           <div className="modal-header">
@@ -41,9 +41,7 @@ export const Modal = ({
               <span className="modal-escape-text">To Escape</span>
             </div>
             <Button
-              className={`${
-                isThemeModal ? 'btn btn-sunshine-modal' : 'btn btn-sunshine-modal dark'
-              }`}
+              className={`btn btn-sunshine-modal ${isThemeModal ? '' : 'dark'}`}
               onClick={onToggleThemeModal}
             />
           </div>

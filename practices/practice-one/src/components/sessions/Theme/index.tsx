@@ -8,7 +8,7 @@ interface ThemeProps {
 const DarkTheme = ({ isChangeDarkTheme, toggleThemePage }: ThemeProps) => {
   return (
     <Button
-      className={`${isChangeDarkTheme ? 'btn btn-sunshine' : 'btn btn-sunshine dark'}`}
+      className={`btn btn-sunshine ${isChangeDarkTheme ? '' : 'dark'}`}
       onClick={toggleThemePage}
     />
   );
