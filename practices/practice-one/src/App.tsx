@@ -1,7 +1,7 @@
 import '@stylesheets/app.scss';
 import Home from '@pages/Home';
 
-const App = () => {
+const App = (): JSX.Element => {
   return <Home />;
 };
 

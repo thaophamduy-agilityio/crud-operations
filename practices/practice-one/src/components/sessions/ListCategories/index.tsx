@@ -8,8 +8,12 @@ interface ListCategoryProps {
   onSelectCategory: (name: string) => void;
 }
 
-const ListCategory = ({ categoryList, categorySelected, onSelectCategory }: ListCategoryProps) => {
-  const renderListCategory = () => {
+const ListCategory = ({
+  categoryList,
+  categorySelected,
+  onSelectCategory,
+}: ListCategoryProps): JSX.Element => {
+  const renderListCategory = (): JSX.Element[] | undefined => {
     return categoryList?.map((category) => (
       <Category
         key={category.id}
@@ -23,10 +27,10 @@ const ListCategory = ({ categoryList, categorySelected, onSelectCategory }: List
   return (
     <div className="book-category-wrapper">
       <ul className="book-category">
-        {!categoryList?.length ? (
-          <li className="book-category-item not-found">{CATEGORY_MESSAGES.NO_CATEGORY}</li>
-        ) : (
+        {categoryList?.length ? (
           renderListCategory()
+        ) : (
+          <li className="book-category-item not-found">{CATEGORY_MESSAGES.NO_CATEGORY}</li>
         )}
       </ul>
     </div>

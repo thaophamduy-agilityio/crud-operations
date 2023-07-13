@@ -6,7 +6,10 @@ import { ICategory } from '@interface/category';
  * @param {listBooks, name} IBook[], string
  * @returns {List books with name} IBook[]
  */
-export const filterBooksByCategoryName = (listBooks: IBook[] | undefined, name: string) => {
+export const filterBooksByCategoryName = (
+  listBooks: IBook[] | undefined,
+  name: string
+): IBook[] | undefined => {
   return listBooks?.filter((item) => item?.category === name);
 };
 

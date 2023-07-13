@@ -5,7 +5,7 @@ interface ThemeProps {
   toggleThemePage: () => void;
 }
 
-const DarkTheme = ({ isChangeDarkTheme, toggleThemePage }: ThemeProps) => {
+const DarkTheme = ({ isChangeDarkTheme, toggleThemePage }: ThemeProps): JSX.Element => {
   return (
     <Button
       className={`btn btn-sunshine ${isChangeDarkTheme ? '' : 'dark'}`}

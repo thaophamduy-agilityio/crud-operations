@@ -15,7 +15,7 @@ export const BookDetail = ({
   width,
   height,
   book: { title, description, author, published, publishers, image },
-}: BookDetailProps) => {
+}: BookDetailProps): JSX.Element => {
   return (
     <div className="modal-content">
       <figure className="modal-container-content">

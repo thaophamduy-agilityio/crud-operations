@@ -21,7 +21,7 @@ export const Input = ({
   isDisabled = false,
   type,
   onChange,
-}: InputProps) => {
+}: InputProps): JSX.Element => {
   return (
     <input
       name={name}

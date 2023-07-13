@@ -6,7 +6,7 @@ interface LoadingProps {
 /**
  * Primary UI component for user interaction
  */
-export const LoadingIndicator = ({ isLoading }: LoadingProps) => {
+export const LoadingIndicator = ({ isLoading }: LoadingProps): JSX.Element | null => {
   return isLoading ? (
     <div className="loading-indicator">
       <div className="loading"></div>

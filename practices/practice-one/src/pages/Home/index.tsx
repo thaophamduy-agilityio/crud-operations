@@ -18,7 +18,7 @@ import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 import { Modal } from '@components/common/Modal';
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
   const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -38,7 +38,7 @@ const Home = () => {
    * Get data from API and set to list books & list books filter
    *
    */
-  const fetchBooks = async () => {
+  const fetchBooks = async (): Promise<void> => {
     setIsLoading(true);
     const data = await getBooks();
     setIsLoading(false);
@@ -54,7 +54,7 @@ const Home = () => {
   /**
    * Get categories from API
    */
-  const fetchCategories = async () => {
+  const fetchCategories = async (): Promise<void> => {
     const data = await getCategories();
     setListCategories(data);
   };
@@ -68,7 +68,7 @@ const Home = () => {
    * @param {name} string
    * @returns {list items} books
    */
-  const handleFilterBooksByCategoryName = (name: string) => {
+  const handleFilterBooksByCategoryName = (name: string): void => {
     setSelectedCategory(name);
 
     // Get list filter books with category name
@@ -91,7 +91,7 @@ const Home = () => {
    * @param {function} handleSearchChange
    * @returns {list items} list books with keyword search
    */
-  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { value } = e.target;
     setValueSearch(value);
     setSelectedCategory('All Books');
@@ -131,7 +131,7 @@ const Home = () => {
   isOpenModal && document.addEventListener('keydown', handleKeyDown);
 
   // Function to handle toggle the modal theme
-  const toggleThemeModal = () => {
+  const toggleThemeModal = (): void => {
     setIsThemeModal(!isThemeModal);
   };
 
@@ -155,7 +155,7 @@ const Home = () => {
    * Handle toggle hide categories on mobile
    * @param {function} handleCloseCategoriesOnMobile
    */
-  const handleCloseCategoriesOnMobile = useCallback(() => {
+  const handleCloseCategoriesOnMobile = useCallback((): void => {
     setIsOpenCategoriesOnMobile(!isOpenCategoriesOnMobile);
   }, [isOpenCategoriesOnMobile]);
 

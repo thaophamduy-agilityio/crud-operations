@@ -7,8 +7,8 @@ interface BookProps {
   toggleModal: (book: IBook) => void;
 }
 
-const BookItem = ({ book, isDisplayBooks, toggleModal }: BookProps) => {
-  const onToggleModal = () => {
+const BookItem = ({ book, isDisplayBooks, toggleModal }: BookProps): JSX.Element => {
+  const onToggleModal = (): void => {
     toggleModal(book);
   };
 

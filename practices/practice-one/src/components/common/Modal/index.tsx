@@ -20,7 +20,7 @@ export const Modal = ({
   isThemeModal,
   title,
   children,
-}: ModalProps) => {
+}: ModalProps): JSX.Element | null => {
   return isShowModal ? (
     <>
       <div className="modal-overlay" onClick={onCloseModal}></div>

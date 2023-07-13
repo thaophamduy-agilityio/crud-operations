@@ -19,7 +19,7 @@ export const Card = ({
   height = '200',
   book,
   onClick,
-}: CardProps) => {
+}: CardProps): JSX.Element => {
   const {
     title = 'Angels and demons',
     author = 'Stuart Matt',

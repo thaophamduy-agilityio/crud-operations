@@ -6,7 +6,7 @@ interface SearchProps {
   onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Search = ({ valueSearch, onSearchChange }: SearchProps) => {
+const Search = ({ valueSearch, onSearchChange }: SearchProps): JSX.Element => {
   return (
     <Input
       type="search"

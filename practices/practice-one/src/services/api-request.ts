@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import endpoint from '@helpers/endpoints-config';
 import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
@@ -9,7 +9,7 @@ import { ICategory } from '@interface/category';
  * @returns Promise
  */
 
-export const getData = <T>(url: string) => axios.get<T>(url);
+export const getData = <T>(url: string): Promise<AxiosResponse<T, string>> => axios.get<T>(url);
 
 export const getBooks = async (): Promise<IBook[] | undefined> => {
   const res = await getData<IBook[]>(`${process.env.VITE_BASE_URL}/${endpoint.BooksBaseUrl}`);

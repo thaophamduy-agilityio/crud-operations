@@ -19,7 +19,7 @@ const Header = ({
   onSearchChange,
   isChangeDarkTheme,
   onToggleThemePage,
-}: HeaderProps) => {
+}: HeaderProps): JSX.Element => {
   return (
     <header className={`header-site ${isOpenCategoriesOnMobile ? 'open' : ''}`}>
       <Logo onToggleCategoriesOnMobile={onToggleCategoriesOnMobile} />

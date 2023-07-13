@@ -6,7 +6,7 @@ interface BreadCrumbProps {
   total: number | undefined;
 }
 
-const BreadCrumb = ({ selectedCategory, total }: BreadCrumbProps) => {
+const BreadCrumb = ({ selectedCategory, total }: BreadCrumbProps): JSX.Element => {
   return (
     <div className="book-title">
       <span className="book-title-text">{selectedCategory || 'All Books'}</span>

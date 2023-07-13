@@ -11,7 +11,14 @@ interface ImageProps {
 /**
  * Primary UI component for user interaction
  */
-export const Image = ({ text, imageSrc, altText, width, height, loading }: ImageProps) => {
+export const Image = ({
+  text,
+  imageSrc,
+  altText,
+  width,
+  height,
+  loading,
+}: ImageProps): JSX.Element => {
   return (
     <div className="img-container">
       {

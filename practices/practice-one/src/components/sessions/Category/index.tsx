@@ -6,10 +6,10 @@ interface CategoryProps {
   onSelectCategory: (name: string) => void;
 }
 
-const Category = ({ category, categorySelected, onSelectCategory }: CategoryProps) => {
+const Category = ({ category, categorySelected, onSelectCategory }: CategoryProps): JSX.Element => {
   const { id, name, total } = category || {};
 
-  const handleSelectCategory = () => {
+  const handleSelectCategory = (): void => {
     onSelectCategory(name);
   };
 

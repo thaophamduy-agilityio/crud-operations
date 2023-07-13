@@ -5,7 +5,7 @@ interface FilterDisplayProps {
   isDisplayBooks: boolean;
 }
 
-const FilterDisplay = ({ onDisplayBooks, isDisplayBooks }: FilterDisplayProps) => {
+const FilterDisplay = ({ onDisplayBooks, isDisplayBooks }: FilterDisplayProps): JSX.Element => {
   return (
     <div className="filter-display">
       <div className="filter-title">Display Options</div>

@@ -6,7 +6,7 @@ interface LogoProps {
   onToggleCategoriesOnMobile: () => void;
 }
 
-const Logo = ({ onToggleCategoriesOnMobile }: LogoProps) => {
+const Logo = ({ onToggleCategoriesOnMobile }: LogoProps): JSX.Element => {
   return (
     <section className="header-left">
       <span className="header-toogle">

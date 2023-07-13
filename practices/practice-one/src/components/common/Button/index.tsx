@@ -9,7 +9,7 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ size = 'medium', label, text, ...props }: ButtonProps) => {
+export const Button = ({ size = 'medium', label, text, ...props }: ButtonProps): JSX.Element => {
   return (
     <div className="btn-container">
       <button

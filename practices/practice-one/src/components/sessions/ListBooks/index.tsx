@@ -8,8 +8,8 @@ interface ListBookProps {
   onToggleModal: (book: IBook) => void;
 }
 
-const ListBook = ({ listBook, isDisplayBooks, onToggleModal }: ListBookProps) => {
-  const renderListBook = () => {
+const ListBook = ({ listBook, isDisplayBooks, onToggleModal }: ListBookProps): JSX.Element => {
+  const renderListBook = (): JSX.Element[] | undefined => {
     return listBook?.map((book) => (
       <BookItem
         key={book.id}
@@ -23,10 +23,10 @@ const ListBook = ({ listBook, isDisplayBooks, onToggleModal }: ListBookProps) =>
   return (
     <div className="book-list-wrapper">
       <ul className="book-list">
-        {!listBook?.length ? (
-          <li className="book-item not-found">{BOOKS_MESSAGES.NO_DATA}</li>
-        ) : (
+        {listBook?.length ? (
           renderListBook()
+        ) : (
+          <li className="book-item not-found">{BOOKS_MESSAGES.NO_DATA}</li>
         )}
       </ul>
     </div>
