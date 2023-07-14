@@ -1,22 +1,37 @@
+// Libs
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+
+// Common Components
+import { LoadingIndicator } from '@components/common/LoadingIndicator';
+import { Button } from '@components/common/Button';
+import { Modal } from '@components/common/Modal';
+
+// Session Components
 import Header from '@components/sessions/Header';
 import ListCategory from '@components/sessions/ListCategories';
 import ListBook from '@components/sessions/ListBooks';
 import BreadCrumb from '@components/sessions/BreadCrumb';
 import FilterDisplay from '@components/sessions/FilterDisplay';
 import FilterSort from '@components/sessions/FilterSort';
-import { IBook } from '@interface/book';
-import { LoadingIndicator } from '@components/common/LoadingIndicator';
-import { getCategories, getBooks } from '@services/api-request';
 import { BookDetail } from '@components/sessions/BookDetail';
-import { Search } from '@helpers/book';
+
+// Interface
+import { IBook } from '@interface/book';
 import { ICategory } from '@interface/category';
+
+// Services
+import { getCategories, getBooks } from '@services/api-request';
+
+// Helpers
+import { Search } from '@helpers/book';
 import { filterBooksByCategoryName, getCategoryWithTotalItem } from '@helpers/category';
-import { Button } from '@components/common/Button';
 import { sortedBookList } from '@helpers/book';
+
+// Hooks
 import { useDebounce } from '@hooks/use-debounce';
+
+// Constants
 import { TIME_OUT } from '@constants/time-out';
-import { Modal } from '@components/common/Modal';
 
 const Home = (): JSX.Element => {
   const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
