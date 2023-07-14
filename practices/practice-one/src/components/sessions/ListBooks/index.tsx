@@ -1,6 +1,6 @@
 import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { IBook } from '@interface/book';
-import BookItem from '../BookItem';
+import BookItem from '@components/sessions/BookItem';
 
 interface ListBookProps {
   listBook: IBook[] | undefined;

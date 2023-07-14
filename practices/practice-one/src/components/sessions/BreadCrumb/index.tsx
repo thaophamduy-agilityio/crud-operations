@@ -1,4 +1,4 @@
-import { Image } from '@components/common/Image/index';
+import { Image } from '@components/common/Image';
 import arrow from '@image/arrow-right.svg';
 
 interface BreadCrumbProps {

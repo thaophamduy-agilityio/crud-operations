@@ -1,4 +1,4 @@
-import { Input } from '@components/common/Input/index';
+import { Input } from '@components/common/Input';
 import { ChangeEvent } from 'react';
 
 interface SearchProps {

@@ -1,4 +1,4 @@
-import { Button } from '@components/common/Button/index';
+import { Button } from '@components/common/Button';
 import { ReactNode } from 'react';
 
 // Define the props for the Modal component

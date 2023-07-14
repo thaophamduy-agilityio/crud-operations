@@ -1,6 +1,5 @@
 import { ICategory } from '@interface/category';
-import Category from '../Category';
-import { CATEGORY_MESSAGES } from '@constants/error-messages';
+import Category from '@components/sessions/Category';
 
 interface ListCategoryProps {
   categoryList: ICategory[] | undefined;
