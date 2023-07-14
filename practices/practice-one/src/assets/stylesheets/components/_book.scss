@@ -82,6 +82,7 @@
     &-name {
       @extend %flex;
       @extend %item-center;
+      @extend %text-capitalize;
     }
 
     &-total {
@@ -99,6 +100,10 @@
       font-weight: $font-weight-bold;
       color: $color-secondary;
       margin-right: 10px;
+    }
+
+    &-All {
+      background-color: $bg-color-category-All;
     }
 
     &-Adventure {

@@ -7,7 +7,7 @@ interface CategoryProps {
 }
 
 const Category = ({ category, categorySelected, onSelectCategory }: CategoryProps): JSX.Element => {
-  const { id, name, total } = category || {};
+  const { id = 'all', name = 'All books', total = 18 } = category || {};
 
   const handleSelectCategory = (): void => {
     onSelectCategory(name);
