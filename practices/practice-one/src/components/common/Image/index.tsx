@@ -21,16 +21,14 @@ export const Image = ({
 }: ImageProps): JSX.Element => {
   return (
     <div className="img-container">
-      {
-        <img
-          className="img-item"
-          loading={loading}
-          src={imageSrc}
-          width={width}
-          height={height}
-          alt={altText}
-        />
-      }
+      <img
+        className="img-item"
+        loading={loading}
+        src={imageSrc}
+        width={width}
+        height={height}
+        alt={altText}
+      />
       {!!text && <h1 className="text">{text}</h1>}
     </div>
   );
