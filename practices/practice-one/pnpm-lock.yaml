@@ -5,9 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  axios:
+    specifier: ^1.4.0
+    version: 1.4.0
   json-server:
     specifier: ^0.17.3
     version: 0.17.3(@typescript-eslint/parser@5.61.0)
+  react:
+    specifier: ^18.2.0
+    version: 18.2.0
+  react-dom:
+    specifier: ^18.2.0
+    version: 18.2.0(react@18.2.0)
 
 devDependencies:
   '@commitlint/cli':
@@ -55,9 +64,6 @@ devDependencies:
   '@vitejs/plugin-react':
     specifier: ^4.0.0
     version: 4.0.1(vite@4.3.9)
-  axios:
-    specifier: ^1.4.0
-    version: 1.4.0
   eslint:
     specifier: ^8.41.0
     version: 8.44.0
@@ -88,12 +94,6 @@ devDependencies:
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
-  react:
-    specifier: ^18.2.0
-    version: 18.2.0
-  react-dom:
-    specifier: ^18.2.0
-    version: 18.2.0(react@18.2.0)
   sass:
     specifier: ^1.62.1
     version: 1.63.6
@@ -4981,7 +4981,6 @@ packages:
 
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
-    dev: true
 
   /available-typed-arrays@1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
@@ -4995,7 +4994,7 @@ packages:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
-    dev: true
+    dev: false
 
   /babel-core@7.0.0-bridge.0(@babel/core@7.22.5):
     resolution: {integrity: sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==}
@@ -5460,7 +5459,6 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
-    dev: true
 
   /commander@10.0.1:
     resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
@@ -5809,7 +5807,6 @@ packages:
   /delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
-    dev: true
 
   /delegates@1.0.0:
     resolution: {integrity: sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==}
@@ -6755,7 +6752,7 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dev: true
+    dev: false
 
   /for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -6786,7 +6783,7 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
-    dev: true
+    dev: false
 
   /forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -8977,7 +8974,6 @@ packages:
 
   /proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
-    dev: true
 
   /prr@1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
@@ -9134,7 +9130,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: true
 
   /react-element-to-jsx-string@15.0.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-UDg4lXB6BzlobN60P8fHWVPX3Kyw8ORrTeBtClmIlGdkOOE+GYQSFvmEU5iLLpwp/6v42DINwNcwOhOLfQ//FQ==}
@@ -9178,7 +9173,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /read-pkg-up@7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -9515,7 +9509,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
