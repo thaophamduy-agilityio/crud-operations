@@ -36,6 +36,14 @@
 
     &-wrapper {
       padding: 14px;
+
+      .book-item {
+        &.not-found {
+          color: $color-warning;
+          cursor: default;
+          margin: 0 26px;
+        }
+      }
     }
 
     &-title {
@@ -68,11 +76,6 @@
       border-radius: 10px;
       padding: 8px 24px;
       flex-basis: 100%;
-
-      &.not-found {
-        color: $color-warning;
-        cursor: default;
-      }
 
       &.selected {
         background: $bg-color-primary;
@@ -214,6 +217,7 @@
     &.not-found {
       color: $color-warning;
       cursor: default;
+      margin: 0;
     }
 
     &.list {

@@ -22,13 +22,11 @@ const ListBook = ({ listBook, isDisplayBooks, onToggleModal }: ListBookProps): J
 
   return (
     <div className="book-list-wrapper">
-      <ul className="book-list">
-        {listBook?.length ? (
-          renderListBook()
-        ) : (
-          <li className="book-item not-found">{BOOKS_MESSAGES.NO_DATA}</li>
-        )}
-      </ul>
+      {listBook?.length ? (
+        <ul className="book-list">{renderListBook()}</ul>
+      ) : (
+        <p className="book-item not-found">{BOOKS_MESSAGES.NO_DATA}</p>
+      )}
     </div>
   );
 };
