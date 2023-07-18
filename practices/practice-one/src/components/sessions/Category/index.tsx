@@ -15,7 +15,7 @@ const Category = ({ category, categorySelected, onSelectCategory }: CategoryProp
 
   return (
     <li
-      className={name === categorySelected ? 'book-category-item selected' : 'book-category-item'}
+      className={`book-category-item ${name === categorySelected ? 'selected' : ''}`}
       data-id={id}
       onClick={handleSelectCategory}
     >
