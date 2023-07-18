@@ -232,7 +232,7 @@ const Home = (): JSX.Element => {
             </div>
           </div>
           {isLoading ? (
-            <LoadingIndicator isLoading={true} />
+            <LoadingIndicator />
           ) : (
             <ListBook
               listBook={listBooksFilter}
