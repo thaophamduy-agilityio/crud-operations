@@ -1,5 +1,6 @@
 import { ICategory } from '@interface/category';
 import Category from '@components/sessions/Category';
+import { CATEGORY_MESSAGES } from '@constants/error-messages';
 
 interface ListCategoryProps {
   categoryList: ICategory[] | undefined;
@@ -29,13 +30,7 @@ const ListCategory = ({
         {categoryList?.length ? (
           renderListCategory()
         ) : (
-          <li className="book-category-item" data-id="all">
-            <div className="book-category-name">
-              <span className="book-category-shorthand book-category-All Books">Al</span>
-              All Books
-            </div>
-            <div className="book-category-total">18</div>
-          </li>
+          <li className="book-item not-found">{CATEGORY_MESSAGES.NO_CATEGORY}</li>
         )}
       </ul>
     </div>
