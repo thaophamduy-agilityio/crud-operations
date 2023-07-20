@@ -14,20 +14,23 @@ export const BookDetail = ({
   loading,
   width,
   height,
-  book: { title, description, author, published, publishers, image },
+  book: { title, description, author, published, publishers, imageSmall, imageMedium },
 }: BookDetailProps): JSX.Element => {
   return (
     <div className="modal-content">
       <figure className="modal-container-content">
         <div className="modal-container-img">
-          <img
-            className="img-item"
-            loading={loading}
-            src={image}
-            width={width}
-            height={height}
-            alt={title}
-          />
+          <picture>
+            <source className="img-item" srcSet={imageMedium} media="(min-width: 768px)" />
+            <img
+              className="img-item"
+              loading={loading}
+              src={imageSmall}
+              width={width}
+              height={height}
+              alt={title}
+            />
+          </picture>
         </div>
         <figcaption className="modal-container-text">
           <p className="modal-desc">{description}</p>

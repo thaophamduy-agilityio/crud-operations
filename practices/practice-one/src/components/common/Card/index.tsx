@@ -24,21 +24,25 @@ export const Card = ({
     title = 'Angels and demons',
     author = 'Stuart Matt',
     published = '2021',
-    image = 'https://picsum.photos/200/200',
+    imageSmall = 'https://picsum.photos/200/200',
+    imageMedium = 'https://picsum.photos/400/400',
   } = book;
 
   return (
     <div onClick={onClick}>
       <figure className="card-container">
         <div className="card-container-img">
-          <img
-            className="img-item"
-            loading={loading}
-            src={image}
-            width={width}
-            height={height}
-            alt={title}
-          />
+          <picture>
+            <source className="img-item" srcSet={imageMedium} media="(min-width: 768px)" />
+            <img
+              className="img-item"
+              loading={loading}
+              src={imageSmall}
+              width={width}
+              height={height}
+              alt={title}
+            />
+          </picture>
         </div>
         <figcaption>
           <h2 className="card-title">{title}</h2>
