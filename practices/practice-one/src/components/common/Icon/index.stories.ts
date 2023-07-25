@@ -15,30 +15,30 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const DisplayGrid: Story = {
   args: {
-    className: 'btn btn-display-grid',
+    className: 'icon icon-display-grid',
   },
 };
 
 export const DisplayList: Story = {
   args: {
-    className: 'btn btn-display-list',
+    className: 'icon icon-display-list',
   },
 };
 
 export const CloseModal: Story = {
   args: {
-    className: 'btn btn-close-modal',
+    className: 'icon icon-close-modal',
   },
 };
 
 export const CloseMenu: Story = {
   args: {
-    className: 'btn btn-close-menu',
+    className: 'icon icon-close-menu',
   },
 };
 
 export const Hamburger: Story = {
   args: {
-    className: 'btn btn-hamburger',
+    className: 'icon icon-hamburger',
   },
 };

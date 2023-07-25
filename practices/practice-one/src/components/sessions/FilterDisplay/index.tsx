@@ -1,4 +1,4 @@
-import { Button } from '@components/common/Button';
+import { Icon } from '@components/common/Icon';
 
 interface FilterDisplayProps {
   onDisplayBooks: () => void;
@@ -10,16 +10,22 @@ const FilterDisplay = ({ onDisplayBooks, isDisplayBooks }: FilterDisplayProps): 
     <div className="filter-display">
       <div className="filter-title">Display Options</div>
       <div className="filter-display-icons">
-        <Button
-          className={`btn btn-display-grid ${isDisplayBooks ? '' : 'selected'}`}
-          onClick={onDisplayBooks}
-          text="Grid"
-        />
-        <Button
-          className={`btn btn-display-list ${isDisplayBooks ? 'selected' : ''}`}
-          onClick={onDisplayBooks}
-          text="List"
-        />
+        <div className="icon-container">
+          <Icon
+            className={`icon icon-display-grid ${isDisplayBooks ? '' : 'selected'}`}
+            onClick={onDisplayBooks}
+            aria-label="Display Grid"
+          />
+          <p className="display-option">Grid</p>
+        </div>
+        <div className="icon-container">
+          <Icon
+            className={`icon icon-display-list ${isDisplayBooks ? 'selected' : ''}`}
+            onClick={onDisplayBooks}
+            aria-label="Display List"
+          />
+          <p className="display-option">List</p>
+        </div>
       </div>
     </div>
   );

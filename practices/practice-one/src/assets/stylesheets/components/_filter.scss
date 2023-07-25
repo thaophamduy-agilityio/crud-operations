@@ -67,7 +67,8 @@
       @extend %flex;
     }
 
-    .btn-container {
+    .btn-container,
+    .icon-container {
       @extend %flex;
       @extend %flex-column;
       @extend %item-center;
