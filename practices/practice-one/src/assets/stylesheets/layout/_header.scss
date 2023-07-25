@@ -48,8 +48,20 @@
   }
 
   &-logo {
-    .img-container {
-      @extend %inline-flex;
+    @extend %flex;
+    @extend %item-center;
+
+    .text {
+      @extend %none;
+
+      @include only-for-desktop() {
+        display: inline-flex;
+        font-family: $tertiary-family;
+        font-size: $text-logo;
+        line-height: $line-height-logo;
+        font-style: italic;
+        margin-left: 20px;
+      }
     }
   }
 

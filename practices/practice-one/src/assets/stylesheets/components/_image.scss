@@ -3,25 +3,6 @@
 // ======================================================
 
 .img {
-  &-container {
-    @extend %flex;
-    @extend %item-center;
-    min-width: 23px;
-
-    .text {
-      @extend %none;
-
-      @include only-for-desktop() {
-        display: block;
-        font-family: $tertiary-family;
-        font-size: $text-logo;
-        line-height: $line-height-logo;
-        font-style: italic;
-        margin-left: 20px;
-      }
-    }
-  }
-
   &-item {
     border-radius: 5px;
     aspect-ratio: 1 / 1;
