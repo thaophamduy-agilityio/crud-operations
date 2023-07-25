@@ -257,7 +257,7 @@ const Home = (): JSX.Element => {
             isThemeModal={isThemeModal}
             title={bookSelected.title}
           >
-            <BookDetail loading="lazy" width="128" height="170" book={bookSelected} />
+            <BookDetail loading="lazy" width={128} book={bookSelected} />
           </Modal>
         </section>
       </main>

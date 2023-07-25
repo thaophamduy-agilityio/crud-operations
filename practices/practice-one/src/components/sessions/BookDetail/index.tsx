@@ -1,10 +1,10 @@
 import { IBook } from '@interface/book';
+import { Image } from '@components/common/Image';
 
 // Define the props for the Modal Detail component
 interface BookDetailProps {
   loading: 'lazy' | 'eager';
-  width: string;
-  height: string;
+  width: number;
   book: Partial<IBook>;
 }
 /**
@@ -13,7 +13,6 @@ interface BookDetailProps {
 export const BookDetail = ({
   loading,
   width,
-  height,
   book: { title, description, author, published, publishers, imageSmall, imageMedium },
 }: BookDetailProps): JSX.Element => {
   return (
@@ -22,14 +21,7 @@ export const BookDetail = ({
         <div className="modal-container-img">
           <picture>
             <source className="img-item" srcSet={imageMedium} media="(min-width: 768px)" />
-            <img
-              className="img-item"
-              loading={loading}
-              src={imageSmall}
-              width={width}
-              height={height}
-              alt={title}
-            />
+            <Image loading={loading} imageSrc={imageSmall} width={width} altText={title} />
           </picture>
         </div>
         <figcaption className="modal-container-text">

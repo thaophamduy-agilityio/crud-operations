@@ -16,8 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     loading: 'lazy',
-    width: '200',
-    height: '200',
+    width: 200,
     book: {
       title: 'Angels and demons',
       author: 'Stuart Matt',

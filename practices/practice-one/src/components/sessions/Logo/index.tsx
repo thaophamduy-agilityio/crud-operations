@@ -18,7 +18,7 @@ const Logo = ({ onToggleCategoriesOnMobile }: LogoProps): JSX.Element => {
         />
       </span>
       <a className="header-logo" href={ROUTES.HOME} title="Book Shelter">
-        <Image altText="Book Shelter" height="44" imageSrc={logo} loading="lazy" width="54" />
+        <Image altText="Book Shelter" imageSrc={logo} loading="lazy" width={54} />
         <p className="text">BookShelter</p>
       </a>
     </section>

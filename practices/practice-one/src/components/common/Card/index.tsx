@@ -1,11 +1,10 @@
 import { IBook } from '@interface/book';
+import { Image } from '@components/common/Image';
 
 // Define the props for the Card component
 interface CardProps {
   loading: 'lazy' | 'eager';
-  width: string;
-  height: string;
-
+  width: number;
   book: Partial<IBook>;
   onClick?: () => void;
 }
@@ -13,20 +12,8 @@ interface CardProps {
 /**
  * Primary UI component for user interaction
  */
-export const Card = ({
-  loading = 'lazy',
-  width = '200',
-  height = '200',
-  book,
-  onClick,
-}: CardProps): JSX.Element => {
-  const {
-    title = 'Angels and demons',
-    author = 'Stuart Matt',
-    published = '2021',
-    imageSmall = 'https://picsum.photos/200/200',
-    imageMedium = 'https://picsum.photos/400/400',
-  } = book;
+export const Card = ({ loading, width, book, onClick }: CardProps): JSX.Element => {
+  const { title, author, published, imageSmall, imageMedium } = book;
 
   return (
     <div onClick={onClick}>
@@ -34,14 +21,7 @@ export const Card = ({
         <div className="card-container-img">
           <picture>
             <source className="img-item" srcSet={imageMedium} media="(min-width: 768px)" />
-            <img
-              className="img-item"
-              loading={loading}
-              src={imageSmall}
-              width={width}
-              height={height}
-              alt={title}
-            />
+            <Image loading={loading} imageSrc={imageSmall} width={width} altText={title} />
           </picture>
         </div>
         <figcaption>

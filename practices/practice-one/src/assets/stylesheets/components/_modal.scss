@@ -82,12 +82,11 @@
       margin-top: 15px;
 
       .img-item {
-        @include size(128px, 170px);
+        width: 128px;
         aspect-ratio: 3 / 4;
 
         @include only-for-desktop() {
-          width: 201px;
-          height: 263px;
+          width: 200px;
         }
       }
     }
