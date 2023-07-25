@@ -1,4 +1,4 @@
-import { Button } from '@components/common/Button';
+import { Icon } from '@components/common/Icon';
 
 interface ThemeProps {
   isChangeDarkTheme: boolean;
@@ -7,9 +7,10 @@ interface ThemeProps {
 
 const DarkTheme = ({ isChangeDarkTheme, toggleThemePage }: ThemeProps): JSX.Element => {
   return (
-    <Button
-      className={`btn btn-sunshine ${isChangeDarkTheme ? '' : 'dark'}`}
+    <Icon
+      className={`icon icon-sunshine ${isChangeDarkTheme ? '' : 'dark'}`}
       onClick={toggleThemePage}
+      aria-label="Change Dark Theme"
     />
   );
 };

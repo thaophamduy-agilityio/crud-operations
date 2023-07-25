@@ -4,6 +4,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 // Common Components
 import { LoadingIndicator } from '@components/common/LoadingIndicator';
 import { Button } from '@components/common/Button';
+import { Icon } from '@components/common/Icon';
 import { Modal } from '@components/common/Modal';
 
 // Session Components
@@ -211,7 +212,11 @@ const Home = (): JSX.Element => {
       />
       <main className="main-site">
         <aside className="column-sidebar">
-          <Button className="btn btn-close-menu" onClick={handleCloseCategoriesOnMobile} />
+          <Icon
+            className="icon icon-close-menu"
+            aria-label="Icon Close Menu"
+            onClick={handleCloseCategoriesOnMobile}
+          />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
           <ListCategory
@@ -224,7 +229,12 @@ const Home = (): JSX.Element => {
           <div className="book-toolbar-wrapper">
             <BreadCrumb selectedCategory={selectedCategory} total={listBooksFilter?.length} />
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
-              <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
+              <Button
+                className="btn btn-filter"
+                aria-label="Filter Button"
+                label="Filter"
+                onClick={toggleFilter}
+              />
               <div className="filter-box">
                 <FilterDisplay onDisplayBooks={handleDisplayBooks} isDisplayBooks={isDisplayGrid} />
                 <FilterSort onSortBooks={handleSortBooks} sortOption={sortOption} />

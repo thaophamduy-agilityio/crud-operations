@@ -1,4 +1,4 @@
-import { Button } from '@components/common/Button';
+import { Icon } from '@components/common/Icon';
 import { ReactNode } from 'react';
 
 // Define the props for the Modal component
@@ -30,7 +30,11 @@ export const Modal = ({
           <div className="modal-header">
             <h2 className="modal-title">{title}</h2>
             {/* Close button */}
-            <Button className="btn btn-close-modal" onClick={onCloseModal} />
+            <Icon
+              className="icon icon-close-modal"
+              aria-label="Close Modal"
+              onClick={onCloseModal}
+            />
           </div>
           {/* Modal content */}
           {children}
@@ -40,9 +44,10 @@ export const Modal = ({
               <span className="modal-escape-btn">ESC</span>
               <span className="modal-escape-text">To Escape</span>
             </div>
-            <Button
-              className={`btn btn-sunshine-modal ${isThemeModal ? '' : 'dark'}`}
+            <Icon
+              className={`icon icon-sunshine-modal ${isThemeModal ? '' : 'dark'}`}
               onClick={onToggleThemeModal}
+              aria-label="Change Modal Dark Theme"
             />
           </div>
         </div>
