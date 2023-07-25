@@ -194,8 +194,8 @@
     &-arrow {
       margin: 0 15px;
 
-      .img-container {
-        @extend %inline-block;
+      .img-item {
+        aspect-ratio: 11/4;
       }
 
       @include only-for-desktop() {

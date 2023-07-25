@@ -13,6 +13,7 @@
 
     .img-item {
       border-radius: 0;
+      aspect-ratio: 27/22;
     }
 
     @include only-for-desktop() {
