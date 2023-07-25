@@ -18,11 +18,13 @@ const FilterSort = ({ onSortBooks, sortOption }: FilterSortProps): JSX.Element =
         <Button
           className={`btn btn-sort ${isSortByAlphabet ? 'selected' : ''}`}
           label="Alphabetical Order"
+          aria-label="Sort By Alphabet"
           onClick={onSortBooks}
         />
         <Button
           className={`btn btn-sort ${isSortByYear ? 'selected' : ''}`}
           label="Release Year"
+          aria-label="Sort By Year"
           onClick={onSortBooks}
         />
       </div>

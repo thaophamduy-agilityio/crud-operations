@@ -12,64 +12,6 @@
   padding: 10px 20px;
   line-height: 1;
 
-  &-hamburger {
-    background: url('/src/assets/images/hamburger.svg') 3px no-repeat;
-    box-sizing: border-box;
-  }
-
-  &-close {
-    &-menu,
-    &-modal {
-      @include size(30px, 30px);
-      @extend %absolute;
-      top: 5px;
-      right: -5px;
-      background: url('/src/assets/images/close-mobile.svg') 3px no-repeat;
-      box-sizing: border-box;
-    }
-
-    &-menu {
-      @include only-for-desktop() {
-        display: none;
-      }
-    }
-
-    &-modal {
-      @include only-for-desktop() {
-        top: 23px;
-        right: 0;
-        background: url('/src/assets/images/close-desktop.svg') 3px no-repeat;
-      }
-    }
-  }
-
-  &-sunshine {
-    @include size($height-button-sunshine, $height-button-sunshine);
-    background: url('/src/assets/images/sunshine.svg') 100% no-repeat;
-    background-size: $height-button-sunshine;
-    box-sizing: border-box;
-
-    &.dark {
-      background: url('/src/assets/images/moon.svg') 100% no-repeat;
-    }
-
-    &-modal {
-      background: url('/src/assets/images/sunshine.svg') 10px no-repeat;
-      background-color: $bg-color-primary;
-      color: $filter-button-color;
-      border: 1px solid $border-input;
-      margin: 6px 0px;
-      padding: 17px 22px 17px 55px;
-      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12);
-      box-sizing: border-box;
-
-      &.dark {
-        background: url('/src/assets/images/moon.svg') 10px no-repeat;
-        background-color: $color-modal-btn-escape;
-      }
-    }
-  }
-
   &-primary {
     color: $color-secondary;
     background-color: $bg-color-btn-primary;
@@ -112,40 +54,6 @@
       margin-right: 0px;
       border: 1px solid $border-filter-button;
       box-shadow: none;
-    }
-  }
-
-  &-display {
-    &-grid {
-      @include size(40px, 40px);
-      border-radius: 50%;
-      background: url('/src/assets/images/grid.svg') 14px no-repeat;
-      background-color: $bg-color-secondary;
-      color: $filter-button-color;
-      border: 1px solid $border-display-grid;
-      box-sizing: border-box;
-
-      &.selected {
-        background: url('/src/assets/images/grid-selected.svg') 14px no-repeat;
-        background-color: $bg-color-filter-seleted;
-        border: 1px solid transparent;
-      }
-    }
-
-    &-list {
-      @include size(40px, 40px);
-      border-radius: 50%;
-      background: url('/src/assets/images/list.svg') 13px no-repeat;
-      background-color: $bg-color-secondary;
-      color: $filter-button-color;
-      border: 1px solid $border-display-grid;
-      box-sizing: border-box;
-
-      &.selected {
-        background: url('/src/assets/images/list-selected.svg') 13px no-repeat;
-        background-color: $bg-color-filter-seleted;
-        border: 1px solid transparent;
-      }
     }
   }
 

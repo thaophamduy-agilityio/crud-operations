@@ -20,18 +20,6 @@ export const Filter: Story = {
   },
 };
 
-export const DisplayGrid: Story = {
-  args: {
-    className: 'btn btn-display-grid',
-  },
-};
-
-export const DisplayList: Story = {
-  args: {
-    className: 'btn btn-display-list',
-  },
-};
-
 export const SortAlphabet: Story = {
   args: {
     className: 'btn btn-sort',
@@ -46,24 +34,6 @@ export const SortOrder: Story = {
   },
 };
 
-export const CloseModal: Story = {
-  args: {
-    className: 'btn btn-close-modal',
-  },
-};
-
-export const CloseMenu: Story = {
-  args: {
-    className: 'btn btn-close-menu',
-  },
-};
-
-export const Hamburger: Story = {
-  args: {
-    className: 'btn btn-hamburger',
-  },
-};
-
 export const Primary: Story = {
   args: {
     className: 'btn btn-primary',
@@ -74,20 +44,6 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     className: 'btn btn-secondary',
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
     label: 'Button',
   },
 };
