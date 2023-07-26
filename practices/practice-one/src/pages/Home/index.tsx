@@ -5,7 +5,7 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { LoadingIndicator } from '@components/common/LoadingIndicator';
 import { Button } from '@components/common/Button';
 import { Icon } from '@components/common/Icon';
-import { Modal } from '@components/common/Modal';
+import { Modal } from '@components/Modal';
 
 // Session Components
 import Header from '@components/Header';
