@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import Logo from '@components/Logo';
 import Search from '@components/Search';
-import DarkTheme from '@components/Theme';
+import { Icon } from '@components/common/Icon';
 
 interface HeaderProps {
   isOpenCategoriesOnMobile: boolean;
@@ -25,7 +25,11 @@ const Header = ({
       <Logo onToggleCategoriesOnMobile={onToggleCategoriesOnMobile} />
       <section className="header-right">
         <Search valueSearch={valueSearch} onSearchChange={onSearchChange} />
-        <DarkTheme isChangeDarkTheme={isChangeDarkTheme} toggleThemePage={onToggleThemePage} />
+        <Icon
+          className={`icon icon-sunshine ${isChangeDarkTheme ? '' : 'dark'}`}
+          onClick={onToggleThemePage}
+          aria-label="Change Dark Theme"
+        />
       </section>
     </header>
   );
