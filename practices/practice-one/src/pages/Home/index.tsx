@@ -135,16 +135,19 @@ const Home = (): JSX.Element => {
   const toggleModal = (item?: IBook): void => {
     setIsOpenModal(!isOpenModal);
     item && setBookSelected(item);
-    document.removeEventListener('keydown', handleKeyDown);
   };
 
-  // Function to handle keydown events
-  const handleKeyDown = (event: KeyboardEvent): void => {
-    event.key === 'Escape' && toggleModal();
-  };
+  // Using the escape key to close modal
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent): void => {
+      event.key === 'Escape' && setIsOpenModal(false);
+    };
+    document.addEventListener('keydown', handleEsc);
 
-  // Add event listener for keydown events when the modal is show
-  isOpenModal && document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleEsc);
+    };
+  }, [isOpenModal]);
 
   // Function to handle toggle the modal theme
   const toggleThemeModal = (): void => {
