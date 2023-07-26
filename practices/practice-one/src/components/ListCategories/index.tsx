@@ -1,5 +1,5 @@
 import { ICategory } from '@interface/category';
-import Category from '@components/sessions/Category';
+import Category from '@components/Category';
 import { CATEGORY_MESSAGES } from '@constants/error-messages';
 
 interface ListCategoryProps {

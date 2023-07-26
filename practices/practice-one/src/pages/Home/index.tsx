@@ -8,13 +8,13 @@ import { Icon } from '@components/common/Icon';
 import { Modal } from '@components/common/Modal';
 
 // Session Components
-import Header from '@components/sessions/Header';
-import ListCategory from '@components/sessions/ListCategories';
-import ListBook from '@components/sessions/ListBooks';
-import BreadCrumb from '@components/sessions/BreadCrumb';
-import FilterDisplay from '@components/sessions/FilterDisplay';
-import FilterSort from '@components/sessions/FilterSort';
-import { BookDetail } from '@components/sessions/BookDetail';
+import Header from '@components/Header';
+import ListCategory from '@components/ListCategories';
+import ListBook from '@components/ListBooks';
+import BreadCrumb from '@components/BreadCrumb';
+import FilterDisplay from '@components/FilterDisplay';
+import FilterSort from '@components/FilterSort';
+import { BookDetail } from '@components/BookDetail';
 
 // Interface
 import { IBook } from '@interface/book';

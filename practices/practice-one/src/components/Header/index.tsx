@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
-import Logo from '@components/sessions/Logo';
-import Search from '@components/sessions/Search';
-import DarkTheme from '@components/sessions/Theme';
+import Logo from '@components/Logo';
+import Search from '@components/Search';
+import DarkTheme from '@components/Theme';
 
 interface HeaderProps {
   isOpenCategoriesOnMobile: boolean;
