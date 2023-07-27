@@ -1,0 +1,22 @@
+// ======================================================
+// Components :: Error
+// ======================================================
+
+.error {
+  &-container {
+    @extend %flex;
+    @extend %item-center;
+    @extend %justify-center;
+    color: $color-error;
+    padding: 50px 0;
+  }
+
+  &-icon {
+    font-size: $icon-size-error;
+    padding: 0 5px;
+  }
+
+  &-message {
+    font-size: $text-error;
+  }
+}
