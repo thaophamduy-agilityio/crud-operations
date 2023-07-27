@@ -1,5 +1,6 @@
 // Libs
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { withErrorBoundary } from 'react-error-boundary';
 
 // Common Components
 import { LoadingIndicator } from '@components/common/LoadingIndicator';
@@ -15,6 +16,7 @@ import BreadCrumb from '@components/BreadCrumb';
 import FilterDisplay from '@components/FilterDisplay';
 import FilterSort from '@components/FilterSort';
 import { BookDetail } from '@components/BookDetail';
+import ErrorFallback from '@components/ErrorBoundary';
 
 // Interface
 import { IBook } from '@interface/book';
@@ -268,4 +270,6 @@ const Home = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default withErrorBoundary(Home, {
+  FallbackComponent: ErrorFallback,
+});
