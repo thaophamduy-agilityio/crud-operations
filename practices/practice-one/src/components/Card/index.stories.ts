@@ -17,12 +17,15 @@ export const Default: Story = {
   args: {
     loading: 'lazy',
     width: 200,
+    viewBook: 'item',
     book: {
       title: 'Angels and demons',
+      description: 'Culpa nulla pariatur cupidatat nisi incididunt ea do ipsum.',
       author: 'Stuart Matt',
       imageSmall: 'https://picsum.photos/200/200',
       imageMedium: 'https://picsum.photos/400/400',
       published: '2021',
+      publishers: 'Hollman',
     },
   },
 };
