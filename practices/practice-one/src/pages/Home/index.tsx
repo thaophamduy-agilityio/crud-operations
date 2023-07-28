@@ -235,7 +235,7 @@ const Home = (): JSX.Element => {
             <BreadCrumb selectedCategory={selectedCategory} total={listBooksFilter?.length} />
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
               <Button
-                className="btn btn-filter"
+                className="btn-filter"
                 aria-label="Filter Button"
                 label="Filter"
                 onClick={toggleFilter}
