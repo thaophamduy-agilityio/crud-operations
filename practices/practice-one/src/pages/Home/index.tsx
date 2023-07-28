@@ -6,7 +6,7 @@ import { withErrorBoundary } from 'react-error-boundary';
 import { LoadingIndicator } from '@components/common/LoadingIndicator';
 import { Button } from '@components/common/Button';
 import { Icon } from '@components/common/Icon';
-import { Modal } from '@components/Modal';
+import { Modal } from '@components/common/Modal';
 
 // Session Components
 import Header from '@components/Header';
