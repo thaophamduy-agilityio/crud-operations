@@ -7,12 +7,6 @@ interface BreadCrumbProps {
 }
 
 const BreadCrumb = ({ selectedCategory, total = 0 }: BreadCrumbProps): JSX.Element => {
-  let result = '';
-  if (total >= 0) {
-    const noun = total > 1 ? 'Results' : 'Result';
-    result = noun;
-  }
-
   return (
     <div className="book-title">
       <span className="book-title-text">{selectedCategory || 'All Books'}</span>
@@ -20,7 +14,7 @@ const BreadCrumb = ({ selectedCategory, total = 0 }: BreadCrumbProps): JSX.Eleme
         <Image altText="arrow" imageSrc={arrow} loading="lazy" width={22} />
       </span>
       <span className="book-title-results">
-        Showing {total} {result}
+        Showing {total} Result{total > 1 ? 's' : ''}
       </span>
     </div>
   );
