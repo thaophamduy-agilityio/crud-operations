@@ -17,7 +17,6 @@ export const Default: Story = {
   args: {
     loading: 'lazy',
     width: 200,
-    viewBook: 'item',
     book: {
       title: 'Angels and demons',
       description: 'Culpa nulla pariatur cupidatat nisi incididunt ea do ipsum.',
