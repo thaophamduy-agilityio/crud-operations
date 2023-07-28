@@ -1,20 +1,44 @@
-import { Card } from '@components/Card';
 import { IBook } from '@interface/book';
+import { Image } from '@components/common/Image';
 
 interface BookProps {
+  loading: 'lazy' | 'eager';
+  width: number;
   book: IBook;
   isDisplayBooks: boolean;
   toggleModal: (book: IBook) => void;
 }
 
-const BookItem = ({ book, isDisplayBooks, toggleModal }: BookProps): JSX.Element => {
+const BookItem = ({
+  loading,
+  width,
+  book,
+  isDisplayBooks,
+  toggleModal,
+}: BookProps): JSX.Element => {
+  const { title, author, published, imageSmall, imageMedium } = book;
+
   const onToggleModal = (): void => {
     toggleModal(book);
   };
 
   return (
     <li className={`book-item ${isDisplayBooks ? 'list' : ''}`}>
-      <Card loading="lazy" width={200} book={book} onClick={onToggleModal} />
+      <div onClick={onToggleModal}>
+        <figure className="card-container">
+          <div className="card-container-img">
+            <picture>
+              <source className="img-item" srcSet={imageMedium} media="(min-width: 768px)" />
+              <Image loading={loading} imageSrc={imageSmall} width={width} altText={title} />
+            </picture>
+          </div>
+          <figcaption>
+            <h2 className="card-title">{title}</h2>
+            <p className="card-author">{author}</p>
+            <p className="card-published">{published}</p>
+          </figcaption>
+        </figure>
+      </div>
     </li>
   );
 };

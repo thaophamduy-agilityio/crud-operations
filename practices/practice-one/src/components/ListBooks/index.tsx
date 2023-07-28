@@ -12,6 +12,8 @@ const ListBook = ({ listBook, isDisplayBooks, onToggleModal }: ListBookProps): J
   const renderListBook = (): JSX.Element[] | undefined => {
     return listBook?.map((book) => (
       <BookItem
+        loading="lazy"
+        width={200}
         key={book.id}
         book={book}
         isDisplayBooks={isDisplayBooks}
