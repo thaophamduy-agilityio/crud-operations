@@ -13,14 +13,26 @@
   line-height: 1;
 
   &-primary {
-    color: $color-secondary;
     background-color: $bg-color-btn-primary;
+    color: $color-secondary;
+
+    &-outline {
+      background-color: transparent;
+      color: $color-btn-primary;
+      border: 1px solid $color-btn-primary;
+    }
   }
 
   &-secondary {
-    @extend %bg-transparent;
+    background-color: $bg-color-btn-secondary;
     color: $color-btn-secondary;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+
+    &-outline {
+      background-color: transparent;
+      color: $color-btn-secondary;
+      border: 1px solid $color-btn-secondary;
+    }
   }
 
   &-small {
@@ -36,6 +48,10 @@
   &-large {
     font-size: $text-button-large;
     padding: 12px 24px;
+  }
+
+  &-disabled {
+    cursor: default;
   }
 
   &-filter {
