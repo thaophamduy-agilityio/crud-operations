@@ -73,7 +73,10 @@ const Home = (): JSX.Element => {
    * Get categories from API
    */
   const fetchCategories = async (): Promise<void> => {
+    setIsLoading(true);
     const data = await getCategories();
+    setIsLoading(false);
+
     setListCategories(data);
   };
 
@@ -224,11 +227,15 @@ const Home = (): JSX.Element => {
           />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
-          <ListCategory
-            categoryList={categoriesFormated}
-            categorySelected={selectedCategory}
-            onSelectCategory={handleFilterBooksByCategoryName}
-          />
+          {isLoading ? (
+            <LoadingIndicator />
+          ) : (
+            <ListCategory
+              categoryList={categoriesFormated}
+              categorySelected={selectedCategory}
+              onSelectCategory={handleFilterBooksByCategoryName}
+            />
+          )}
         </aside>
         <section className="column-content">
           <div className="book-toolbar-wrapper">
