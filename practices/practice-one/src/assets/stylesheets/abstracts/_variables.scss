@@ -11,8 +11,6 @@ $color-header: $color-secondary;
 $color-placeholder: #e6e6e6;
 $color-info: #5bc0de;
 $color-disabled: #aaa;
-$color-button: #333;
-$color-filter: #58667e;
 $color-warning: #eea236;
 $color-danger: #dc3545;
 
@@ -81,10 +79,10 @@ $text-button-small: 12px;
 $text-button-medium: 14px;
 $text-button-large: 16px;
 $color-btn-primary: #1ea7fa;
-$color-btn-secondary: $color-button;
+$color-btn-secondary: #333;
 $bg-color-btn-primary: #1ea7fa;
 $bg-color-btn-secondary: $bg-color-secondary;
-$filter-button-color: $color-filter;
+$filter-button-color: #58667e;
 $height-button-sunshine: 24px;
 
 /* Columns */
@@ -116,7 +114,7 @@ $text-category-title: $text-large;
 $text-category-list: 14px;
 $text-category-shorthand: 16px;
 $color-category-item: #222531;
-$color-category-total: $color-filter;
+$color-category-total: #58667e;
 $text-category-total: 12px;
 $bg-color-category-All: #14282f;
 $bg-color-category-Adventure: #ff6231;
