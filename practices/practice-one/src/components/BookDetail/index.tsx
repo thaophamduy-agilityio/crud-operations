@@ -3,13 +3,11 @@ import { Image } from '@components/common/Image';
 
 // Define the props for the Modal Detail book
 interface BookDetailProps {
-  loading: 'lazy' | 'eager';
   width: number;
   book: IBook;
 }
 
 export const BookDetail = ({
-  loading,
   width,
   book: { title, description, author, published, publishers, imageSmall, imageMedium },
 }: BookDetailProps): JSX.Element => {
@@ -19,7 +17,7 @@ export const BookDetail = ({
         <div className="modal-container-img">
           <picture>
             <source className="img-item" srcSet={imageMedium} media="(min-width: 768px)" />
-            <Image loading={loading} imageSrc={imageSmall} width={width} altText={title} />
+            <Image loading="lazy" imageSrc={imageSmall} width={width} altText={title} />
           </picture>
         </div>
         <figcaption className="modal-container-text">
