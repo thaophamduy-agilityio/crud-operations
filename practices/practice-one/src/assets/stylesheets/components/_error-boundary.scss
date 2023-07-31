@@ -7,16 +7,16 @@
     @extend %flex;
     @extend %item-center;
     @extend %justify-center;
-    color: $color-error;
+    color: $color-danger;
     padding: 50px 0;
   }
 
   &-icon {
-    font-size: $icon-size-error;
+    font-size: $text-slogan-medium;
     padding: 0 5px;
   }
 
   &-message {
-    font-size: $text-error;
+    font-size: $text-large;
   }
 }
