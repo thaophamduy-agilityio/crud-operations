@@ -6,7 +6,7 @@ interface ModalProps {
   onCloseModal: () => void;
   isShowModal: boolean;
   onToggleThemeModal: () => void;
-  isThemeModal: boolean;
+  isDarkTheme: boolean;
   title: string;
   children: ReactNode;
 }
@@ -17,14 +17,14 @@ export const Modal = ({
   onCloseModal,
   isShowModal,
   onToggleThemeModal,
-  isThemeModal,
+  isDarkTheme,
   title,
   children,
 }: ModalProps): JSX.Element | null => {
   return isShowModal ? (
     <>
       <div className="modal-overlay" onClick={onCloseModal}></div>
-      <div className={`modal ${isThemeModal ? '' : 'dark-theme'}`}>
+      <div className={`modal ${isDarkTheme ? '' : 'dark-theme'}`}>
         <div className="modal-container">
           {/* Modal header */}
           <div className="modal-header">
@@ -45,7 +45,7 @@ export const Modal = ({
               <span className="modal-escape-text">To Escape</span>
             </div>
             <Icon
-              className={`icon icon-sunshine-modal ${isThemeModal ? '' : 'dark'}`}
+              className={`icon icon-sunshine-modal ${isDarkTheme ? '' : 'dark'}`}
               onClick={onToggleThemeModal}
               aria-label="Change Modal Dark Theme"
             />

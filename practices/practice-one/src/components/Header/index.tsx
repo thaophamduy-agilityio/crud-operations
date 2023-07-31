@@ -8,7 +8,7 @@ interface HeaderProps {
   onToggleCategoriesOnMobile: () => void;
   valueSearch: string;
   onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  isChangeDarkTheme: boolean;
+  isDarkTheme: boolean;
   onToggleThemePage: () => void;
 }
 
@@ -17,7 +17,7 @@ const Header = ({
   onToggleCategoriesOnMobile,
   valueSearch,
   onSearchChange,
-  isChangeDarkTheme,
+  isDarkTheme,
   onToggleThemePage,
 }: HeaderProps): JSX.Element => {
   return (
@@ -26,7 +26,7 @@ const Header = ({
       <section className="header-right">
         <Search valueSearch={valueSearch} onSearchChange={onSearchChange} />
         <Icon
-          className={`icon icon-sunshine ${isChangeDarkTheme ? '' : 'dark'}`}
+          className={`icon icon-sunshine ${isDarkTheme ? '' : 'dark'}`}
           onClick={onToggleThemePage}
           aria-label="Change Dark Theme"
         />

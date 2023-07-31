@@ -49,8 +49,7 @@ const Home = (): JSX.Element => {
   const [sortOption, setSortOption] = useState({ isSortByAlphabet: true, isSortByYear: false });
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [bookSelected, setBookSelected] = useState<IBook>({} as IBook);
-  const [isChangeDarkTheme, setIsChangeDarkTheme] = useState<boolean>(true);
-  const [isThemeModal, setIsThemeModal] = useState<boolean>(true);
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
 
   /**
    * Get data from API and set to list books & list books filter
@@ -130,7 +129,7 @@ const Home = (): JSX.Element => {
    * @param {function} toggleThemePage
    */
   const toggleThemePage = (): void => {
-    setIsChangeDarkTheme(!isChangeDarkTheme);
+    setIsDarkTheme(!isDarkTheme);
   };
 
   /**
@@ -156,7 +155,7 @@ const Home = (): JSX.Element => {
 
   // Function to handle toggle the modal theme
   const toggleThemeModal = (): void => {
-    setIsThemeModal(!isThemeModal);
+    setIsDarkTheme(!isDarkTheme);
   };
 
   /**
@@ -209,13 +208,13 @@ const Home = (): JSX.Element => {
   };
 
   return (
-    <div className={`container ${isChangeDarkTheme ? '' : 'dark-theme'}`}>
+    <div className={`container ${isDarkTheme ? '' : 'dark-theme'}`}>
       <Header
         isOpenCategoriesOnMobile={isOpenCategoriesOnMobile}
         onToggleCategoriesOnMobile={toggleCategoriesOnMobile}
         valueSearch={valueSearch}
         onSearchChange={handleSearchChange}
-        isChangeDarkTheme={isChangeDarkTheme}
+        isDarkTheme={isDarkTheme}
         onToggleThemePage={toggleThemePage}
       />
       <main className="main-site">
@@ -266,7 +265,7 @@ const Home = (): JSX.Element => {
             isShowModal={isOpenModal}
             onCloseModal={toggleModal}
             onToggleThemeModal={toggleThemeModal}
-            isThemeModal={isThemeModal}
+            isDarkTheme={isDarkTheme}
             title={bookSelected.title}
           >
             <BookDetail width={128} book={bookSelected} />

@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     isShowModal: true,
-    isThemeModal: true,
+    isDarkTheme: true,
     title: 'Angels and demons',
     children: 'Modal content here!',
   },
