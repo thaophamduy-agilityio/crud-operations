@@ -1,5 +1,6 @@
 import { IBook } from '@interface/book';
 import { Image } from '@components/common/Image';
+import { memo } from 'react';
 
 interface BookProps {
   width: number;
@@ -36,4 +37,4 @@ const BookItem = ({ width, book, isDisplayBooks, toggleModal }: BookProps): JSX.
   );
 };
 
-export default BookItem;
+export default memo(BookItem);

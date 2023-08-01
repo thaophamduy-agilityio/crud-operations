@@ -1,4 +1,5 @@
 import { Button } from '@components/common/Button';
+import { memo } from 'react';
 
 interface FilterSortProps {
   onSortBooks: () => void;
@@ -32,4 +33,4 @@ const FilterSort = ({ onSortBooks, sortOption }: FilterSortProps): JSX.Element =
   );
 };
 
-export default FilterSort;
+export default memo(FilterSort);

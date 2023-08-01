@@ -1,4 +1,5 @@
 import { Icon } from '@components/common/Icon';
+import { memo } from 'react';
 
 interface FilterDisplayProps {
   onDisplayBooks: () => void;
@@ -31,4 +32,4 @@ const FilterDisplay = ({ onDisplayBooks, isDisplayBooks }: FilterDisplayProps): 
   );
 };
 
-export default FilterDisplay;
+export default memo(FilterDisplay);

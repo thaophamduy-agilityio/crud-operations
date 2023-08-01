@@ -1,5 +1,5 @@
 import { Input } from '@components/common/Input';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 
 interface SearchProps {
   valueSearch: string;
@@ -18,4 +18,4 @@ const Search = ({ valueSearch, onSearchChange }: SearchProps): JSX.Element => {
   );
 };
 
-export default Search;
+export default memo(Search);

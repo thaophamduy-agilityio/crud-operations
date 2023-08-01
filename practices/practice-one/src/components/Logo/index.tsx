@@ -2,6 +2,7 @@ import { Icon } from '@components/common/Icon/index';
 import { Image } from '@components/common/Image/index';
 import { ROUTES } from '@constants/routes';
 import logo from '@image/book-shelter.svg';
+import { memo } from 'react';
 
 interface LogoProps {
   onToggleCategoriesOnMobile: () => void;
@@ -25,4 +26,4 @@ const Logo = ({ onToggleCategoriesOnMobile }: LogoProps): JSX.Element => {
   );
 };
 
-export default Logo;
+export default memo(Logo);

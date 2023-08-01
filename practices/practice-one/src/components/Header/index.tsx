@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 import Logo from '@components/Logo';
 import Search from '@components/Search';
 import { Icon } from '@components/common/Icon';
@@ -12,27 +12,29 @@ interface HeaderProps {
   onToggleThemePage: () => void;
 }
 
-const Header = ({
-  isOpenCategoriesOnMobile,
-  onToggleCategoriesOnMobile,
-  valueSearch,
-  onSearchChange,
-  isDarkTheme,
-  onToggleThemePage,
-}: HeaderProps): JSX.Element => {
-  return (
-    <header className={`header-site ${isOpenCategoriesOnMobile ? 'open' : ''}`}>
-      <Logo onToggleCategoriesOnMobile={onToggleCategoriesOnMobile} />
-      <section className="header-right">
-        <Search valueSearch={valueSearch} onSearchChange={onSearchChange} />
-        <Icon
-          className={`icon icon-sunshine ${isDarkTheme ? '' : 'dark'}`}
-          onClick={onToggleThemePage}
-          aria-label="Change Dark Theme"
-        />
-      </section>
-    </header>
-  );
-};
+const Header = memo(
+  ({
+    isOpenCategoriesOnMobile,
+    onToggleCategoriesOnMobile,
+    valueSearch,
+    onSearchChange,
+    isDarkTheme,
+    onToggleThemePage,
+  }: HeaderProps): JSX.Element => {
+    return (
+      <header className={`header-site ${isOpenCategoriesOnMobile ? 'open' : ''}`}>
+        <Logo onToggleCategoriesOnMobile={onToggleCategoriesOnMobile} />
+        <section className="header-right">
+          <Search valueSearch={valueSearch} onSearchChange={onSearchChange} />
+          <Icon
+            className={`icon icon-sunshine ${isDarkTheme ? '' : 'dark'}`}
+            onClick={onToggleThemePage}
+            aria-label="Change Dark Theme"
+          />
+        </section>
+      </header>
+    );
+  }
+);
 
 export default Header;

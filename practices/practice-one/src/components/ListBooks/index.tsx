@@ -1,6 +1,7 @@
 import { BOOKS_MESSAGES } from '@constants/error-messages';
 import { IBook } from '@interface/book';
 import BookItem from '@components/BookItem';
+import { memo } from 'react';
 
 interface ListBookProps {
   listBook: IBook[] | undefined;
@@ -32,4 +33,4 @@ const ListBook = ({ listBook, isDisplayBooks, onToggleModal }: ListBookProps): J
   );
 };
 
-export default ListBook;
+export default memo(ListBook);

@@ -1,5 +1,6 @@
 import { Image } from '@components/common/Image';
 import arrow from '@image/arrow-right.svg';
+import { memo } from 'react';
 
 interface BreadCrumbProps {
   selectedCategory: string;
@@ -20,4 +21,4 @@ const BreadCrumb = ({ selectedCategory, total = 0 }: BreadCrumbProps): JSX.Eleme
   );
 };
 
-export default BreadCrumb;
+export default memo(BreadCrumb);

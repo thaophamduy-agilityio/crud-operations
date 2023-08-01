@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Define the props for the Image component
 interface ImageProps {
   loading: 'lazy' | 'eager';
@@ -9,6 +11,6 @@ interface ImageProps {
 /**
  * Primary UI component for user interaction
  */
-export const Image = ({ imageSrc, altText, width, loading }: ImageProps): JSX.Element => {
+export const Image = memo(({ imageSrc, altText, width, loading }: ImageProps): JSX.Element => {
   return <img className="img-item" loading={loading} src={imageSrc} width={width} alt={altText} />;
-};
+});

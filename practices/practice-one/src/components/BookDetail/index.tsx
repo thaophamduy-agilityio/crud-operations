@@ -1,5 +1,6 @@
 import { IBook } from '@interface/book';
 import { Image } from '@components/common/Image';
+import { memo } from 'react';
 
 // Define the props for the Modal Detail book
 interface BookDetailProps {
@@ -7,7 +8,7 @@ interface BookDetailProps {
   book: IBook;
 }
 
-export const BookDetail = ({
+const BookDetail = ({
   width,
   book: { title, description, author, published, publishers, imageSmall, imageMedium },
 }: BookDetailProps): JSX.Element => {
@@ -39,3 +40,5 @@ export const BookDetail = ({
     </div>
   );
 };
+
+export default memo(BookDetail);
