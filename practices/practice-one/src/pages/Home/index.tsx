@@ -61,7 +61,6 @@ const Home = (): JSX.Element => {
     setIsLoading(false);
 
     setListBooks(data);
-    setListBooksFilter(data);
   };
 
   useEffect(() => {
