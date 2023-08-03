@@ -1,4 +1,5 @@
 import { Button } from '@components/common/Button';
+import { memo } from 'react';
 
 interface FilterSortProps {
   onSortBooks: () => void;
@@ -16,13 +17,15 @@ const FilterSort = ({ onSortBooks, sortOption }: FilterSortProps): JSX.Element =
       <div className="filter-title">Sort By</div>
       <div className="filter-sort-icons">
         <Button
-          className={`btn btn-sort ${isSortByAlphabet ? 'selected' : ''}`}
+          className={`btn-sort ${isSortByAlphabet ? 'selected' : ''}`}
           label="Alphabetical Order"
+          aria-label="Sort By Alphabet"
           onClick={onSortBooks}
         />
         <Button
-          className={`btn btn-sort ${isSortByYear ? 'selected' : ''}`}
+          className={`btn-sort ${isSortByYear ? 'selected' : ''}`}
           label="Release Year"
+          aria-label="Sort By Year"
           onClick={onSortBooks}
         />
       </div>
@@ -30,4 +33,4 @@ const FilterSort = ({ onSortBooks, sortOption }: FilterSortProps): JSX.Element =
   );
 };
 
-export default FilterSort;
+export default memo(FilterSort);

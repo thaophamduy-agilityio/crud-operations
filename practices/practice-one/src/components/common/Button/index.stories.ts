@@ -15,65 +15,55 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Filter: Story = {
   args: {
-    className: 'btn btn-filter',
+    className: 'btn-filter',
     label: 'Filter',
-  },
-};
-
-export const DisplayGrid: Story = {
-  args: {
-    className: 'btn btn-display-grid',
-  },
-};
-
-export const DisplayList: Story = {
-  args: {
-    className: 'btn btn-display-list',
   },
 };
 
 export const SortAlphabet: Story = {
   args: {
-    className: 'btn btn-sort',
+    className: 'btn-sort',
     label: 'Alphabetical Order',
   },
 };
 
 export const SortOrder: Story = {
   args: {
-    className: 'btn btn-sort',
+    className: 'btn-sort',
     label: 'Release Year',
-  },
-};
-
-export const CloseModal: Story = {
-  args: {
-    className: 'btn btn-close-modal',
-  },
-};
-
-export const CloseMenu: Story = {
-  args: {
-    className: 'btn btn-close-menu',
-  },
-};
-
-export const Hamburger: Story = {
-  args: {
-    className: 'btn btn-hamburger',
   },
 };
 
 export const Primary: Story = {
   args: {
-    className: 'btn btn-primary',
     label: 'Button',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    className: 'btn btn-secondary',
+    className: 'btn-secondary',
+    label: 'Button',
+  },
+};
+
+export const PrimaryOutline: Story = {
+  args: {
+    variant: 'primary-outline',
+    label: 'Button',
+  },
+};
+
+export const SecondaryOutline: Story = {
+  args: {
+    variant: 'secondary-outline',
+    label: 'Button',
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: 'small',
     label: 'Button',
   },
 };
@@ -85,9 +75,9 @@ export const Large: Story = {
   },
 };
 
-export const Small: Story = {
+export const Disabled: Story = {
   args: {
-    size: 'small',
+    isDisabled: true,
     label: 'Button',
   },
 };

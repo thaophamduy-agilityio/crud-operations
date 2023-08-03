@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 
 // Define the props for the Input component
 interface InputProps {
@@ -14,22 +14,24 @@ interface InputProps {
 /**
  * Primary UI component for user interaction
  */
-export const Input = ({
-  name,
-  placeholder,
-  className,
-  isDisabled = false,
-  type,
-  onChange,
-}: InputProps): JSX.Element => {
-  return (
-    <input
-      name={name}
-      className={className}
-      type={type}
-      placeholder={placeholder}
-      disabled={isDisabled}
-      onChange={onChange}
-    />
-  );
-};
+export const Input = memo(
+  ({
+    name,
+    placeholder,
+    className,
+    isDisabled = false,
+    type,
+    onChange,
+  }: InputProps): JSX.Element => {
+    return (
+      <input
+        name={name}
+        className={className}
+        type={type}
+        placeholder={placeholder}
+        disabled={isDisabled}
+        onChange={onChange}
+      />
+    );
+  }
+);

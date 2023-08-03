@@ -1,19 +1,22 @@
 // Libs
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { withErrorBoundary } from 'react-error-boundary';
 
 // Common Components
 import { LoadingIndicator } from '@components/common/LoadingIndicator';
 import { Button } from '@components/common/Button';
+import { Icon } from '@components/common/Icon';
 import { Modal } from '@components/common/Modal';
 
 // Session Components
-import Header from '@components/sessions/Header';
-import ListCategory from '@components/sessions/ListCategories';
-import ListBook from '@components/sessions/ListBooks';
-import BreadCrumb from '@components/sessions/BreadCrumb';
-import FilterDisplay from '@components/sessions/FilterDisplay';
-import FilterSort from '@components/sessions/FilterSort';
-import { BookDetail } from '@components/sessions/BookDetail';
+import Header from '@components/Header';
+import ListCategory from '@components/ListCategories';
+import ListBook from '@components/ListBooks';
+import BreadCrumb from '@components/BreadCrumb';
+import FilterDisplay from '@components/FilterDisplay';
+import FilterSort from '@components/FilterSort';
+import BookDetail from '@components/BookDetail';
+import ErrorFallback from '@components/ErrorBoundary';
 
 // Interface
 import { IBook } from '@interface/book';
@@ -46,8 +49,7 @@ const Home = (): JSX.Element => {
   const [sortOption, setSortOption] = useState({ isSortByAlphabet: true, isSortByYear: false });
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [bookSelected, setBookSelected] = useState<IBook>({} as IBook);
-  const [isChangeDarkTheme, setIsChangeDarkTheme] = useState<boolean>(true);
-  const [isThemeModal, setIsThemeModal] = useState<boolean>(true);
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
 
   /**
    * Get data from API and set to list books & list books filter
@@ -59,7 +61,6 @@ const Home = (): JSX.Element => {
     setIsLoading(false);
 
     setListBooks(data);
-    setListBooksFilter(data);
   };
 
   useEffect(() => {
@@ -70,7 +71,10 @@ const Home = (): JSX.Element => {
    * Get categories from API
    */
   const fetchCategories = async (): Promise<void> => {
+    setIsLoading(true);
     const data = await getCategories();
+    setIsLoading(false);
+
     setListCategories(data);
   };
 
@@ -124,7 +128,7 @@ const Home = (): JSX.Element => {
    * @param {function} toggleThemePage
    */
   const toggleThemePage = (): void => {
-    setIsChangeDarkTheme(!isChangeDarkTheme);
+    setIsDarkTheme(!isDarkTheme);
   };
 
   /**
@@ -134,20 +138,23 @@ const Home = (): JSX.Element => {
   const toggleModal = (item?: IBook): void => {
     setIsOpenModal(!isOpenModal);
     item && setBookSelected(item);
-    document.removeEventListener('keydown', handleKeyDown);
   };
 
-  // Function to handle keydown events
-  const handleKeyDown = (event: KeyboardEvent): void => {
-    event.key === 'Escape' && toggleModal();
-  };
+  // Using the escape key to close modal
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent): void => {
+      event.key === 'Escape' && setIsOpenModal(false);
+    };
+    document.addEventListener('keydown', handleEsc);
 
-  // Add event listener for keydown events when the modal is show
-  isOpenModal && document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleEsc);
+    };
+  }, [isOpenModal]);
 
   // Function to handle toggle the modal theme
   const toggleThemeModal = (): void => {
-    setIsThemeModal(!isThemeModal);
+    setIsDarkTheme(!isDarkTheme);
   };
 
   /**
@@ -200,31 +207,44 @@ const Home = (): JSX.Element => {
   };
 
   return (
-    <div className={`container ${isChangeDarkTheme ? '' : 'dark-theme'}`}>
+    <div className={`container ${isDarkTheme ? '' : 'dark-theme'}`}>
       <Header
         isOpenCategoriesOnMobile={isOpenCategoriesOnMobile}
         onToggleCategoriesOnMobile={toggleCategoriesOnMobile}
         valueSearch={valueSearch}
         onSearchChange={handleSearchChange}
-        isChangeDarkTheme={isChangeDarkTheme}
+        isDarkTheme={isDarkTheme}
         onToggleThemePage={toggleThemePage}
       />
       <main className="main-site">
         <aside className="column-sidebar">
-          <Button className="btn btn-close-menu" onClick={handleCloseCategoriesOnMobile} />
+          <Icon
+            className="icon icon-close-menu"
+            aria-label="Icon Close Menu"
+            onClick={handleCloseCategoriesOnMobile}
+          />
           <div className="book-category-title">Categories</div>
           <div className="book-category-list">A curated list of every book ever written</div>
-          <ListCategory
-            categoryList={categoriesFormated}
-            categorySelected={selectedCategory}
-            onSelectCategory={handleFilterBooksByCategoryName}
-          />
+          {isLoading ? (
+            <LoadingIndicator />
+          ) : (
+            <ListCategory
+              categoryList={categoriesFormated}
+              categorySelected={selectedCategory}
+              onSelectCategory={handleFilterBooksByCategoryName}
+            />
+          )}
         </aside>
         <section className="column-content">
           <div className="book-toolbar-wrapper">
             <BreadCrumb selectedCategory={selectedCategory} total={listBooksFilter?.length} />
             <div className={`filter ${isOpenFilter ? 'open' : ''}`}>
-              <Button className="btn btn-filter" label="Filter" onClick={toggleFilter} />
+              <Button
+                className="btn-filter"
+                aria-label="Filter Button"
+                label="Filter"
+                onClick={toggleFilter}
+              />
               <div className="filter-box">
                 <FilterDisplay onDisplayBooks={handleDisplayBooks} isDisplayBooks={isDisplayGrid} />
                 <FilterSort onSortBooks={handleSortBooks} sortOption={sortOption} />
@@ -244,10 +264,10 @@ const Home = (): JSX.Element => {
             isShowModal={isOpenModal}
             onCloseModal={toggleModal}
             onToggleThemeModal={toggleThemeModal}
-            isThemeModal={isThemeModal}
+            isDarkTheme={isDarkTheme}
             title={bookSelected.title}
           >
-            <BookDetail loading="lazy" width="128" height="170" book={bookSelected} />
+            <BookDetail width={128} book={bookSelected} />
           </Modal>
         </section>
       </main>
@@ -255,4 +275,6 @@ const Home = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default withErrorBoundary(Home, {
+  FallbackComponent: ErrorFallback,
+});

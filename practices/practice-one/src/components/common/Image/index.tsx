@@ -1,35 +1,16 @@
+import { memo } from 'react';
+
 // Define the props for the Image component
 interface ImageProps {
-  text?: string;
   loading: 'lazy' | 'eager';
-  imageSrc: string;
-  width: string;
-  height: string;
-  altText: string;
+  imageSrc: string | undefined;
+  width: number;
+  altText: string | undefined;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Image = ({
-  text,
-  imageSrc,
-  altText,
-  width,
-  height,
-  loading,
-}: ImageProps): JSX.Element => {
-  return (
-    <div className="img-container">
-      <img
-        className="img-item"
-        loading={loading}
-        src={imageSrc}
-        width={width}
-        height={height}
-        alt={altText}
-      />
-      {!!text && <h1 className="text">{text}</h1>}
-    </div>
-  );
-};
+export const Image = memo(({ imageSrc, altText, width, loading }: ImageProps): JSX.Element => {
+  return <img className="img-item" loading={loading} src={imageSrc} width={width} alt={altText} />;
+});

@@ -1,4 +1,5 @@
 import { ICategory } from '@interface/category';
+import { memo } from 'react';
 
 interface CategoryProps {
   category: ICategory;
@@ -30,4 +31,4 @@ const Category = ({ category, categorySelected, onSelectCategory }: CategoryProp
   );
 };
 
-export default Category;
+export default memo(Category);

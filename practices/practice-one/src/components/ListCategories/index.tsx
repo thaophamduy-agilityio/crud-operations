@@ -1,6 +1,7 @@
 import { ICategory } from '@interface/category';
-import Category from '@components/sessions/Category';
+import Category from '@components/Category';
 import { CATEGORY_MESSAGES } from '@constants/error-messages';
+import { memo } from 'react';
 
 interface ListCategoryProps {
   categoryList: ICategory[] | undefined;
@@ -35,4 +36,4 @@ const ListCategory = ({
   );
 };
 
-export default ListCategory;
+export default memo(ListCategory);
