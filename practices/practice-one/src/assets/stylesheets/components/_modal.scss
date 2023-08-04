@@ -1,0 +1,153 @@
+// ======================================================
+// Base :: Modal
+// ======================================================
+
+.modal {
+  @extend %fixed;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  font-family: $default-family;
+
+  &.dark-theme {
+    .modal-header,
+    .modal-content,
+    .modal-footer {
+      background-color: $bg-color-dark-mode;
+    }
+  }
+
+  /* Overlay */
+  &-overlay {
+    @extend %fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+  }
+
+  &-message {
+    @extend %text-center;
+    font-family: $secondary-family;
+    font-size: $text-modal-message;
+    font-weight: $font-weight-medium;
+  }
+
+  /* Modal header */
+  &-header,
+  &-footer {
+    padding: 40px 25px 15px;
+
+    @include only-for-desktop() {
+      background-color: $bg-color-header-modal;
+      padding: 23px 30px;
+      width: $width-modal-desktop;
+      max-width: calc(100% - 60px);
+    }
+  }
+
+  /* Modal content */
+  &-content {
+    padding: 25px;
+    overflow-y: auto;
+    height: calc(100vh - 184px);
+
+    @include only-for-desktop() {
+      height: calc(100vh - 176px);
+    }
+  }
+
+  &-title {
+    font-size: $text-modal-title;
+    font-weight: $font-weight-medium;
+  }
+
+  /* Modal container */
+  &-container {
+    width: $width-modal-mobile;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: $bg-color-secondary;
+
+    @include only-for-desktop() {
+      width: $width-modal-desktop;
+    }
+
+    &-img {
+      @extend %text-center;
+      margin-top: 15px;
+
+      .img-item {
+        width: 128px;
+        aspect-ratio: 3 / 4;
+
+        @include only-for-desktop() {
+          width: 200px;
+        }
+      }
+    }
+
+    &-text {
+      color: $color-modal-text;
+      padding: 20px 10px;
+
+      &-title {
+        font-size: $text-modal-text;
+        color: $color-modal-text-title;
+      }
+
+      &-content {
+        font-size: $text-modal-text;
+        color: $color-modal-text-content;
+        background: $bg-color-modal-text-content;
+        margin-left: 10px;
+        padding: 4.5px 23.5px;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  &-desc {
+    margin: 15px 0px 30px;
+  }
+
+  &-author,
+  &-published,
+  &-publishers {
+    margin: 20px 0px;
+  }
+
+  &-escape {
+    @extend %flex;
+    @extend %item-center;
+    font-size: $text-button-small;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-modal-footer;
+    margin-right: 40px;
+
+    &-btn {
+      color: $color-secondary;
+      background-color: $color-modal-btn-escape;
+      border-radius: 5px;
+      margin-right: 8px;
+      padding: 6px 10px;
+    }
+
+    &-text {
+      color: $color-modal-text;
+    }
+  }
+
+  /* Modal footer */
+  &-footer {
+    @extend %flex;
+    @extend %item-center;
+    @extend %justify-end;
+    margin-top: 0;
+    padding: 5px 30px;
+  }
+}

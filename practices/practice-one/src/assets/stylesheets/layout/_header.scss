@@ -1,0 +1,73 @@
+// ======================================================
+// Layout :: Header
+// ======================================================
+
+.header {
+  &-site {
+    @extend %flex;
+    @extend %justify-space-between;
+    @extend %item-center;
+    @extend %margin-center;
+    background-color: $bg-color-secondary;
+    padding: 10px 25px 10px 20px;
+
+    .img-item {
+      border-radius: 0;
+      aspect-ratio: 27/22;
+    }
+
+    @include only-for-desktop() {
+      border-radius: 10px 10px 0 0;
+      padding: 8px 40px 8px 50px;
+    }
+
+    &.open {
+      + .main-site {
+        .column-sidebar {
+          @extend %block;
+          @extend %absolute;
+          @extend %z-index-1;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &-left {
+    @extend %flex;
+    @extend %item-center;
+  }
+
+  &-toogle {
+    .btn-container {
+      @extend %inline-flex;
+    }
+
+    @include only-for-desktop() {
+      display: none;
+    }
+  }
+
+  &-logo {
+    @extend %flex;
+    @extend %item-center;
+
+    .text {
+      @extend %none;
+
+      @include only-for-desktop() {
+        display: inline-flex;
+        font-family: $tertiary-family;
+        font-size: $text-logo;
+        line-height: $line-height-logo;
+        font-style: italic;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &-right {
+    @extend %flex;
+    @extend %item-center;
+  }
+}

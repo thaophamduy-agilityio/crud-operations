@@ -1,0 +1,277 @@
+// ======================================================
+// Components :: Book
+// ======================================================
+
+.book {
+  &-list,
+  &-category {
+    @extend %flex;
+    @extend %flex-wrap;
+    @extend %list-style-type-none;
+    column-gap: 32px;
+    row-gap: 40px;
+
+    &-wrapper {
+      padding: 70px 40px 33px;
+
+      &.dark-theme {
+        background-color: $color-modal-btn-escape;
+      }
+
+      @include only-for-desktop() {
+        padding: 33px 40px;
+      }
+    }
+  }
+
+  &-list {
+    &-wrapper {
+      background-color: $bg-color-primary;
+      border-radius: 0 0 10px 0;
+    }
+  }
+
+  &-category {
+    gap: 0;
+
+    &-wrapper {
+      padding: 14px;
+
+      .book-item {
+        &.not-found {
+          color: $color-warning;
+          cursor: default;
+          margin: 0 26px;
+        }
+      }
+    }
+
+    &-title {
+      font-family: $default-family;
+      font-size: $text-category-title;
+      font-weight: $font-weight-medium;
+      line-height: 20px;
+      padding: 40px 40px 18px;
+
+      @include only-for-desktop() {
+        padding: 18px 40px;
+        box-shadow: 0px 0px 2px $box-shadow-color;
+      }
+    }
+
+    &-list {
+      font-family: $default-family;
+      font-size: $text-category-list;
+      font-weight: $font-weight-regular;
+      line-height: 20px;
+      padding: 18px 40px 0;
+    }
+
+    &-item {
+      @extend %flex;
+      @extend %justify-space-between;
+      @extend %item-center;
+      @extend %cursor-pointer;
+      color: $color-category-item;
+      border-radius: 10px;
+      padding: 8px 24px;
+      flex-basis: 100%;
+
+      &.selected {
+        background: $bg-color-primary;
+      }
+    }
+
+    &-name {
+      @extend %flex;
+      @extend %item-center;
+      @extend %text-capitalize;
+    }
+
+    &-total {
+      color: $color-category-total;
+      font-size: $text-category-total;
+    }
+
+    &-shorthand {
+      @include size(40px, 40px);
+      border-radius: 50%;
+      @extend %inline-flex;
+      @extend %item-center;
+      @extend %justify-center;
+      font-size: $text-category-shorthand;
+      font-weight: $font-weight-bold;
+      color: $color-secondary;
+      margin-right: 10px;
+    }
+
+    &-All {
+      background-color: $bg-color-category-All;
+    }
+
+    &-Adventure {
+      background-color: $bg-color-category-Adventure;
+    }
+
+    &-Contemporary {
+      background-color: $bg-color-category-Contemporary;
+    }
+
+    &-Romance {
+      background-color: $bg-color-category-Romance;
+    }
+
+    &-Fantasy {
+      background-color: $bg-color-category-Fantasy;
+    }
+
+    &-Dystopian {
+      background-color: $bg-color-category-Dystopian;
+    }
+
+    &-Mystery {
+      background-color: $bg-color-category-Mystery;
+    }
+
+    &-Horror {
+      background-color: $bg-color-category-Horror;
+    }
+
+    &-Thriller {
+      background-color: $bg-color-category-Thriller;
+    }
+
+    &-Paranormal {
+      background-color: $bg-color-category-Paranormal;
+    }
+
+    &-Historical {
+      background-color: $bg-color-category-Historical;
+    }
+
+    &-Scifi {
+      background-color: $bg-color-category-Scifi;
+    }
+
+    &-Memoir {
+      background-color: $bg-color-category-Memoir;
+    }
+
+    &-Sports {
+      background-color: $bg-color-category-Sports;
+    }
+  }
+
+  &-toolbar {
+    &-wrapper {
+      @extend %relative;
+      @extend %flex;
+      @extend %item-center;
+      @extend %justify-space-between;
+      box-shadow: 1px 0px 2px $box-shadow-color;
+      padding: 20px;
+
+      @include only-for-desktop() {
+        padding: 0 40px;
+      }
+    }
+  }
+
+  &-title {
+    &-text {
+      color: $color-book-title;
+      background-color: $bg-color-book-title;
+      font-size: $text-book-title;
+      line-height: 17px;
+      border-radius: 30px;
+      padding: 12px 20px;
+
+      @include only-for-desktop() {
+        padding: 12px 32px;
+      }
+    }
+
+    &-arrow {
+      margin: 0 15px;
+
+      .img-item {
+        aspect-ratio: 11/4;
+      }
+
+      @include only-for-desktop() {
+        margin: 0 20px;
+      }
+    }
+
+    &-results {
+      color: $color-book-results;
+      font-size: $text-book-results;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &-item {
+    @extend %cursor-pointer;
+    flex-basis: 100%;
+
+    &.not-found {
+      color: $color-warning;
+      cursor: default;
+      margin: 0;
+    }
+
+    &.list {
+      flex-basis: 100%;
+
+      .card {
+        &-container {
+          @extend %flex;
+          @extend %item-center;
+
+          &-img {
+            margin-right: 20px;
+
+            @include only-for-desktop() {
+              margin-right: 30px;
+            }
+          }
+        }
+
+        &-title {
+          font-size: $text-card-title;
+          font-weight: $font-weight-medium;
+          line-height: 20px;
+          margin-top: 20px;
+
+          @include only-for-desktop() {
+            margin-top: 0;
+            font-size: $text-card-title-list;
+            line-height: $line-height-card-title-list;
+          }
+        }
+
+        &-author,
+        &-published {
+          @include only-for-desktop() {
+            font-size: $text-card-author-list;
+            line-height: $line-height-card-author-list;
+          }
+        }
+      }
+
+      .img-item {
+        @include size(100%, auto);
+        aspect-ratio: 5 / 2;
+
+        @include only-for-desktop() {
+          width: $img-card-width;
+          height: $img-card-height;
+        }
+      }
+    }
+
+    @include only-for-desktop() {
+      flex-basis: calc(33.33333333% - 22px);
+    }
+  }
+}

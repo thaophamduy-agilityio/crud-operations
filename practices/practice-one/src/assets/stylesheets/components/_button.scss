@@ -1,0 +1,91 @@
+// ======================================================
+// Components :: Button
+// ======================================================
+
+.btn {
+  @extend %flex;
+  @extend %cursor-pointer;
+  @extend %border-0;
+  font-family: $default-family;
+  font-weight: $font-weight-regular;
+  border-radius: 30px;
+  padding: 10px 20px;
+  line-height: 1;
+
+  &-primary {
+    background-color: $bg-color-btn-primary;
+    color: $color-secondary;
+
+    &-outline {
+      background-color: transparent;
+      color: $color-btn-primary;
+      border: 1px solid $color-btn-primary;
+    }
+  }
+
+  &-secondary {
+    background-color: $bg-color-btn-secondary;
+    color: $color-btn-secondary;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+
+    &-outline {
+      background-color: transparent;
+      color: $color-btn-secondary;
+      border: 1px solid $color-btn-secondary;
+    }
+  }
+
+  &-small {
+    font-size: $text-button-small;
+    padding: 10px 16px;
+  }
+
+  &-medium {
+    font-size: $text-button-medium;
+    padding: 11px 19px;
+  }
+
+  &-large {
+    font-size: $text-button-large;
+    padding: 12px 24px;
+  }
+
+  &-disabled {
+    cursor: default;
+  }
+
+  &-filter {
+    background: url('/src/assets/images/filter.svg') 16px no-repeat;
+    background-color: $bg-color-secondary;
+    color: $filter-button-color;
+    margin: 6px 0px;
+    padding: 15px 28px 14px 55px;
+    box-sizing: border-box;
+    border: 0;
+    box-shadow: 0px 1px 3px $box-shadow-color-filter;
+    margin-right: 20px;
+
+    @include only-for-desktop() {
+      background-color: $bg-color-primary;
+      margin-right: 0px;
+      border: 1px solid $border-filter-button;
+      box-shadow: none;
+    }
+  }
+
+  &-sort {
+    background: url('/src/assets/images/arrow-down.svg') 90% no-repeat;
+    background-color: $bg-color-secondary;
+    color: $color-primary;
+    border-radius: 10px;
+    padding: 15px 40px 15px 15px;
+    box-sizing: border-box;
+
+    &.selected {
+      background: url('/src/assets/images/arrow-down-selected.svg') 90% no-repeat;
+      background-color: $bg-color-filter-seleted;
+      color: $color-filter-sort-selected;
+      border: 1px solid transparent;
+    }
+  }
+}

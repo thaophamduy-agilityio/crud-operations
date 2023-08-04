@@ -1,0 +1,80 @@
+// ======================================================
+// Base :: Global
+// ======================================================
+html,
+body {
+  @extend %padding-0;
+  @extend %margin-0;
+}
+
+body {
+  @extend %padding-0;
+  @extend %margin-0;
+  font: $font-weight-body $text-size-body $font-family-body;
+  color: $text-color-body;
+  background-color: $bg-color-body;
+  line-height: 22px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+  max-width: 1260px;
+  width: 100%;
+
+  &.dark-theme {
+    .header-site,
+    .column-sidebar,
+    .column-content,
+    .book-list-wrapper {
+      background-color: $bg-color-dark-mode;
+    }
+  }
+
+  @include only-for-desktop() {
+    margin: 20px auto;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  @extend %text-decoration-none;
+  color: $color-primary;
+}
+
+.main-site {
+  @extend %flex;
+  @extend %flex-wrap;
+}
+
+.column-sidebar {
+  @extend %none;
+  width: $column-sidebar;
+  background-color: $bg-color-secondary;
+  box-shadow: 0px 3px 2px $box-shadow-color;
+
+  @include only-for-desktop() {
+    display: block;
+    border-radius: 0 0 0 10px;
+  }
+}
+
+.column-content {
+  background-color: $bg-color-secondary;
+  width: 100%;
+
+  @include only-for-desktop() {
+    width: $column-content;
+    border-radius: 0 0 10px 0;
+  }
+}
+
+:focus {
+  outline: 0;
+}
