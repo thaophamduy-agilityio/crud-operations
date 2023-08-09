@@ -16,7 +16,7 @@
 
 - Timeline
 
-  - Estimate time: 15 days
+  - Estimate time: 10 days
   - Actual time: TBD
 
 - Technical
