@@ -13,7 +13,7 @@ body {
   font: $font-weight-body $text-size-body $font-family-body;
   color: $text-color-body;
   background-color: $bg-color-body;
-  line-height: 22px;
+  line-height: $line-height-body;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-  max-width: 1260px;
+  max-width: 1440px;
   width: 100%;
 }
 
@@ -32,7 +32,7 @@ img {
 
 a {
   @extend %text-decoration-none;
-  color: $color-primary;
+  color: $color-tertiary;
 }
 
 .main-site {

@@ -9,12 +9,11 @@
 }
 
 /* Create mixin for text font */
-@mixin text-font($font-family, $font-size, $font-weight, $line-height, $color) {
+@mixin text-font($font-family, $font-size, $font-weight, $line-height) {
   font-family: $font-family;
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
-  color: $color;
 }
 
 /* Breakpoints for mobile */

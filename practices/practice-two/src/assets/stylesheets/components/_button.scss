@@ -1,0 +1,42 @@
+// ======================================================
+// Components :: Button
+// ======================================================
+
+.btn {
+  @include text-font($default-family, $text-md, $font-weight-bold, $line-height-btn-primary);
+  @extend %inline-flex;
+  @extend %cursor-pointer;
+  @extend %border-0;
+  border-radius: 16px;
+  padding: 16px 24px;
+
+  &-primary {
+    background-color: $bg-color-btn-primary;
+    color: $color-secondary;
+  }
+
+  &-secondary {
+    background-color: $bg-color-btn-secondary;
+    color: $color-btn-secondary;
+    padding: 10px 24px 10px 44px;
+    border: 2px solid $color-btn-secondary;
+  }
+
+  &-disabled {
+    cursor: default;
+  }
+}
+
+.caret-right {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    border-left: 8px solid #272E35;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+}

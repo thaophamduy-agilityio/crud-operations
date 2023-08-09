@@ -7,8 +7,11 @@ $color-primary: #272E35;
 $color-secondary: #FFFFFF;
 $color-tertiary: #6E757C;
 $color-default: $color-primary;
+$color-loading: #FF6E30;
+$color-danger: #DC3545;
 
 /* Background Colors */
+$bg-color-primary: #FF6E30;
 
 /* Background Size */
 
@@ -53,10 +56,35 @@ $bg-color-body: #EEEFF2;
 /* Input */
 
 /* Buttons */
+$color-btn-primary: $color-secondary;
+$color-btn-secondary: $color-default;
+$bg-color-btn-primary: $bg-color-primary;
+$bg-color-btn-secondary: transparent;
+$line-height-btn-primary: 24px;
 
-/* Columns */
-$column-sidebar: 268px;
-$column-content: calc(100% - 268px);
+/* Testimonial */
+
+/* Hero */
+
+/* Schedule */
+
+/* Instant Setup */
+
+/* Amazing Feature */
+
+/* History */
+
+/* Core Value */
+
+/* Integration */
+
+/* Launch App */
+
+/* Save Time */
+
+/* Call To Action */
+
+/* Footer */
 
 /* Width */
 $page-max-width: 1440px;
