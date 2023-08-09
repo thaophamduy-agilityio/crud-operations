@@ -1,4 +1,4 @@
-# React Practice
+# React Practice Two
 
 ## Author: Thao Pham
 
