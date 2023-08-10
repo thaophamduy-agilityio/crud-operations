@@ -30,10 +30,17 @@ $secondary-family: $font-secondary;
 $text-xs: 12px;
 $text-sm: 13px;
 $text-md: 16px;
-$text-lg: 24px;
-$text-xl: 32px;
-$text-xxl: 48px;
-$text-xxxl: 72px;
+$text-lg: 20px;
+$text-lg-tablet: 24px;
+$text-lg-desktop: 32px;
+$text-xl: $text-lg-desktop;
+$text-xl-tablet: 40px;
+$text-xl-desktop: 48px;
+$text-xxl: $text-xl-tablet;
+$text-xxl-tablet: $text-xl-desktop;
+$text-xxl-desktop: 72px;
+$text-xxxl: 56px;
+$text-xxxl-tablet: $text-xxl-desktop;
 
 /* Font-Weight */
 $font-weight-regular: 400;
@@ -41,6 +48,22 @@ $font-weight-medium: 500;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 $font-weight-extra-bold: 800;
+
+/* Line Height */
+$line-height-default: $text-lg-tablet;
+$line-height-lg: $line-height-default;
+$line-height-lg-tablet: $text-lg-desktop;
+$line-height-lg-desktop: $text-xl-tablet;
+$line-height-xl: $line-height-lg-desktop;
+$line-height-xl-tablet: $text-xl-desktop;
+$line-height-xl-desktop: $text-xxxl;
+$line-height-xxl: $line-height-xl-tablet;
+$line-height-xxl-tablet: $line-height-xl-desktop;
+$line-height-xxl-desktop: 80px;
+$line-height-xxxl: $line-height-xxl-desktop;
+$line-height-xxxl-tablet: $line-height-xxl-desktop;
+
+/* Spacing */
 
 /* Body */
 $font-family-body: $default-family;
