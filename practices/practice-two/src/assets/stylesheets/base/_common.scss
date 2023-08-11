@@ -22,7 +22,8 @@ body {
 }
 
 .container {
-  max-width: 1440px;
+  @extend %margin-center;
+  max-width: $page-max-width;
   width: 100%;
 }
 
