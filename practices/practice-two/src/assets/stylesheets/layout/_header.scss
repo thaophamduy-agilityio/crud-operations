@@ -1,3 +1,50 @@
 // ======================================================
 // Components :: Header
 // ======================================================
+
+.header {
+  &-site {
+    @extend %flex;
+    @extend %justify-space-between;
+    @extend %item-center;
+    @extend %margin-center;
+  }
+
+  &-left,
+  &-right {
+    @extend %flex;
+    @extend %item-center;
+  }
+}
+
+/* Logo */
+.logo {
+  @extend %flex;
+  @extend %item-center;
+
+  .img-item {
+    @include only-for-tablet() {
+      width: 40px;
+      height: 44px;
+    }
+  }
+
+  &-text {
+    @include text-font($font-family-logo, $text-size-logo, $font-weight-logo, $line-height-logo);
+    @extend %inline-flex;
+    color: $color-primary;
+    -webkit-text-stroke: 1px $border-logo;
+    margin-left: 15px;
+
+    @include only-for-tablet() {
+      font-size: $text-size-logo-tablet;
+      font-weight: $font-weight-logo-tablet;
+      line-height: $line-height-logo-tablet;
+    }
+  }
+
+  &-dot {
+    color: $color-logo-dot;
+    -webkit-text-stroke: 1px $border-logo;
+  }
+}

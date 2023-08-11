@@ -7,15 +7,17 @@ $color-primary: #272E35;
 $color-secondary: #FFFFFF;
 $color-tertiary: #6E757C;
 $color-default: $color-primary;
-$color-loading: #FF6E30;
+$color-logo-dot: #FF6E30;
+$color-loading: $color-logo-dot;
 $color-danger: #DC3545;
 
 /* Background Colors */
-$bg-color-primary: #FF6E30;
+$bg-color-primary: $color-logo-dot;
 
 /* Background Size */
 
 /* Border Colors */
+$border-logo: #000;
 $border-disabled: rgba(196, 196, 196, 0.3);
 
 /* Box-Shadow */
@@ -23,8 +25,10 @@ $border-disabled: rgba(196, 196, 196, 0.3);
 /* Font-Family */
 $font-primary: 'Inter', sans-serif;
 $font-secondary: 'Poppins', sans-serif;
+$font-tertiary: 'Robert', sans-serif;
 $default-family: $font-primary;
 $secondary-family: $font-secondary;
+$tertiary-family: $font-tertiary;
 
 /* Font-Size */
 $text-xs: 12px;
@@ -76,6 +80,13 @@ $bg-color-body: #EEEFF2;
 /* Header */
 
 /* Logo */
+$font-family-logo: $default-family;
+$text-size-logo: 30px;
+$text-size-logo-tablet: 36px;
+$font-weight-logo: $font-weight-extra-bold;
+$font-weight-logo-tablet: $font-weight-bold;
+$line-height-logo: 33px;
+$line-height-logo-tablet: 40px;
 
 /* Input */
 
