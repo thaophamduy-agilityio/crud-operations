@@ -13,7 +13,7 @@ export const Navigation = memo(({ links }: NavigationProps): JSX.Element => {
   return (
     <ul className="navigation">
       {links.map((link) => (
-        <li key={link.id} id={`${link.id}-page`}>
+        <li key={link.id} id={`${link.id}-page`} className="navigation-item">
           <a href={link.url} className="link-label">
             {link.label}
           </a>
