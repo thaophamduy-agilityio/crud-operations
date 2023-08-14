@@ -56,6 +56,7 @@ $font-weight-bold: 700;
 $font-weight-extra-bold: 800;
 
 /* Line Height */
+$line-height-title: $text-md;
 $line-height-default: $text-lg-tablet;
 $line-height-lg: $line-height-default;
 $line-height-lg-tablet: $text-lg-desktop;
@@ -80,7 +81,7 @@ $text-color-body: $color-default;
 $bg-color-body: #EEEFF2;
 
 /* Header */
-$margin-left-form: 180px;
+$margin-left-form: 120px;
 $margin-right-label: 32px;
 
 
@@ -113,6 +114,7 @@ $text-testimonial-icon: 40px;
 $rating-star: '.star-5', '.star-4', '.star-3', '.star-2', '.star-1', '.star-0';
 
 /* Hero */
+$color-title: #748FB5;
 
 /* Schedule */
 
