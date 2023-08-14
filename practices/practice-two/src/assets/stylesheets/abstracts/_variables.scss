@@ -13,6 +13,8 @@ $color-danger: #DC3545;
 
 /* Background Colors */
 $bg-color-primary: $color-logo-dot;
+$bg-color-secondary: $color-primary;
+$bg-color-tertiary: $color-secondary;
 
 /* Background Size */
 
@@ -78,6 +80,9 @@ $text-color-body: $color-default;
 $bg-color-body: #EEEFF2;
 
 /* Header */
+$margin-left-form: 180px;
+$margin-right-label: 32px;
+
 
 /* Logo */
 $font-family-logo: $default-family;
@@ -87,6 +92,11 @@ $font-weight-logo: $font-weight-extra-bold;
 $font-weight-logo-tablet: $font-weight-bold;
 $line-height-logo: 33px;
 $line-height-logo-tablet: 40px;
+
+/* Menu */
+$menu-text: 24px;
+$menu-button-width: 32px;
+$menu-button-height: 2px;
 
 /* Input */
 

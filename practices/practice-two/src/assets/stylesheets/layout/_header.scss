@@ -7,6 +7,7 @@
     @extend %flex;
     @extend %justify-space-between;
     @extend %item-center;
+    @extend %relative;
     @extend %margin-center;
   }
 
@@ -57,15 +58,85 @@
   }
 }
 
+/* Menu */
+.menu {
+  &-button {
+    @extend %cursor-pointer;
+
+    &::before,
+    &::after {
+      @include size($menu-button-width, $menu-button-height);
+      @extend %flex;
+      background-color: $bg-color-secondary;
+      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-radius: 2px;
+    }
+  }
+
+  &-button {
+    @include only-for-desktop() {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      margin-top: 0px;
+    }
+
+    &::after {
+      content: '';
+      margin-top: 4px;
+    }
+
+    &.open {
+      &::before {
+        margin-top: 0px;
+        transform: rotate(405deg);
+      }
+  
+      &::after {
+        margin-top: -2px;
+        transform: rotate(-405deg);
+      }
+
+      +.site-navigation {
+        @extend %block;
+        @extend %absolute;
+        @extend %z-index-1;
+        left: 0;
+        top: 60px;
+        width: 100%;
+      }
+    }
+  }
+}
+
 /* Navigation */
 .navigation,
 .user-form {
   @extend %flex;
-  @extend %item-center;
+  @extend %flex-column;
   @extend %list-style-type-none;
+
+  @include only-for-desktop() {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-item {
+    @extend %flex;
+    border-bottom: 1px solid #D9D9D9;
+    padding: 20px;
+
+    @include only-for-desktop() {
+      border-bottom: 0;
+      padding: 0px;
+    }
+  }
 
   .link-label {
     @extend %text-capitalize;
+    width: 100%;
 
     @include only-for-desktop() {
       margin: 0 25px;
@@ -77,16 +148,24 @@
   @extend %none;
   @extend %item-center;
   @extend %list-style-type-none;
+  background-color: $bg-color-tertiary;
 
-  @include only-for-tablet() {
+  @include only-for-desktop() {
     display: flex;
+    background-color: transparent;
   }
 }
 
 .user-form {
+  @include only-for-desktop() {
+    margin-left: $margin-left-form;
+  }
+
   .link-label {
+    width: 100%;
+    
     @include only-for-desktop() {
-      margin-right: 32px;
+      margin-right: $margin-right-label;
     }
   }
 }
