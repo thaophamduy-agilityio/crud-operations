@@ -2,6 +2,7 @@ import { memo } from 'react';
 
 // Define the props for the Image component
 interface ImageProps {
+  srcSet?: string | undefined;
   imageSrc: string | undefined;
   size: {
     width: number;
