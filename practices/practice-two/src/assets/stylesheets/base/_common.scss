@@ -24,11 +24,18 @@ body {
 .container {
   @extend %margin-center;
   max-width: $page-max-width;
-  width: 100%;
+  width: calc(100% - 24px);
+  padding: 50px 12px;
+
+  @include only-for-tablet() {
+    padding: 50px 30px;
+    width: calc(100% - 60px);
+  }
 }
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 a {

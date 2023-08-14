@@ -5,10 +5,16 @@
 .btn {
   @include text-font($default-family, $text-md, $font-weight-bold, $line-height-btn-primary);
   @extend %inline-flex;
+  @extend %justify-center;
   @extend %cursor-pointer;
   @extend %border-0;
   border-radius: 16px;
+  margin: 12px 0;
   padding: 16px 24px;
+
+  @include only-for-tablet() {
+    margin: 12px 24px 12px 0;
+  }
 
   &-primary {
     background-color: $bg-color-btn-primary;
@@ -25,6 +31,16 @@
   &-disabled {
     cursor: default;
     border: 2px solid $border-disabled;
+  }
+
+  &-container {
+    @extend %inline-flex;
+    @extend %flex-column;
+
+    @include only-for-tablet() {
+      display: block;
+      flex-direction: row;
+    }
   }
 }
 

@@ -15,6 +15,11 @@
   &-md {
     @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
     color: $color-tertiary;
+    margin: 12px 0;
+
+    @include only-for-tablet() {
+      margin: 28px 0;
+    }
   }
 
   &-lg {
