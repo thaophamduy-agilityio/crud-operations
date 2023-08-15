@@ -27,3 +27,18 @@ export const scheduleImg = {
     img2x: '/src/assets/images/schedule/schedule-mobile-2x.webp',
   },
 };
+
+export const amazingFeatureImg = {
+  desktop: {
+    img: '/src/assets/images/amazing-feature/amazing-feature-desktop.webp',
+    img2x: '/src/assets/images/amazing-feature/amazing-feature-desktop-2x.webp',
+  },
+  tablet: {
+    img: '/src/assets/images/amazing-feature/amazing-feature-tablet.webp',
+    img2x: '/src/assets/images/amazing-feature/amazing-feature-tablet-2x.webp',
+  },
+  mobile: {
+    img: '/src/assets/images/amazing-feature/amazing-feature-mobile.webp',
+    img2x: '/src/assets/images/amazing-feature/amazing-feature-mobile-2x.webp',
+  },
+};

@@ -1,3 +1,99 @@
 // ======================================================
 // Components :: Amazing Feature
 // ======================================================
+
+.amazing {
+  &-feature {
+    @extend %flex;
+    @extend %flex-column;
+    @extend %justify-center;
+    @extend %item-center;
+    padding: 0 15px;
+    width: 100%;
+  
+    @include only-for-tablet() {
+      padding: 0;
+    }
+
+    &-typography {
+      @extend %text-center;
+    }
+
+    &-title {
+      @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+      @extend %text-uppercase;
+      color: $color-title;
+      margin-bottom: 10px;
+      letter-spacing: 10%;
+  
+      @include only-for-tablet() {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-container {
+      @extend %flex-column;
+      @extend %list-style-type-none;
+  
+      @include only-for-tablet() {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      &-content {
+        margin-left: 0;
+  
+        @include only-for-tablet() {
+          margin: 0 100px;
+        }
+  
+        @include only-for-desktop() {
+          width: 25%;
+        }
+      }
+
+      &-image {
+        .img-item {
+          @include only-for-tablet() {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      &-icon {
+        @extend %none;
+
+        @include only-for-desktop() {
+          display: block;
+          margin-left: -55px;
+        }
+      }
+
+      &-title {
+        @include text-font($secondary-family, $text-lg, $font-weight-semi-bold, $line-height-default);
+        margin: 30px 0 20px;
+      }
+
+      &-desc {
+        @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
+        color: $color-feature-desc;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-item {
+      @extend %flex;
+      @extend %flex-column;
+      @extend %justify-center;
+      @extend %item-center;
+      padding: 30px 0 35px;
+  
+      @include only-for-tablet() {
+        flex-direction: row;
+      }
+    }
+  }
+}
