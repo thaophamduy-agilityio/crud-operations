@@ -1,3 +1,82 @@
 // ======================================================
 // Components :: Instant Setup
 // ======================================================
+
+.instant {
+  &-setup {
+    @extend %flex;
+    @extend %flex-column;
+    @extend %justify-center;
+    @extend %item-center;
+    margin-bottom: 100px;
+    width: 100%;
+  
+    @include only-for-tablet() {
+      margin-bottom: 120px;
+    }
+
+    &-typography {
+      @extend %text-center;
+    }
+
+    &-title {
+      @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+      @extend %text-uppercase;
+      color: $color-title;
+      margin-bottom: 10px;
+      letter-spacing: 10%;
+  
+      @include only-for-tablet() {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-container {
+      @extend %list-style-type-none;
+      margin-top: 0;
+      width: 70%;
+  
+      @include only-for-tablet() {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 50px;
+        width: 100%;
+      }
+    }
+
+    &-item {
+      @extend %flex;
+      @extend %flex-column;
+      @extend %justify-center;
+      @extend %item-center;
+      border-bottom: 4px solid $border-instant-setup;
+      border-right: 0;
+      padding: 30px 0 35px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+  
+      @include only-for-tablet() {
+        border-bottom: 0;
+        border-right: 4px solid $border-instant-setup;
+        flex-basis: 20%;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+
+    &-step {
+      @include text-font($default-family, $text-xs, $font-weight-bold, $line-height-default);
+      @extend %text-capitalize;
+      background-color: $instant-setup-step-bg;
+      color: $color-secondary;
+      border-radius: 20px;
+      padding: 2px 10px;
+    }
+  }
+}
