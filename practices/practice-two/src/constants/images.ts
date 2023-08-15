@@ -12,3 +12,18 @@ export const heroImg = {
     img2x: '/src/assets/images/hero/hero-mobile-2x.webp',
   },
 };
+
+export const scheduleImg = {
+  desktop: {
+    img: '/src/assets/images/schedule/schedule-desktop.webp',
+    img2x: '/src/assets/images/schedule/schedule-desktop-2x.webp',
+  },
+  tablet: {
+    img: '/src/assets/images/schedule/schedule-tablet.webp',
+    img2x: '/src/assets/images/schedule/schedule-tablet-2x.webp',
+  },
+  mobile: {
+    img: '/src/assets/images/schedule/schedule-mobile.webp',
+    img2x: '/src/assets/images/schedule/schedule-mobile-2x.webp',
+  },
+};
