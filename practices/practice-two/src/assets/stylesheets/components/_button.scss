@@ -24,8 +24,22 @@
   &-secondary {
     background-color: $bg-color-btn-secondary;
     color: $color-btn-secondary;
-    padding: 10px 24px 10px 44px;
     border: 2px solid $color-btn-secondary;
+
+    &.caret-right {
+      position: relative;
+      padding: 10px 24px 10px 44px;
+    
+      &:before {
+        content: '';
+        position: absolute;
+        top: 16px;
+        left: 24px;
+        border-left: 8px solid #272E35;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      }
+    }
   }
 
   &-disabled {
@@ -41,19 +55,5 @@
       display: block;
       flex-direction: row;
     }
-  }
-}
-
-.caret-right {
-  position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 16px;
-    left: 24px;
-    border-left: 8px solid #272E35;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
   }
 }
