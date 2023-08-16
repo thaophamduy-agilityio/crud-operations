@@ -58,8 +58,8 @@ export const AmazingFeature = memo(({ features }: AmazingFeatureProps): JSX.Elem
                 srcSet={`${feature.imageSrc.mobile.img2x} 2x`}
                 imageSrc={feature.imageSrc.mobile.img}
                 size={{
-                  height: 344,
-                  width: 366,
+                  height: 282,
+                  width: 330,
                 }}
                 altText="Amazing Feature"
               />
@@ -84,6 +84,7 @@ export const AmazingFeature = memo(({ features }: AmazingFeatureProps): JSX.Elem
                 variant="secondary"
               />
             </div>
+            <div className={`amazing-feature-item-pagination-${feature.id}`}>&nbsp;</div>
           </li>
         ))}
       </ul>
