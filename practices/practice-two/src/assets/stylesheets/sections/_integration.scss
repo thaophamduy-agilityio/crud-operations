@@ -3,6 +3,16 @@
 // ======================================================
 
 .integration {
+  @extend %flex;
+  @extend %flex-column;
+  @extend %item-center;
+  margin: 15px 0;
+  width: 100%;
+
+  @include only-for-desktop() {
+    flex-direction: row;
+  }
+
   &-logo {
     @include size($integration-logo-box-width, $integration-logo-box-height);
     @extend %flex;
@@ -10,11 +20,38 @@
     @extend %item-center;
     background-color: $bg-color-tertiary;
     border-radius: 10px;
+    margin: 20px;
     box-shadow: 10px 10px 10px $box-shadow-history;
 
     @include only-for-tablet() {
       width: $integration-logo-box-width-tablet;
       height: $integration-logo-box-height-tablet;
+    }
+  }
+
+  &-title {
+    @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+    @extend %text-uppercase;
+    color: $color-title;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+
+    @include only-for-tablet() {
+      margin-bottom: 24px;
+    }
+  }
+
+  &-image {
+    @extend %flex;
+    @extend %justify-center;
+    @extend %item-center;
+    width: 90%;
+
+    &-column {
+      @extend %flex;
+      @extend %flex-column;
+      @extend %justify-center;
+      @extend %item-center;
     }
   }
 }

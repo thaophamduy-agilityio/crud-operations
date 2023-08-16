@@ -57,3 +57,62 @@ export const historyImg = {
     img2x: '/src/assets/images/history/history-mobile-2x.webp',
   },
 };
+
+export const integrationImg = {
+  notion: {
+    src: '/src/assets/images/integration-logo/logo-notion.svg',
+    alt: 'Logo Notion',
+    size: {
+      height: 75,
+      width: 75
+    },
+  },
+  figma: {
+    src: '/src/assets/images/integration-logo/logo-figma.svg',
+    alt: 'Logo Figma',
+    size: {
+      height: 75,
+      width: 75
+    },
+  },
+  atom: {
+    src: '/src/assets/images/integration-logo/logo-atom.svg',
+    alt: 'Logo Atom',
+    size: {
+      height: 75,
+      width: 75
+    },
+  },
+  sketch: {
+    src: '/src/assets/images/integration-logo/logo-sketch.svg',
+    alt: 'Logo Sketch',
+    size: {
+      height: 75,
+      width: 75
+    },
+  },
+  google: {
+    src: '/src/assets/images/integration-logo/logo-google.svg',
+    alt: 'Logo Google',
+    size: {
+      height: 75,
+      width: 75
+    },
+  },
+  dribbble: {
+    src: '/src/assets/images/integration-logo/logo-dribbble.svg',
+    alt: 'Logo Dribbble',
+    size: {
+      height: 75,
+      width: 75
+    },
+  },
+  ui: {
+    src: '/src/assets/images/integration-logo/logo-ui.svg',
+    alt: 'Logo UI',
+    size: {
+      height: 75,
+      width: 75
+    },
+  },
+};
