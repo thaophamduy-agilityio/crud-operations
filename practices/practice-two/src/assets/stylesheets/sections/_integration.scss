@@ -1,3 +1,20 @@
 // ======================================================
 // Components :: Integration
 // ======================================================
+
+.integration {
+  &-logo {
+    @include size($integration-logo-box-width, $integration-logo-box-height);
+    @extend %flex;
+    @extend %justify-center;
+    @extend %item-center;
+    background-color: $bg-color-tertiary;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px $box-shadow-history;
+
+    @include only-for-tablet() {
+      width: $integration-logo-box-width-tablet;
+      height: $integration-logo-box-height-tablet;
+    }
+  }
+}
