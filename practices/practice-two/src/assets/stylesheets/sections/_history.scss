@@ -1,3 +1,70 @@
 // ======================================================
 // Components :: History
 // ======================================================
+
+.history {
+  @extend %flex;
+  @extend %justify-space-between;
+  @extend %flex-column;
+  @extend %item-center;
+  background-color: $bg-color-history;
+  border-radius: 24px;
+  box-shadow: 10px 10px 10px $box-shadow-history;
+  margin: 40px 0;
+  padding: 0 30px 30px;
+  width: calc(100% - 60px);
+
+  @include only-for-tablet() {
+    flex-direction: row;
+    padding: 30px 60px;
+    margin: 35px 0;
+  }
+
+  @include only-for-desktop() {
+    margin: 100px 0;
+  }
+
+  &-typography {
+    @include only-for-tablet() {
+    }
+  }
+
+  &-title {
+    @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+    @extend %text-uppercase;
+    color: $color-title;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+
+    @include only-for-tablet() {
+      margin-bottom: 24px;
+    }
+  }
+
+  &-image {
+    @extend %text-center;
+    margin-top: -20px;
+    width: 150%;
+    
+    @include only-for-tablet() {
+      order: 1;
+      margin-top: -100px;
+      margin-right: -80px;
+      width: 100%;
+    }
+    
+    @include only-for-desktop() {
+      margin-right: -190px;
+    }
+  }
+
+  .img-item {
+    @include only-for-tablet() {
+      width: 648px;
+    }
+
+    @include only-for-desktop() {
+      width: 856px;
+    }
+  }
+}

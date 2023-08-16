@@ -42,3 +42,18 @@ export const amazingFeatureImg = {
     img2x: '/src/assets/images/amazing-feature/amazing-feature-mobile-2x.webp',
   },
 };
+
+export const historyImg = {
+  desktop: {
+    img: '/src/assets/images/history/history-desktop.webp',
+    img2x: '/src/assets/images/history/history-desktop-2x.webp',
+  },
+  tablet: {
+    img: '/src/assets/images/history/history-tablet.webp',
+    img2x: '/src/assets/images/history/history-tablet-2x.webp',
+  },
+  mobile: {
+    img: '/src/assets/images/history/history-mobile.webp',
+    img2x: '/src/assets/images/history/history-mobile-2x.webp',
+  },
+};
