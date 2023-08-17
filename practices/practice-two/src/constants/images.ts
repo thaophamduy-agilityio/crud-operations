@@ -146,3 +146,18 @@ export const notificationImg = {
     img2x: '/src/assets/images/notification/notification-mobile-2x.webp',
   },
 };
+
+export const saveTimeFeatureImg = {
+  desktop: {
+    img: '/src/assets/images/save-time/save-time-desktop.webp',
+    img2x: '/src/assets/images/save-time/save-time-desktop-2x.webp',
+  },
+  tablet: {
+    img: '/src/assets/images/save-time/save-time-tablet.webp',
+    img2x: '/src/assets/images/save-time/save-time-tablet-2x.webp',
+  },
+  mobile: {
+    img: '/src/assets/images/save-time/save-time-mobile.webp',
+    img2x: '/src/assets/images/save-time/save-time-mobile-2x.webp',
+  },
+};

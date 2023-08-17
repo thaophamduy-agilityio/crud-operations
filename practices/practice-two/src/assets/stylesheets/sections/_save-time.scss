@@ -4,8 +4,88 @@
 
 .save {
   &-time {
-    margin: 35px 0;
-    width: 100%;
+    @extend %flex;
+    @extend %flex-column;
+    @extend %justify-space-between;
+    @extend %item-center;
+    background-color: $bg-color-save-time;
+    border-radius: 24px;
+    box-shadow: 10px 10px 10px $box-shadow-save-time;
+    margin: 40px 0;
+    padding: 30px;
+    width: calc(100% - 60px);
+  
+    @include only-for-tablet() {
+      padding: 100px 80px 50px 50px;
+      flex-direction: row;
+    }
+  
+    @include only-for-desktop() {
+      padding: 100px 80px 80px 135px;
+    }
+
+    &-content {
+      @extend %relative;
+      @extend %flex;
+      @extend %flex-column;
+      width: 100%;
+      
+      @include only-for-tablet() {
+        width: 40%;
+      }
+    }
+
+    &-typography {
+      @include only-for-tablet() {
+        margin-top: 180px;
+        order: 1;
+      }
+
+      @include only-for-desktop() {
+        margin-top: 220px;
+      }
+    }
+  
+    &-title {
+      @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+      @extend %text-uppercase;
+      color: $color-title;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+  
+      @include only-for-tablet() {
+        margin-bottom: 24px;
+      }
+    }
+  
+    &-image {
+      @extend %text-center;
+      margin: 30px -150%;
+      width: 400%;
+  
+      .img-item {
+        @include only-for-tablet() {
+          margin-top: -30px;
+          width: 648px;
+        }
+    
+        @include only-for-desktop() {
+          width: 856px;
+        }
+      }
+      
+      @include only-for-tablet() {
+        // margin: -250px 0 0 -100%;
+        position: absolute;
+        top: -160px;
+        left: 70px;
+      }
+    
+      @include only-for-desktop() {
+        // margin: -60% 0 0 -140%;
+        left: 0;
+      }
+    }
 
     &-list {
       @extend %flex;
@@ -13,9 +93,18 @@
       @extend %flex-wrap;
       @extend %list-style-type-none;
       width: 100%;
+      
+      @include only-for-tablet() {
+        width: 40%;
+      }
 
-      &-content {
-        margin: 0 25px;
+      &-image {
+        width: 40%;
+        margin-right: 25px;
+      
+        @include only-for-desktop() {
+          margin-right: 0;
+        }
       }
 
       &-title {
