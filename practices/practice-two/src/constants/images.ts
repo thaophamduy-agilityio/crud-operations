@@ -131,3 +131,18 @@ export const launchAppImg = {
     img2x: '/src/assets/images/launch-app/launch-app-mobile-2x.webp',
   },
 };
+
+export const notificationImg = {
+  desktop: {
+    img: '/src/assets/images/notification/notification-desktop.webp',
+    img2x: '/src/assets/images/notification/notification-desktop-2x.webp',
+  },
+  tablet: {
+    img: '/src/assets/images/notification/notification-tablet.webp',
+    img2x: '/src/assets/images/notification/notification-tablet-2x.webp',
+  },
+  mobile: {
+    img: '/src/assets/images/notification/notification-mobile.webp',
+    img2x: '/src/assets/images/notification/notification-mobile-2x.webp',
+  },
+};
