@@ -9,6 +9,7 @@
     @extend %item-center;
     @extend %relative;
     @extend %margin-center;
+    @extend %z-index-1;
   }
 
   &-left,

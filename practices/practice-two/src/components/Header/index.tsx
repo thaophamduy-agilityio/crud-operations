@@ -3,24 +3,19 @@ import Logo from '@components/common/Logo';
 import { Navigation } from '@components/common/Navigation';
 import { Button } from '@components/common/Button';
 import { HamburgerMenu } from '@components/common/HamburgerMenu';
+import { NavLink } from '@interface/nav-link';
 
 interface HeaderProps {
   isOpenMenuOnMobile: boolean;
   onToggleMenuOnMobile: () => void;
+  links: NavLink[];
 }
 
 const Header = memo(({
     isOpenMenuOnMobile,
     onToggleMenuOnMobile,
+    links,
   }: HeaderProps): JSX.Element => {
-    const NavLinks = [
-      { id: "downloads", label: "Downloads", url: "/downloads" },
-      { id: "pricing", label: "Pricing", url: "/pricing" },
-      { id: "features", label: "Features", url: "/features" },
-      { id: "aboutUs", label: "About Us", url: "/about-us" },
-      { id: "contact", label: "Contact", url: "/contact" },
-    ]
-
     return (
       <header className="header-site">
         <section className="header-left">
@@ -30,7 +25,7 @@ const Header = memo(({
           {/* Hamburger menu */}
           <HamburgerMenu isOpenMenuOnMobile={isOpenMenuOnMobile} onClick={onToggleMenuOnMobile} />
           <nav className="site-navigation">
-            <Navigation links={NavLinks} />
+            <Navigation links={links} />
             <ul className="user-form">
               <li id="logIn" className="navigation-item">
                 <a className="link-label" href="/login">Login</a>
