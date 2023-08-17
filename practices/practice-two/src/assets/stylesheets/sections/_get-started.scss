@@ -1,0 +1,80 @@
+// ======================================================
+// Components :: History
+// ======================================================
+
+.get {
+  &-started {
+    @extend %relative;
+    @extend %flex;
+    @extend %justify-space-between;
+    @extend %flex-column;
+    @extend %item-center;
+    background: url('/src/assets/images/schedule/bg-schedule.webp') no-repeat;
+    background-size: cover;
+    border-radius: 24px;
+    padding: 50px 20px 0;
+    height: 600px;
+    
+    @include only-for-tablet() {
+      flex-direction: row;
+      padding: 0 64px;
+      width: 100%;
+    }
+
+    @include only-for-desktop() {
+      padding: 0 100px;
+      margin: 100px 0;
+    }
+
+    &-typography {
+      @extend %text-center;
+      color: $color-secondary;
+      width: 100%;
+      
+      @include only-for-tablet() {
+        text-align: left;
+        width: 40%;
+      }
+      
+      @include only-for-desktop() {
+        .text-md {
+          margin-width: 80%;
+        }
+        
+        width: 45%;
+      }
+    }
+
+    &-image {
+      @extend %text-center;
+      width: 150%;
+      
+      @include only-for-tablet() {
+        position: absolute;
+        bottom: 35px;
+        right: -17%;
+        width: 100%;
+      }
+      
+      @include only-for-desktop() {
+        bottom: -115px;
+        right: -22%;
+      }
+    }
+
+    .img-item {
+      @include only-for-tablet() {
+        width: 669px;
+      }
+
+      @include only-for-desktop() {
+        width: 946px;
+      }
+    }
+
+    .btn-secondary {
+      color: $color-secondary;
+      border-color: $color-secondary;
+    }
+  }
+}

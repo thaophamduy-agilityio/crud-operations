@@ -161,3 +161,18 @@ export const saveTimeFeatureImg = {
     img2x: '/src/assets/images/save-time/save-time-mobile-2x.webp',
   },
 };
+
+export const getStartedImg = {
+  desktop: {
+    img: '/src/assets/images/get-started/get-started-desktop.webp',
+    img2x: '/src/assets/images/get-started/get-started-desktop-2x.webp',
+  },
+  tablet: {
+    img: '/src/assets/images/get-started/get-started-tablet.webp',
+    img2x: '/src/assets/images/get-started/get-started-tablet-2x.webp',
+  },
+  mobile: {
+    img: '/src/assets/images/get-started/get-started-mobile.webp',
+    img2x: '/src/assets/images/get-started/get-started-mobile-2x.webp',
+  },
+};
