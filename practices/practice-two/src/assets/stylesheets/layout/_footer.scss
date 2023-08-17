@@ -1,3 +1,98 @@
 // ======================================================
 // Components :: Footer
 // ======================================================
+
+.footer {
+  &-site {
+    @extend %text-center;
+    
+    @include only-for-tablet() {
+      text-align: left;
+    }
+    
+    &-container {
+      &-logo {
+        @extend %flex;
+        @extend %flex-column;
+        @extend %justify-space-between;
+        @extend %item-end;
+    
+        @include only-for-tablet() {
+          align-items: start;
+        }
+    
+        @include only-for-desktop() {
+          flex-direction: row;
+        }
+
+        .img-item {
+          margin: 5px;
+        }
+      }
+
+      &-copy {
+        &-right {
+          @extend %flex;
+          @extend %flex-row;
+          @extend %justify-space-between;
+          @extend %item-center;
+          border-top: 2px solid $border-footer-copy-right;
+          margin-top: 15px;
+          padding-top: 20px;
+    
+          @include only-for-tablet() {
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+
+    &-button {
+      .img-item {
+        @extend %cursor-pointer;
+      }
+      
+      @include only-for-tablet() {
+        text-align: end;
+        width: 100%;
+      }
+      
+      @include only-for-desktop() {
+        text-align: start;
+      }
+    }
+
+    .logo {
+      @extend %justify-center;
+
+      @include only-for-tablet() {
+        justify-content: left;
+      }
+    }
+  }
+
+  &-left {
+    @include only-for-tablet() {
+      display: flex;
+      flex-direction: row;
+    }
+
+    @include only-for-desktop() {
+      flex-direction: column;
+    }
+  }
+
+  &-right {
+    @extend %none;
+
+    @include only-for-desktop() {
+      display: flex;
+    }
+  }
+
+  &-icon {
+    @extend %cursor-pointer;
+    color: $color-tertiary;
+    margin-left: 20px;
+  }
+}
