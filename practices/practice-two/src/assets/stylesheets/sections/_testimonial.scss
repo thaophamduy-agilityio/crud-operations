@@ -3,11 +3,28 @@
 // ======================================================
 .testimonial {
   @extend %flex;
-  @extend %justify-space-between;
-  @extend %list-style-type-none;
+  @extend %flex-column;
+  @extend %justify-center;
+  margin: 50px 0;
 
-  &-content {
+  @include only-for-tablet() {
+    margin: 100px 0;
+  }
+
+  @include only-for-desktop() {
+    margin: 120px 0;
+  }
+
+  &-list {
+    @extend %flex;
+    @extend %flex-row;
+    @extend %justify-space-between;
+    @extend %item-center;
+  }
+
+  &-item {
     @extend %text-center;
+    @extend %list-style-type-none;
 
     &:nth-child(2),
     &:nth-child(3),

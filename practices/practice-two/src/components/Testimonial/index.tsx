@@ -13,16 +13,16 @@ interface TestimonialProps {
  */
 export const Testimonial = memo(({ testimonials }: TestimonialProps): JSX.Element => {
   return (
-    <>
+    <section className="testimonial">
       <div className="testimonial-title">
         <Text
           size="xl"
           text="What people are saying"
         />
       </div>
-      <ul className="testimonial">
+      <ul className="testimonial-list">
         {testimonials.map((testimonial) => (
-          <li key={testimonial.id} id={`testimonial-${testimonial.id}`} className="testimonial-content">
+          <li key={testimonial.id} id={`testimonial-${testimonial.id}`} className="testimonial-item">
             <Text
               size="lg"
               text={testimonial.desc}
@@ -42,6 +42,6 @@ export const Testimonial = memo(({ testimonials }: TestimonialProps): JSX.Elemen
         <BsArrowLeft className="testimonial-icon-pre disabled" />
         <BsArrowRight className="testimonial-icon-next" />
       </div>
-    </>
+    </section>
   )
 });
