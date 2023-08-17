@@ -1,3 +1,47 @@
 // ======================================================
-// Components :: Save Time
+// Components :: Save Time Feature
 // ======================================================
+
+.save {
+  &-time {
+    margin: 35px 0;
+    width: 100%;
+
+    &-list {
+      @extend %flex;
+      @extend %flex-column;
+      @extend %flex-wrap;
+      @extend %list-style-type-none;
+      width: 100%;
+
+      &-content {
+        margin: 0 25px;
+      }
+
+      &-title {
+        @include text-font($secondary-family, $text-lg, $font-weight-semi-bold, $line-height-default);
+        margin-bottom: 20px;
+      }
+
+      &-desc {
+        @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
+        color: $color-feature-desc;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-item {
+      @extend %relative;
+      @extend %flex;
+      margin: 15px 0;
+      border-bottom: 3px solid $save-time-border-color;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+  
+      @include only-for-tablet() {
+      }
+    }
+  }
+}
