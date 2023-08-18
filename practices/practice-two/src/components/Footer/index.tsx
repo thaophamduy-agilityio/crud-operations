@@ -18,7 +18,7 @@ interface FooterProps {
  */
 export const Footer = memo(({ links }: FooterProps): JSX.Element => {
   return (
-    <section className="footer-site">
+    <footer className="footer-site">
       <div className="footer-site-container-logo">
         <div className="footer-left">
           <div className="footer-site-logo">
@@ -54,6 +54,6 @@ export const Footer = memo(({ links }: FooterProps): JSX.Element => {
           <BsInstagram className="footer-icon" />
         </div>
       </div>
-    </section>
+    </footer>
   )
 });

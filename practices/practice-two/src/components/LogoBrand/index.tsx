@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
 
-// Define the props for the Navigation component
+// Define the props for the Logo Brand component
 interface LogoBrandProps {
   logos: Brand[];
 }
