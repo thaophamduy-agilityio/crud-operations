@@ -40,27 +40,25 @@ export const Hero = memo(({ onTryItFree, onWatchHowItWorks }: HeroProps): JSX.El
           />
         </div>
       </div>
-      <div className="hero-image">
-        <picture>
-          <source
-            srcSet={`${heroImg.desktop.img2x} 2x, ${heroImg.desktop.img}`}
-            media="(min-width: 1120px)"
-          />
-          <source
-            srcSet={`${heroImg.tablet.img2x} 2x, ${heroImg.tablet.img}`}
-            media="(min-width: 768px)"
-          />
-          <Image
-            srcSet={`${heroImg.mobile.img2x} 2x`}
-            imageSrc={heroImg.mobile.img}
-            size={{
-              height: 376,
-              width: 436,
-            }}
-            altText="Hero"
-          />
-        </picture>
-      </div>
+      <picture className="hero-image">
+        <source
+          srcSet={`${heroImg.desktop.img2x} 2x, ${heroImg.desktop.img}`}
+          media="(min-width: 1120px)"
+        />
+        <source
+          srcSet={`${heroImg.tablet.img2x} 2x, ${heroImg.tablet.img}`}
+          media="(min-width: 768px)"
+        />
+        <Image
+          srcSet={`${heroImg.mobile.img2x} 2x`}
+          imageSrc={heroImg.mobile.img}
+          size={{
+            height: 376,
+            width: 436,
+          }}
+          altText="Hero"
+        />
+      </picture>
     </section>
   )
 });
