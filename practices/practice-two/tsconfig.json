@@ -30,6 +30,7 @@
       "@helpers*": ["src/helpers*"],
       "@interface*": ["src/interface*"],
       "@services*": ["src/services*"],
+      "@mocks*": ["src/mocks*"],
       "@image*": ["src/assets/images*"],
       "@stylesheets*": ["src/assets/stylesheets*"]
     }
