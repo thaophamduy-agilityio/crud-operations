@@ -7,20 +7,20 @@ import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
 
 // Constants
-import { GetStartedImg } from '@constants/images';
+import { FooterHeroImg } from '@constants/images';
 
 // Define the props for the Get Started component
-interface GetStartedProps {
+interface FooterHeroProps {
   onTryItFree: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const GetStarted = memo(({ onTryItFree }: GetStartedProps): JSX.Element => {
+export const FooterHero = memo(({ onTryItFree }: FooterHeroProps): JSX.Element => {
   return (
-    <section className="get-started">
-      <div className="get-started-typography">
+    <section className="hero-footer">
+      <div className="hero-footer-content">
         <Text 
           size="xxl"
           text="Get started with Solo today"
@@ -37,18 +37,18 @@ export const GetStarted = memo(({ onTryItFree }: GetStartedProps): JSX.Element =
           />
         </div>
       </div>
-      <picture className="get-started-image">
+      <picture className="hero-footer-image">
         <source
-          srcSet={`${GetStartedImg.desktop.img2x} 2x, ${GetStartedImg.desktop.img}`}
+          srcSet={`${FooterHeroImg.desktop.img2x} 2x, ${FooterHeroImg.desktop.img}`}
           media="(min-width: 1120px)"
         />
         <source
-          srcSet={`${GetStartedImg.tablet.img2x} 2x, ${GetStartedImg.tablet.img}`}
+          srcSet={`${FooterHeroImg.tablet.img2x} 2x, ${FooterHeroImg.tablet.img}`}
           media="(min-width: 768px)"
         />
         <Image
-          srcSet={`${GetStartedImg.mobile.img2x} 2x`}
-          imageSrc={GetStartedImg.mobile.img}
+          srcSet={`${FooterHeroImg.mobile.img2x} 2x`}
+          imageSrc={FooterHeroImg.mobile.img}
           size={{
             height: 372,
             width: 534,

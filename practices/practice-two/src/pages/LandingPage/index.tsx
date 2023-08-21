@@ -14,7 +14,7 @@ import { LaunchAppFeature } from '@components/LaunchAppFeature';
 import { NotificationFeature } from '@components/NotificationFeature';
 import { SaveTimeFeature } from '@components/SaveTimeFeature';
 import { Testimonial } from '@components/Testimonial';
-import { GetStarted } from '@components/GetStarted';
+import { FooterHero } from '@components/FooterHero';
 import ErrorFallback from '@components/ErrorBoundary';
 
 // Mock
@@ -68,7 +68,7 @@ const LandingPage = (): JSX.Element => {
 
       <Testimonial testimonials={testimonialMock} />
 
-      <GetStarted
+      <FooterHero
         onTryItFree={() => {}}
       />
     </main>

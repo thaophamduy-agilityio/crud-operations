@@ -162,17 +162,17 @@ export const SaveTimeFeatureImg = {
   },
 };
 
-export const GetStartedImg = {
+export const FooterHeroImg = {
   desktop: {
-    img: '/src/assets/images/get-started/get-started-desktop.webp',
-    img2x: '/src/assets/images/get-started/get-started-desktop-2x.webp',
+    img: '/src/assets/images/hero-footer/hero-footer-desktop.webp',
+    img2x: '/src/assets/images/hero-footer/hero-footer-desktop-2x.webp',
   },
   tablet: {
-    img: '/src/assets/images/get-started/get-started-tablet.webp',
-    img2x: '/src/assets/images/get-started/get-started-tablet-2x.webp',
+    img: '/src/assets/images/hero-footer/hero-footer-tablet.webp',
+    img2x: '/src/assets/images/hero-footer/hero-footer-tablet-2x.webp',
   },
   mobile: {
-    img: '/src/assets/images/get-started/get-started-mobile.webp',
-    img2x: '/src/assets/images/get-started/get-started-mobile-2x.webp',
+    img: '/src/assets/images/hero-footer/hero-footer-mobile.webp',
+    img2x: '/src/assets/images/hero-footer/hero-footer-mobile-2x.webp',
   },
 };
