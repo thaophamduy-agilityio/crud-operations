@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MainLayout } from '@layouts/Default';
 
 // Pages
-import { LandingPage, Download, Pricing, Features, AboutUs, ContactUs } from '@pages/';
+import { LandingPage, Download, Pricing, Features, AboutUs, ContactUs, LoginPage } from '@pages/';
 
 // Components
 import { LoadingIndicator } from '@components/common/Loading';
@@ -28,6 +28,7 @@ const App = (): JSX.Element => {
             <Route path={ROUTES.FEATURES} element={<Features />} />
             <Route path={ROUTES.ABOUT_US} element={<AboutUs />} />
             <Route path={ROUTES.CONTACT} element={<ContactUs />} />
+            <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           </Route>
         </Routes>
       </Suspense>
