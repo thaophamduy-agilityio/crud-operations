@@ -1,15 +1,15 @@
-export const HeroImg = {
+export const HeaderHeroImg = {
   desktop: {
-    img: '/src/assets/images/hero/hero-desktop.webp',
-    img2x: '/src/assets/images/hero/hero-desktop-2x.webp',
+    img: '/src/assets/images/hero-header/hero-header-desktop.webp',
+    img2x: '/src/assets/images/hero-header/hero-header-desktop-2x.webp',
   },
   tablet: {
-    img: '/src/assets/images/hero/hero-tablet.webp',
-    img2x: '/src/assets/images/hero/hero-tablet-2x.webp',
+    img: '/src/assets/images/hero-header/hero-header-tablet.webp',
+    img2x: '/src/assets/images/hero-header/hero-header-tablet-2x.webp',
   },
   mobile: {
-    img: '/src/assets/images/hero/hero-mobile.webp',
-    img2x: '/src/assets/images/hero/hero-mobile-2x.webp',
+    img: '/src/assets/images/hero-header/hero-header-mobile.webp',
+    img2x: '/src/assets/images/hero-header/hero-header-mobile-2x.webp',
   },
 };
 

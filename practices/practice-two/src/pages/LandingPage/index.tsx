@@ -2,7 +2,7 @@
 import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
-import { Hero } from '@components/Hero';
+import { HeaderHero } from '@components/HeaderHero';
 import { LogoBrand } from '@components/LogoBrand';
 import { Schedule } from '@components/Schedule';
 import { InstantSetup } from '@components/InstantSetup';
@@ -30,7 +30,7 @@ import {
 const LandingPage = (): JSX.Element => {
   return (
     <main className="main-site">
-      <Hero 
+      <HeaderHero 
         onTryItFree={() => {}}
         onWatchHowItWorks={() => {}}
       />

@@ -7,10 +7,10 @@ import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
 
 // Constants
-import { HeroImg } from '@constants/images';
+import { HeaderHeroImg } from '@constants/images';
 
 // Define the props for the Hero Banner component
-interface HeroProps {
+interface HeaderHeroProps {
   onTryItFree: () => void;
   onWatchHowItWorks: () => void;
 }
@@ -18,11 +18,11 @@ interface HeroProps {
 /**
  * Primary UI component for user interaction
  */
-export const Hero = memo(({ onTryItFree, onWatchHowItWorks }: HeroProps): JSX.Element => {  
+export const HeaderHero = memo(({ onTryItFree, onWatchHowItWorks }: HeaderHeroProps): JSX.Element => {  
   return (
-    <section className="hero">
-      <div className="hero-typography">
-        <p className="hero-title">Risk-free 30 days trial</p>
+    <section className="hero-header">
+      <div className="hero-header-content">
+        <p className="hero-header-title">Risk-free 30 days trial</p>
         <Text 
           size="xxl"
           text="The best way to organize your work."
@@ -45,23 +45,23 @@ export const Hero = memo(({ onTryItFree, onWatchHowItWorks }: HeroProps): JSX.El
           />
         </div>
       </div>
-      <picture className="hero-image">
+      <picture className="hero-header-image">
         <source
-          srcSet={`${HeroImg.desktop.img2x} 2x, ${HeroImg.desktop.img}`}
+          srcSet={`${HeaderHeroImg.desktop.img2x} 2x, ${HeaderHeroImg.desktop.img}`}
           media="(min-width: 1120px)"
         />
         <source
-          srcSet={`${HeroImg.tablet.img2x} 2x, ${HeroImg.tablet.img}`}
+          srcSet={`${HeaderHeroImg.tablet.img2x} 2x, ${HeaderHeroImg.tablet.img}`}
           media="(min-width: 768px)"
         />
         <Image
-          srcSet={`${HeroImg.mobile.img2x} 2x`}
-          imageSrc={HeroImg.mobile.img}
+          srcSet={`${HeaderHeroImg.mobile.img2x} 2x`}
+          imageSrc={HeaderHeroImg.mobile.img}
           size={{
             height: 376,
             width: 436,
           }}
-          altText="Hero"
+          altText="Hero Header"
         />
       </picture>
     </section>
