@@ -8,11 +8,13 @@ import { navLinkMock } from '@mocks/';
 interface HeaderProps {
   isOpenMenuOnMobile: boolean;
   onToggleMenuOnMobile: () => void;
+  onSignUp: () => void;
 }
 
 export const Header = memo(({
     isOpenMenuOnMobile,
     onToggleMenuOnMobile,
+    onSignUp,
   }: HeaderProps): JSX.Element => {
     return (
       <header className="header-site">
@@ -31,7 +33,7 @@ export const Header = memo(({
               <li id="signUp" className="navigation-item">
                 <Button
                   label="Sign up"
-                  onClick={() => {}}
+                  onClick={onSignUp}
                   variant="primary"
                 />
               </li>

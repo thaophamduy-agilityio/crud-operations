@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 // Components
-import { Header } from "@components/Header";
-import { Footer } from '@components/Footer';
+import { Header } from "../Header";
+import { Footer } from '../Footer';
 
 // Mock
 import {
@@ -22,11 +22,20 @@ export const MainLayout = () => {
     setIsOpenMenuOnMobile(!isOpenMenuOnMobile);
   };
 
+  /**
+   * Handle on sign up
+   * @param {function} onSignUp
+   */
+  const onSignUp = (): void => {
+    // Sign up here
+  };
+
   return (    
     <div className="container">
       <Header
         isOpenMenuOnMobile={isOpenMenuOnMobile}
         onToggleMenuOnMobile={toggleMenuOnMobile}
+        onSignUp={onSignUp}
       />
       <Outlet />
       <Footer

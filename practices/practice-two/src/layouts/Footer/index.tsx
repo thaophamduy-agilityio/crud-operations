@@ -19,18 +19,13 @@ import appStore from '@image/app-store.svg';
 
 // Define the props for the Footer component
 interface FooterProps {
-  onGetItOnGooglePlay: () => void;
-  onGetItOnAppStore: () => void;
-  onFacebook: () => void;
-  onTwitter: () => void;
-  onInstagram: () => void;
   links: NavLink[];
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Footer = memo(({ onGetItOnGooglePlay, onGetItOnAppStore, onFacebook, onTwitter, onInstagram,  links }: FooterProps): JSX.Element => {
+export const Footer = memo(({ links }: FooterProps): JSX.Element => {
   return (
     <footer className="footer-site">
       <div className="footer-site-container-logo">
@@ -47,12 +42,12 @@ export const Footer = memo(({ onGetItOnGooglePlay, onGetItOnAppStore, onFacebook
             </div>
           </div>
           <div className="footer-site-button">
-            <div className="googlePlay" onClick={onGetItOnGooglePlay}>
+            <a className="googlePlay" href="/" target="_blank">
               <Image altText="Google Play" imageSrc={googlePlay} size= {{width: 167, height: 56}} />
-            </div>
-            <div className="appStore" onClick={onGetItOnAppStore}>
+            </a>
+            <a className="appStore" href="/" target="_blank">
               <Image altText="App Store" imageSrc={appStore} size= {{width: 167, height: 56}} />
-            </div>
+            </a>
           </div>
         </div>
         <div className="footer-right">
@@ -67,15 +62,15 @@ export const Footer = memo(({ onGetItOnGooglePlay, onGetItOnAppStore, onFacebook
           />
         </div>
         <div className="footer-site-icon">
-          <div className="footer-icon" onClick={onFacebook}>
+          <a className="footer-icon" href="/" target="_blank">
             <BsFacebook />
-          </div>
-          <div className="footer-icon" onClick={onTwitter}>
+          </a>
+          <a className="footer-icon" href="/" target="_blank">
             <BsTwitter />
-          </div>
-          <div className="footer-icon" onClick={onInstagram}>
+          </a>
+          <a className="footer-icon" href="/" target="_blank">
             <BsInstagram />
-          </div>
+          </a>
         </div>
       </div>
     </footer>
