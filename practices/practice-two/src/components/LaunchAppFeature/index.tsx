@@ -20,7 +20,7 @@ interface LaunchAppFeatureProps {
 export const LaunchAppFeature = memo(({ onLaunchApp }: LaunchAppFeatureProps): JSX.Element => {
   return (
     <section className="launch-app">
-      <div className="launch-app-typography">
+      <div className="launch-app-content">
         <p className="launch-app-title">Amazing features</p>
         <Text 
           size="xl"

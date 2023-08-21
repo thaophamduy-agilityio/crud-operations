@@ -12,7 +12,7 @@ import { IntegrationImg } from '@constants/images';
 export const Integration = (): JSX.Element => {
   return (
     <section className="integration">
-      <div className="integration-typography">
+      <div className="integration-content">
         <p className="integration-title">Amazing features</p>
         <Text 
           size="xl"

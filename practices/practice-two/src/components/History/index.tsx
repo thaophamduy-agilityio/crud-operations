@@ -39,7 +39,7 @@ export const History = memo(({ onHistory }: HistoryProps): JSX.Element => {
           altText="History"
         />
       </picture>
-      <div className="history-typography">
+      <div className="history-content">
         <p className="history-title">Easily find what you’re looking for</p>
         <Text 
           size="xl"

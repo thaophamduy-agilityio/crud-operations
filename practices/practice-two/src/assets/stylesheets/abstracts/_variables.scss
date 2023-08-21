@@ -22,7 +22,7 @@ $bg-color-tertiary: $color-secondary;
 $border-logo: #000;
 $border-disabled: rgba(196, 196, 196, 0.3);
 $border-label-value: rgba(255, 255, 255, 0.15);
-$border-instant-setup: #DCE1E9;
+$border-instant-setup: rgba(116, 143, 181, 0.15);
 
 /* Box-Shadow */
 $box-shadow-color: rgba(0, 0, 0, 0.1);
@@ -130,7 +130,7 @@ $color-feature-desc: $color-tertiary;
 
 /* History */
 $bg-color-history: #F7F7F8;
-$bg-color-history-divider: rgba(116, 143, 181, 0.15);
+$bg-color-history-divider: $border-instant-setup;
 $history-divider-width: 80px;
 $history-divider-height: 4px;
 $box-shadow-history: rgba(0, 0, 0, 0.01);

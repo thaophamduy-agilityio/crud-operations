@@ -124,7 +124,7 @@ export const AmazingFeature = memo(({
           altText="Amazing Feature"
         />
       </picture>
-      <div className="amazing-feature-typography">
+      <div className="amazing-feature-content">
         <p className="amazing-feature-title">Amazing features</p>
         <Text
           size="xl"

@@ -1,7 +1,12 @@
-import { Setup } from '@interface/instant-setup';
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
+
+// Types
+import { Setup } from '@interface/instant-setup';
 
 // Define the props for the Instant Set component
 interface InstantSetupProps {
@@ -14,7 +19,7 @@ interface InstantSetupProps {
 export const InstantSetup = memo(({ setups }: InstantSetupProps): JSX.Element => {
   return (
     <section className="instant-setup">
-      <div className="instant-setup-typography">
+      <div className="instant-setup-content">
         <p className="instant-setup-title">Instant setup</p>
         <Text
           size="xl"
@@ -34,6 +39,10 @@ export const InstantSetup = memo(({ setups }: InstantSetupProps): JSX.Element =>
               altText="Hero"
             />
             <p className="instant-setup-step">{setup.step}</p>
+            <Text
+              size="md"
+              text={`${setup.title}`}
+            />
           </li>
         ))}
       </ul>

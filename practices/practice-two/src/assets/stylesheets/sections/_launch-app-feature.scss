@@ -16,7 +16,7 @@
       margin: 0;
     }
 
-    &-typography {
+    &-content {
       @include only-for-tablet() {
         margin-left: -150px;
         order: 1;

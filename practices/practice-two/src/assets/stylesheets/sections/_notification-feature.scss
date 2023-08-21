@@ -16,7 +16,7 @@
     flex-direction: row;
   }
 
-  &-typography {
+  &-content {
     @include only-for-tablet() {
       width: 30%;
     }

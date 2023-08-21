@@ -21,7 +21,7 @@ export const Schedule = memo(({ onDemoSchedule }: ScheduleProps): JSX.Element =>
   return (
     <section className="schedule">
       <div className="schedule-container-content">
-        <div className="schedule-typography">
+        <div className="schedule-content">
           <Text 
             size="xl"
             text="Keeping it all together"

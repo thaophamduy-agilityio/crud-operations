@@ -20,7 +20,7 @@ interface NotificationFeatureProps {
 export const NotificationFeature = memo(({ onFindOut }: NotificationFeatureProps): JSX.Element => {
   return (
     <section className="notification">
-      <div className="notification-typography">
+      <div className="notification-content">
         <p className="notification-title">Amazing features</p>
         <Text 
           size="xl"

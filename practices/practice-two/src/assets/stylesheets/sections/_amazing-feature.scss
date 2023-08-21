@@ -15,8 +15,16 @@
       padding: 0;
     }
 
-    &-typography {
+    &-content {
       @extend %text-center;
+  
+      @include only-for-tablet() {
+        margin-top: 70px;
+      }
+  
+      @include only-for-desktop() {
+        margin-top: 35px;
+      }
     }
 
     &-title {
@@ -24,7 +32,7 @@
       @extend %text-uppercase;
       color: $color-title;
       margin-bottom: 10px;
-      letter-spacing: 10%;
+      letter-spacing: 1.5px;
   
       @include only-for-tablet() {
         margin-bottom: 24px;
@@ -87,6 +95,20 @@
         @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
         color: $color-feature-desc;
         margin-bottom: 30px;
+      }
+    }
+
+    &-image {
+      .img-item {
+        @include only-for-tablet() {
+          width: 750px;
+          height: 328px;
+        }
+
+        @include only-for-desktop() {
+          width: 750px;
+          height: 356px;
+        }
       }
     }
 

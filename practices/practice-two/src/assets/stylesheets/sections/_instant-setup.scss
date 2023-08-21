@@ -15,7 +15,7 @@
       margin-bottom: 120px;
     }
 
-    &-typography {
+    &-content {
       @extend %text-center;
     }
 
@@ -24,7 +24,7 @@
       @extend %text-uppercase;
       color: $color-title;
       margin-bottom: 10px;
-      letter-spacing: 10%;
+      letter-spacing: 1.5px;
   
       @include only-for-tablet() {
         margin-bottom: 24px;
@@ -76,7 +76,13 @@
       background-color: $instant-setup-step-bg;
       color: $color-secondary;
       border-radius: 20px;
+      margin: 15px 0;
       padding: 2px 10px;
+    }
+
+    .text-md {
+      color: $color-primary;
+      margin: 0;
     }
   }
 }

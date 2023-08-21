@@ -25,8 +25,8 @@ interface SaveTimeFeatureProps {
 export const SaveTimeFeature = memo(({ OnSignUp, saveTimes }: SaveTimeFeatureProps): JSX.Element => {
   return (
     <section className="save-time">
-      <div className="save-time-content">
-        <div className="save-time-typography">
+      <div className="save-time-container">
+        <div className="save-time-content">
           <p className="save-time-title">Deep Focus & Multitasking</p>
           <Text
             size="xl"
