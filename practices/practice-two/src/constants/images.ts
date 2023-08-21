@@ -1,4 +1,4 @@
-export const heroImg = {
+export const HeroImg = {
   desktop: {
     img: '/src/assets/images/hero/hero-desktop.webp',
     img2x: '/src/assets/images/hero/hero-desktop-2x.webp',
@@ -13,7 +13,7 @@ export const heroImg = {
   },
 };
 
-export const scheduleImg = {
+export const ScheduleImg = {
   desktop: {
     img: '/src/assets/images/schedule/schedule-desktop.webp',
     img2x: '/src/assets/images/schedule/schedule-desktop-2x.webp',
@@ -28,7 +28,7 @@ export const scheduleImg = {
   },
 };
 
-export const amazingFeatureImg = {
+export const AmazingFeatureImg = {
   desktop: {
     img: '/src/assets/images/amazing-feature/amazing-feature-desktop.webp',
     img2x: '/src/assets/images/amazing-feature/amazing-feature-desktop-2x.webp',
@@ -43,7 +43,7 @@ export const amazingFeatureImg = {
   },
 };
 
-export const historyImg = {
+export const HistoryImg = {
   desktop: {
     img: '/src/assets/images/history/history-desktop.webp',
     img2x: '/src/assets/images/history/history-desktop-2x.webp',
@@ -58,7 +58,7 @@ export const historyImg = {
   },
 };
 
-export const integrationImg = {
+export const IntegrationImg = {
   notion: {
     src: '/src/assets/images/integration-logo/logo-notion.svg',
     alt: 'Logo Notion',
@@ -117,7 +117,7 @@ export const integrationImg = {
   },
 };
 
-export const launchAppImg = {
+export const LaunchAppImg = {
   desktop: {
     img: '/src/assets/images/launch-app/launch-app-desktop.webp',
     img2x: '/src/assets/images/launch-app/launch-app-desktop-2x.webp',
@@ -132,7 +132,7 @@ export const launchAppImg = {
   },
 };
 
-export const notificationImg = {
+export const NotificationImg = {
   desktop: {
     img: '/src/assets/images/notification/notification-desktop.webp',
     img2x: '/src/assets/images/notification/notification-desktop-2x.webp',
@@ -147,7 +147,7 @@ export const notificationImg = {
   },
 };
 
-export const saveTimeFeatureImg = {
+export const SaveTimeFeatureImg = {
   desktop: {
     img: '/src/assets/images/save-time/save-time-desktop.webp',
     img2x: '/src/assets/images/save-time/save-time-desktop-2x.webp',
@@ -162,7 +162,7 @@ export const saveTimeFeatureImg = {
   },
 };
 
-export const getStartedImg = {
+export const GetStartedImg = {
   desktop: {
     img: '/src/assets/images/get-started/get-started-desktop.webp',
     img2x: '/src/assets/images/get-started/get-started-desktop-2x.webp',
