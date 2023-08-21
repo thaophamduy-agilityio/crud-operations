@@ -10,13 +10,18 @@ import { NavLink } from '@interface/nav-link';
 
 // Define the props for the Navigation component
 interface FooterProps {
+  onGetItOnGooglePlay: () => void;
+  onGetItOnAppStore: () => void;
+  onFacebook: () => void;
+  onTwitter: () => void;
+  onInstagram: () => void;
   links: NavLink[];
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Footer = memo(({ links }: FooterProps): JSX.Element => {
+export const Footer = memo(({ onGetItOnGooglePlay, onGetItOnAppStore, onFacebook, onTwitter, onInstagram,  links }: FooterProps): JSX.Element => {
   return (
     <footer className="footer-site">
       <div className="footer-site-container-logo">
@@ -33,8 +38,12 @@ export const Footer = memo(({ links }: FooterProps): JSX.Element => {
             </div>
           </div>
           <div className="footer-site-button">
-            <Image altText="Logo Solo" imageSrc={googlePlay} size= {{width: 167, height: 56}} />
-            <Image altText="Logo Solo" imageSrc={appStore} size= {{width: 167, height: 56}} />
+            <div className="googlePlay" onClick={onGetItOnGooglePlay}>
+              <Image altText="Google Play" imageSrc={googlePlay} size= {{width: 167, height: 56}} />
+            </div>
+            <div className="appStore" onClick={onGetItOnAppStore}>
+              <Image altText="App Store" imageSrc={appStore} size= {{width: 167, height: 56}} />
+            </div>
           </div>
         </div>
         <div className="footer-right">
@@ -49,9 +58,15 @@ export const Footer = memo(({ links }: FooterProps): JSX.Element => {
           />
         </div>
         <div className="footer-site-icon">
-          <BsFacebook className="footer-icon" />
-          <BsTwitter className="footer-icon" />
-          <BsInstagram className="footer-icon" />
+          <div className="footer-icon" onClick={onFacebook}>
+            <BsFacebook />
+          </div>
+          <div className="footer-icon" onClick={onTwitter}>
+            <BsTwitter />
+          </div>
+          <div className="footer-icon" onClick={onInstagram}>
+            <BsInstagram />
+          </div>
         </div>
       </div>
     </footer>
