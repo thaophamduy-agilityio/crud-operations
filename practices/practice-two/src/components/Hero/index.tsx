@@ -1,10 +1,15 @@
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
-import { heroImg } from '@constants/images';
 
-// Define the props for the Image component
+// Constants
+import { HeroImg } from '@constants/images';
+
+// Define the props for the Hero Banner component
 interface HeroProps {
   onTryItFree: () => void;
   onWatchHowItWorks: () => void;
@@ -42,16 +47,16 @@ export const Hero = memo(({ onTryItFree, onWatchHowItWorks }: HeroProps): JSX.El
       </div>
       <picture className="hero-image">
         <source
-          srcSet={`${heroImg.desktop.img2x} 2x, ${heroImg.desktop.img}`}
+          srcSet={`${HeroImg.desktop.img2x} 2x, ${HeroImg.desktop.img}`}
           media="(min-width: 1120px)"
         />
         <source
-          srcSet={`${heroImg.tablet.img2x} 2x, ${heroImg.tablet.img}`}
+          srcSet={`${HeroImg.tablet.img2x} 2x, ${HeroImg.tablet.img}`}
           media="(min-width: 768px)"
         />
         <Image
-          srcSet={`${heroImg.mobile.img2x} 2x`}
-          imageSrc={heroImg.mobile.img}
+          srcSet={`${HeroImg.mobile.img2x} 2x`}
+          imageSrc={HeroImg.mobile.img}
           size={{
             height: 376,
             width: 436,

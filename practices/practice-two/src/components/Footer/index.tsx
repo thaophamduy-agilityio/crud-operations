@@ -1,14 +1,23 @@
+// Libs
+import { memo } from 'react';
+
+// Components
 import Logo from '@components/common/Logo';
+import { Navigation } from '@components/common/Navigation';
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
-import { Navigation } from '@components/common/Navigation';
-import { memo } from 'react';
+
+// Icons
 import { BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs';
-import googlePlay from '@image/google-play.svg';
-import appStore from '@image/app-store.svg';
+
+// Types
 import { NavLink } from '@interface/nav-link';
 
-// Define the props for the Navigation component
+// Constants
+import googlePlay from '@image/google-play.svg';
+import appStore from '@image/app-store.svg';
+
+// Define the props for the Footer component
 interface FooterProps {
   onGetItOnGooglePlay: () => void;
   onGetItOnAppStore: () => void;

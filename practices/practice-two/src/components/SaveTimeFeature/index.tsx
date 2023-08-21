@@ -1,10 +1,17 @@
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
-import { saveTimeFeatureImg } from '@constants/images';
-import { SaveTime } from '@interface/save-time';
 import { ListSaveTime } from '@components/SaveTime';
+
+// Interface
+import { SaveTime } from '@interface/save-time';
+
+// Constants
+import { SaveTimeFeatureImg } from '@constants/images';
 
 // Define the props for the Save Time Feature component
 interface SaveTimeFeatureProps {
@@ -39,16 +46,16 @@ export const SaveTimeFeature = memo(({ OnSignUp, saveTimes }: SaveTimeFeaturePro
         </div>
         <picture className="save-time-image">
           <source
-            srcSet={`${saveTimeFeatureImg.desktop.img2x} 2x, ${saveTimeFeatureImg.desktop.img}`}
+            srcSet={`${SaveTimeFeatureImg.desktop.img2x} 2x, ${SaveTimeFeatureImg.desktop.img}`}
             media="(min-width: 1120px)"
           />
           <source
-            srcSet={`${saveTimeFeatureImg.tablet.img2x} 2x, ${saveTimeFeatureImg.tablet.img}`}
+            srcSet={`${SaveTimeFeatureImg.tablet.img2x} 2x, ${SaveTimeFeatureImg.tablet.img}`}
             media="(min-width: 768px)"
           />
           <Image
-            srcSet={`${saveTimeFeatureImg.mobile.img2x} 2x`}
-            imageSrc={saveTimeFeatureImg.mobile.img}
+            srcSet={`${SaveTimeFeatureImg.mobile.img2x} 2x`}
+            imageSrc={SaveTimeFeatureImg.mobile.img}
             size={{
               height: 304,
               width: 828,

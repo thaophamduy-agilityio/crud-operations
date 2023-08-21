@@ -1,8 +1,13 @@
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
-import { notificationImg } from '@constants/images';
+
+// Constants
+import { NotificationImg } from '@constants/images';
 
 // Define the props for the Notification Feature component
 interface NotificationFeatureProps {
@@ -35,16 +40,16 @@ export const NotificationFeature = memo(({ onFindOut }: NotificationFeatureProps
       </div>
       <picture className="notification-image">
         <source
-          srcSet={`${notificationImg.desktop.img2x} 2x, ${notificationImg.desktop.img}`}
+          srcSet={`${NotificationImg.desktop.img2x} 2x, ${NotificationImg.desktop.img}`}
           media="(min-width: 1120px)"
         />
         <source
-          srcSet={`${notificationImg.tablet.img2x} 2x, ${notificationImg.tablet.img}`}
+          srcSet={`${NotificationImg.tablet.img2x} 2x, ${NotificationImg.tablet.img}`}
           media="(min-width: 768px)"
         />
         <Image
-          srcSet={`${notificationImg.mobile.img2x} 2x`}
-          imageSrc={notificationImg.mobile.img}
+          srcSet={`${NotificationImg.mobile.img2x} 2x`}
+          imageSrc={NotificationImg.mobile.img}
           size={{
             height: 345,
             width: 480,

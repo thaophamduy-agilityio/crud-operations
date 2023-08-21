@@ -1,8 +1,13 @@
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
-import { scheduleImg } from '@constants/images';
+
+// Constants
+import { ScheduleImg } from '@constants/images';
 
 // Define the props for the Schedule component
 interface ScheduleProps {
@@ -35,16 +40,16 @@ export const Schedule = memo(({ onDemoSchedule }: ScheduleProps): JSX.Element =>
         </div>
         <picture className="schedule-image">
           <source
-            srcSet={`${scheduleImg.desktop.img2x} 2x, ${scheduleImg.desktop.img}`}
+            srcSet={`${ScheduleImg.desktop.img2x} 2x, ${ScheduleImg.desktop.img}`}
             media="(min-width: 1120px)"
           />
           <source
-            srcSet={`${scheduleImg.tablet.img2x} 2x, ${scheduleImg.tablet.img}`}
+            srcSet={`${ScheduleImg.tablet.img2x} 2x, ${ScheduleImg.tablet.img}`}
             media="(min-width: 768px)"
           />
           <Image
-            srcSet={`${scheduleImg.mobile.img2x} 2x`}
-            imageSrc={scheduleImg.mobile.img}
+            srcSet={`${ScheduleImg.mobile.img2x} 2x`}
+            imageSrc={ScheduleImg.mobile.img}
             size={{
               height: 428,
               width: 667,

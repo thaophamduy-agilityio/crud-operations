@@ -1,8 +1,13 @@
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
-import { getStartedImg } from '@constants/images';
+
+// Constants
+import { GetStartedImg } from '@constants/images';
 
 // Define the props for the Get Started component
 interface GetStartedProps {
@@ -34,16 +39,16 @@ export const GetStarted = memo(({ onTryItFree }: GetStartedProps): JSX.Element =
       </div>
       <picture className="get-started-image">
         <source
-          srcSet={`${getStartedImg.desktop.img2x} 2x, ${getStartedImg.desktop.img}`}
+          srcSet={`${GetStartedImg.desktop.img2x} 2x, ${GetStartedImg.desktop.img}`}
           media="(min-width: 1120px)"
         />
         <source
-          srcSet={`${getStartedImg.tablet.img2x} 2x, ${getStartedImg.tablet.img}`}
+          srcSet={`${GetStartedImg.tablet.img2x} 2x, ${GetStartedImg.tablet.img}`}
           media="(min-width: 768px)"
         />
         <Image
-          srcSet={`${getStartedImg.mobile.img2x} 2x`}
-          imageSrc={getStartedImg.mobile.img}
+          srcSet={`${GetStartedImg.mobile.img2x} 2x`}
+          imageSrc={GetStartedImg.mobile.img}
           size={{
             height: 372,
             width: 534,

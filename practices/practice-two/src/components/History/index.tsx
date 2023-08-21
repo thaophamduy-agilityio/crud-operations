@@ -1,8 +1,13 @@
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
-import { historyImg } from '@constants/images';
+
+// Constants
+import { HistoryImg } from '@constants/images';
 
 // Define the props for the History component
 interface HistoryProps {
@@ -17,16 +22,16 @@ export const History = memo(({ onHistory }: HistoryProps): JSX.Element => {
     <section className="history">
       <picture className="history-image">
         <source
-          srcSet={`${historyImg.desktop.img2x} 2x, ${historyImg.desktop.img}`}
+          srcSet={`${HistoryImg.desktop.img2x} 2x, ${HistoryImg.desktop.img}`}
           media="(min-width: 1120px)"
         />
         <source
-          srcSet={`${historyImg.tablet.img2x} 2x, ${historyImg.tablet.img}`}
+          srcSet={`${HistoryImg.tablet.img2x} 2x, ${HistoryImg.tablet.img}`}
           media="(min-width: 768px)"
         />
         <Image
-          srcSet={`${historyImg.mobile.img2x} 2x`}
-          imageSrc={historyImg.mobile.img}
+          srcSet={`${HistoryImg.mobile.img2x} 2x`}
+          imageSrc={HistoryImg.mobile.img}
           size={{
             height: 302,
             width: 424,

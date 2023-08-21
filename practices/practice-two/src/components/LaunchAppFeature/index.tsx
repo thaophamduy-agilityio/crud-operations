@@ -1,8 +1,13 @@
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
-import { launchAppImg } from '@constants/images';
+
+// Constants
+import { LaunchAppImg } from '@constants/images';
 
 // Define the props for the Launch App Feature component
 interface LaunchAppFeatureProps {
@@ -35,16 +40,16 @@ export const LaunchAppFeature = memo(({ onLaunchApp }: LaunchAppFeatureProps): J
       </div>
       <picture className="launch-app-image">
         <source
-          srcSet={`${launchAppImg.desktop.img2x} 2x, ${launchAppImg.desktop.img}`}
+          srcSet={`${LaunchAppImg.desktop.img2x} 2x, ${LaunchAppImg.desktop.img}`}
           media="(min-width: 1120px)"
         />
         <source
-          srcSet={`${launchAppImg.tablet.img2x} 2x, ${launchAppImg.tablet.img}`}
+          srcSet={`${LaunchAppImg.tablet.img2x} 2x, ${LaunchAppImg.tablet.img}`}
           media="(min-width: 768px)"
         />
         <Image
-          srcSet={`${launchAppImg.mobile.img2x} 2x`}
-          imageSrc={launchAppImg.mobile.img}
+          srcSet={`${LaunchAppImg.mobile.img2x} 2x`}
+          imageSrc={LaunchAppImg.mobile.img}
           size={{
             height: 487,
             width: 684,
