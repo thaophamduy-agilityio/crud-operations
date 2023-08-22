@@ -4,14 +4,14 @@ import { Image } from '@components/common/Image';
 
 // Define the props for the Core Value component
 interface CoreValueProps {
-  values: CoreValue[];
+  coreValues: CoreValue[];
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const ListCoreValue = memo(({
-  values = [
+  coreValues = [
     {
       id: "1",
       imageSrc: "/src/assets/images/core-value/core-value-protect.svg",
@@ -65,7 +65,7 @@ export const ListCoreValue = memo(({
   return (
     <section className="core-value">
       <ul className="core-value-list">
-        {values.map((value) => (
+        {coreValues.map((value) => (
           <li key={value.id} id={`core-value-${value.id}`} className="core-value-item">
             <picture className="core-value-list-image">
               <Image

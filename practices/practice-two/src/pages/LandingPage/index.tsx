@@ -105,7 +105,7 @@ const LandingPage = (): JSX.Element => {
         onHistory={onHistory}
       />
 
-      <ListCoreValue values={coreValueMock} />
+      <ListCoreValue coreValues={coreValueMock} />
 
       <Integration />
 

@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
   args: {
-    values : [
+    coreValues : [
       {
         id: "1",
         imageSrc: "/src/assets/images/core-value/core-value-protect.svg",
