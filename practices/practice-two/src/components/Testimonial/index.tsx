@@ -1,6 +1,13 @@
-import { Testimony } from '@interface/testimonial';
-import { Text } from '@components/common/Text';
+// Libs
 import { memo } from 'react';
+
+// Components
+import { Text } from '@components/common/Text';
+
+// Types
+import { Testimony } from '@interface/testimonial';
+
+// Icons
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 
 // Define the props for the Navigation component

@@ -1,5 +1,4 @@
 // Components
-
 import { IntegrationLogo } from '@components/common/IntegrationLogo';
 import { Text } from '@components/common/Text';
 

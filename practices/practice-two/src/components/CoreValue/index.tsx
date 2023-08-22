@@ -1,6 +1,11 @@
-import { CoreValue } from '@interface/core-value';
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Image } from '@components/common/Image';
+
+// Types
+import { CoreValue } from '@interface/core-value';
 
 // Define the props for the Core Value component
 interface CoreValueProps {

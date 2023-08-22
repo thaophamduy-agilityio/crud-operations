@@ -2,10 +2,12 @@
 import { memo } from 'react';
 
 // Components
-import { Feature } from '@interface/amazing-feature';
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
+
+// Types
+import { Feature } from '@interface/amazing-feature';
 
 // Constants
 import { AmazingFeatureImg } from '@constants/images';

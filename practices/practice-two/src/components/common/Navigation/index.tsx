@@ -1,5 +1,8 @@
-import { NavLink } from '@interface/nav-link';
+// Libs
 import { memo } from 'react';
+
+// Types
+import { NavLink } from '@interface/nav-link';
 
 // Define the props for the Navigation component
 interface NavigationProps {

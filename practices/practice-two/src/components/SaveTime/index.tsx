@@ -1,6 +1,11 @@
-import { SaveTime } from '@interface/save-time';
+// Libs
 import { memo } from 'react';
+
+// Components
 import { Image } from '@components/common/Image';
+
+// Types
+import { SaveTime } from '@interface/save-time';
 
 // Define the props for the Save Time Feature component
 interface SaveTimeFeatureProps {
