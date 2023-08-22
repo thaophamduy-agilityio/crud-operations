@@ -9,7 +9,15 @@ interface NavigationProps {
 /**
  * Primary UI component for user interaction
  */
-export const Navigation = memo(({ links }: NavigationProps): JSX.Element => {
+export const Navigation = memo(({
+  links = [
+    { id: "downloads", label: "Downloads", url: "/downloads" },
+    { id: "pricing", label: "Pricing", url: "/pricing" },
+    { id: "features", label: "Features", url: "/features" },
+    { id: "aboutUs", label: "About Us", url: "/about-us" },
+    { id: "contact", label: "Contact", url: "/contact" },
+  ]
+}: NavigationProps): JSX.Element => {
   return (
     <ul className="navigation">
       {links.map((link) => (

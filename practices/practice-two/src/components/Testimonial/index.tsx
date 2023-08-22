@@ -11,7 +11,31 @@ interface TestimonialProps {
 /**
  * Primary UI component for user interaction
  */
-export const Testimonial = memo(({ testimonials }: TestimonialProps): JSX.Element => {
+export const Testimonial = memo(({
+  testimonials = [
+    {
+      "id": "1",
+      "desc": "Solo makes life easier to me. With Solo you can organize your work and life in seconds. 5 stars!!!",
+      "ratingNumber": 5,
+      "author": "Jaida Barton",
+      "title": "Visual Designer at UI8"
+    },
+    {
+      "id": "2",
+      "desc": "Solo keeps things simple, the best apps of the year I've ever used. I’ sure that the upcoming updates will be more complete.",
+      "ratingNumber": 5,
+      "author": "Jedidiah Cassin",
+      "title": "via. Google Play"
+    },
+    {
+      "id": "3",
+      "desc": " I used to have a hard time figuring out how to organize online meetings, Solo helped me to find a great solution!",
+      "ratingNumber": 5,
+      "author": "Fae Schumm",
+      "title": "via. Apple Store"
+    },
+  ]
+}: TestimonialProps): JSX.Element => {
   return (
     <section className="testimonial">
       <div className="testimonial-title">

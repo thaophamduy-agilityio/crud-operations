@@ -10,7 +10,28 @@ interface SaveTimeFeatureProps {
 /**
  * Primary UI component for user interaction
  */
-export const ListSaveTime = memo(({ saveTimes }: SaveTimeFeatureProps): JSX.Element => {
+export const ListSaveTime = memo(({
+  saveTimes = [
+    {
+      id: "1",
+      imageSrc: "/src/assets/images/save-time/save-time-simple-way.svg",
+      title: "Use a simple way",
+      desc: "We're a growing family of 382,081 designers and makers from around the world",
+    },
+    {
+      id: "2",
+      imageSrc: "/src/assets/images/save-time/save-time-productivity.svg",
+      title: "A productivity platform",
+      desc: "We're a growing family of 382,081 designers and makers from around the world",
+    },
+    {
+      id: "3",
+      imageSrc: "/src/assets/images/save-time/save-time.svg",
+      title: "Save your time",
+      desc: "We're a growing family of 382,081 designers and makers from around the world",
+    },
+  ]
+}: SaveTimeFeatureProps): JSX.Element => {
   return (
     <ul className="save-time-list">
       {saveTimes.map((saveTime) => (
