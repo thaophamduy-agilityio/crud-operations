@@ -28,17 +28,73 @@ import {
 } from '@mocks/';
 
 const LandingPage = (): JSX.Element => {
+  /**
+   * Handle on Try it free
+   * @param {function} onTryItFree
+   */
+  const onTryItFree = (): void => {
+    // Try it free here
+  };
+
+  /**
+   * Handle on How it works
+   * @param {function} onWatchHowItWorks
+   */
+  const onWatchHowItWorks = (): void => {
+    // How it works here
+  };
+
+  /**
+   * Handle on Demo schedule
+   * @param {function} onDemoSchedule
+   */
+  const onDemoSchedule = (): void => {
+    // Demo schedule here
+  };
+
+  /**
+   * Handle on History
+   * @param {function} onHistory
+   */
+  const onHistory = (): void => {
+    // History here
+  };
+
+  /**
+   * Handle on Launch app
+   * @param {function} onLaunchApp
+   */
+  const onLaunchApp = (): void => {
+    // Launch app here
+  };
+
+  /**
+   * Handle on Find out
+   * @param {function} onFindOut
+   */
+  const onFindOut = (): void => {
+    // Find out here
+  };
+
+  /**
+   * Handle on sign up
+   * @param {function} onSignUp
+   */
+  const onSignUp = (): void => {
+    // Sign up here
+  };
+
   return (
     <main className="main-site">
       <HeaderHero 
-        onTryItFree={() => {}}
-        onWatchHowItWorks={() => {}}
+        onTryItFree={onTryItFree}
+        onWatchHowItWorks={onWatchHowItWorks}
       />
 
       <LogoBrand logos={logoBrandMock} />
 
       <Schedule 
-        onDemoSchedule={() => {}}
+        onDemoSchedule={onDemoSchedule}
       />
 
       <InstantSetup setups={instantSetupMock} />
@@ -46,7 +102,7 @@ const LandingPage = (): JSX.Element => {
       <AmazingFeature features={amazingFeatureMock} />
 
       <History
-        onHistory={() => {}}
+        onHistory={onHistory}
       />
 
       <ListCoreValue values={coreValueMock} />
@@ -54,22 +110,22 @@ const LandingPage = (): JSX.Element => {
       <Integration />
 
       <LaunchAppFeature
-        onLaunchApp={() => {}}
+        onLaunchApp={onLaunchApp}
       />
 
       <NotificationFeature
-        onFindOut={() => {}}
+        onFindOut={onFindOut}
       />
 
       <SaveTimeFeature
         saveTimes={saveTimeMock}
-        OnSignUp={() => {}}
+        OnSignUp={onSignUp}
       />
 
       <Testimonial testimonials={testimonialMock} />
 
       <FooterHero
-        onTryItFree={() => {}}
+        onTryItFree={onTryItFree}
       />
     </main>
   )
