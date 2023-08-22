@@ -1,4 +1,9 @@
+// Libs
+import { withErrorBoundary } from 'react-error-boundary';
+
+// Components
 import { Text } from '@components/common/Text';
+import ErrorFallback from '@components/ErrorBoundary';
 
 const Pricing = (): JSX.Element => {
   return (
@@ -13,4 +18,6 @@ const Pricing = (): JSX.Element => {
   )
 }
 
-export default Pricing;
+export default withErrorBoundary(Pricing, {
+  FallbackComponent: ErrorFallback,
+});

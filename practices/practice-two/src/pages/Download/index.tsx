@@ -1,4 +1,9 @@
+// Libs
+import { withErrorBoundary } from 'react-error-boundary';
+
+// Components
 import { Text } from '@components/common/Text';
+import ErrorFallback from '@components/ErrorBoundary';
 
 const Download = (): JSX.Element => {
   return (
@@ -13,4 +18,6 @@ const Download = (): JSX.Element => {
   )
 }
 
-export default Download;
+export default withErrorBoundary(Download, {
+  FallbackComponent: ErrorFallback,
+});

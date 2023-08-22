@@ -3,6 +3,7 @@ import '@stylesheets/app.scss'
 // Libs
 import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { withErrorBoundary } from 'react-error-boundary';
 
 // Layouts
 import { MainLayout } from '@layouts/Default';
@@ -12,6 +13,7 @@ import { LandingPage, Download, Pricing, Features, AboutUs, ContactUs, LoginPage
 
 // Components
 import { LoadingIndicator } from '@components/common/Loading';
+import ErrorFallback from '@components/ErrorBoundary';
 
 // Constants
 import { ROUTES } from '@constants/routes';
@@ -36,4 +38,6 @@ const App = (): JSX.Element => {
   );
 }
 
-export default App;
+export default withErrorBoundary(App, {
+  FallbackComponent: ErrorFallback,
+});

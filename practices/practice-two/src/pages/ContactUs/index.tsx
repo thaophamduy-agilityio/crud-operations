@@ -1,4 +1,9 @@
+// Libs
+import { withErrorBoundary } from 'react-error-boundary';
+
+// Components
 import { Text } from '@components/common/Text';
+import ErrorFallback from '@components/ErrorBoundary';
 
 const ContactUs = (): JSX.Element => {
   return (
@@ -13,4 +18,6 @@ const ContactUs = (): JSX.Element => {
   )
 }
 
-export default ContactUs;
+export default withErrorBoundary(ContactUs, {
+  FallbackComponent: ErrorFallback,
+});
