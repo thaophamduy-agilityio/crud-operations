@@ -2,12 +2,7 @@
 import { memo } from 'react';
 
 // Components
-import { Text } from '@components/common/Text';
-import { Button } from '@components/common/Button';
-import { Image } from '@components/common/Image';
-
-// Constants
-import { LaunchAppImg } from '@constants/images';
+import { FeatureItem } from '@components/common/FeatureItem';
 
 // Define the props for the Launch App Feature component
 interface LaunchAppFeatureProps {
@@ -19,44 +14,33 @@ interface LaunchAppFeatureProps {
  */
 export const LaunchAppFeature = memo(({ onLaunchApp }: LaunchAppFeatureProps): JSX.Element => {
   return (
-    <section className="launch-app">
-      <div className="launch-app-content">
-        <p className="launch-app-title">Amazing features</p>
-        <Text 
-          size="xl"
-          text="Your busy life deserves this"
-        />
-        <Text 
-          size="md"
-          text="We're a growing family of 382,081 designers and makers from around the world"
-        />
-        <div className="btn-container">
-          <Button
-            label="Launch Solo Desktop App"
-            onClick={onLaunchApp}
-            variant="secondary"
-          />
-        </div>
-      </div>
-      <picture className="launch-app-image">
-        <source
-          srcSet={`${LaunchAppImg.desktop.img2x} 2x, ${LaunchAppImg.desktop.img}`}
-          media="(min-width: 1120px)"
-        />
-        <source
-          srcSet={`${LaunchAppImg.tablet.img2x} 2x, ${LaunchAppImg.tablet.img}`}
-          media="(min-width: 768px)"
-        />
-        <Image
-          srcSet={`${LaunchAppImg.mobile.img2x} 2x`}
-          imageSrc={LaunchAppImg.mobile.img}
-          size={{
-            height: 487,
-            width: 684,
-          }}
-          altText="Launch app feature"
-        />
-      </picture>
-    </section>
+    <FeatureItem 
+      classItem="launch-app"
+      srcSet = {{
+        desktop: {
+          img: '/src/assets/images/launch-app/launch-app-desktop.webp',
+          img2x: '/src/assets/images/launch-app/launch-app-desktop-2x.webp',
+        },
+        tablet: {
+          img: '/src/assets/images/launch-app/launch-app-tablet.webp',
+          img2x: '/src/assets/images/launch-app/launch-app-tablet-2x.webp',
+        },
+      }}
+      imageSrc = {{
+        mobile: {
+          img: '/src/assets/images/launch-app/launch-app-mobile.webp',
+          img2x: '/src/assets/images/launch-app/launch-app-mobile-2x.webp',
+        }
+      }}
+      imageSize = {{
+        width:684,
+        height:487
+      }}
+      subTitle="Amazing features"
+      title="Your busy life deserves this"
+      desc="We're a growing family of 382,081 designers and makers from around the world"
+      labelButton="Launch Solo Desktop App"
+      onClick={onLaunchApp}
+    />
   )
 });
