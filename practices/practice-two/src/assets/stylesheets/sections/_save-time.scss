@@ -4,34 +4,36 @@
 
 .save {
   &-time {
+    @extend %relative;
     @extend %flex;
     @extend %flex-column;
-    @extend %justify-space-between;
-    @extend %item-center;
-    background-color: $bg-color-save-time;
-    border-radius: 24px;
-    box-shadow: 10px 10px 10px $box-shadow-save-time;
-    margin: 40px 0;
-    padding: 30px;
-    width: calc(100% - 60px);
-  
+    width: 100%;
+      
     @include only-for-tablet() {
-      padding: 100px 80px 50px 50px;
-      flex-direction: row;
-    }
-  
-    @include only-for-desktop() {
-      padding: 100px 80px 80px 135px;
+      width: 40%;
     }
 
     &-container {
-      @extend %relative;
       @extend %flex;
       @extend %flex-column;
-      width: 100%;
-      
+      @extend %justify-space-between;
+      @extend %item-center;
+      background-color: $bg-color-save-time;
+      border-radius: 24px;
+      box-shadow: 10px 10px 10px $box-shadow-save-time;
+      margin: 40px 0;
+      padding: 30px;
+      width: calc(100% - 60px);
+  
       @include only-for-tablet() {
-        width: 40%;
+        padding: 100px 80px 50px 50px;
+        flex-direction: row;
+        width: calc(100% - 130px);
+      }
+    
+      @include only-for-desktop() {
+        padding: 100px 80px 80px 135px;
+        width: calc(100% - 215px);
       }
     }
 
@@ -60,6 +62,7 @@
   
     &-image {
       @extend %text-center;
+      order: 1;
       margin: 30px -150%;
       width: 400%;
   
@@ -98,11 +101,11 @@
       }
 
       &-image {
-        width: 40%;
         margin-right: 25px;
       
-        @include only-for-desktop() {
+        @include only-for-tablet() {
           margin-right: 0;
+          width: 40%;
         }
       }
 

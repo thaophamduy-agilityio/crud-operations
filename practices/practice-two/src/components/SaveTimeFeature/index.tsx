@@ -2,16 +2,11 @@
 import { memo } from 'react';
 
 // Components
-import { Image } from '@components/common/Image';
-import { Text } from '@components/common/Text';
-import { Button } from '@components/common/Button';
+import { FeatureItem } from '@components/common/FeatureItem';
 import { ListSaveTime } from '@components/SaveTime';
 
 // Interface
 import { SaveTime } from '@interface/save-time';
-
-// Constants
-import { SaveTimeFeatureImg } from '@constants/images';
 
 // Define the props for the Save Time Feature component
 interface SaveTimeFeatureProps {
@@ -24,46 +19,35 @@ interface SaveTimeFeatureProps {
  */
 export const SaveTimeFeature = memo(({ OnSignUp, saveTimes }: SaveTimeFeatureProps): JSX.Element => {
   return (
-    <section className="save-time">
-      <div className="save-time-container">
-        <div className="save-time-content">
-          <p className="save-time-title">Deep Focus & Multitasking</p>
-          <Text
-            size="xl"
-            text="Increase Productivity"
-          />
-          <Text
-            size="md"
-            text="We're a growing family of 382,081 designers and makers from around the world"
-          />
-          <div className="btn-container">
-            <Button
-              label="Sign up now"
-              onClick={OnSignUp}
-              variant="secondary"
-            />
-          </div>
-        </div>
-        <picture className="save-time-image">
-          <source
-            srcSet={`${SaveTimeFeatureImg.desktop.img2x} 2x, ${SaveTimeFeatureImg.desktop.img}`}
-            media="(min-width: 1120px)"
-          />
-          <source
-            srcSet={`${SaveTimeFeatureImg.tablet.img2x} 2x, ${SaveTimeFeatureImg.tablet.img}`}
-            media="(min-width: 768px)"
-          />
-          <Image
-            srcSet={`${SaveTimeFeatureImg.mobile.img2x} 2x`}
-            imageSrc={SaveTimeFeatureImg.mobile.img}
-            size={{
-              height: 304,
-              width: 828,
-            }}
-            altText="Amazing Feature"
-          />
-        </picture>
-      </div>
+    <section className="save-time-container">
+      <FeatureItem 
+        classItem="save-time"
+        srcSet = {{
+          desktop: {
+            img: '/src/assets/images/save-time/save-time-desktop.webp',
+            img2x: '/src/assets/images/save-time/save-time-desktop-2x.webp',
+          },
+          tablet: {
+            img: '/src/assets/images/save-time/save-time-tablet.webp',
+            img2x: '/src/assets/images/save-time/save-time-tablet-2x.webp',
+          },
+        }}
+        imageSrc = {{
+          mobile: {
+            img: '/src/assets/images/save-time/save-time-mobile.webp',
+            img2x: '/src/assets/images/save-time/save-time-mobile-2x.webp',
+          }
+        }}
+        imageSize = {{
+          width:684,
+          height:487
+        }}
+        subTitle="Deep Focus & Multitasking"
+        title="Increase Productivity"
+        desc="We're a growing family of 382,081 designers and makers from around the world"
+        labelButton="Sign up now"
+        onClick={OnSignUp}
+      />
       <ListSaveTime saveTimes={saveTimes} />
     </section>
   )
