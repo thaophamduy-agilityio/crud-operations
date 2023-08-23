@@ -7,7 +7,7 @@ import { LogoBrand } from '@components/LogoBrand';
 import { Schedule } from '@components/Schedule';
 import { InstantSetup } from '@components/InstantSetup';
 import { AmazingFeature } from '@components/AmazingFeature';
-import { History } from '@components/History';
+import { StorageCloud } from '@components/StorageCloud';
 import { ListCoreValue } from '@components/CoreValue';
 import { Integration } from '@components/Integration';
 import { LaunchAppFeature } from '@components/LaunchAppFeature';
@@ -53,11 +53,11 @@ const LandingPage = (): JSX.Element => {
   };
 
   /**
-   * Handle on History
-   * @param {function} onHistory
+   * Handle on StorageCloud
+   * @param {function} onStorageCloud
    */
-  const onHistory = (): void => {
-    // History here
+  const onStorageCloud = (): void => {
+    // StorageCloud here
   };
 
   /**
@@ -101,8 +101,8 @@ const LandingPage = (): JSX.Element => {
 
       <AmazingFeature features={amazingFeatureMock} />
 
-      <History
-        onHistory={onHistory}
+      <StorageCloud
+        onStorageCloud={onStorageCloud}
       />
 
       <ListCoreValue coreValues={coreValueMock} />
