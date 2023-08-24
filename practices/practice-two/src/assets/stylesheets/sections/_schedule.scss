@@ -76,33 +76,30 @@
   }
 
   &-image {
-    @extend %absolute;
+    @extend %relative;
     @extend %text-center;
-    bottom: -120px;
-    width: 180%;
+    bottom: -60px;
     
     @include only-for-tablet() {
-      position: relative;
-      margin-top: -150px;
-      margin-left: -15px;
+      margin-top: -130px;
+      margin-left: 43px;
       text-align: left;
       bottom: 0;
-      width: 100%;
     }
     
     @include only-for-desktop() {
-      margin-top: -130px;
-      margin-left: -160px;
+      margin-top: -97px;
+      margin-left: -27px;
     }
   }
 
   .img-item {
     @include only-for-tablet() {
-      width: 829px;
+      width: 489px;
     }
 
     @include only-for-desktop() {
-      width: 979px;
+      width: 580px;
     }
   }
 

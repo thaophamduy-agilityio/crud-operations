@@ -51,8 +51,8 @@ export const Schedule = memo(({ onDemoSchedule }: ScheduleProps): JSX.Element =>
             srcSet={`${ScheduleImg.mobile.img2x} 2x`}
             imageSrc={ScheduleImg.mobile.img}
             size={{
-              height: 428,
-              width: 667,
+              height: 320,
+              width: 360,
             }}
             altText="Schedule"
           />
