@@ -13,12 +13,11 @@
 
     @include only-for-tablet() {
       flex-direction: row;
-      margin: 0;
     }
 
     &-content {
       @include only-for-tablet() {
-        margin-left: -150px;
+        width: 30%;
         order: 1;
       }
     }
@@ -38,25 +37,16 @@
     &-image {
       @extend %text-center;
       order: 1;
-      width: 200%;
-      
-      @include only-for-tablet() {
-        margin-left: -30px;
-        width: 150%;
-      }
-      
-      @include only-for-desktop() {
-        margin-left: -150px;
-      }
+      margin-top: 50px;
     }
 
     .img-item {
       @include only-for-tablet() {
-        width: 771px;
+        width: 460px;
       }
 
       @include only-for-desktop() {
-        width: 972px;
+        width: 530px;
       }
     }
   }

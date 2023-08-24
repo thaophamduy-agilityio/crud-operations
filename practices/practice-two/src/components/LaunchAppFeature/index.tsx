@@ -33,8 +33,8 @@ export const LaunchAppFeature = memo(({ onLaunchApp }: LaunchAppFeatureProps): J
         }
       }}
       imageSize = {{
-        width:684,
-        height:487
+        width:320,
+        height:360
       }}
       subTitle="Amazing features"
       title="Your busy life deserves this"
