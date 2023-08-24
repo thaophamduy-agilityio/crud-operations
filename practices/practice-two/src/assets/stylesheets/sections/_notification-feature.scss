@@ -18,7 +18,11 @@
 
   &-content {
     @include only-for-tablet() {
-      width: 30%;
+      width: 40%;
+
+      .text-xl {
+        max-width: 75%;
+      }
     }
   }
 
@@ -36,27 +40,16 @@
 
   &-image {
     @extend %text-center;
-    width: 120%;
-
-    @include only-for-tablet() {
-      position: absolute;
-      right: -20px;
-      width: 100%;
-    }
-
-    @include only-for-desktop() {
-      right: -150px;
-      width: 75%;
-    }
+    order: 1;
   }
 
   .img-item {
     @include only-for-tablet() {
-      width: 600px;
+      width: 500px;
     }
 
     @include only-for-desktop() {
-      width: 878px;
+      width: 670px;
     }
   }
 }

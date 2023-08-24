@@ -33,8 +33,8 @@ export const NotificationFeature = memo(({ onFindOut }: NotificationFeatureProps
         }
       }}
       imageSize = {{
-        width:684,
-        height:487
+        width:360,
+        height:310
       }}
       subTitle="Amazing features"
       title="Never forget anything, ever again"
