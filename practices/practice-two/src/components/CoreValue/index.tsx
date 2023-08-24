@@ -4,19 +4,11 @@ import { memo } from 'react';
 // Components
 import { Image } from '@components/common/Image';
 
-// Types
-import { CoreValue } from '@interface/core-value';
-
-// Define the props for the Core Value component
-interface CoreValueProps {
-  coreValues: CoreValue[];
-}
-
 /**
  * Primary UI component for user interaction
  */
-export const ListCoreValue = memo(({
-  coreValues = [
+export const ListCoreValue = memo((): JSX.Element => {
+  const coreValues = [
     {
       id: "1",
       imageSrc: "/src/assets/images/core-value/core-value-protect.svg",
@@ -66,7 +58,7 @@ export const ListCoreValue = memo(({
       desc: "4,729 curated design resources to energize your creative workflow",
     },
   ]
-}: CoreValueProps): JSX.Element => {
+
   return (
     <section className="core-value">
       <ul className="core-value-list">

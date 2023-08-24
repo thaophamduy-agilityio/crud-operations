@@ -22,7 +22,6 @@ import {
   logoBrandMock,
   instantSetupMock,
   amazingFeatureMock,
-  coreValueMock,
   saveTimeMock,
   testimonialMock
 } from '@mocks/';
@@ -105,7 +104,7 @@ const LandingPage = (): JSX.Element => {
         onStorageCloud={onStorageCloud}
       />
 
-      <ListCoreValue coreValues={coreValueMock} />
+      <ListCoreValue />
 
       <Integration />
 
