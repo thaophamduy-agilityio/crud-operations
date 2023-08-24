@@ -33,8 +33,8 @@ export const StorageCloud = memo(({ onStorageCloud }: StorageCloudProps): JSX.El
         }
       }}
       imageSize = {{
-        width:424,
-        height:302
+        width:300,
+        height:220
       }}
       subTitle="Easily find what you're looking for"
       title="History you can see & search"
