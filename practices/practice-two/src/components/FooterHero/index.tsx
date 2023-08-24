@@ -50,8 +50,8 @@ export const FooterHero = memo(({ onTryItFree }: FooterHeroProps): JSX.Element =
           srcSet={`${FooterHeroImg.mobile.img2x} 2x`}
           imageSrc={FooterHeroImg.mobile.img}
           size={{
-            height: 372,
-            width: 534,
+            height: 330,
+            width: 340,
           }}
           altText="Get started"
         />
