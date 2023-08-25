@@ -140,10 +140,10 @@
       }
 
       &:first-child {
-        padding-top: 100px;
+        padding-top: 130px;
 
         @include only-for-tablet() {
-          padding: 20px 0 0;
+          padding-top: 20px;
         }
       }
 

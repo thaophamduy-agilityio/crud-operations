@@ -8,8 +8,12 @@
     @extend %justify-space-between;
     @extend %item-center;
     @extend %relative;
-    @extend %margin-center;
     @extend %z-index-99;
+    margin: 0 30px;
+
+    @include only-for-tablet() {
+      margin: 0 auto;
+    }
   }
 
   &-left,

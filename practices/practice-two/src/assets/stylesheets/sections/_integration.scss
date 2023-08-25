@@ -6,8 +6,13 @@
   @extend %flex;
   @extend %flex-column;
   @extend %item-center;
+  @extend %text-center;
   margin: 15px 0;
   width: 100%;
+
+  @include only-for-tablet() {
+    text-align: left;
+  }
 
   @include only-for-desktop() {
     flex-direction: row;

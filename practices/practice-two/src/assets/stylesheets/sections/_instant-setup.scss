@@ -8,7 +8,7 @@
     @extend %flex-column;
     @extend %justify-center;
     @extend %item-center;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     width: 100%;
   
     @include only-for-tablet() {
