@@ -1,5 +1,6 @@
 // Libs
 import { memo } from 'react';
+import isEqual from "react-fast-compare";
 
 // Components
 import { Image } from '@components/common/Image';
@@ -7,7 +8,8 @@ import { Image } from '@components/common/Image';
 /**
  * Primary UI component for user interaction
  */
-export const ListCoreValue = memo((): JSX.Element => {
+
+const CoreValue = (): JSX.Element => {
   const coreValues = [
     {
       id: "1",
@@ -84,4 +86,6 @@ export const ListCoreValue = memo((): JSX.Element => {
       </ul>
     </section>
   )
-});
+};
+
+export const ListCoreValue = memo(CoreValue, isEqual);

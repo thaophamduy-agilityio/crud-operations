@@ -1,5 +1,6 @@
 // Libs
 import { memo } from 'react';
+import isEqual from "react-fast-compare";
 
 // Components
 import Logo from '@components/common/Logo';
@@ -25,7 +26,7 @@ interface FooterProps {
 /**
  * Primary UI component for user interaction
  */
-export const Footer = memo(({ links }: FooterProps): JSX.Element => {
+export const FooterComponent = ({ links }: FooterProps): JSX.Element => {
   return (
     <footer className="footer-site">
       <div className="footer-site-container-logo">
@@ -75,4 +76,6 @@ export const Footer = memo(({ links }: FooterProps): JSX.Element => {
       </div>
     </footer>
   )
-});
+};
+
+export const Footer = memo(FooterComponent, isEqual);
