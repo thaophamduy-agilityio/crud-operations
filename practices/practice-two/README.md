@@ -17,7 +17,7 @@
 - Timeline
 
   - Estimate time: 10 days
-  - Actual time: TBD
+  - Actual time: 13 days
 
 - Technical
 
@@ -53,7 +53,7 @@
 - HTML semantics
 - Apply typescript
 - Apply storybook
-- Deploy to Vercel
+- [Deploy to Vercel](https://reactjs-practice-two.vercel.app/)
 
 ## Getting started
 
