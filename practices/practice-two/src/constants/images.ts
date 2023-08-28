@@ -43,21 +43,6 @@ export const AmazingFeatureImg = {
   },
 };
 
-export const HistoryImg = {
-  desktop: {
-    img: '/src/assets/images/history/history-desktop.webp',
-    img2x: '/src/assets/images/history/history-desktop-2x.webp',
-  },
-  tablet: {
-    img: '/src/assets/images/history/history-tablet.webp',
-    img2x: '/src/assets/images/history/history-tablet-2x.webp',
-  },
-  mobile: {
-    img: '/src/assets/images/history/history-mobile.webp',
-    img2x: '/src/assets/images/history/history-mobile-2x.webp',
-  },
-};
-
 export const IntegrationImg = {
   notion: {
     src: '/src/assets/images/integration-logo/logo-notion.svg',
@@ -114,51 +99,6 @@ export const IntegrationImg = {
       height: 75,
       width: 75
     },
-  },
-};
-
-export const LaunchAppImg = {
-  desktop: {
-    img: '/src/assets/images/launch-app/launch-app-desktop.webp',
-    img2x: '/src/assets/images/launch-app/launch-app-desktop-2x.webp',
-  },
-  tablet: {
-    img: '/src/assets/images/launch-app/launch-app-tablet.webp',
-    img2x: '/src/assets/images/launch-app/launch-app-tablet-2x.webp',
-  },
-  mobile: {
-    img: '/src/assets/images/launch-app/launch-app-mobile.webp',
-    img2x: '/src/assets/images/launch-app/launch-app-mobile-2x.webp',
-  },
-};
-
-export const NotificationImg = {
-  desktop: {
-    img: '/src/assets/images/notification/notification-desktop.webp',
-    img2x: '/src/assets/images/notification/notification-desktop-2x.webp',
-  },
-  tablet: {
-    img: '/src/assets/images/notification/notification-tablet.webp',
-    img2x: '/src/assets/images/notification/notification-tablet-2x.webp',
-  },
-  mobile: {
-    img: '/src/assets/images/notification/notification-mobile.webp',
-    img2x: '/src/assets/images/notification/notification-mobile-2x.webp',
-  },
-};
-
-export const SaveTimeFeatureImg = {
-  desktop: {
-    img: '/src/assets/images/save-time/save-time-desktop.webp',
-    img2x: '/src/assets/images/save-time/save-time-desktop-2x.webp',
-  },
-  tablet: {
-    img: '/src/assets/images/save-time/save-time-tablet.webp',
-    img2x: '/src/assets/images/save-time/save-time-tablet-2x.webp',
-  },
-  mobile: {
-    img: '/src/assets/images/save-time/save-time-mobile.webp',
-    img2x: '/src/assets/images/save-time/save-time-mobile-2x.webp',
   },
 };
 
