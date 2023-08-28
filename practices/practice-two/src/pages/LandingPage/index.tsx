@@ -8,7 +8,7 @@ import { Schedule } from '@components/Schedule';
 import { InstantSetup } from '@components/InstantSetup';
 import { AmazingFeature } from '@components/AmazingFeature';
 import { StorageCloud } from '@components/StorageCloud';
-import { ListCoreValue } from '@components/CoreValue';
+import { CoreValue } from '@components/CoreValue';
 import { Integration } from '@components/Integration';
 import { LaunchAppFeature } from '@components/LaunchAppFeature';
 import { NotificationFeature } from '@components/NotificationFeature';
@@ -16,15 +16,6 @@ import { SaveTimeFeature } from '@components/SaveTimeFeature';
 import { Testimonial } from '@components/Testimonial';
 import { FooterHero } from '@components/FooterHero';
 import ErrorFallback from '@components/ErrorBoundary';
-
-// Mock
-import {
-  logoBrandMock,
-  instantSetupMock,
-  amazingFeatureMock,
-  saveTimeMock,
-  testimonialMock
-} from '@mocks/';
 
 const LandingPage = (): JSX.Element => {
   /**
@@ -90,21 +81,21 @@ const LandingPage = (): JSX.Element => {
         onWatchHowItWorks={onWatchHowItWorks}
       />
 
-      <LogoBrand logos={logoBrandMock} />
+      <LogoBrand />
 
       <Schedule 
         onDemoSchedule={onDemoSchedule}
       />
 
-      <InstantSetup setups={instantSetupMock} />
+      <InstantSetup />
 
-      <AmazingFeature features={amazingFeatureMock} />
+      <AmazingFeature />
 
       <StorageCloud
         onStorageCloud={onStorageCloud}
       />
 
-      <ListCoreValue />
+      <CoreValue />
 
       <Integration />
 
@@ -117,11 +108,10 @@ const LandingPage = (): JSX.Element => {
       />
 
       <SaveTimeFeature
-        saveTimes={saveTimeMock}
         OnSignUp={onSignUp}
       />
 
-      <Testimonial testimonials={testimonialMock} />
+      <Testimonial />
 
       <FooterHero
         onTryItFree={onTryItFree}

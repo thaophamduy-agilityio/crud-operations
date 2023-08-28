@@ -1,53 +1,18 @@
 // Libs
 import { memo } from 'react';
+import isEqual from "react-fast-compare";
 
 // Components
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
 
-// Types
-import { Setup } from '@interface/instant-setup';
-
-// Define the props for the Instant Set component
-interface InstantSetupProps {
-  setups: Setup[];
-}
+// Mocks
+import { instantSetupMock } from '@mocks/';
 
 /**
  * Primary UI component for user interaction
  */
-export const InstantSetup = memo(({
-  setups = [
-    {
-      id: "1",
-      srcSet: "/src/assets/images/setup/instant-setup-download-2x.webp",
-      imageSrc: "/src/assets/images/setup/instant-setup-download.webp",
-      step: 'step 1',
-      title: 'Download the app',
-    },
-    {
-      id: "2",
-      srcSet: "/src/assets/images/setup/instant-setup-invite-2x.webp",
-      imageSrc: "/src/assets/images/setup/instant-setup-invite.webp",
-      step: "step 2",
-      title: "Invite teammates",
-    },
-    {
-      id: "3",
-      srcSet: "/src/assets/images/setup/instant-setup-workspace-2x.webp",
-      imageSrc: "/src/assets/images/setup/instant-setup-workspace.webp",
-      step: "step 3",
-      title: "Create workspace",
-    },
-    {
-      id: "4",
-      srcSet: "/src/assets/images/setup/instant-setup-track-performance-2x.webp",
-      imageSrc: "/src/assets/images/setup/instant-setup-track-performance.webp",
-      step: "step 4",
-      title: "Track performance",
-    },
-  ]
-}: InstantSetupProps): JSX.Element => {
+const ListInstantSetup = (): JSX.Element => {
   return (
     <section className="instant-setup">
       <div className="instant-setup-content">
@@ -58,7 +23,7 @@ export const InstantSetup = memo(({
         />
       </div>
       <ul className="instant-setup-container">
-        {setups.map((setup) => (
+        {instantSetupMock.map((setup) => (
           <li key={setup.id} id={`instant-setup-${setup.id}`} className="instant-setup-item">
             <Image
               srcSet={`${setup.srcSet} 2x`}
@@ -79,4 +44,6 @@ export const InstantSetup = memo(({
       </ul>
     </section>
   )
-});
+};
+
+export const InstantSetup = memo(ListInstantSetup, isEqual);

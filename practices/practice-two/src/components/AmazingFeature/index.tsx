@@ -1,110 +1,22 @@
 // Libs
 import { memo } from 'react';
+import isEqual from "react-fast-compare";
 
 // Components
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 
-// Types
-import { Feature } from '@interface/amazing-feature';
-
 // Constants
 import { AmazingFeatureImg } from '@constants/images';
 
-// Define the props for the Amazing Feature component
-interface AmazingFeatureProps {
-  features: Feature[];
-}
+// Mocks
+import { amazingFeatureMock } from '@mocks/';
 
 /**
  * Primary UI component for user interaction
  */
-export const AmazingFeature = memo(({ 
-  features = [
-    {
-      id: "1",
-      srcSet: {
-        desktop: {
-          img: "@images/amazing-feature/feature-how-it-work-desktop.webp",
-          img2x: "@images/amazing-feature/feature-how-it-work-desktop-2x.webp",
-        },
-        tablet: {
-          img: "@images/amazing-feature/feature-how-it-work-tablet.webp",
-          img2x: "@images/amazing-feature/feature-how-it-work-tablet-2x.webp",
-        },
-      },
-      imageSrc: {
-        mobile: {
-          img: "@images/amazing-feature/feature-how-it-work-mobile.webp",
-          img2x: "@images/amazing-feature/feature-how-it-work-mobile-2x.webp",
-        },
-      },
-      iconSrc: {
-        img: "@images/amazing-feature/feature-how-it-work-icon.webp",
-        img2x: "@images/amazing-feature/feature-how-it-work-icon-2x.webp",
-      },
-      title: "Stay focused whenever, wherever",
-      desc: "We're a growing family of 382,081 designers and makers from around the world",
-      btnLabel: "Watch how it work",
-      onClick: () => {},
-    },
-    {
-      id: "2",
-      srcSet: {
-        desktop: {
-          img: "@images/amazing-feature/feature-get-app-desktop.webp",
-          img2x: "@images/amazing-feature/feature-get-app-desktop-2x.webp",
-        },
-        tablet: {
-          img: "@images/amazing-feature/feature-get-app-tablet.webp",
-          img2x: "@images/amazing-feature/feature-get-app-tablet-2x.webp",
-        },
-      },
-      imageSrc: {
-        mobile: {
-          img: "@images/amazing-feature/feature-get-app-mobile.webp",
-          img2x: "@images/amazing-feature/feature-get-app-mobile-2x.webp",
-        },
-      },
-      iconSrc: {
-        img: "@images/amazing-feature/feature-get-app-icon.webp",
-        img2x: "@images/amazing-feature/feature-get-app-icon-2x.webp",
-      },
-      title: "Share files at the right time",
-      desc: "We're a growing family of 382,081 designers and makers from around the world",
-      btnLabel: "Get Solo Desktop",
-      onClick: () => {},
-    },
-    {
-      id: "3",
-      srcSet: {
-        desktop: {
-          img: "@images/amazing-feature/feature-schedule-demo-desktop.webp",
-          img2x: "@images/amazing-feature/feature-schedule-demo-desktop-2x.webp",
-        },
-        tablet: {
-          img: "@images/amazing-feature/feature-schedule-demo-tablet.webp",
-          img2x: "@images/amazing-feature/feature-schedule-demo-tablet-2x.webp",
-        },
-      },
-      imageSrc: {
-        mobile: {
-          img: "@images/amazing-feature/feature-schedule-demo-mobile.webp",
-          img2x: "@images/amazing-feature/feature-schedule-demo-mobile-2x.webp",
-        },
-      },
-      iconSrc: {
-        img: "@images/amazing-feature/feature-schedule-demo-icon.webp",
-        img2x: "@images/amazing-feature/feature-schedule-demo-icon-2x.webp",
-      },
-      title: "Collaborate from anywhere",
-      desc: "We're a growing family of 382,081 designers and makers from around the world",
-      btnLabel: "Schedule a demo",
-      onClick: () => {},
-    },
-  ]
-}: AmazingFeatureProps): JSX.Element => {
+const ListAmazingFeature = (): JSX.Element => {
   return (
     <section className="amazing-feature">
       <picture className="amazing-feature-image">
@@ -134,7 +46,7 @@ export const AmazingFeature = memo(({
         />
       </div>
       <ul className="amazing-feature-container">
-        {features.map((feature) => (
+        {amazingFeatureMock.map((feature) => (
           <li key={feature.id} id={`amazing-feature-${feature.id}`} className="amazing-feature-item">
             <picture className="amazing-feature-container-image">
               <source
@@ -181,4 +93,6 @@ export const AmazingFeature = memo(({
       </ul>
     </section>
   )
-});
+};
+
+export const AmazingFeature = memo(ListAmazingFeature, isEqual);

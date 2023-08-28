@@ -3,21 +3,17 @@ import { memo } from 'react';
 
 // Components
 import { FeatureItem } from '@components/common/FeatureItem';
-import { ListSaveTime } from '@components/SaveTime';
-
-// Interface
-import { SaveTime } from '@interface/save-time';
+import { SaveTime } from '@components/SaveTime';
 
 // Define the props for the Save Time Feature component
 interface SaveTimeFeatureProps {
-  saveTimes: SaveTime[];
   OnSignUp: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const SaveTimeFeature = memo(({ OnSignUp, saveTimes }: SaveTimeFeatureProps): JSX.Element => {
+export const SaveTimeFeature = memo(({ OnSignUp }: SaveTimeFeatureProps): JSX.Element => {
   return (
     <section className="save-time-container">
       <FeatureItem 
@@ -48,7 +44,7 @@ export const SaveTimeFeature = memo(({ OnSignUp, saveTimes }: SaveTimeFeaturePro
         labelButton="Sign up now"
         onClick={OnSignUp}
       />
-      <ListSaveTime saveTimes={saveTimes} />
+      <SaveTime />
     </section>
   )
 });
