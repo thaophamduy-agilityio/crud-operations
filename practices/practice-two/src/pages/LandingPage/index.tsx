@@ -2,7 +2,7 @@
 import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
-import { HeaderHero } from '@components/HeaderHero';
+import { Header } from '@components/HeaderHero';
 import { LogoBrand } from '@components/LogoBrand';
 import { Schedule } from '@components/Schedule';
 import { InstantSetup } from '@components/InstantSetup';
@@ -14,7 +14,7 @@ import { LaunchAppFeature } from '@components/LaunchAppFeature';
 import { NotificationFeature } from '@components/NotificationFeature';
 import { SaveTimeFeature } from '@components/SaveTimeFeature';
 import { Testimonial } from '@components/Testimonial';
-import { FooterHero } from '@components/FooterHero';
+import { Footer } from '@components/FooterHero';
 import ErrorFallback from '@components/ErrorBoundary';
 
 const LandingPage = (): JSX.Element => {
@@ -76,7 +76,7 @@ const LandingPage = (): JSX.Element => {
 
   return (
     <main className="main-site">
-      <HeaderHero 
+      <Header 
         onTryItFree={onTryItFree}
         onWatchHowItWorks={onWatchHowItWorks}
       />
@@ -113,7 +113,7 @@ const LandingPage = (): JSX.Element => {
 
       <Testimonial />
 
-      <FooterHero
+      <Footer
         onTryItFree={onTryItFree}
       />
     </main>

@@ -18,7 +18,7 @@ interface HeaderHeroProps {
 /**
  * Primary UI component for user interaction
  */
-export const HeaderHero = memo(({ onTryItFree, onWatchHowItWorks }: HeaderHeroProps): JSX.Element => {  
+export const Header = memo(({ onTryItFree, onWatchHowItWorks }: HeaderHeroProps): JSX.Element => {  
   return (
     <section className="hero-header">
       <div className="hero-header-content">

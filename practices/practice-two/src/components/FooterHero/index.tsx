@@ -17,7 +17,7 @@ interface FooterHeroProps {
 /**
  * Primary UI component for user interaction
  */
-export const FooterHero = memo(({ onTryItFree }: FooterHeroProps): JSX.Element => {
+export const Footer = memo(({ onTryItFree }: FooterHeroProps): JSX.Element => {
   return (
     <section className="hero-footer">
       <div className="hero-footer-content">
