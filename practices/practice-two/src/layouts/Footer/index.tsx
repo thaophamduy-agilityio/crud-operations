@@ -11,22 +11,14 @@ import { Text } from '@components/common/Text';
 // Icons
 import { BsFacebook, BsTwitter, BsInstagram } from 'react-icons/bs';
 
-// Types
-import { NavLink } from '@interface/nav-link';
-
 // Constants
 import googlePlay from '@image/google-play.svg';
 import appStore from '@image/app-store.svg';
 
-// Define the props for the Footer component
-interface FooterProps {
-  links: NavLink[];
-}
-
 /**
  * Primary UI component for user interaction
  */
-export const FooterComponent = ({ links }: FooterProps): JSX.Element => {
+const FooterComponent = (): JSX.Element => {
   return (
     <footer className="footer-site">
       <div className="footer-site-container-logo">
@@ -52,7 +44,7 @@ export const FooterComponent = ({ links }: FooterProps): JSX.Element => {
           </div>
         </div>
         <div className="footer-right">
-          <Navigation links={links} />
+          <Navigation />
         </div>
       </div>
       <div className="footer-site-container-copy-right">

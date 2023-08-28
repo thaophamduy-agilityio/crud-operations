@@ -1,29 +1,17 @@
 // Libs
 import { memo } from 'react';
+import isEqual from "react-fast-compare";
 
-// Types
-import { NavLink } from '@interface/nav-link';
-
-// Define the props for the Navigation component
-interface NavigationProps {
-  links: NavLink[];
-}
+// Mocks
+import { navLinkMock } from '@mocks/';
 
 /**
  * Primary UI component for user interaction
  */
-export const Navigation = memo(({
-  links = [
-    { id: "downloads", label: "Downloads", url: "/downloads" },
-    { id: "pricing", label: "Pricing", url: "/pricing" },
-    { id: "features", label: "Features", url: "/features" },
-    { id: "aboutUs", label: "About Us", url: "/about-us" },
-    { id: "contact", label: "Contact", url: "/contact" },
-  ]
-}: NavigationProps): JSX.Element => {
+const ListNavigation = (): JSX.Element => {
   return (
     <ul className="navigation">
-      {links.map((link) => (
+      {navLinkMock.map((link) => (
         <li key={link.id} id={`${link.id}-page`} className="navigation-item">
           <a href={link.url} className="link-label">
             {link.label}
@@ -32,4 +20,6 @@ export const Navigation = memo(({
       ))}
     </ul>
   )
-});
+};
+
+export const Navigation = memo(ListNavigation, isEqual);

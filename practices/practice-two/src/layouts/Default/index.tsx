@@ -6,11 +6,6 @@ import { Outlet } from 'react-router-dom';
 import { Header } from "../Header";
 import { Footer } from '../Footer';
 
-// Mock
-import {
-  navLinkMock,
-} from '@mocks/';
-
 export const MainLayout = () => {
   const [isOpenMenuOnMobile, setIsOpenMenuOnMobile] = useState<boolean>(false);
 
@@ -38,9 +33,7 @@ export const MainLayout = () => {
         onSignUp={onSignUp}
       />
       <Outlet />
-      <Footer
-        links={navLinkMock}
-      />
+      <Footer />
     </div>
   );
 }
