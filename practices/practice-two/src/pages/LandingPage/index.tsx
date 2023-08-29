@@ -3,7 +3,7 @@ import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
 import { Header } from '@components/HeaderHero';
-import { LogoBrand } from '@components/LogoBrand';
+import { ListBrand } from '@components/Brand';
 import { Schedule } from '@components/Schedule';
 import { InstantSetup } from '@components/InstantSetup';
 import { AmazingFeature } from '@components/AmazingFeature';
@@ -81,7 +81,7 @@ const LandingPage = (): JSX.Element => {
         onWatchHowItWorks={onWatchHowItWorks}
       />
 
-      <LogoBrand />
+      <ListBrand />
 
       <Schedule 
         onDemoSchedule={onDemoSchedule}

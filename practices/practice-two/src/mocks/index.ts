@@ -1,5 +1,5 @@
 export { navLinkMock } from './navLinkMock';
-export { logoBrandMock } from './logoBrandMock';
+export { brandMock } from './brandMock';
 export { instantSetupMock } from './instantSetupMock';
 export { amazingFeatureMock } from './amazingFeatureMock';
 export { coreValueMock } from './coreValueMock';

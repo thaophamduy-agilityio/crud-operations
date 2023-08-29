@@ -7,12 +7,12 @@ import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
 
 // Mocks
-import { logoBrandMock } from '@mocks/';
+import { brandMock } from '@mocks/';
 
 /**
  * Primary UI component for user interaction
  */
-const ListLogoBrand = (): JSX.Element => {
+const Brand = (): JSX.Element => {
   return (
     <section className="brand">
       <Text
@@ -20,11 +20,11 @@ const ListLogoBrand = (): JSX.Element => {
         text="Thousands of teams worldwide are using Solo"
       />
       <ul className="brand-logo">
-        {logoBrandMock.map((logo) => (
-          <li key={logo.id} id={`brand-${logo.id}`} className="brand-item">
+        {brandMock.map((brand) => (
+          <li key={brand.id} id={`brand-${brand.id}`} className="brand-item">
             <Image
-              srcSet={`${logo.srcSet} 2x`}
-              imageSrc={logo.imageSrc}
+              srcSet={`${brand.srcSet} 2x`}
+              imageSrc={brand.imageSrc}
               size={{
                 height: 63,
                 width: 155,
@@ -38,4 +38,4 @@ const ListLogoBrand = (): JSX.Element => {
   )
 };
 
-export const LogoBrand = memo(ListLogoBrand, isEqual);
+export const ListBrand = memo(Brand, isEqual);

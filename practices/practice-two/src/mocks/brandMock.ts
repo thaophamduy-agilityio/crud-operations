@@ -2,7 +2,7 @@
 import { Brand } from '@interface/brand';
 
 // Mock data for logo brand
-export const logoBrandMock: Brand[] = [
+export const brandMock: Brand[] = [
   {
     id: "1",
     srcSet: "/src/assets/images/brand/logo-rota-show-2x.webp",
