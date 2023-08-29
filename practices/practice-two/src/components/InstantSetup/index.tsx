@@ -12,7 +12,7 @@ import { instantSetupMock } from '@mocks/';
 /**
  * Primary UI component for user interaction
  */
-const ListInstantSetup = (): JSX.Element => {
+const InstantSetup = (): JSX.Element => {
   return (
     <section className="instant-setup">
       <div className="instant-setup-content">
@@ -46,4 +46,4 @@ const ListInstantSetup = (): JSX.Element => {
   )
 };
 
-export const InstantSetup = memo(ListInstantSetup, isEqual);
+export const ListInstantSetup = memo(InstantSetup, isEqual);

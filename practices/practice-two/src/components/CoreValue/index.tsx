@@ -12,7 +12,7 @@ import { coreValueMock } from '@mocks/';
  * Primary UI component for user interaction
  */
 
-const ListCoreValue = (): JSX.Element => {
+const CoreValue = (): JSX.Element => {
   return (
     <section className="core-value">
       <ul className="core-value-list">
@@ -40,4 +40,4 @@ const ListCoreValue = (): JSX.Element => {
   )
 };
 
-export const CoreValue = memo(ListCoreValue, isEqual);
+export const ListCoreValue = memo(CoreValue, isEqual);

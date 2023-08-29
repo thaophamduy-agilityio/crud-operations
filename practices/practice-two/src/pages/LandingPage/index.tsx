@@ -5,15 +5,15 @@ import { withErrorBoundary } from 'react-error-boundary';
 import { Header } from '@components/HeaderHero';
 import { ListBrand } from '@components/Brand';
 import { Schedule } from '@components/Schedule';
-import { InstantSetup } from '@components/InstantSetup';
-import { AmazingFeature } from '@components/AmazingFeature';
+import { ListInstantSetup } from '@components/InstantSetup';
+import { ListAmazingFeature } from '@components/AmazingFeature';
 import { StorageCloud } from '@components/StorageCloud';
-import { CoreValue } from '@components/CoreValue';
+import { ListCoreValue } from '@components/CoreValue';
 import { Integration } from '@components/Integration';
 import { LaunchAppFeature } from '@components/LaunchAppFeature';
 import { NotificationFeature } from '@components/NotificationFeature';
 import { SaveTimeFeature } from '@components/SaveTimeFeature';
-import { Testimonial } from '@components/Testimonial';
+import { ListTestimonial } from '@components/Testimonial';
 import { Footer } from '@components/FooterHero';
 import ErrorFallback from '@components/ErrorBoundary';
 
@@ -87,15 +87,15 @@ const LandingPage = (): JSX.Element => {
         onDemoSchedule={onDemoSchedule}
       />
 
-      <InstantSetup />
+      <ListInstantSetup />
 
-      <AmazingFeature />
+      <ListAmazingFeature />
 
       <StorageCloud
         onStorageCloud={onStorageCloud}
       />
 
-      <CoreValue />
+      <ListCoreValue />
 
       <Integration />
 
@@ -111,7 +111,7 @@ const LandingPage = (): JSX.Element => {
         OnSignUp={onSignUp}
       />
 
-      <Testimonial />
+      <ListTestimonial />
 
       <Footer
         onTryItFree={onTryItFree}

@@ -14,7 +14,7 @@ import { testimonialMock } from '@mocks/';
 /**
  * Primary UI component for user interaction
  */
-const ListTestimonial = (): JSX.Element => {
+const Testimonial = (): JSX.Element => {
   return (
     <section className="testimonial">
       <div className="testimonial-title">
@@ -49,4 +49,4 @@ const ListTestimonial = (): JSX.Element => {
   )
 };
 
-export const Testimonial = memo(ListTestimonial, isEqual);
+export const ListTestimonial = memo(Testimonial, isEqual);

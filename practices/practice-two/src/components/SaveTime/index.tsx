@@ -11,7 +11,7 @@ import { saveTimeMock } from '@mocks/';
 /**
  * Primary UI component for user interaction
  */
-const ListSaveTime = (): JSX.Element => {
+const SaveTime = (): JSX.Element => {
   return (
     <ul className="save-time-list">
       {saveTimeMock.map((saveTime) => (
@@ -36,4 +36,4 @@ const ListSaveTime = (): JSX.Element => {
   )
 };
 
-export const SaveTime = memo(ListSaveTime, isEqual);
+export const ListSaveTime = memo(SaveTime, isEqual);

@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 // Components
 import { FeatureItem } from '@components/common/FeatureItem';
-import { SaveTime } from '@components/SaveTime';
+import { ListSaveTime } from '@components/SaveTime';
 
 // Define the props for the Save Time Feature component
 interface SaveTimeFeatureProps {
@@ -44,7 +44,7 @@ export const SaveTimeFeature = memo(({ OnSignUp }: SaveTimeFeatureProps): JSX.El
         labelButton="Sign up now"
         onClick={OnSignUp}
       />
-      <SaveTime />
+      <ListSaveTime />
     </section>
   )
 });

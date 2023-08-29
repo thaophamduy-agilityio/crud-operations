@@ -16,7 +16,7 @@ import { amazingFeatureMock } from '@mocks/';
 /**
  * Primary UI component for user interaction
  */
-const ListAmazingFeature = (): JSX.Element => {
+const AmazingFeature = (): JSX.Element => {
   return (
     <section className="amazing-feature">
       <picture className="amazing-feature-image">
@@ -95,4 +95,4 @@ const ListAmazingFeature = (): JSX.Element => {
   )
 };
 
-export const AmazingFeature = memo(ListAmazingFeature, isEqual);
+export const ListAmazingFeature = memo(AmazingFeature, isEqual);
