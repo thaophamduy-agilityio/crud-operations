@@ -35,14 +35,6 @@ const LandingPage = (): JSX.Element => {
   };
 
   /**
-   * Handle on Demo schedule
-   * @param {function} onDemoSchedule
-   */
-  const onDemoSchedule = (): void => {
-    // Demo schedule here
-  };
-
-  /**
    * Handle on StorageCloud
    * @param {function} onStorageCloud
    */
@@ -83,9 +75,7 @@ const LandingPage = (): JSX.Element => {
 
       <ListBrand />
 
-      <Schedule 
-        onDemoSchedule={onDemoSchedule}
-      />
+      <Schedule />
 
       <ListInstantSetup />
 

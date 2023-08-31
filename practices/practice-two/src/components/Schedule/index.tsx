@@ -9,15 +9,18 @@ import { Image } from '@components/common/Image';
 // Constants
 import { ScheduleImg } from '@constants/images';
 
-// Define the props for the Schedule component
-interface ScheduleProps {
-  onDemoSchedule: () => void;
-}
+/**
+ * Handle on Demo schedule
+ * @param {function} onDemoSchedule
+ */
+const onDemoSchedule = (): void => {
+  // Demo schedule here
+};
 
 /**
  * Primary UI component for user interaction
  */
-export const Schedule = memo(({ onDemoSchedule }: ScheduleProps): JSX.Element => {
+export const Schedule = memo((): JSX.Element => {
   return (
     <section className="schedule">
       <div className="schedule-container-content">
