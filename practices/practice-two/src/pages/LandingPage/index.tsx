@@ -6,13 +6,10 @@ import { Header } from '@components/Header';
 import { ListBrand } from '@components/Brand';
 import { Schedule } from '@components/Schedule';
 import { ListInstantSetup } from '@components/InstantSetup';
+import { FeatureItem } from '@components/common/FeatureItem';
 import { ListAmazingFeature } from '@components/AmazingFeature';
-import { StorageCloud } from '@components/StorageCloud';
 import { ListCoreValue } from '@components/CoreValue';
-import { Integration } from '@components/Integration';
-import { LaunchAppFeature } from '@components/LaunchAppFeature';
-import { NotificationFeature } from '@components/NotificationFeature';
-import { SaveTimeFeature } from '@components/SaveTimeFeature';
+import { ListSaveTime } from '@components/SaveTime';
 import { ListTestimonial } from '@components/Testimonial';
 import { Footer } from '@components/Footer';
 import ErrorFallback from '@components/ErrorBoundary';
@@ -81,25 +78,139 @@ const LandingPage = (): JSX.Element => {
 
       <ListAmazingFeature />
 
-      <StorageCloud
-        onStorageCloud={onStorageCloud}
+      {/* Storage Cloud Component */}
+      <FeatureItem 
+        classItem="storage-cloud"
+        srcSet = {{
+          desktop: {
+            img: '/src/assets/images/storage-cloud/storage-cloud-desktop.webp',
+            img2x: '/src/assets/images/storage-cloud/storage-cloud-desktop-2x.webp',
+          },
+          tablet: {
+            img: '/src/assets/images/storage-cloud/storage-cloud-tablet.webp',
+            img2x: '/src/assets/images/storage-cloud/storage-cloud-tablet-2x.webp',
+          },
+        }}
+        imageSrc = {{
+          mobile: {
+            img: '/src/assets/images/storage-cloud/storage-cloud-mobile.webp',
+            img2x: '/src/assets/images/storage-cloud/storage-cloud-mobile-2x.webp',
+          }
+        }}
+        imageSize = {{
+          width:300,
+          height:220
+        }}
+        subTitle="Easily find what you're looking for"
+        title="History you can see & search"
+        desc="We're a growing family of 382,081 designers and makers from around the world"
+        labelButton="Learn more"
+        onClick={onStorageCloud}
       />
 
       <ListCoreValue />
 
-      <Integration />
-
-      <LaunchAppFeature
-        onLaunchApp={onLaunchApp}
+      {/* Integration Component */}
+      <FeatureItem 
+        classItem="integration"
+        isLogoIntegration={true}
+        subTitle="Amazing features"
+        title="Powerful integrations"
+        desc="We're a growing family of 382,081 designers and makers from around the world"
       />
 
-      <NotificationFeature
-        onFindOut={onFindOut}
+      {/* Launch App Component */}
+      <FeatureItem 
+        classItem="launch-app"
+        srcSet = {{
+          desktop: {
+            img: '/src/assets/images/launch-app/launch-app-desktop.webp',
+            img2x: '/src/assets/images/launch-app/launch-app-desktop-2x.webp',
+          },
+          tablet: {
+            img: '/src/assets/images/launch-app/launch-app-tablet.webp',
+            img2x: '/src/assets/images/launch-app/launch-app-tablet-2x.webp',
+          },
+        }}
+        imageSrc = {{
+          mobile: {
+            img: '/src/assets/images/launch-app/launch-app-mobile.webp',
+            img2x: '/src/assets/images/launch-app/launch-app-mobile-2x.webp',
+          }
+        }}
+        imageSize = {{
+          width:320,
+          height:360
+        }}
+        subTitle="Amazing features"
+        title="Your busy life deserves this"
+        desc="We're a growing family of 382,081 designers and makers from around the world"
+        labelButton="Launch Solo Desktop App"
+        onClick={onLaunchApp}
       />
 
-      <SaveTimeFeature
-        onSignUp={onSignUp}
+      {/* Notification Feature Component */}
+      <FeatureItem 
+        classItem="notification"
+        srcSet = {{
+          desktop: {
+            img: '/src/assets/images/notification/notification-desktop.webp',
+            img2x: '/src/assets/images/notification/notification-desktop-2x.webp',
+          },
+          tablet: {
+            img: '/src/assets/images/notification/notification-tablet.webp',
+            img2x: '/src/assets/images/notification/notification-tablet-2x.webp',
+          },
+        }}
+        imageSrc = {{
+          mobile: {
+            img: '/src/assets/images/notification/notification-mobile.webp',
+            img2x: '/src/assets/images/notification/notification-mobile-2x.webp',
+          }
+        }}
+        imageSize = {{
+          width:360,
+          height:310
+        }}
+        subTitle="Amazing features"
+        title="Never forget anything, ever again"
+        desc="We're a growing family of 382,081 designers and makers from around the world"
+        labelButton="Find out more"
+        onClick={onFindOut}
       />
+
+      {/* Save Time Component */}
+      <section className="save-time-container">
+        <FeatureItem 
+          classItem="save-time"
+          srcSet = {{
+            desktop: {
+              img: '/src/assets/images/save-time/save-time-desktop.webp',
+              img2x: '/src/assets/images/save-time/save-time-desktop-2x.webp',
+            },
+            tablet: {
+              img: '/src/assets/images/save-time/save-time-tablet.webp',
+              img2x: '/src/assets/images/save-time/save-time-tablet-2x.webp',
+            },
+          }}
+          imageSrc = {{
+            mobile: {
+              img: '/src/assets/images/save-time/save-time-mobile.webp',
+              img2x: '/src/assets/images/save-time/save-time-mobile-2x.webp',
+            }
+          }}
+          imageSize = {{
+            width:684,
+            height:487
+          }}
+          subTitle="Deep Focus & Multitasking"
+          title="Increase Productivity"
+          desc="We're a growing family of 382,081 designers and makers from around the world"
+          labelButton="Sign up now"
+          onClick={onSignUp}
+        />
+        <ListSaveTime />
+      </section>
 
       <ListTestimonial />
 
