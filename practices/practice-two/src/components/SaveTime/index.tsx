@@ -36,4 +36,4 @@ const SaveTime = (): JSX.Element => {
   )
 };
 
-export const ListSaveTime = memo(SaveTime, isEqual);
+export default memo(SaveTime, isEqual);

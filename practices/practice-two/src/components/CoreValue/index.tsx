@@ -40,4 +40,4 @@ const CoreValue = (): JSX.Element => {
   )
 };
 
-export const ListCoreValue = memo(CoreValue, isEqual);
+export default memo(CoreValue, isEqual);

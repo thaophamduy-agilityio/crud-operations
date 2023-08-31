@@ -46,4 +46,4 @@ const InstantSetup = (): JSX.Element => {
   )
 };
 
-export const ListInstantSetup = memo(InstantSetup, isEqual);
+export default memo(InstantSetup, isEqual);

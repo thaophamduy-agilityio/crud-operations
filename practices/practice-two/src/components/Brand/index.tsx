@@ -38,4 +38,4 @@ const Brand = (): JSX.Element => {
   )
 };
 
-export const ListBrand = memo(Brand, isEqual);
+export default memo(Brand, isEqual);

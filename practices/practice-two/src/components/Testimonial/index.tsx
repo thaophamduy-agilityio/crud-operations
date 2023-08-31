@@ -49,4 +49,4 @@ const Testimonial = (): JSX.Element => {
   )
 };
 
-export const ListTestimonial = memo(Testimonial, isEqual);
+export default memo(Testimonial, isEqual);

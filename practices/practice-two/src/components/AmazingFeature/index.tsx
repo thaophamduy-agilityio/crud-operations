@@ -95,4 +95,4 @@ const AmazingFeature = (): JSX.Element => {
   )
 };
 
-export const ListAmazingFeature = memo(AmazingFeature, isEqual);
+export default memo(AmazingFeature, isEqual);

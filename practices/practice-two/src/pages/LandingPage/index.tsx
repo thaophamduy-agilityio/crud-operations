@@ -3,14 +3,14 @@ import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
 import { Header } from '@components/Header';
-import { ListBrand } from '@components/Brand';
+import Brand from '@components/Brand';
 import { Schedule } from '@components/Schedule';
-import { ListInstantSetup } from '@components/InstantSetup';
+import InstantSetup from '@components/InstantSetup';
 import { FeatureItem } from '@components/common/FeatureItem';
-import { ListAmazingFeature } from '@components/AmazingFeature';
-import { ListCoreValue } from '@components/CoreValue';
-import { ListSaveTime } from '@components/SaveTime';
-import { ListTestimonial } from '@components/Testimonial';
+import AmazingFeature from '@components/AmazingFeature';
+import CoreValue from '@components/CoreValue';
+import SaveTime from '@components/SaveTime';
+import Testimonial from '@components/Testimonial';
 import { Footer } from '@components/Footer';
 import ErrorFallback from '@components/ErrorBoundary';
 
@@ -70,13 +70,13 @@ const LandingPage = (): JSX.Element => {
         onWatchHowItWorks={onWatchHowItWorks}
       />
 
-      <ListBrand />
+      <Brand />
 
       <Schedule />
 
-      <ListInstantSetup />
+      <InstantSetup />
 
-      <ListAmazingFeature />
+      <AmazingFeature />
 
       {/* Storage Cloud Component */}
       <FeatureItem 
@@ -108,7 +108,7 @@ const LandingPage = (): JSX.Element => {
         onClick={onStorageCloud}
       />
 
-      <ListCoreValue />
+      <CoreValue />
 
       {/* Integration Component */}
       <FeatureItem 
@@ -209,10 +209,10 @@ const LandingPage = (): JSX.Element => {
           labelButton="Sign up now"
           onClick={onSignUp}
         />
-        <ListSaveTime />
+        <SaveTime />
       </section>
 
-      <ListTestimonial />
+      <Testimonial />
 
       <Footer
         onTryItFree={onTryItFree}
