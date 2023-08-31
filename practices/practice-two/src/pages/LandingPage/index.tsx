@@ -2,7 +2,7 @@
 import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
-import { Header } from '@components/HeaderHero';
+import { Header } from '@components/Header';
 import { ListBrand } from '@components/Brand';
 import { Schedule } from '@components/Schedule';
 import { ListInstantSetup } from '@components/InstantSetup';
@@ -14,7 +14,7 @@ import { LaunchAppFeature } from '@components/LaunchAppFeature';
 import { NotificationFeature } from '@components/NotificationFeature';
 import { SaveTimeFeature } from '@components/SaveTimeFeature';
 import { ListTestimonial } from '@components/Testimonial';
-import { Footer } from '@components/FooterHero';
+import { Footer } from '@components/Footer';
 import ErrorFallback from '@components/ErrorBoundary';
 
 const LandingPage = (): JSX.Element => {
