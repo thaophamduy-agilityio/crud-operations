@@ -7,13 +7,13 @@ import { ListSaveTime } from '@components/SaveTime';
 
 // Define the props for the Save Time Feature component
 interface SaveTimeFeatureProps {
-  OnSignUp: () => void;
+  onSignUp: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const SaveTimeFeature = memo(({ OnSignUp }: SaveTimeFeatureProps): JSX.Element => {
+export const SaveTimeFeature = memo(({ onSignUp }: SaveTimeFeatureProps): JSX.Element => {
   return (
     <section className="save-time-container">
       <FeatureItem 
@@ -42,7 +42,7 @@ export const SaveTimeFeature = memo(({ OnSignUp }: SaveTimeFeatureProps): JSX.El
         title="Increase Productivity"
         desc="We're a growing family of 382,081 designers and makers from around the world"
         labelButton="Sign up now"
-        onClick={OnSignUp}
+        onClick={onSignUp}
       />
       <ListSaveTime />
     </section>

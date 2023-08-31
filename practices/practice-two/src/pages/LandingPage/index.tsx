@@ -108,7 +108,7 @@ const LandingPage = (): JSX.Element => {
       />
 
       <SaveTimeFeature
-        OnSignUp={onSignUp}
+        onSignUp={onSignUp}
       />
 
       <ListTestimonial />
