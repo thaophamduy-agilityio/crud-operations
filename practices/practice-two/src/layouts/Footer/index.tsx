@@ -4,7 +4,7 @@ import isEqual from "react-fast-compare";
 
 // Components
 import Logo from '@components/common/Logo';
-import { Navigation } from '@components/common/Navigation';
+import Navigation from '@components/common/Navigation';
 import { Image } from '@components/common/Image';
 import { Text } from '@components/common/Text';
 

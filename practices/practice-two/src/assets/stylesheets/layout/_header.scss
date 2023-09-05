@@ -107,16 +107,22 @@
         @extend %block;
         @extend %absolute;
         @extend %z-index-1;
-        left: 0;
+        left: -42px;
         top: 60px;
-        width: 100%;
+        padding-bottom: 20px;
+        width: calc(100% + 84px);
+
+        @include only-for-tablet() {
+          left: -30px;
+          width: calc(100% + 60px);
+        }
       }
     }
   }
 }
 
 /* Navigation */
-.navigation,
+.navigation-list,
 .user-form {
   @extend %flex;
   @extend %flex-column;
@@ -129,8 +135,7 @@
 
   &-item {
     @extend %flex;
-    border-bottom: 1px solid #D9D9D9;
-    padding: 20px;
+    padding: 20px 42px;
 
     @include only-for-desktop() {
       border-bottom: 0;
@@ -140,7 +145,12 @@
 
   .link-label {
     @extend %text-capitalize;
+    font-weight: $font-weight-semi-bold;
     width: 100%;
+
+    &.selected {
+      color: $menu-color-selected;
+    }
 
     @include only-for-desktop() {
       margin: 0 25px;
@@ -156,7 +166,7 @@
   @extend %none;
   @extend %item-center;
   @extend %list-style-type-none;
-  background-color: $bg-color-tertiary;
+  background-color: $bg-color-body;
 
   @include only-for-desktop() {
     display: flex;
@@ -165,12 +175,21 @@
 }
 
 .user-form {
+  flex-direction: row;
+  @extend %item-center;
+
+  &-item {
+    @extend %flex;
+    padding: 0px 42px;
+  }
+
   @include only-for-desktop() {
     margin-left: $margin-left-form;
   }
 
   .link-label {
     width: 100%;
+    font-weight: $font-weight-bold;
     
     @include only-for-desktop() {
       margin-right: $margin-right-label;

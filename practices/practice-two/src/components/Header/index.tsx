@@ -59,7 +59,7 @@ export const Header = memo(({ onTryItFree, onWatchHowItWorks }: HeaderHeroProps)
           imageSrc={HeaderHeroImg.mobile.img}
           size={{
             height: 376,
-            width: 436,
+            width: 363,
           }}
           altText="Hero Header"
         />

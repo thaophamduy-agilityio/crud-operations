@@ -8,11 +8,11 @@ import { navLinkMock } from '@mocks/';
 /**
  * Primary UI component for user interaction
  */
-const ListNavigation = (): JSX.Element => {
+const Navigation = (): JSX.Element => {
   return (
-    <ul className="navigation">
+    <ul className="navigation-list">
       {navLinkMock.map((link) => (
-        <li key={link.id} id={`${link.id}-page`} className="navigation-item">
+        <li key={link.id} id={`${link.id}-page`} className="navigation-list-item">
           <a href={link.url} className="link-label">
             {link.label}
           </a>
@@ -22,4 +22,4 @@ const ListNavigation = (): JSX.Element => {
   )
 };
 
-export const Navigation = memo(ListNavigation, isEqual);
+export default memo(Navigation, isEqual);
