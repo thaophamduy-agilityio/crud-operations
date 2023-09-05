@@ -106,9 +106,9 @@ export const FeatureItem = memo(({
           </div>
           <div className={`${classItem}-image-column`}>
             <IntegrationLogo
-              altText={IntegrationImg.dribbble.alt}
-              imageSrc={IntegrationImg.dribbble.src}
-              size={IntegrationImg.dribbble.size}
+              altText={IntegrationImg.dribble.alt}
+              imageSrc={IntegrationImg.dribble.src}
+              size={IntegrationImg.dribble.size}
             />
             <IntegrationLogo
               altText={IntegrationImg.ui.alt}

@@ -84,9 +84,9 @@ export const IntegrationImg = {
       width: 75
     },
   },
-  dribbble: {
-    src: '/src/assets/images/integration-logo/logo-dribbble.svg',
-    alt: 'Logo Dribbble',
+  dribble: {
+    src: '/src/assets/images/integration-logo/logo-dribble.svg',
+    alt: 'Logo Dribble',
     size: {
       height: 75,
       width: 75
