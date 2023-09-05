@@ -12,6 +12,7 @@
 
     @include only-for-tablet() {
       flex-direction: row;
+      margin: 40px 0 80px;
     }
 
     &-content {
@@ -44,6 +45,7 @@
     }
 
     &-image {
+      @extend %z-index-99;
       margin-top: 60px;
       margin-right: -12px;
       
@@ -51,8 +53,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        margin-top: 20px;
-        margin-right: 0;
+        margin-top: 140px;
+        margin-right: -22px;
         text-align: right;
       }
     }
@@ -69,13 +71,11 @@
 
     .img-item {
       @include only-for-tablet() {
-        width: 560px;
-        height: 588px;
+        width: 609px;
       }
 
       @include only-for-desktop() {
-        width: 828px;
-        height: 879px;
+        width: 795px;
       }
     }
 

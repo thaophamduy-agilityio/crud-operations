@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 // Components
 import Logo from '@components/common/Logo';
-import { Navigation } from '@components/common/Navigation';
+import Navigation from '@components/common/Navigation';
 import { Button } from '@components/common/Button';
 import { HamburgerMenu } from '@components/common/HamburgerMenu';
 
@@ -30,10 +30,10 @@ export const Header = memo(({
           <nav className="site-navigation">
             <Navigation />
             <ul className="user-form">
-              <li id="logIn" className="navigation-item">
+              <li id="logIn" className="navigation-list-item">
                 <a className="link-label" href="/login">Login</a>
               </li>
-              <li id="signUp" className="navigation-item">
+              <li id="signUp" className="navigation-list-item">
                 <Button
                   label="Sign up"
                   onClick={onSignUp}
