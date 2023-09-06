@@ -200,8 +200,8 @@ const LandingPage = (): JSX.Element => {
             }
           }}
           imageSize = {{
-            width:684,
-            height:487
+            width:300,
+            height:255
           }}
           subTitle="Deep Focus & Multitasking"
           title="Increase Productivity"

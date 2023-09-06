@@ -63,29 +63,27 @@
     &-image {
       @extend %text-center;
       order: 1;
-      margin: 30px -150%;
-      width: 400%;
+      margin: 40px 0 60px;
   
       .img-item {
         @include only-for-tablet() {
           margin-top: -30px;
-          width: 648px;
+          width: 350px;
         }
     
         @include only-for-desktop() {
-          width: 856px;
+          width: 400px;
         }
       }
       
       @include only-for-tablet() {
         position: absolute;
-        top: -160px;
-        left: 70px;
+        top: -130px;
+        left: 0px;
       }
     
       @include only-for-desktop() {
-        // margin: -60% 0 0 -140%;
-        left: 0;
+        top: -160px;
       }
     }
 
