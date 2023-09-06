@@ -5,7 +5,6 @@ import { memo } from 'react';
 import { Text } from '@components/common/Text';
 import { Button } from '@components/common/Button';
 import { Image } from '@components/common/Image';
-import { IntegrationLogo } from '@components/common/IntegrationLogo';
 
 // Types
 import { ItemFeature } from '@interface/feature-item';
@@ -76,45 +75,59 @@ export const FeatureItem = memo(({
       {isLogoIntegration && (
         <div className={`${classItem}-image`}>
           <div className={`${classItem}-image-column`}>
-            <IntegrationLogo
-              altText={IntegrationImg.notion.alt}
-              imageSrc={IntegrationImg.notion.src}
-              size={IntegrationImg.notion.size}
-            />
-            <IntegrationLogo
-              altText={IntegrationImg.figma.alt}
-              imageSrc={IntegrationImg.figma.src}
-              size={IntegrationImg.figma.size}
-            />
+            <div className="integration-logo">
+              <Image
+                altText={IntegrationImg.notion.alt}
+                imageSrc={IntegrationImg.notion.src}
+                size={IntegrationImg.notion.size}
+              />
+            </div>
+            <div className="integration-logo">
+              <Image
+                altText={IntegrationImg.figma.alt}
+                imageSrc={IntegrationImg.figma.src}
+                size={IntegrationImg.figma.size}
+              />
+            </div>
           </div>
           <div className={`${classItem}-image-column`}>
-            <IntegrationLogo
-              altText={IntegrationImg.atom.alt}
-              imageSrc={IntegrationImg.atom.src}
-              size={IntegrationImg.atom.size}
-            />
-            <IntegrationLogo
-              altText={IntegrationImg.sketch.alt}
-              imageSrc={IntegrationImg.sketch.src}
-              size={IntegrationImg.sketch.size}
-            />
-            <IntegrationLogo
-              altText={IntegrationImg.google.alt}
-              imageSrc={IntegrationImg.google.src}
-              size={IntegrationImg.google.size}
-            />
+            <div className="integration-logo">
+              <Image
+                altText={IntegrationImg.atom.alt}
+                imageSrc={IntegrationImg.atom.src}
+                size={IntegrationImg.atom.size}
+              />
+            </div>
+            <div className="integration-logo">
+              <Image
+                altText={IntegrationImg.sketch.alt}
+                imageSrc={IntegrationImg.sketch.src}
+                size={IntegrationImg.sketch.size}
+              />
+            </div>
+            <div className="integration-logo">
+              <Image
+                altText={IntegrationImg.google.alt}
+                imageSrc={IntegrationImg.google.src}
+                size={IntegrationImg.google.size}
+              />
+            </div>
           </div>
           <div className={`${classItem}-image-column`}>
-            <IntegrationLogo
-              altText={IntegrationImg.dribble.alt}
-              imageSrc={IntegrationImg.dribble.src}
-              size={IntegrationImg.dribble.size}
-            />
-            <IntegrationLogo
-              altText={IntegrationImg.ui.alt}
-              imageSrc={IntegrationImg.ui.src}
-              size={IntegrationImg.ui.size}
-            />
+            <div className="integration-logo">
+              <Image
+                altText={IntegrationImg.dribble.alt}
+                imageSrc={IntegrationImg.dribble.src}
+                size={IntegrationImg.dribble.size}
+              />
+            </div>
+            <div className="integration-logo">
+              <Image
+                altText={IntegrationImg.ui.alt}
+                imageSrc={IntegrationImg.ui.src}
+                size={IntegrationImg.ui.size}
+              />
+            </div>
           </div>
         </div>
       )}
