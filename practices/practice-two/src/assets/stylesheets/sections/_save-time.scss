@@ -1,0 +1,133 @@
+// ======================================================
+// Components :: Save Time Feature
+// ======================================================
+
+.save {
+  &-time {
+    @extend %relative;
+    @extend %flex;
+    @extend %flex-column;
+    width: 100%;
+      
+    @include only-for-tablet() {
+      width: 40%;
+    }
+
+    &-container {
+      @extend %flex;
+      @extend %flex-column;
+      @extend %justify-space-between;
+      @extend %item-center;
+      background-color: $bg-color-save-time;
+      border-radius: 24px;
+      box-shadow: 10px 10px 10px $box-shadow-save-time;
+      margin: 40px 0;
+      padding: 30px;
+      width: calc(100% - 60px);
+  
+      @include only-for-tablet() {
+        padding: 100px 80px 50px 50px;
+        flex-direction: row;
+        width: calc(100% - 130px);
+      }
+    
+      @include only-for-desktop() {
+        padding: 100px 80px 80px 135px;
+        width: calc(100% - 215px);
+      }
+    }
+
+    &-content {
+      @include only-for-tablet() {
+        margin-top: 180px;
+        order: 1;
+      }
+
+      @include only-for-desktop() {
+        margin-top: 220px;
+      }
+    }
+  
+    &-title {
+      @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+      @extend %text-uppercase;
+      color: $color-title;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+  
+      @include only-for-tablet() {
+        margin-bottom: 24px;
+      }
+    }
+  
+    &-image {
+      @extend %text-center;
+      order: 1;
+      margin: 40px 0 60px;
+  
+      .img-item {
+        @include only-for-tablet() {
+          margin-top: -30px;
+          width: 350px;
+        }
+    
+        @include only-for-desktop() {
+          width: 400px;
+        }
+      }
+      
+      @include only-for-tablet() {
+        position: absolute;
+        top: -130px;
+        left: 0px;
+      }
+    
+      @include only-for-desktop() {
+        top: -160px;
+      }
+    }
+
+    &-list {
+      @extend %flex;
+      @extend %flex-column;
+      @extend %flex-wrap;
+      @extend %list-style-type-none;
+      width: 100%;
+      
+      @include only-for-tablet() {
+        width: 40%;
+      }
+
+      &-image {
+        margin-right: 25px;
+      
+        @include only-for-tablet() {
+          margin-right: 0;
+          width: 40%;
+        }
+      }
+
+      &-title {
+        @include text-font($secondary-family, $text-lg, $font-weight-semi-bold, $line-height-default);
+        margin-bottom: 20px;
+      }
+
+      &-desc {
+        @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
+        color: $color-feature-desc;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-item {
+      @extend %relative;
+      @extend %flex;
+      margin: 15px 0;
+      border-bottom: 3px solid $save-time-border-color;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}

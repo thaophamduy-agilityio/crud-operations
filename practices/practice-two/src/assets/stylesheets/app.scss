@@ -4,3 +4,24 @@
 
 @import 'base/reset';
 @import 'base/common';
+
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'components/loading';
+@import 'components/button';
+@import 'components/text';
+@import 'components/brand';
+@import 'components/error-boundary';
+
+@import 'sections/testimonial';
+@import 'sections/hero-banner';
+@import 'sections/schedule';
+@import 'sections/instant-setup';
+@import 'sections/amazing-feature';
+@import 'sections/storage-cloud';
+@import 'sections/core-value';
+@import 'sections/integration';
+@import 'sections/launch-app-feature';
+@import 'sections/notification-feature';
+@import 'sections/save-time';

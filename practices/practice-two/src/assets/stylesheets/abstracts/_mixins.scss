@@ -9,18 +9,39 @@
 }
 
 /* Create mixin for text font */
-@mixin text-font($font-family, $font-size, $font-weight, $line-height, $color) {
+@mixin text-font($font-family, $font-size, $font-weight, $line-height) {
   font-family: $font-family;
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
-  color: $color;
 }
 
 /* Breakpoints for mobile */
 @mixin only-for-mobile() {
   @media screen and (min-width: $small) {
     @content;
+  }
+}
+
+/* Background sprite horizontal */
+@mixin bg-sprite-horizontal($classes, $bg-position-v, $img-width, $initial-offset: 0, $element:"") {
+  @for $i from 1 through length($classes) {
+    $class: nth($classes, $i);
+
+    &#{$class} {
+      background-position: (-(calc(($i - 1) * $img-width / 5)) + $initial-offset) $bg-position-v;
+    }
+  }
+}
+
+/* Background sprite vertical */
+@mixin bg-sprite-vertical($classes, $bg-position-h, $img-height, $initial-offset: 0, $element:"") {
+  @for $i from 1 through length($classes) {
+    $class: nth($classes, $i);
+
+    &#{$class} {
+      background-position: $bg-position-h (-($i - 1) * $img-height + $initial-offset);
+    }
   }
 }
 

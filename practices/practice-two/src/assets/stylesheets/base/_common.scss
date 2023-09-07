@@ -13,7 +13,7 @@ body {
   font: $font-weight-body $text-size-body $font-family-body;
   color: $text-color-body;
   background-color: $bg-color-body;
-  line-height: 22px;
+  line-height: $line-height-body;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,17 +22,32 @@ body {
 }
 
 .container {
-  max-width: 1260px;
-  width: 100%;
+  @extend %margin-center;
+  max-width: $page-max-width;
+  width: calc(100% - 24px);
+  padding: 50px 12px;
+
+  @include only-for-tablet() {
+    padding: 50px 30px;
+    width: calc(100% - 60px);
+  }
+}
+
+.under-construction {
+  background: url('/src/assets/images/work-in-progress.webp') 0 35% no-repeat;
+  background-size: 100px;
+  margin: 50px auto;
+  padding: 50px 50px 50px 120px;
 }
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 a {
   @extend %text-decoration-none;
-  color: $color-primary;
+  color: $color-tertiary;
 }
 
 .main-site {

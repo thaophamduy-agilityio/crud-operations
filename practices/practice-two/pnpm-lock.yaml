@@ -20,6 +20,9 @@ dependencies:
   react-error-boundary:
     specifier: ^4.0.10
     version: 4.0.10(react@18.2.0)
+  react-fast-compare:
+    specifier: ^3.2.2
+    version: 3.2.2
   react-icons:
     specifier: ^4.10.1
     version: 4.10.1(react@18.2.0)
@@ -8764,6 +8767,10 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.6
       react: 18.2.0
+    dev: false
+
+  /react-fast-compare@3.2.2:
+    resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
     dev: false
 
   /react-icons@4.10.1(react@18.2.0):

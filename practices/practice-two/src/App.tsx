@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import '@stylesheets/app.scss'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Libs
+import { Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { withErrorBoundary } from 'react-error-boundary';
 
+// Layouts
+import { MainLayout } from '@layouts/Default';
+
+// Pages
+import { LandingPage, Download, Pricing, Features, AboutUs, ContactUs, LoginPage } from '@pages/';
+
+// Components
+import { LoadingIndicator } from '@components/common/Loading';
+import ErrorFallback from '@components/ErrorBoundary';
+
+// Constants
+import { ROUTES } from '@constants/routes';
+
+const App = (): JSX.Element => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Suspense fallback={<LoadingIndicator />}>
+        <Routes>
+          <Route path={ROUTES.HOME} element={<MainLayout />}>
+            <Route index element={<LandingPage />} />
+            <Route path={ROUTES.DOWNLOADS} element={<Download />} />
+            <Route path={ROUTES.PRICING} element={<Pricing />} />
+            <Route path={ROUTES.FEATURES} element={<Features />} />
+            <Route path={ROUTES.ABOUT_US} element={<AboutUs />} />
+            <Route path={ROUTES.CONTACT} element={<ContactUs />} />
+            <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default withErrorBoundary(App, {
+  FallbackComponent: ErrorFallback,
+});

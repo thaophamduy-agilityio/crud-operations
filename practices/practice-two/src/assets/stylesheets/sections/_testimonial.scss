@@ -1,0 +1,103 @@
+// ======================================================
+// Components :: Testimonials
+// ======================================================
+.testimonial {
+  @extend %flex;
+  @extend %flex-column;
+  @extend %justify-center;
+  margin: 50px 0;
+
+  @include only-for-tablet() {
+    margin: 100px 0;
+  }
+
+  @include only-for-desktop() {
+    margin: 120px 0;
+  }
+
+  &-list {
+    @extend %flex;
+    @extend %flex-row;
+    @extend %justify-space-between;
+    @extend %item-center;
+  }
+
+  &-item {
+    @extend %text-center;
+    @extend %list-style-type-none;
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      @extend %none;
+
+      @include only-for-tablet() {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    @include only-for-tablet() {
+      width: 30%;
+    }
+  }
+
+  &-title {
+    @extend %text-center;
+    margin-bottom: 50px;
+
+    @include only-for-tablet() {
+      margin-bottom: 70px;
+    }
+
+    @include only-for-tablet() {
+      margin-bottom: 80px;
+    }
+  }
+
+  &-author {
+    @include text-font($secondary-family, $text-testimonial-author, $font-weight-semi-bold, $line-height-default);
+  }
+
+  &-icon {
+    @extend %text-center;
+    margin-top: 50px;
+
+    @include only-for-tablet() {
+      margin-top: 70px;
+    }
+
+    @include only-for-tablet() {
+      margin-top: 80px;
+    }
+
+    &-pre,
+    &-next {
+      @extend %cursor-pointer;
+      font-size: $text-testimonial-icon;
+      margin: 0 12px;
+
+      &.disabled {
+        color: $color-tertiary;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.star-5,
+.star-4,
+.star-3,
+.star-2,
+.star-1,
+.star-0 {
+  @include bg-sprite-horizontal($rating-star, 0, 200px, 0);
+  @extend %inline-block;
+	@extend %vertical-middle;
+  margin: 30px auto;
+  width: 200px;
+  height: 24px;
+  background: url('/src/assets/images/_sprite-star.webp') no-repeat;
+  background-size: 400px auto;
+}
