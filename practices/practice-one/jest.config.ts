@@ -1,0 +1,26 @@
+export default {
+  modulePaths: ['<rootDir>'],
+  testEnvironment: 'jsdom',
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  moduleDirectories: ['node_modules', 'src'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  moduleNameMapper: {
+    '/^(.*)$/': '<rootDir>/src/$1',
+    '@/components/(.*)': '<rootDir>/src/components/$1',
+    '@/constants/(.*)': '<rootDir>/src/constants/$1',
+    '@/interface/(.*)$': '<rootDir>/src/interface/$1',
+    '@/helpers/(.*)$': '<rootDir>/src/helpers/$1',
+    '@/assets/(.*)': '<rootDir>/src/assets/$1',
+    '@/services/(.*)': '<rootDir>/src/services/$1',
+    '@/hooks$': '<rootDir>/src/hooks',
+  },
+  testPathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/node_modules/', '<rootDir>/dist/'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  collectCoverageFrom: [
+    '**/src/**/*.{js,ts,tsx}',
+    '!**/*.test.{js,ts,tsx}',
+    '!**/*.stories.{js,ts,tsx}',
+    '!src/component/**/__test__/__snapshots__/*.test.{js,ts,tsx}.snap',
+  ],
+};
