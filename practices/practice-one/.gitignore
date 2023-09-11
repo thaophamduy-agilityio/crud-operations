@@ -23,3 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+#testing
+coverage
+
+#snapshots
+src/components/**/__test__/__snapshots__
