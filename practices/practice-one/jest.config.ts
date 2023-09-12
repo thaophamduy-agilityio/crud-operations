@@ -1,4 +1,6 @@
 export default {
+  preset: 'ts-jest',
+  clearMocks: true,
   modulePaths: ['<rootDir>'],
   testEnvironment: 'jsdom',
   collectCoverage: true,
