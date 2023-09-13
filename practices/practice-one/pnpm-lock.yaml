@@ -118,6 +118,9 @@ devDependencies:
   jest-environment-jsdom:
     specifier: ^29.6.4
     version: 29.6.4
+  jest-transform-stub:
+    specifier: ^2.0.0
+    version: 2.0.0
   lint-staged:
     specifier: ^13.2.2
     version: 13.2.3
@@ -8538,6 +8541,10 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /jest-transform-stub@2.0.0:
+    resolution: {integrity: sha512-lspHaCRx/mBbnm3h4uMMS3R5aZzMwyNpNIJLXj4cEsV0mIUtS4IjYJLSoyjRCtnxb6RIGJ4NL2quZzfIeNhbkg==}
     dev: true
 
   /jest-util@29.6.3:
