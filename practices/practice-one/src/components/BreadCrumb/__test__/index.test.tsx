@@ -7,8 +7,8 @@ import BreadCrumb from '..';
 
 describe('testing bread crumb component', () => {
   const propsDefault = {
-    selectedCategory: '',
-    total: 0,
+    selectedCategory: 'Adventure',
+    total: 18,
   };
 
   it('should be render match to snapshot', () => {
