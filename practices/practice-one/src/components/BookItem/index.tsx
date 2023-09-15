@@ -17,7 +17,11 @@ const BookItem = ({ width, book, isDisplayBooks, toggleModal }: BookProps): JSX.
   };
 
   return (
-    <li onClick={onToggleModal} className={`book-item ${isDisplayBooks ? 'list' : ''}`}>
+    <li
+      onClick={onToggleModal}
+      className={`book-item ${isDisplayBooks ? 'list' : ''}`}
+      data-testid="book"
+    >
       <figure className="card-container">
         <div className="card-container-img">
           <picture>
@@ -26,9 +30,15 @@ const BookItem = ({ width, book, isDisplayBooks, toggleModal }: BookProps): JSX.
           </picture>
         </div>
         <figcaption>
-          <h2 className="card-title">{title}</h2>
-          <p className="card-author">{author}</p>
-          <p className="card-published">{published}</p>
+          <h2 className="card-title" data-testid="book title">
+            {title}
+          </h2>
+          <p className="card-author" data-testid="book author">
+            {author}
+          </p>
+          <p className="card-published" data-testid="book published">
+            {published}
+          </p>
         </figcaption>
       </figure>
     </li>
