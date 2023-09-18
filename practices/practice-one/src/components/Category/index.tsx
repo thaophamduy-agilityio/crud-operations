@@ -19,6 +19,7 @@ const Category = ({ category, categorySelected, onSelectCategory }: CategoryProp
       className={`book-category-item ${name === categorySelected ? 'selected' : ''}`}
       data-id={id}
       onClick={handleSelectCategory}
+      data-testid="category"
     >
       <div className="book-category-name">
         <span className={['book-category-shorthand', `book-category-${name}`].join(' ')}>
