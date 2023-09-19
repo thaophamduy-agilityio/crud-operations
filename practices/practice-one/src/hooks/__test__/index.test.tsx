@@ -3,14 +3,18 @@ import { render, fireEvent, act } from '@testing-library/react';
 import { useState } from 'react';
 import '@testing-library/jest-dom';
 
+// Hooks
 import { useDebounce } from '../use-debounce';
+
+// Constants
+import { TIME_OUT } from '@constants/time-out';
 
 export const TestComponent = () => {
   const [value, setValue] = useState(0);
   const inc = () => {
     setValue(value + 1);
   };
-  const debouncedValue = useDebounce(value, 1000);
+  const debouncedValue = useDebounce(value, TIME_OUT.DEBOUNCE);
 
   return (
     <div>
