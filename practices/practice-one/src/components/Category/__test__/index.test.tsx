@@ -19,10 +19,10 @@ describe('testing category component', () => {
 
   it('should render correctly with display selected category', () => {
     const { container } = render(<Category {...propsDefault} />);
-
     const selectedCategory = container.getElementsByClassName('book-category-item')[0];
 
     expect(selectedCategory).toHaveClass('selected');
+    expect(propsDefault.category.name.substring(0, 2)).toBe('Ad');
   });
 
   it('should be call handle click on category', () => {
