@@ -1,5 +1,5 @@
 // libs
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // components
@@ -20,7 +20,15 @@ describe('testing list categories component', () => {
 
     expect(categoryWrapper).toBeInTheDocument();
     expect(category.length).toEqual(0);
-    expect(propsDefault.categoryList.length).toEqual(4);
+  });
+
+  it('should be render category list not found', () => {
+    const { container } = render(<ListCategory {...propsDefault} categoryList={[]} />);
+    const category = container.querySelectorAll('[role="book-category"]');
+    const listCategory = screen.getByTestId('category list');
+
+    expect(category.length).toEqual(0);
+    expect(listCategory).toEqual(4);
   });
 
   it('should be handle click selected list category', () => {
