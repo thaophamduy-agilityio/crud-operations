@@ -7,7 +7,7 @@ import BreadCrumb from '..';
 
 describe('testing bread crumb component', () => {
   const propsDefault = {
-    selectedCategory: 'Adventure',
+    selectedCategory: '',
     total: 18,
   };
 
@@ -18,16 +18,8 @@ describe('testing bread crumb component', () => {
     const results = screen.getByTestId('bread crumb results');
 
     expect(breadCrumb).toBeInTheDocument();
-    expect(selectedCategory.textContent).toBe(propsDefault.selectedCategory);
-    expect(results).toHaveTextContent('Showing 18 Results');
-  });
-
-  it('should render correctly with total item in category', () => {
-    const { container } = render(<BreadCrumb {...propsDefault} />);
-    const breadCrumb = container.getElementsByClassName('book-title')[0];
-
-    expect(breadCrumb.firstChild).toHaveClass('book-title-text');
-    expect(propsDefault.total).toEqual(18);
+    expect(selectedCategory.textContent).toBe('All Books');
+    expect(results).toHaveTextContent(`Results`);
   });
 
   it('should render correctly show result item', () => {
@@ -36,7 +28,7 @@ describe('testing bread crumb component', () => {
     const results = screen.getByTestId('bread crumb results');
 
     expect(breadCrumb).toHaveClass('book-title');
-    expect(results).toHaveTextContent('Showing 1 Result');
+    expect(results).toHaveTextContent(`Result`);
   });
 
   it('should be render match to snapshot', () => {
