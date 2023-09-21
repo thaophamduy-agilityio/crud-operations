@@ -26,7 +26,7 @@ const ListCategory = ({
   };
 
   return (
-    <div className="book-category-wrapper" data-testid="category">
+    <div className="book-category-wrapper" data-testid="category-list">
       {categoryList?.length ? (
         <ul className="book-category">{renderListCategory()}</ul>
       ) : (
