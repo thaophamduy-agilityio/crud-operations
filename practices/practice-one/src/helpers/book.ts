@@ -13,9 +13,9 @@ interface sortOption {
  * @returns {IBook[]} list book that have been sorted
  */
 export const sortedBookList = (
-  listBook: IBook[] | undefined,
+  listBook: IBook[],
   { isSortByAlphabet, isSortByYear }: sortOption
-): IBook[] | undefined => {
+): IBook[] => {
   if (isSortByAlphabet) {
     listBook?.sort((preBook: IBook, nextBook: IBook) => (nextBook.title > preBook.title ? 1 : -1));
   }
@@ -35,10 +35,7 @@ export const sortedBookList = (
  * @param {valueSearch} { keyword }: value search
  * @returns {IBook[]} list books that have been searched
  */
-export const Search = (
-  listBooks: IBook[] | undefined,
-  valueSearch: string
-): IBook[] | undefined => {
+export const Search = (listBooks: IBook[], valueSearch: string): IBook[] => {
   const result = listBooks?.filter(({ title, category }) => {
     const keyword = valueSearch.toLowerCase();
     const isMatchWithTitle = title.toLowerCase().includes(keyword);
