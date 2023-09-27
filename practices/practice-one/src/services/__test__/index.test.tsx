@@ -1,6 +1,7 @@
 // libs
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import axios from 'axios';
 
 // components
 import ListBook from '@components/ListBooks';
@@ -21,11 +22,26 @@ describe('testing component get books', () => {
     onToggleModal: jest.fn(),
   };
 
-  it('returns the length of item', async () => {
+  it('renders book data', async () => {
+    const books = mockedBooks;
+    jest.spyOn(axios, 'get').mockImplementation(() =>
+      Promise.resolve({
+        data: () => Promise.resolve(books),
+      })
+    );
+
+    await act(async () => {
+      render(<ListBook {...propsListBooks} />);
+    });
+
+    expect(screen.getAllByTestId('book').length).toEqual(books.length);
+  });
+
+  it('returns the length of book items', async () => {
     render(<ListBook {...propsListBooks} />);
 
     const listBook = await getBooks();
-    expect(listBook).toBeUndefined();
+    expect(listBook?.length).toEqual(0);
 
     await waitFor(() => {
       expect(screen.getAllByTestId('book').length).toEqual(18);
@@ -53,11 +69,26 @@ describe('testing component get categories', () => {
     onSelectCategory: jest.fn(),
   };
 
+  it('renders category data', async () => {
+    const category = mockedCategories;
+    jest.spyOn(axios, 'get').mockImplementation(() =>
+      Promise.resolve({
+        data: () => Promise.resolve(category),
+      })
+    );
+
+    await act(async () => {
+      render(<ListCategory {...propsListCategories} />);
+    });
+
+    expect(screen.getAllByTestId('category').length).toEqual(category.length);
+  });
+
   it('returns the length of item', async () => {
     render(<ListCategory {...propsListCategories} />);
 
     const listCategory = await getCategories();
-    expect(listCategory).toBeUndefined();
+    expect(listCategory?.length).toEqual(0);
 
     await waitFor(() => {
       expect(screen.getAllByTestId('category').length).toEqual(4);
