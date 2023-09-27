@@ -1,4 +1,4 @@
-import { Icon } from 'src/components/common/Icon';
+import { Icon } from '@components/common/Icon';
 import { ReactNode, memo } from 'react';
 
 // Define the props for the Modal component

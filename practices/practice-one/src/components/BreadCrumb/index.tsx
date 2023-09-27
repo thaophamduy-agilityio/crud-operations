@@ -1,4 +1,4 @@
-import { Image } from 'src/components/common/Image';
+import { Image } from '@components/common/Image';
 import arrow from 'src/assets/images/arrow-right.svg';
 import { memo } from 'react';
 

@@ -1,5 +1,5 @@
 import { IBook } from '@interface/book';
-import { Image } from 'src/components/common/Image';
+import { Image } from '@components/common/Image';
 import { memo } from 'react';
 
 interface BookProps {
