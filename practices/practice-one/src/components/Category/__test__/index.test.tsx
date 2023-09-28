@@ -1,5 +1,5 @@
 // libs
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // components
@@ -18,11 +18,20 @@ describe('testing category component', () => {
   };
 
   it('should render correctly with display selected category', () => {
-    const { container } = render(<Category {...propsDefault} />);
+    const { container } = render(<Category {...propsDefault} categorySelected="Contemporary" />);
     const selectedCategory = container.getElementsByClassName('book-category-item')[0];
+    const categoryName = screen.getByTestId('category name');
 
-    expect(selectedCategory).toHaveClass('selected');
+    expect(selectedCategory).not.toHaveClass('selected');
+    expect(categoryName.textContent).toEqual('Adventure');
     expect(propsDefault.category.name.substring(0, 2)).toBe('Ad');
+  });
+
+  it('should render correctly with display total item in category', () => {
+    const { container } = render(<Category {...propsDefault} />);
+    const total = container.getElementsByClassName('book-category-total')[0];
+
+    expect(Number(total.innerHTML)).toEqual(18);
   });
 
   it('should be call handle click on category', () => {

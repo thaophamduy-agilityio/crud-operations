@@ -25,9 +25,13 @@ const Category = ({ category, categorySelected, onSelectCategory }: CategoryProp
         <span className={['book-category-shorthand', `book-category-${name}`].join(' ')}>
           {name.substring(0, 2)}
         </span>
-        {name}
+        <span className="name" data-testid="category name">
+          {name}
+        </span>
       </div>
-      <div className="book-category-total">{total}</div>
+      <div className="book-category-total" data-testid="category total">
+        {total}
+      </div>
     </li>
   );
 };
