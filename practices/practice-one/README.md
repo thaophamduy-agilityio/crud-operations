@@ -100,3 +100,4 @@ pnpm dev
 ```
 
 - Step 8: Open browser and access the link http://localhost:5173
+- Step 9: Run unit test and coverage `pnpm test`, `pnpm coverage`
