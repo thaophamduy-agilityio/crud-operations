@@ -12,7 +12,29 @@ describe('testing modal component', () => {
     isDarkTheme: false,
     onCloseModal: jest.fn(),
     onToggleThemeModal: jest.fn(),
-    children: 'Modal content here!',
+    children: `<div class="modal-content" data-testid="book detail">
+        <figure class="modal-container-content">
+          <div class="modal-container-img">
+            <picture>
+              <source class="img-item" srcset="src/assets/images/books/book1.webp" media="(min-width: 768px)">
+              <img class="img-item" loading="lazy" src="src/assets/images/books/book1-small.webp" width="128" alt="Angels and demons">
+            </picture>
+          </div>
+          <figcaption class="modal-container-text">
+            <p class="modal-desc" data-testid="book description">Culpa nulla pariatur cupidatat nisi incididunt ea do ipsum.</p>
+            <p class="modal-author">
+              <span class="modal-container-text-title">Author:</span>
+              <span class="modal-container-text-content" data-testid="book author">Stuart Matt</span></p>
+            <p class="modal-published">
+              <span class="modal-container-text-title">Published:</span>
+              <span class="modal-container-text-content" data-testid="book published">2021</span></p>
+            <p class="modal-publishers">
+              <span class="modal-container-text-title">Publishers:</span>
+              <span class="modal-container-text-content" data-testid="book publishers">Hollman</span>
+            </p>
+          </figcaption>
+        </figure>
+      </div>`,
   };
 
   it('should be call handle click icon close modal', () => {
@@ -39,9 +61,7 @@ describe('testing modal component', () => {
   });
 
   it('testing component modal not render when isShowModal is false', () => {
-    const container = render(
-      <Modal {...propsDefault} isShowModal={false} children="<h2>This is modal</h2>" />
-    );
+    const container = render(<Modal {...propsDefault} isShowModal={false} />);
     const heading = document.querySelector('h2');
 
     expect(container).toMatchSnapshot();
