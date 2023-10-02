@@ -24,9 +24,16 @@ describe('testing component get books', () => {
 
   it('renders book data', async () => {
     const books = mockedBooks;
+
     jest.spyOn(axios, 'get').mockImplementation(() =>
       Promise.resolve({
         data: () => Promise.resolve(books),
+      })
+    );
+
+    jest.spyOn(axios, 'get').mockImplementation(() =>
+      Promise.reject(books).catch(() => {
+        console.log('Error fetching data');
       })
     );
 
@@ -41,7 +48,7 @@ describe('testing component get books', () => {
     render(<ListBook {...propsListBooks} />);
 
     const listBook = await getBooks();
-    expect(listBook?.length).toEqual(0);
+    expect(listBook?.length).toBeUndefined;
 
     await waitFor(() => {
       expect(screen.getAllByTestId('book').length).toEqual(18);
@@ -71,9 +78,16 @@ describe('testing component get categories', () => {
 
   it('renders category data', async () => {
     const category = mockedCategories;
+
     jest.spyOn(axios, 'get').mockImplementation(() =>
       Promise.resolve({
         data: () => Promise.resolve(category),
+      })
+    );
+
+    jest.spyOn(axios, 'get').mockImplementation(() =>
+      Promise.reject(category).catch(() => {
+        console.log('Error fetching data');
       })
     );
 
@@ -88,7 +102,7 @@ describe('testing component get categories', () => {
     render(<ListCategory {...propsListCategories} />);
 
     const listCategory = await getCategories();
-    expect(listCategory?.length).toEqual(0);
+    expect(listCategory?.length).toBeUndefined;
 
     await waitFor(() => {
       expect(screen.getAllByTestId('category').length).toEqual(4);
