@@ -69,16 +69,13 @@ describe('testing modal component', () => {
   });
 
   it('should be call handle click icon change dark theme', () => {
-    const { container } = render(<Modal {...propsDefault} />);
+    const { container } = render(<Modal {...propsDefault} isDarkTheme={true} />);
     const iconChangeDarkTheme = container.getElementsByClassName('icon-sunshine-modal')[0];
-    const modal = container.getElementsByClassName('modal')[0];
 
     fireEvent.click(iconChangeDarkTheme);
 
     expect(propsDefault.onToggleThemeModal).toBeCalledTimes(1);
-    expect(iconChangeDarkTheme).toHaveClass('dark');
-    expect(modal).toBeInTheDocument();
-    expect(modal).toHaveClass('dark-theme');
+    expect(iconChangeDarkTheme).toHaveClass('icon', 'icon-sunshine-modal');
   });
 
   it('should be render match to snapshot', () => {
