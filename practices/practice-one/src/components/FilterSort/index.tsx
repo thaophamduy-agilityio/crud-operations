@@ -10,7 +10,7 @@ interface FilterSortProps {
 }
 
 const FilterSort = ({ onSortBooks, sortOption }: FilterSortProps): JSX.Element => {
-  const { isSortByAlphabet, isSortByYear } = sortOption || {};
+  const { isSortByAlphabet, isSortByYear } = sortOption;
 
   return (
     <div className="filter-sort">
