@@ -7,7 +7,7 @@ interface BreadCrumbProps {
   total: number | undefined;
 }
 
-const BreadCrumb = ({ selectedCategory, total = 0 }: BreadCrumbProps): JSX.Element => {
+const BreadCrumb = ({ selectedCategory, total }: BreadCrumbProps): JSX.Element => {
   return (
     <div className="book-title" data-testid="bread crumb">
       <span className="book-title-text" data-testid="bread crumb selected category">
@@ -17,7 +17,7 @@ const BreadCrumb = ({ selectedCategory, total = 0 }: BreadCrumbProps): JSX.Eleme
         <Image altText="arrow" imageSrc={arrow} loading="lazy" width={22} />
       </span>
       <span className="book-title-results" data-testid="bread crumb results">
-        Showing {total} Result{total > 1 ? 's' : ''}
+        Showing {total} Result{total && total > 1 ? 's' : ''}
       </span>
     </div>
   );
