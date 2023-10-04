@@ -28,6 +28,7 @@ dist-ssr
 coverage
 
 #snapshots
+src/__test__/__snapshots__
 src/components/**/__test__/__snapshots__
 src/helpers/__test__/__snapshots__
 src/hooks/__test__/__snapshots__
