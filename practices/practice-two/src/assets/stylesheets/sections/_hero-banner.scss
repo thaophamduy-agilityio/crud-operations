@@ -1,0 +1,180 @@
+// ======================================================
+// Components :: Hero Banner
+// ======================================================
+
+.hero {
+  &-header {
+    @extend %flex;
+    @extend %justify-space-between;
+    @extend %flex-column;
+    align-items: self-end;
+    margin: 40px 0;
+
+    @include only-for-tablet() {
+      flex-direction: row;
+      margin: 40px 0 80px;
+    }
+
+    &-content {
+      @extend %text-center;
+      @extend %z-index-1;
+
+      @include only-for-tablet() {
+        flex-basis: 60%;
+        text-align: left;
+        margin: 50px 0;
+      }
+
+      @include only-for-desktop() {
+        flex-basis: 45%;
+        text-align: left;
+        margin: 135px 0;
+      }
+    }
+
+    &-title {
+      @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+      @extend %text-uppercase;
+      color: $color-title;
+      margin: 10px 0;
+      letter-spacing: 1.5px;
+
+      @include only-for-tablet() {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-image {
+      @extend %z-index-99;
+      margin-top: 60px;
+      margin-right: -12px;
+      
+      @include only-for-tablet() {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 140px;
+        margin-right: 0;
+        text-align: right;
+      }
+    }
+
+    .text-md {
+      margin: 12px auto;
+      max-width: 70%;
+      
+      @include only-for-tablet() {
+        margin: 28px 0;
+        max-width: 100%;
+      }
+    }
+
+    .img-item {
+      @include only-for-tablet() {
+        width: 609px;
+      }
+
+      @include only-for-desktop() {
+        width: 795px;
+      }
+    }
+
+    .btn-primary {
+      width: fit-content;
+      margin: 12px auto;
+
+      @include only-for-tablet() {
+        margin: 12px 24px 12px 0;
+      }
+    }
+
+    .btn-secondary {
+      &.caret-right {
+        padding: 14px 24px 14px 44px;
+
+        &:before {
+          top: 20px;
+
+          @include only-for-tablet() {
+            top: 16px;
+          }
+        }
+
+        @include only-for-tablet() {
+          padding: 10px 24px 10px 44px;
+        }
+      }
+    }
+  }
+
+  &-footer {
+    @extend %relative;
+    @extend %flex;
+    @extend %justify-space-between;
+    @extend %flex-column;
+    @extend %item-center;
+    background: url('/src/assets/images/schedule/bg-schedule.webp') no-repeat;
+    background-size: cover;
+    border-radius: 24px;
+    margin-bottom: 50px;
+    padding: 50px 20px;
+    height: 600px;
+    
+    @include only-for-tablet() {
+      flex-direction: row;
+      padding: 0 64px;
+      height: 510px;
+    }
+
+    @include only-for-desktop() {
+      padding: 0 100px;
+      margin: 100px 0;
+      height: 600px;
+    }
+
+    &-content {
+      @extend %text-center;
+      color: $color-secondary;
+      padding: 0 30px;
+      
+      @include only-for-tablet() {
+        text-align: left;
+        padding: 0;
+        width: 40%;
+      }
+      
+      @include only-for-desktop() {
+        .text-md {
+          max-width: 80%;
+        }
+        
+        width: 60%;
+      }
+    }
+
+    &-image {
+      @extend %text-center;
+
+      @include only-for-desktop() {
+        position: absolute;
+        right: 0;
+        bottom: -50px;
+      }
+    }
+
+    .img-item {
+      @include only-for-tablet() {
+        width: 490px;
+      }
+
+      @include only-for-desktop() {
+        width: 680px;
+      }
+    }
+
+    .btn-secondary {
+      color: $color-secondary;
+      border-color: $color-secondary;
+    }
+  }
+}

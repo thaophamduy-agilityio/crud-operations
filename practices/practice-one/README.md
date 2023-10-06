@@ -1,4 +1,4 @@
-# React Practice
+# React Practice One
 
 ## Author: Thao Pham
 
@@ -22,11 +22,11 @@
 - Technical
 
   - HTML5/CSS3
-  - Reactjs (v 18.2.0)
+  - React js (v 18.2.0)
   - Storybook (v 7.0.18)
   - Typescript (v 5.0.4)
   - Vite (v 4.3.9)
-  - Appy [Json server](https://www.npmjs.com/package/json-server)
+  - Apply [Json server](https://www.npmjs.com/package/json-server)
 
 - Editor: Visual Studio Code
 
@@ -88,7 +88,10 @@ pnpm install
 pnpm run server
 ```
 
-- Resources: `http://localhost:3001/books` (this is by default, you can custom it)
+- Resources:
+
+  - `http://localhost:3001/books`
+  - `http://localhost:3001/categories`
 
 - Step 7: Run project
 
@@ -97,3 +100,4 @@ pnpm dev
 ```
 
 - Step 8: Open browser and access the link http://localhost:5173
+- Step 9: Run unit test and coverage `pnpm test`, `pnpm coverage`

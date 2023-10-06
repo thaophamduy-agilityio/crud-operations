@@ -1,0 +1,121 @@
+// ======================================================
+// Components :: Footer
+// ======================================================
+
+.footer {
+  &-site {
+    @extend %text-center;
+    
+    @include only-for-tablet() {
+      text-align: left;
+    }
+    
+    &-container {
+      &-logo {
+        @extend %flex;
+        @extend %flex-column;
+        @extend %justify-space-between;
+    
+        @include only-for-tablet() {
+          align-items: start;
+        }
+    
+        @include only-for-desktop() {
+          flex-direction: row;
+        }
+
+        .img-item {
+          margin: 5px;
+        }
+      }
+
+      &-copy {
+        &-right {
+          @extend %flex;
+          @extend %flex-column;
+          @extend %justify-space-between;
+          @extend %item-center;
+          border-top: 2px solid $border-footer-copy-right;
+          margin-top: 15px;
+          padding-top: 20px;
+    
+          @include only-for-tablet() {
+            flex-direction: row;
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+
+    &-button {
+      @extend %flex;
+      @extend %justify-center;
+
+      .img-item {
+        @extend %cursor-pointer;
+      }
+      
+      @include only-for-tablet() {
+        justify-content: right;
+        width: 100%;
+      }
+      
+      @include only-for-desktop() {
+        text-align: start;
+        justify-content: start;
+      }
+    }
+    
+    &-icon {
+      @extend %flex;
+    }
+
+    .logo {
+      @extend %justify-center;
+
+      @include only-for-tablet() {
+        justify-content: left;
+      }
+    }
+  }
+
+  &-left {
+    @include only-for-tablet() {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    @include only-for-desktop() {
+      flex-direction: column;
+      width: 40%;
+    }
+  }
+
+  &-right {
+    @extend %none;
+
+    @include only-for-desktop() {
+      display: flex;
+    }
+  }
+
+  &-icon {
+    @extend %cursor-pointer;
+    color: $color-tertiary;
+    margin: 20px 0 0 20px;
+
+    @include only-for-tablet() {
+      margin: 0 0 0 20px;
+    }
+  }
+
+  &-text {
+    @extend %margin-center;
+    max-width: 50%;
+
+    @include only-for-tablet() {
+      max-width: 100%;
+    }
+  }
+}

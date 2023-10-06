@@ -37,11 +37,11 @@ import { useDebounce } from '@hooks/use-debounce';
 import { TIME_OUT } from '@constants/time-out';
 
 const Home = (): JSX.Element => {
-  const [listBooks, setListBooks] = useState<IBook[] | undefined>([]);
-  const [listBooksFilter, setListBooksFilter] = useState<IBook[] | undefined>([]);
+  const [listBooks, setListBooks] = useState<IBook[]>([]);
+  const [listBooksFilter, setListBooksFilter] = useState<IBook[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [valueSearch, setValueSearch] = useState<string>('');
-  const [listCategories, setListCategories] = useState<ICategory[] | undefined>([]);
+  const [listCategories, setListCategories] = useState<ICategory[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const [isOpenCategoriesOnMobile, setIsOpenCategoriesOnMobile] = useState<boolean>(false);
@@ -59,8 +59,9 @@ const Home = (): JSX.Element => {
     setIsLoading(true);
     const data = await getBooks();
     setIsLoading(false);
-
-    setListBooks(data);
+    if (data?.length) {
+      setListBooks(data);
+    }
   };
 
   useEffect(() => {
@@ -75,7 +76,9 @@ const Home = (): JSX.Element => {
     const data = await getCategories();
     setIsLoading(false);
 
-    setListCategories(data);
+    if (data?.length) {
+      setListCategories(data);
+    }
   };
 
   useEffect(() => {

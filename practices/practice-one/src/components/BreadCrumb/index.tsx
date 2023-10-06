@@ -1,5 +1,5 @@
 import { Image } from '@components/common/Image';
-import arrow from '@image/arrow-right.svg';
+import arrow from 'src/assets/images/arrow-right.svg';
 import { memo } from 'react';
 
 interface BreadCrumbProps {
@@ -7,15 +7,17 @@ interface BreadCrumbProps {
   total: number | undefined;
 }
 
-const BreadCrumb = ({ selectedCategory, total = 0 }: BreadCrumbProps): JSX.Element => {
+const BreadCrumb = ({ selectedCategory, total }: BreadCrumbProps): JSX.Element => {
   return (
-    <div className="book-title">
-      <span className="book-title-text">{selectedCategory || 'All Books'}</span>
-      <span className="book-title-arrow">
+    <div className="book-title" data-testid="bread crumb">
+      <span className="book-title-text" data-testid="bread crumb selected category">
+        {selectedCategory || 'All Books'}
+      </span>
+      <span className="book-title-arrow" data-testid="bread crumb arrow">
         <Image altText="arrow" imageSrc={arrow} loading="lazy" width={22} />
       </span>
-      <span className="book-title-results">
-        Showing {total} Result{total > 1 ? 's' : ''}
+      <span className="book-title-results" data-testid="bread crumb results">
+        Showing {total} Result{total && total > 1 ? 's' : ''}
       </span>
     </div>
   );

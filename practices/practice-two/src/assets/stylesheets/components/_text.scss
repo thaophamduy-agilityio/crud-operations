@@ -1,0 +1,77 @@
+// ======================================================
+// Components :: Text
+// ======================================================
+
+.text {
+  &-xs {
+    @include text-font($default-family, $text-xs, $font-weight-bold, $line-height-default);
+  }
+
+  &-sm {
+    @include text-font($default-family, $text-sm, $font-weight-medium, $line-height-default);
+    color: $color-tertiary;
+  }
+
+  &-md {
+    @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
+    color: $color-tertiary;
+    margin: 12px 0;
+
+    @include only-for-tablet() {
+      margin: 28px 0;
+    }
+  }
+
+  &-lg {
+    @include text-font($default-family, $text-lg, $font-weight-medium, $line-height-default);
+    color: $color-primary;
+
+    @include only-for-tablet() {
+      font-size: $text-lg-tablet;
+      line-height: $line-height-lg-tablet;
+    }
+
+    @include only-for-desktop() {
+      font-size: $text-lg-desktop;
+      line-height: $line-height-lg-desktop;
+    }
+  }
+
+  &-xl {
+    @include text-font($secondary-family, $text-xl, $font-weight-semi-bold, $line-height-xl);
+
+    @include only-for-tablet() {
+      font-size: $text-xl-tablet;
+      line-height: $line-height-xl-tablet;
+    }
+
+    @include only-for-desktop() {
+      font-size: $text-xl-desktop;
+      line-height: $line-height-xl-desktop;
+    }
+  }
+
+  &-xxl {
+    @include text-font($secondary-family, $text-xxl, $font-weight-semi-bold, $line-height-xxl);
+
+    @include only-for-tablet() {
+      font-size: $text-xxl-tablet;
+      line-height: $line-height-xxl-tablet;
+    }
+
+    @include only-for-desktop() {
+      font-size: $text-xxl-desktop;
+      line-height: $line-height-xxl-desktop;
+    }
+  }
+
+  &-xxxl {
+    @include text-font($secondary-family, $text-xxxl, $font-weight-semi-bold, $line-height-xxxl);
+    color: $color-primary;
+
+    @include only-for-tablet() {
+      font-size: $text-xxxl-tablet;
+      line-height: $line-height-xxxl-tablet;
+    }
+  }
+}

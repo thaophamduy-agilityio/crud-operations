@@ -1,0 +1,165 @@
+// ======================================================
+// Abstracts :: Variables
+// ======================================================
+
+/* Colors */
+$color-primary: #272E35;
+$color-secondary: #FFFFFF;
+$color-tertiary: #6E757C;
+$color-default: $color-primary;
+$color-logo-dot: #FF6E30;
+$color-loading: $color-logo-dot;
+$color-danger: #DC3545;
+
+/* Background Colors */
+$bg-color-primary: $color-logo-dot;
+$bg-color-secondary: $color-primary;
+$bg-color-tertiary: $color-secondary;
+
+/* Background Size */
+
+/* Border Colors */
+$border-logo: #000;
+$border-disabled: rgba(196, 196, 196, 0.3);
+$border-label-value: rgba(255, 255, 255, 0.15);
+$border-instant-setup: rgba(116, 143, 181, 0.15);
+
+/* Box-Shadow */
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+
+/* Font-Family */
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Poppins', sans-serif;
+$font-tertiary: 'Robert', sans-serif;
+$default-family: $font-primary;
+$secondary-family: $font-secondary;
+$tertiary-family: $font-tertiary;
+
+/* Font-Size */
+$text-xs: 12px;
+$text-sm: 13px;
+$text-md: 16px;
+$text-lg: 20px;
+$text-lg-tablet: 24px;
+$text-lg-desktop: 32px;
+$text-xl: $text-lg-desktop;
+$text-xl-tablet: 40px;
+$text-xl-desktop: 48px;
+$text-xxl: $text-xl-tablet;
+$text-xxl-tablet: $text-xl-desktop;
+$text-xxl-desktop: 72px;
+$text-xxxl: 56px;
+$text-xxxl-tablet: $text-xxl-desktop;
+
+/* Font-Weight */
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+/* Line Height */
+$line-height-title: $text-md;
+$line-height-default: $text-lg-tablet;
+$line-height-lg: $line-height-default;
+$line-height-lg-tablet: $text-lg-desktop;
+$line-height-lg-desktop: $text-xl-tablet;
+$line-height-xl: $line-height-lg-desktop;
+$line-height-xl-tablet: $text-xl-desktop;
+$line-height-xl-desktop: $text-xxxl;
+$line-height-xxl: $line-height-xl-tablet;
+$line-height-xxl-tablet: $line-height-xl-desktop;
+$line-height-xxl-desktop: 80px;
+$line-height-xxxl: $line-height-xxl-desktop;
+$line-height-xxxl-tablet: $line-height-xxl-desktop;
+
+/* Spacing */
+
+/* Body */
+$font-family-body: $default-family;
+$text-size-body: $text-md;
+$font-weight-body: $font-weight-regular;
+$line-height-body: 24px;
+$text-color-body: $color-default;
+$bg-color-body: #EEEFF2;
+
+/* Header */
+$margin-left-form: 120px;
+$margin-right-label: 32px;
+
+
+/* Logo */
+$font-family-logo: $default-family;
+$text-size-logo: 30px;
+$text-size-logo-tablet: 36px;
+$font-weight-logo: $font-weight-extra-bold;
+$font-weight-logo-tablet: $font-weight-bold;
+$line-height-logo: 33px;
+$line-height-logo-tablet: 40px;
+
+/* Menu */
+$menu-color-selected: $color-logo-dot;
+$menu-text: 24px;
+$menu-button-width: 32px;
+$menu-button-height: 32px;
+$menu-button-item-height: 2px;
+
+/* Input */
+
+/* Buttons */
+$color-btn-primary: $color-secondary;
+$color-btn-secondary: $color-default;
+$bg-color-btn-primary: $bg-color-primary;
+$bg-color-btn-secondary: transparent;
+$line-height-btn-primary: 24px;
+
+/* Testimonial */
+$text-testimonial-author: 18px;
+$text-testimonial-icon: 40px;
+$rating-star: '.star-5', '.star-4', '.star-3', '.star-2', '.star-1', '.star-0';
+
+/* Hero */
+$color-title: #748FB5;
+
+/* Schedule */
+
+/* Instant Setup */
+$instant-setup-step-bg: $color-tertiary;
+
+/* Amazing Feature */
+$color-feature-desc: $color-tertiary;
+
+/* History */
+$bg-color-history: #F7F7F8;
+$bg-color-history-divider: $border-instant-setup;
+$history-divider-width: 80px;
+$history-divider-height: 4px;
+$box-shadow-history: rgba(0, 0, 0, 0.01);
+
+/* Core Value */
+
+/* Integration */
+$integration-logo-box-width: 96px;
+$integration-logo-box-height: 96px;
+$integration-logo-box-width-tablet: 128px;
+$integration-logo-box-height-tablet: 128px;
+
+/* Launch App */
+
+/* Save Time */
+$save-time-border-color: $bg-color-history-divider;
+$bg-color-save-time: $bg-color-history;
+$box-shadow-save-time: $box-shadow-history;
+
+/* Call To Action */
+
+/* Footer */
+$border-footer-copy-right: $bg-color-history-divider;
+
+/* Width */
+$page-max-width: 1120px;
+
+/* Breakpoints */
+$small: 375px;
+$medium: 768px;
+$large: 1120px;

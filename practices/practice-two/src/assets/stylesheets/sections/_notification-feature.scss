@@ -1,0 +1,60 @@
+// ======================================================
+// Components :: Notification Feature
+// ======================================================
+
+.notification {
+  @extend %relative;
+  @extend %flex;
+  @extend %justify-space-between;
+  @extend %flex-column;
+  @extend %item-center;
+  margin: 40px 0;
+  width: 100%;
+
+  @include only-for-tablet() {
+    margin: 150px 0;
+    flex-direction: row;
+  }
+
+  &-content {
+    @include only-for-tablet() {
+      width: 40%;
+
+      .text-xl {
+        max-width: 75%;
+      }
+    }
+  }
+
+  &-title {
+    @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+    @extend %text-uppercase;
+    color: $color-title;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+
+    @include only-for-tablet() {
+      margin-bottom: 24px;
+    }
+  }
+
+  &-image {
+    @extend %text-center;
+    order: 1;
+    margin-top: 20px;
+
+    @include only-for-tablet() {
+      margin-top: 0;
+    }
+  }
+
+  .img-item {
+    @include only-for-tablet() {
+      width: 500px;
+    }
+
+    @include only-for-desktop() {
+      width: 670px;
+    }
+  }
+}

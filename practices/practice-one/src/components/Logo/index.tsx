@@ -1,7 +1,7 @@
 import { Icon } from '@components/common/Icon/index';
 import { Image } from '@components/common/Image/index';
 import { ROUTES } from '@constants/routes';
-import logo from '@image/book-shelter.svg';
+import logo from 'src/assets/images/book-shelter.svg';
 import { memo } from 'react';
 
 interface LogoProps {
