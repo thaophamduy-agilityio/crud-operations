@@ -26,11 +26,13 @@ const ListCategory = ({
   };
 
   return (
-    <div className="book-category-wrapper">
+    <div className="book-category-wrapper" data-testid="category-list">
       {categoryList?.length ? (
         <ul className="book-category">{renderListCategory()}</ul>
       ) : (
-        <p className="book-item not-found">{CATEGORY_MESSAGES.NO_CATEGORY}</p>
+        <p className="book-item not-found" data-testid="not found">
+          {CATEGORY_MESSAGES.NO_CATEGORY}
+        </p>
       )}
     </div>
   );

@@ -13,7 +13,7 @@ const BookDetail = ({
   book: { title, description, author, published, publishers, imageSmall, imageMedium },
 }: BookDetailProps): JSX.Element => {
   return (
-    <div className="modal-content">
+    <div className="modal-content" data-testid="book detail">
       <figure className="modal-container-content">
         <div className="modal-container-img">
           <picture>
@@ -22,18 +22,26 @@ const BookDetail = ({
           </picture>
         </div>
         <figcaption className="modal-container-text">
-          <p className="modal-desc">{description}</p>
+          <p className="modal-desc" data-testid="book description">
+            {description}
+          </p>
           <p className="modal-author">
             <span className="modal-container-text-title">Author:</span>
-            <span className="modal-container-text-content">{author}</span>
+            <span className="modal-container-text-content" data-testid="book author">
+              {author}
+            </span>
           </p>
           <p className="modal-published">
             <span className="modal-container-text-title">Published:</span>
-            <span className="modal-container-text-content">{published}</span>
+            <span className="modal-container-text-content" data-testid="book published">
+              {published}
+            </span>
           </p>
           <p className="modal-publishers">
             <span className="modal-container-text-title">Publishers:</span>
-            <span className="modal-container-text-content">{publishers}</span>
+            <span className="modal-container-text-content" data-testid="book publishers">
+              {publishers}
+            </span>
           </p>
         </figcaption>
       </figure>

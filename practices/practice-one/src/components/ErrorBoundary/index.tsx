@@ -9,7 +9,9 @@ const ErrorFallback = ({ error }: ErrorProps) => {
   return (
     <div className="error-container">
       <AiOutlineWarning className="error-icon" />
-      <p className="error-message">{error.message}</p>
+      <p className="error-message" data-testid="error message">
+        {error.message}
+      </p>
     </div>
   );
 };
