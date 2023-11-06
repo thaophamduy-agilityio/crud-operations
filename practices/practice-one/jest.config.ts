@@ -8,14 +8,16 @@ export default {
   moduleDirectories: ['node_modules', 'src'],
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
   moduleNameMapper: {
+    '^.+\\.(css|sass|scss)$': '<rootDir>/src/__mocks__/styleMock.js',
     '/^(.*)$/': '<rootDir>/src/$1',
     '@components/(.*)': '<rootDir>/src/components/$1',
     '@constants/(.*)': '<rootDir>/src/constants/$1',
     '@interface/(.*)$': '<rootDir>/src/interface/$1',
     '@helpers/(.*)$': '<rootDir>/src/helpers/$1',
-    '@assets/(.*)': '<rootDir>/src/assets/$1',
+    '@stylesheets/(.*)': '<rootDir>/src/assets/stylesheets/$1',
+    '@pages/(.*)': '<rootDir>/src/pages/$1',
     '@services/(.*)': '<rootDir>/src/services/$1',
-    '@hooks$': '<rootDir>/src/hooks',
+    '@hooks/(.*)$': '<rootDir>/src/hooks/$1',
   },
   testPathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/node_modules/', '<rootDir>/dist/'],
   transform: {
@@ -28,6 +30,9 @@ export default {
     '**/src/**/*.{js,ts,tsx}',
     '!**/*.test.{js,ts,tsx}',
     '!**/*.stories.{js,ts,tsx}',
+    '!src/main.tsx',
+    '!src/vite-env.d.ts',
+    '!src/pages/Home/index.tsx',
     '!src/component/**/__test__/__snapshots__/*.test.{js,ts,tsx}.snap',
   ],
 };
