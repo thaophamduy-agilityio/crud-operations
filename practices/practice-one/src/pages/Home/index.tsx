@@ -59,9 +59,7 @@ const Home = (): JSX.Element => {
     setIsLoading(true);
     const data = await getBooks();
     setIsLoading(false);
-    if (data?.length) {
-      setListBooks(data);
-    }
+    setListBooks(data || []);
   };
 
   useEffect(() => {
@@ -75,10 +73,7 @@ const Home = (): JSX.Element => {
     setIsLoading(true);
     const data = await getCategories();
     setIsLoading(false);
-
-    if (data?.length) {
-      setListCategories(data);
-    }
+    setListCategories(data || []);
   };
 
   useEffect(() => {
@@ -106,7 +101,7 @@ const Home = (): JSX.Element => {
    * @param {listCategories, listBooks} ICategory[], IBook[]
    * @returns {List categories with total item of category} ICategory[]
    */
-  const categoriesFormated = getCategoryWithTotalItem(listCategories, listBooks);
+  const categoriesFormatted = getCategoryWithTotalItem(listCategories, listBooks);
 
   /**
    * Search product by keyword
@@ -232,7 +227,7 @@ const Home = (): JSX.Element => {
             <LoadingIndicator />
           ) : (
             <ListCategory
-              categoryList={categoriesFormated}
+              categoryList={categoriesFormatted}
               categorySelected={selectedCategory}
               onSelectCategory={handleFilterBooksByCategoryName}
             />
