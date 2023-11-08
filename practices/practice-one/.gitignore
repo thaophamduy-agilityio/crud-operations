@@ -33,3 +33,4 @@ src/components/**/__test__/__snapshots__
 src/helpers/__test__/__snapshots__
 src/hooks/__test__/__snapshots__
 src/services/__test__/__snapshots__
+src/pages/Home/__test__/__snapshots__
