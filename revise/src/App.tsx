@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// Components
+import { Avatar } from "@components/"
+import Gallery from "@components/Gallery/Gallery"
+
+// Styles
 import './App.css'
 
-const App = (): JSX.Element => {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="pass-props">
+        <h2>Passing Props to a Component</h2>
+        <Avatar
+          size={40}
+          person={{ 
+            name: 'Lin Lanying',
+            imageId: '1bX5QH6'
+          }}
+        />
+        <Avatar
+          size={80}
+          person={{
+            name: 'Aklilu Lemma', 
+            imageId: 'OKS67lh'
+          }}
+        />
+        <Avatar
+          size={160}
+          person={{ 
+            name: 'Katsuko Saruhashi', 
+            imageId: 'YfeOqp2'
+          }}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <hr />
+      <div className="gallery">
+        <h2>State: A Component's Memory</h2>
+        <Gallery />
+        <Gallery />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
