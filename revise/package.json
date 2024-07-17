@@ -9,9 +9,11 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "cd .. && husky revise/.husky"
   },
   "dependencies": {
+    "husky": "^9.0.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vite": "^5.3.1",
@@ -20,6 +22,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.6.1",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@storybook/addon-essentials": "^8.2.2",
     "@storybook/addon-interactions": "^8.2.2",
     "@storybook/addon-links": "^8.2.2",
@@ -44,5 +48,11 @@
     "prop-types": "^15.8.1",
     "storybook": "^8.2.2",
     "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
