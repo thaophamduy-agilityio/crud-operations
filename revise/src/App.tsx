@@ -6,7 +6,8 @@ import {
   SyncedInputs,
   FilterableList,
   VideoPlayer,
-  Modal } from "@components/"
+  Modal,
+  TodoList } from "@components/"
 
 // Styles
 import './App.css'
@@ -86,6 +87,9 @@ const App = () => {
         <div className="line-bottom-break"></div>
         <h2>Controlling a modal dialog</h2>
         <Modal />
+        <div className="line-bottom-break"></div>
+        <h2>Transform data without Effects</h2>
+        <TodoList />
       </div>
     </>
   )
