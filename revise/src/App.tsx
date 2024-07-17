@@ -1,5 +1,5 @@
 // Components
-import { Avatar, Gallery, Accordion, SyncedInputs, FilterableList } from "@components/"
+import { Avatar, Gallery, Accordion, SyncedInputs, FilterableList, VideoPlayer } from "@components/"
 
 // Styles
 import './App.css'
@@ -67,6 +67,13 @@ const App = () => {
           <FilterableList />
         </div>
         <div className="line-bottom-break"></div>
+      </div>
+      <hr />
+      <div className="use-effect">
+        <h2>Synchronizing with Effects</h2>
+        <div className="line-bottom-break"></div>
+        <h2>Play/Pause Video</h2>
+        <VideoPlayer />
       </div>
     </>
   )

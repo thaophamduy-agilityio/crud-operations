@@ -8,3 +8,4 @@ export { default as FilterItems } from "./FilterItems/FilterItems";
 export { default as SearchBar } from "./SearchBar/SearchBar";
 export { default as ListItems } from "./ListItems/ListItems";
 export { default as FilterableList } from "./FilterableList/FilterableList";
+export { default as VideoPlayer } from "./VideoPlayer/VideoPlayer";
