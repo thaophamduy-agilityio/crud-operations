@@ -1,5 +1,12 @@
 // Components
-import { Avatar, Gallery, Accordion, SyncedInputs, FilterableList, VideoPlayer } from "@components/"
+import {
+  Avatar,
+  Gallery,
+  Accordion,
+  SyncedInputs,
+  FilterableList,
+  VideoPlayer,
+  Modal } from "@components/"
 
 // Styles
 import './App.css'
@@ -74,6 +81,11 @@ const App = () => {
         <div className="line-bottom-break"></div>
         <h2>Play/Pause Video</h2>
         <VideoPlayer />
+        <h2>Play/Pause Video</h2>
+        <VideoPlayer />
+        <div className="line-bottom-break"></div>
+        <h2>Controlling a modal dialog</h2>
+        <Modal />
       </div>
     </>
   )

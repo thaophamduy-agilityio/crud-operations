@@ -9,3 +9,5 @@ export { default as SearchBar } from "./SearchBar/SearchBar";
 export { default as ListItems } from "./ListItems/ListItems";
 export { default as FilterableList } from "./FilterableList/FilterableList";
 export { default as VideoPlayer } from "./VideoPlayer/VideoPlayer";
+export { default as ModalDialog } from "./ModalDialog/ModalDialog";
+export { default as Modal } from "./Modal/Modal";
