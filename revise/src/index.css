@@ -137,6 +137,14 @@ button[disabled]:focus {
   width: 100%;
 }
 
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.modal {
+  max-width: 800px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
