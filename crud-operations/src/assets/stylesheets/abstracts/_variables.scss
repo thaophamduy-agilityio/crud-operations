@@ -1,0 +1,95 @@
+// ======================================================
+// Abstracts :: Variables
+// ======================================================
+
+/* Colors */
+$color-primary: #000;
+$color-secondary: #FFF;
+$color-tertiary: #ACACAC;
+$color-default: $color-primary;
+$color-header: #C4C4C4;
+$color-logo-line: #F8D442;
+$color-login: #6C6C6C;
+$color-reset-password: #FEAF00;
+$color-login-input: #CDCDCD;
+$color-loading: $color-logo-line;
+$color-error: #DC3545;
+
+/* Background Colors */
+$bg-color-primary: #F8F8F8;
+$bg-color-secondary: $color-secondary;
+$bg-color-tertiary: #F2EAE1;
+$bg-color-button: $color-reset-password;
+
+/* Background Size */
+
+/* Border Colors */
+$border-input: #E5E5E5;
+
+/* Box-Shadow */
+$box-shadow-color-login: 2px 5px 10px 0px rgba(0, 0, 0, 0.1);
+
+/* Font-Family */
+$font-primary: 'Montserrat', sans-serif;
+$default-family: $font-primary;
+
+/* Font-Size */
+$text-sm: 12px;
+$text-md: 14px;
+$text-lg: 17px;
+$text-xl: 20px;
+$text-xxl: 22px;
+$text-xxxl: 32px;
+
+/* Font-Weight */
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+/* Line Height */
+$line-height-default: 100%;
+
+/* Spacing */
+
+/* Body */
+$font-family-body: $default-family;
+$text-size-body: $text-md;
+$font-weight-body: 400;
+$line-height-body: 24px;
+$text-color-body: $color-default;
+$bg-color-body: $bg-color-primary;
+$bg-color-body-login: linear-gradient(71.17deg, #FEAF00 19.35%, #F8D442 90.12%);
+
+/* Header */
+
+/* Logo */
+$font-family-logo: $default-family;
+$text-size-logo: $text-xl;
+$text-size-logo-login: $text-xxxl;
+$font-weight-logo: $font-weight-bold;
+$line-height-logo: 33px;
+$line-height-logo-login: 40px;
+
+/* Menu */
+$menu-bg-color-selected: $bg-color-button;
+$menu-text: 24px;
+$menu-button-width: 32px;
+$menu-button-height: 32px;
+$menu-button-item-height: 2px;
+
+/* Input */
+
+/* Buttons */
+$color-btn-primary: $color-secondary;
+$bg-color-btn-primary: $bg-color-button;
+
+/* Call To Action */
+
+/* Footer */
+
+/* Width */
+$page-max-width: 1440px;
+
+/* Breakpoints */
+$small: 375px;
+$medium: 768px;
+$large: 1120px;

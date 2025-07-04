@@ -1,0 +1,18 @@
+@use 'abstracts/variables';
+@use 'abstracts/placeholder';
+@use 'abstracts/mixins';
+
+@use 'base/reset';
+@use 'base/common';
+
+@use 'layout/header';
+
+@use 'components/loading';
+@use 'components/button';
+@use 'components/text';
+@use 'components/error-boundary' ;
+
+@use 'sections/user-info';
+@use 'sections/menu-bar';
+@use 'sections/table-header';
+@use 'sections/student';

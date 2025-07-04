@@ -1,0 +1,53 @@
+// ======================================================
+// Components :: Amazing Feature
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+
+.list-students {
+  padding: .5rem 2rem;
+  
+  ul {
+    @extend %list-style-type-none;
+  }
+
+  .student {
+    &-table {
+      th {
+        @extend %text-left;
+      }
+    }
+    
+    &-header {
+      @extend %grid;
+      @extend %item-center;
+      grid-template-columns: 64px 1fr 1fr 1fr 1fr 160px 64px 64px;
+      gap: 2rem;
+      color: $color-tertiary;
+      font-size: $text-md;
+      font-weight: $font-weight-bold;
+      padding: 1rem;
+    }
+    
+    &-item {
+      @extend %grid;
+      @extend %item-center;
+      grid-template-columns: 64px 1fr 1fr 1fr 1fr 160px 64px 64px;
+      gap: 2rem;
+      background-color: $bg-color-secondary;
+      border-radius: .5rem;
+      margin: .5rem 0;
+      padding: 1rem .75rem;
+    }
+    
+    &-avatar {
+      border-radius: .5rem;
+    }
+
+    &-icon {
+      font-size: $text-xxl;
+      color: $color-reset-password;
+    }
+  }
+}
