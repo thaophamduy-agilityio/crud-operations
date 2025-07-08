@@ -11,17 +11,48 @@
   @extend %inline-flex;
   @extend %justify-center;
   @extend %cursor-pointer;
-  @extend %border-0;
+  @extend %text-uppercase;
   border-radius: .25rem;
-  padding: 1rem 1.5rem;
+  border-color: transparent;
+  border-width: 2px;
+  transition-duration: .4s;
+  padding: .8125rem 1.6875rem;
 
   &-primary {
     background-color: $bg-color-btn-primary;
     color: $color-secondary;
+
+    &:hover{
+      background-color: transparent;
+      color: $color-reset-password;
+      border: 2px solid $color-reset-password;
+    }
+    
+    &-outline {
+      background-color: transparent;
+      color: $color-reset-password;
+      border: 2px solid $color-reset-password;
+      
+      &:hover {
+        background-color: $bg-color-btn-primary;
+        color: $color-secondary;
+      }
+    }
   }
 
-  &-container {
-    @extend %inline-flex;
-    @extend %flex-column;
+  &-small {
+    font-size: $text-sm;
+    padding: .625rem 1rem;
+  }
+
+  &-large {
+    font-size: $text-xl;
+    padding: .875rem 1.875rem;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    color: $bg-color-tertiary;
+    background-color: $color-login-input;
   }
 }
