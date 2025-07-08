@@ -34,7 +34,6 @@ body {
   @extend %flex;
   @extend %flex-column;
   @extend %justify-space-between;
-  width: 222px;
   background-color: $bg-color-tertiary;
   padding: 1rem 1.5rem
 }

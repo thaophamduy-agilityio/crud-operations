@@ -7,7 +7,7 @@
 @use '../abstracts/mixins' as *;
 
 .btn {
-  @include text-font($default-family, $text-md, $font-weight-bold, $line-height-default);
+  @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
   @extend %inline-flex;
   @extend %justify-center;
   @extend %cursor-pointer;

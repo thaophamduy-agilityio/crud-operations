@@ -8,11 +8,15 @@
 @use 'layout/header';
 
 @use 'components/loading';
+@use 'components/logo';
 @use 'components/button';
-@use 'components/text';
-@use 'components/error-boundary' ;
+@use 'components/input';
+@use 'components/icon-button';
 
 @use 'sections/user-info';
+@use 'sections/header';
 @use 'sections/menu-bar';
 @use 'sections/table-header';
 @use 'sections/student';
+
+@use 'components/error-boundary';
