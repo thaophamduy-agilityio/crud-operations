@@ -1,5 +1,6 @@
 // Libs
 import type { JSX } from "react";
+import clsx from 'clsx';
 
 // Constants
 import { ROUTES } from '@constants/routes';
@@ -17,7 +18,7 @@ interface LogoProps {
 export const Logo = ({ label, size = 'medium', additionalClasses = '' }: LogoProps): JSX.Element => {
     return (
         <div
-            className={`logo logo-${size} ${additionalClasses}`}
+            className={clsx('logo', `logo-${size}`, additionalClasses)}
         >
             <a href={ROUTES.HOME} title="Students Dashboard">{label}</a>
         </div>

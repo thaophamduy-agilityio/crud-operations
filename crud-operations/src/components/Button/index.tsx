@@ -5,7 +5,7 @@ import type { JSX } from "react";
 interface ButtonProps {
     label: string;
     size?: 'small' | 'medium' | 'large';
-    variant?: 'primary' | 'primary-outline';
+    variant?: 'primary' | 'outline';
     isDisabled?: boolean;
     onClick: () => void;
 }

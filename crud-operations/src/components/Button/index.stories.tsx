@@ -31,7 +31,7 @@ export const Primary: Story = {
 export const PrimaryOutline: Story = {
   args: {
     label: 'Button',
-    variant: 'primary-outline',
+    variant: 'outline',
     onClick: () => console.log('Buton clicked'),
   },
 };
