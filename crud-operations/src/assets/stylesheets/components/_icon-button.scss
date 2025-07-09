@@ -1,0 +1,146 @@
+// ======================================================
+// Components :: Icon Button
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+@use '../abstracts/mixins' as *;
+
+.icon {    
+    @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
+    @extend %flex;
+    @extend %justify-center;
+    @extend %cursor-pointer;
+    border-color: transparent;
+    border-width: 2px;
+    border-radius: .25rem;
+    transition-duration: 0.4s;
+    margin: 1rem auto;
+    width: calc(100% - 1rem);
+		max-width: 250px;
+  
+  &-home {
+    background: url('/src/assets/images/icon-home.svg') calc(50% - 2.25rem) no-repeat;
+    box-sizing: border-box;
+		padding: 0.75rem calc(50% - 2.5rem) 0.75rem calc(50% - 1rem);
+		
+		&:hover,
+		&.selected {
+    	background-color: $bg-color-button;
+		}
+  }
+  
+  &-course {
+    background: url('/src/assets/images/icon-course.svg') calc(50% - 2.25rem) no-repeat;
+    box-sizing: border-box;
+		padding: 0.75rem calc(50% - 2.5rem) 0.75rem calc(50% - 1rem);
+		
+		&:hover,
+		&.selected {
+    	background-color: $bg-color-button;
+		}
+  }
+  
+  &-students {
+    background: url('/src/assets/images/icon-students.svg') calc(50% - 2.25rem) no-repeat;
+    box-sizing: border-box;
+		padding: 0.75rem calc(50% - 2.5rem) 0.75rem 50%;
+		
+		&:hover,
+		&.selected {
+    	background-color: $bg-color-button;
+		}
+  }
+  
+  &-report {
+    background: url('/src/assets/images/icon-report.svg') calc(50% - 2.25rem) no-repeat;
+    box-sizing: border-box;
+		padding: 0.75rem calc(50% - 2.5rem) 0.75rem calc(50% - 1rem);
+		
+		&:hover,
+		&.selected {
+    	background-color: $bg-color-button;
+		}
+  }
+  
+  &-payment {
+    background: url('/src/assets/images/icon-payment.svg') calc(50% - 2.25rem) no-repeat;
+    box-sizing: border-box;
+		padding: 0.75rem calc(50% - 2.5rem) 0.75rem 50%;
+		
+		&:hover,
+		&.selected {
+    	background-color: $bg-color-button;
+		}
+  }
+  
+  &-settings {
+    background: url('/src/assets/images/icon-settings.svg') calc(50% - 2.25rem) no-repeat;
+    box-sizing: border-box;
+		padding: 0.75rem calc(50% - 2.5rem) 0.75rem 50%;
+		
+		&:hover,
+		&.selected {
+    	background-color: $bg-color-button;
+		}
+  }
+  
+  &-logout {
+    background: url('/src/assets/images/icon-logout.svg') calc(50% + 2.25rem) no-repeat;
+    box-sizing: border-box;
+		padding: 0.75rem calc(50% - 2.5rem) 0.75rem calc(50% - 5rem);
+		
+		&:hover,
+		&.selected {
+    	background-color: $bg-color-button;
+		}
+  }
+  
+  &-back {
+    background: url('/src/assets/images/icon-back.svg') no-repeat center;
+    box-sizing: border-box;
+		width: 1.5rem;
+		height: 1.5rem;
+  }
+  
+  &-notification {
+    background: url('/src/assets/images/icon-notification.svg') no-repeat center;
+    box-sizing: border-box;
+		width: 1.5rem;
+		height: 1.5rem;
+  }
+  
+  &-sort {
+    background: url('/src/assets/images/icon-sort.svg') no-repeat center;
+    box-sizing: border-box;
+		width: 1.5rem;
+		height: 1.5rem;
+  }
+  
+  &-edit {
+    background: url('/src/assets/images/icon-edit.svg') no-repeat center;
+    box-sizing: border-box;
+		width: 1.5rem;
+		height: 1.5rem;
+  }
+  
+  &-delete {
+    background: url('/src/assets/images/icon-delete.svg') no-repeat center;
+    box-sizing: border-box;
+		width: 1.5rem;
+		height: 1.5rem;
+  }
+  
+  &-close {
+    background: url('/src/assets/images/icon-close.svg') no-repeat center;
+    box-sizing: border-box;
+		width: 1.5rem;
+		height: 1.5rem;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    color: $bg-color-tertiary;
+    background-color: $color-login-input;
+  }
+}
