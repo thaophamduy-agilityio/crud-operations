@@ -1,0 +1,12 @@
+// ======================================================
+// Components :: Table Header
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+
+.table-header {
+    @extend %flex;
+    @extend %item-center;
+    padding: .5rem 2rem;
+}

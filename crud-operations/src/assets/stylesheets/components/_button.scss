@@ -1,0 +1,27 @@
+// ======================================================
+// Components :: Button
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
+  @extend %inline-flex;
+  @extend %justify-center;
+  @extend %cursor-pointer;
+  @extend %border-0;
+  border-radius: .25rem;
+  padding: 1rem 1.5rem;
+
+  &-primary {
+    background-color: $bg-color-btn-primary;
+    color: $color-secondary;
+  }
+
+  &-container {
+    @extend %inline-flex;
+    @extend %flex-column;
+  }
+}

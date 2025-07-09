@@ -1,0 +1,14 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Karthi",
+      "avatar": "https://prnt.sc/f3wWUdRc5L0a",
+      "email": "karthi@gmmail.com",
+      "phone": 7305477760,
+      "enrollNumber": 1234567305477760,
+      "dateAdmission": "08-Dec, 2021",
+      "role": "Admin"
+    }
+  ]
+}
