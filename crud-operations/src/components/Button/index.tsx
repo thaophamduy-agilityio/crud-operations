@@ -1,5 +1,6 @@
 // Libs
 import type { JSX } from "react";
+import clsx from 'clsx';
 
 //Interfaces
 interface ButtonProps {
@@ -26,11 +27,9 @@ export const Button = (
             aria-label="Aria button"
             type="button"
             disabled={isDisabled}
-            className={[
-                'btn',
-                `btn-${size}`,
-                `btn-${isDisabled ? 'disabled' : variant}`,
-            ].join(' ')}
+            className={
+                clsx('btn', `btn-${size}`, `btn-${isDisabled ? 'disabled' : variant}`)
+            }
             {...props}
         >
             {label}
