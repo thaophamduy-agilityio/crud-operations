@@ -9,16 +9,22 @@
 .input {
     @extend %flex;
     @extend %flex-column;
-    @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
+    @include text-font($default-family, $text-sm, $font-weight-regular, $line-height-default);
     color: $color-login;
     border: 1px solid $border-input;
     border-radius: .25rem;
-    margin: .625rem 0px;
     padding: .625rem;
     background-color: $bg-color-secondary;
     box-sizing: border-box;
+    width: 100%;
+    
+    &-label {
+        @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
+        color: $color-login;
+    }
 
     &-search {
+        @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
         background: url('/src/assets/images/icon-search.svg') no-repeat calc(100% - 1rem) center;
         background-color: $bg-color-secondary;
         border-radius: .5rem;

@@ -3,13 +3,15 @@ import type { ChangeEvent, JSX } from "react";
 
 //Interfaces
 interface InputProps {
-  value: string;
-  name?: string;
-  placeholder?: string;
-  additionalClasses?: string;
-  isDisabled?: boolean;
-  type: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    label?: string;
+    value: string;
+    name?: string;
+    id?: string;
+    placeholder?: string;
+    additionalClasses?: string;
+    isDisabled?: boolean;
+    type: string;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -17,7 +19,9 @@ interface InputProps {
  */
 export const Input = (
     {
+        label,
         name,
+        id,
         placeholder,
         additionalClasses,
         isDisabled = false,
@@ -25,13 +29,31 @@ export const Input = (
         onChange,
     }: InputProps): JSX.Element => {
     return (
-        <input
-            name={name}
-            className={additionalClasses}
-            type={type}
-            placeholder={placeholder}
-            disabled={isDisabled}
-            onChange={onChange}
-        />
+        <>
+            { label ? (
+                <>
+                    <label className="input-label" htmlFor={id}>{label}:</label>
+                    <input
+                        name={name}
+                        id={id}
+                        className={additionalClasses}
+                        type={type}
+                        placeholder={placeholder}
+                        disabled={isDisabled}
+                        onChange={onChange}
+                    />
+                </>
+            ) : (
+                <input
+                    name={name}
+                    id={id}
+                    className={additionalClasses}
+                    type={type}
+                    placeholder={placeholder}
+                    disabled={isDisabled}
+                    onChange={onChange}
+                />
+            )}
+        </>
     );
 }
