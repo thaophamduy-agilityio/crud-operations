@@ -1,10 +1,8 @@
 // Libs
-import type { JSX, ReactNode } from "react";
-import clsx from 'clsx';
+import type { JSX, PropsWithChildren } from "react";
 
 //Interfaces
-interface IconButtonProps {
-    children?: string | ReactNode;
+interface IconButtonProps extends PropsWithChildren {
     additionalClasses?: string;
     onClick: () => void;
 }
@@ -20,11 +18,9 @@ export const IconButton = (
     }: IconButtonProps): JSX.Element => {
     return (
         <button
-            aria-label={"Button " + (children ? children : additionalClasses)}
+            aria-label="Button"
             type="button"
-            className={
-                clsx('icon', `icon-${`${children ? children : additionalClasses}`.toLowerCase().trim().replaceAll(" ", "-")}`)
-            }
+            className={additionalClasses}
             {...props}
         >
             {children}

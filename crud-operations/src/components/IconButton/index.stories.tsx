@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 // Components
 import { IconButton } from "./";
+import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon, LogoutIcon, BackIcon, NotificationIcon, SortIcon, EditIcon, DeleteIcon, CloseIcon } from '@components/Icon';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -10,10 +11,8 @@ const meta = {
   component: IconButton,
   tags: ['autodocs'],
   argTypes: {
-    children: { description: "lable of icon button" },
+    children: { description: "lable & icon or icon of button" },
     additionalClasses: { description: "class custom style of icon button" },
-    iconPosition: { description: "set position for icon button" },
-    isDisabled: { description: "set icon button disabled or not" },
     onClick: { description: "call to submit" },
   },
 
@@ -22,93 +21,153 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Home: Story = {
+export const Home: Story = {  
   args: {
-    children: 'Home',
-    onClick: () => console.log('Icon buton home clicked'),
+    children: (
+      <div className="icon-container">
+        <HomeIcon />
+        <span>Home</span>
+      </div>
+    ),
+    additionalClasses: 'icon',
+    onClick: () => console.log('Icon button home clicked'),
   },
 };
 
 export const Course: Story = {
   args: {
-    children: 'Course',
-    onClick: () => console.log('Icon buton course clicked'),
+    children: (
+      <div className="icon-container">
+        <CourseIcon />
+        <span>Course</span>                  
+      </div>
+    ),
+    additionalClasses: 'icon',
+    onClick: () => console.log('Icon button course clicked'),
   },
 };
 
 export const Students: Story = {
   args: {
-    children: 'Students',
+    children: (
+      <div className="icon-container">
+        <StudentIcon />
+        <span>Student</span>                  
+      </div>
+    ),
     onClick: () => console.log('Icon buton students clicked'),
+    additionalClasses: 'icon selected',
   },
 };
 
 export const Payment: Story = {
   args: {
-    children: 'Payment',
+    children: (
+      <div className="icon-container">
+        <PaymentIcon />
+        <span>Payment</span>                  
+      </div>
+    ),
+    additionalClasses: 'icon',
     onClick: () => console.log('Icon buton payment clicked'),
   },
 };
 
 export const Report: Story = {
   args: {
-    children: 'Report',
+    children: (
+      <div className="icon-container">
+        <ReportIcon />
+        <span>Report</span>                  
+      </div>
+    ),
+    additionalClasses: 'icon',
     onClick: () => console.log('Icon buton report clicked'),
   },
 };
 
 export const Settings: Story = {
   args: {
-    children: 'Settings',
+    children: (
+      <div className="icon-container">
+        <SettingIcon />
+        <span>Setting</span>                  
+      </div>
+    ),
+    additionalClasses: 'icon',
     onClick: () => console.log('Icon buton settings clicked'),
   },
 };
 
 export const Logout: Story = {
   args: {
-    children: 'Logout',
+    children: (
+      <div className="icon-container right">
+        <LogoutIcon />
+        <span>Logout</span>                  
+      </div>
+    ),
+    additionalClasses: 'icon',
     onClick: () => console.log('Icon buton logout clicked'),
   },
 };
 
 export const Back: Story = {
   args: {
-    additionalClasses: 'Back',
+    children: (
+      <BackIcon />
+    ),
+    additionalClasses: 'icon-back',
     onClick: () => console.log('Icon buton back clicked'),
   },
 };
 
 export const Notification: Story = {
   args: {
-    additionalClasses: 'Notification',
+    children: (
+      <NotificationIcon />
+    ),
+    additionalClasses: 'icon-notification',
     onClick: () => console.log('Icon buton notification clicked'),
   },
 };
 
 export const Sort: Story = {
   args: {
-    additionalClasses: 'Sort',
+    children: (
+      <SortIcon />
+    ),
+    additionalClasses: 'icon-sort',
     onClick: () => console.log('Icon buton sort clicked'),
   },
 };
 
 export const Edit: Story = {
   args: {
-    additionalClasses: 'Edit',
+    children: (
+      <EditIcon />
+    ),
+    additionalClasses: 'icon-edit',
     onClick: () => console.log('Icon buton edit clicked'),
   },
 };
 
 export const Delete: Story = {
   args: {
-    additionalClasses: 'Delete',
+    children: (
+      <DeleteIcon />
+    ),
+    additionalClasses: 'icon-delete',
     onClick: () => console.log('Icon buton delete clicked'),
   },
 };
 
 export const Close: Story = {
   args: {
-    additionalClasses: 'Close',
+    children: (
+      <CloseIcon />
+    ),
+    additionalClasses: 'icon-close',
     onClick: () => console.log('Icon buton close clicked'),
   },
 };
