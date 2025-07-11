@@ -8,29 +8,25 @@
 .text {
   &-sm {
     @include text-font($default-family, $text-sm, $font-weight-regular, $line-height-default);
-    color: $color-tertiary;
   }
 
   &-md {
     @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
-    color: $color-tertiary;
   }
 
   &-lg {
-    @include text-font($default-family, $text-lg, $font-weight-regular, $line-height-default);
-    color: $color-primary;
+    @include text-font($default-family, $text-lg, $font-weight-bold, $line-height-default);
   }
 
   &-xl {
     @include text-font($default-family, $text-xl, $font-weight-bold, $line-height-default);
   }
 
-  &-xxl {
+  &-2xl {
     @include text-font($default-family, $text-xxl, $font-weight-bold, $line-height-default);
   }
 
-  &-xxxl {
+  &-3xl {
     @include text-font($default-family, $text-xxxl, $font-weight-bold, $line-height-default);
-    color: $color-primary;
   }
 }
