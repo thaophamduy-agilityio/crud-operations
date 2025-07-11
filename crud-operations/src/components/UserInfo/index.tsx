@@ -2,6 +2,9 @@
 import type { JSX } from "react";
 import clsx from 'clsx';
 
+//Components
+import { Text } from '@components/Text';
+
 //Interfaces
 interface UserInfoProps {
     fullName: string;
@@ -24,8 +27,19 @@ export const UserInfo = ({ fullName, role, avatarUrl, size, additionalClasses = 
             className={clsx('user-info', additionalClasses)}
         >
             <img src={avatarUrl} alt={fullName} width={width} height={height} />
-            <p className="user-name">{fullName}</p>
-            <p className="user-role">{role}</p>
+            <Text
+                type="p"
+                size="lg"
+                additionalClasses="user-name"
+            >
+                {fullName}
+            </Text>
+            <Text
+                type="p"
+                additionalClasses="user-role"
+            >
+                {role}
+            </Text>
         </div>
     );
 }

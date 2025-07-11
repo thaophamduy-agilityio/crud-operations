@@ -20,7 +20,6 @@
   }
 
   .user-name {
-    @include text-font($default-family, $text-lg, $font-weight-bold, $line-height-default);
     margin: 1rem 0 .5rem;
   }
 
