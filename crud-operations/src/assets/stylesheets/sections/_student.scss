@@ -11,43 +11,72 @@
   ul {
     @extend %list-style-type-none;
   }
+}
 
-  .student {
-    &-table {
-      th {
-        @extend %text-left;
-      }
+.student {
+  &-table {
+    th {
+      @extend %text-left;
     }
-    
-    &-header {
-      @extend %grid;
-      @extend %item-center;
-      grid-template-columns: 64px 1fr 1fr 1fr 1fr 160px 64px 64px;
-      gap: 2rem;
-      color: $color-tertiary;
-      font-size: $text-md;
-      font-weight: $font-weight-bold;
-      padding: 1rem;
+  }
+  
+  &-header {
+    @extend %grid;
+    @extend %item-center;
+    grid-template-columns: 85px 1fr 1fr 1fr 1fr 1fr 64px 64px;
+    color: $color-tertiary;
+    font-size: $text-md;
+    font-weight: $font-weight-bold;
+  
+    &-avatar,
+    &-name,
+    &-email,
+    &-phone,
+    &-enroll-mumber,
+    &-date-admission,
+    &-edit,
+    &-delete {
+      padding: .75rem;
     }
-    
-    &-item {
-      @extend %grid;
-      @extend %item-center;
-      grid-template-columns: 64px 1fr 1fr 1fr 1fr 160px 64px 64px;
-      gap: 2rem;
-      background-color: $bg-color-secondary;
-      border-radius: .5rem;
-      margin: .5rem 0;
-      padding: 1rem .75rem;
+  }
+  
+  &-item {
+    @extend %grid;
+    @extend %item-center;
+    grid-template-columns: 85px 1fr 1fr 1fr 1fr 1fr 64px 64px;
+    background-color: $bg-color-secondary;
+    border-radius: .5rem;
+    margin: .5rem 0;
+  
+    &-avatar,
+    &-name,
+    &-email,
+    &-phone,
+    &-enroll-mumber,
+    &-date-admission,
+    &-edit,
+    &-delete {
+      padding: .75rem;
+    }
+          
+    &.not-found {
+      margin: 0 1.875rem;
+      grid-template-columns: 1fr;
+      padding: 1.875rem;
     }
     
     &-avatar {
-      border-radius: .5rem;
+      @extend %flex;
+      @extend %item-center;
+      
+      img {
+        border-radius: .5rem;
+      }
     }
+  }
 
-    &-icon {
-      font-size: $text-xxl;
-      color: $color-reset-password;
-    }
+  &-icon {
+    font-size: $text-xxl;
+    color: $color-reset-password;
   }
 }
