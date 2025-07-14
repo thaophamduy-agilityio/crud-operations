@@ -20,29 +20,29 @@ interface HeaderProps {
 export const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotification }: HeaderProps): JSX.Element => {
     return (
         <header className="header">
-            <section className="header-left">
-            <IconButton
-              additionalClasses="icon-back"
-              onClick={onBack}
-            >
-              <BackIcon />
-            </IconButton>
-          </section>
-          <section className="header-right">
-            <Input
-              type="search"
-              placeholder='Search ...'
-              additionalClasses="input input-search"
-              value={valueSearch}
-              onChange={onSearchChange}
-            />
-            <IconButton
-              additionalClasses="icon-notification"
-              onClick={onToggleNotification}
-            >
-              <NotificationIcon />
-            </IconButton>
-            </section>
+            <div className="header-left">
+                <IconButton
+                    additionalClasses="icon-back"
+                    onClick={onBack}
+                >
+                    <BackIcon />
+                </IconButton>
+            </div>
+            <div className="header-right">
+                <Input
+                    type="search"
+                    placeholder='Search ...'
+                    additionalClasses="input input-search"
+                    value={valueSearch}
+                    onChange={onSearchChange}
+                />
+                <IconButton
+                    additionalClasses="icon-notification"
+                    onClick={onToggleNotification}
+                >
+                    <NotificationIcon />
+                </IconButton>
+            </div>
         </header>
     );
 }
