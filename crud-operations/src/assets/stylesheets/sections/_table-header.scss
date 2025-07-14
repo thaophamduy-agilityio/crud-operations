@@ -9,7 +9,10 @@
     @extend %flex;
     @extend %item-center;
     @extend %justify-space-between;
-    padding: .75rem 2rem;
+    margin: .75rem 2rem;
+    padding-bottom: .75rem;
+    
+    border-bottom: 1px solid $border-input;
     
     &-right {
         @extend %flex;

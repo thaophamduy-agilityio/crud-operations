@@ -18,7 +18,7 @@ interface TableHeaderProps {
  */
 export const TableHeader = ({ onToggleSort, onAddItem }: TableHeaderProps): JSX.Element => {
     return (
-        <header className="table-header">
+        <div className="table-header">
             <div className="table-header-left">
                 <Text
                     type="p"
@@ -40,6 +40,6 @@ export const TableHeader = ({ onToggleSort, onAddItem }: TableHeaderProps): JSX.
                     onClick={onAddItem}
                 />
             </div>
-        </header>
+        </div>
     );
 }
