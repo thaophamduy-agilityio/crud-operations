@@ -6,3 +6,7 @@ export const ERROR_MESSAGES = {
 export const STUDENTS_MESSAGES = {
   NO_DATA: 'Not found data!',
 };
+
+export const MENU_BAR_MESSAGES = {
+  NO_MENU_BAR: 'Not found menu bar!',
+};
