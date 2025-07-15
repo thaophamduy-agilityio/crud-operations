@@ -13,8 +13,8 @@ interface TableHeaderProps {
 /**
  * Primary UI component for user interaction
  */
-export const TableHeader = ({ onToggleSort, onAddItem }: TableHeaderProps): void => {
-    <div className="table-header">
+export const TableHeader: React.FC<TableHeaderProps> = ({ onToggleSort, onAddItem }: TableHeaderProps) => {
+    return <div className="table-header">
         <div className="table-header-left">
             <Text
                 type="h2"
@@ -33,8 +33,7 @@ export const TableHeader = ({ onToggleSort, onAddItem }: TableHeaderProps): void
             </IconButton>
             <Button
                 label="Add new students"
-                onClick={onAddItem}
-            />
+                onClick={onAddItem} />
         </div>
-    </div>
+    </div>;
 }
