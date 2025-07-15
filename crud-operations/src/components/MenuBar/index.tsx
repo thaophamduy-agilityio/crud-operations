@@ -20,7 +20,6 @@ interface MenuBarProps {
  */
 export const MenuBar = ({ menuBarList }: MenuBarProps): JSX.Element => {
     const [selectedId, setSelectedId] = useState<number>(1);
-    console.log(typeof Date.now());
     const renderListMenuBar = (): JSX.Element[] => {
         return menuBarList?.map((item) => (
         <li
