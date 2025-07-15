@@ -2,7 +2,7 @@
 import { JSX } from "react";
 
 // Components
-import { Student } from "@components/Student";
+import { StudentItem } from "@components/StudentItem";
 
 // Constants
 import { STUDENTS_MESSAGES } from "@constants/error-messages";
@@ -20,20 +20,21 @@ interface StudentProps {
  * Primary UI component for user interaction
  */
 export const ListStudent = ({ studentList, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
-    const renderListStudent = (): JSX.Element[] | undefined => {
-        return studentList?.map((item) => (
-            <Student
-                key={item.id}
-                student= {item}
-                onEditItem={onEditItem}
-                onDeleteItem={onDeleteItem}
-            />
-        ));
-    };
     return (
         <>
             {studentList?.length ? (
-                <div className="list-students">{renderListStudent()}</div>
+                <div className="list-students">
+                    {
+                        studentList?.map((item) => (
+                            <StudentItem
+                                key={item.id}
+                                student= {item}
+                                onEditItem={onEditItem}
+                                onDeleteItem={onDeleteItem}
+                            />
+                        ))
+                    }
+                </div>
             ) : (
                 <p className="student-item not-found">
                 {STUDENTS_MESSAGES.NO_DATA}

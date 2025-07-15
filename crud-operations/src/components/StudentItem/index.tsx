@@ -16,7 +16,7 @@ interface StudentProps {
 /**
  * Primary UI component for user interaction
  */
-export const Student = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
+export const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
     return (
         <div className="student-item">
             <div className="student-item-avatar">

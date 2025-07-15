@@ -2,12 +2,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 // Components
-import { Student } from "./";
+import { StudentItem } from ".";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: 'Components/Common/Student',
-  component: Student,
+  title: 'Components/Common/StudentItem',
+  component: StudentItem,
   tags: ['autodocs'],
   argTypes: {
     student: { description: "Student object containing all student details" },
@@ -15,7 +15,7 @@ const meta = {
     onDeleteItem: { description: "call delete student" },
   },
 
-} satisfies Meta<typeof Student>;
+} satisfies Meta<typeof StudentItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -4,9 +4,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 // Components
 import { ListStudent } from "./";
 
-// Icons
-import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon } from '@components/Icon';
-
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: 'Components/Section/ListStudent',
