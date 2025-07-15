@@ -1,0 +1,17 @@
+// ======================================================
+// Components :: Menu Bar
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+
+.menu {
+    &-bar {
+        @extend %list-style-type-none;
+    }
+    &-item {
+        &.not-found {
+            @extend %text-center;
+        }
+    }
+}
