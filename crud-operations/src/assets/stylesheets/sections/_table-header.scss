@@ -8,5 +8,19 @@
 .table-header {
     @extend %flex;
     @extend %item-center;
-    padding: .5rem 2rem;
+    @extend %justify-space-between;
+    margin: .75rem 2rem;
+    padding-bottom: .75rem;
+    
+    border-bottom: 1px solid $border-input;
+    
+    &-right {
+        @extend %flex;
+        @extend %item-center;
+        @extend %justify-space-between;
+    }
+    
+    .icon-sort {
+        margin: 0 1.5rem;
+    }
 }
