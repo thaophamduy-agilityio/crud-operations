@@ -5,8 +5,6 @@ import clsx from 'clsx';
 // Components
 import { IconButton } from "@components/IconButton";
 
-// Constants
-import { MENU_BAR_MESSAGES } from "@constants/error-messages";
 // Icons
 import { HomeIcon } from "@components/Icon";
 
@@ -14,15 +12,16 @@ import { HomeIcon } from "@components/Icon";
 import { IMenuBar } from "@interface/menu-bar";
 
 interface MenuBarProps {
-    menuBarList: IMenuBar[] | undefined;
+    menuBarList: IMenuBar[];
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const MenuBar = ({ menuBarList }: MenuBarProps): JSX.Element => {
-    const [selectedId, setSelectedId] = useState<number>(3);
-    const renderListMenuBar = (): JSX.Element[] | undefined => {
+    const [selectedId, setSelectedId] = useState<number>(1);
+    console.log(typeof Date.now());
+    const renderListMenuBar = (): JSX.Element[] => {
         return menuBarList?.map((item) => (
         <li
             key={item.id}
@@ -42,13 +41,7 @@ export const MenuBar = ({ menuBarList }: MenuBarProps): JSX.Element => {
     };
     return (
         <>
-            {menuBarList?.length ? (
-                <ul className="menu-bar">{renderListMenuBar()}</ul>
-            ) : (
-                <p className="menu-item not-found">
-                {MENU_BAR_MESSAGES.NO_MENU_BAR}
-                </p>
-            )}
+            <ul className="menu-bar">{renderListMenuBar()}</ul>
         </>
     );
 }
