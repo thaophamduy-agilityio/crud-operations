@@ -1,3 +1,6 @@
+// Libs
+import { JSX } from "react";
+
 // Components
 import { IconButton } from "@components/IconButton";
 import { SortIcon } from "@components/Icon";
@@ -13,8 +16,8 @@ interface TableHeaderProps {
 /**
  * Primary UI component for user interaction
  */
-export const TableHeader: React.FC<TableHeaderProps> = ({ onToggleSort, onAddItem }: TableHeaderProps) => {
-    return <div className="table-header">
+export const TableHeader = ({ onToggleSort, onAddItem }: TableHeaderProps): JSX.Element =>
+    <div className="table-header">
         <div className="table-header-left">
             <Text
                 type="h2"
@@ -36,4 +39,3 @@ export const TableHeader: React.FC<TableHeaderProps> = ({ onToggleSort, onAddIte
                 onClick={onAddItem} />
         </div>
     </div>;
-}
