@@ -34,7 +34,6 @@ export const Modal = (
             <div className="modal-container">
                 {/* Modal header */}
                 <div className="modal-header">
-                    <h2 className="modal-title">{title}</h2>
                     <Text
                         type="h2"
                         size="lg"
@@ -51,16 +50,19 @@ export const Modal = (
                     </IconButton>
                 </div>
                 {/* Modal content */}
+                <div className="modal-content">
                     {children}
+                </div>
                 {/* Modal footer */}
                 <div className="modal-footer">
                     <Button
-                        label={buttonLabel}
-                        onClick={onHandle}
-                    />
-                    <Button
                         label="Cancel"
                         onClick={onCloseModal}
+                        additionalClasses="btn-cancel"
+                    />
+                    <Button
+                        label={buttonLabel}
+                        onClick={onHandle}
                     />
                 </div>
             </div>

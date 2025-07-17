@@ -20,12 +20,12 @@ export const DeleteStudentModal = ({ onDelete, onCancel }: DeleteStudentModalPro
             onCloseModal={onCancel}
             onHandle={() => onDelete}
             title="Delete Student"
-            buttonLabel="Delete"
+            buttonLabel="Delete Student"
         >
             <Text
                 type="p"
             >
-                Do you want to delete this item?
+                Do you want to delete this student?
             </Text>
         </Modal>
     );
