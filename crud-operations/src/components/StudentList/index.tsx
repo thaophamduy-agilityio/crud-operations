@@ -2,7 +2,7 @@
 import { JSX } from "react";
 
 // Components
-import { StudentItem } from "@components/StudentItem";
+import { StudentItem } from "@components/";
 
 // Constants
 import { STUDENTS_MESSAGES } from "@constants/error-messages";
@@ -12,14 +12,14 @@ import { IStudent } from "@interface/student";
 
 interface StudentProps {
     studentList: IStudent[] | undefined;
-    onEditItem: () => void;
-    onDeleteItem: () => void;
+    onEditItem: (student: IStudent) => void;
+    onDeleteItem: (id: number) => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const ListStudent = ({ studentList, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
+const StudentList = ({ studentList, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
     return (
         <>
             {studentList?.length ? (
@@ -43,3 +43,5 @@ export const ListStudent = ({ studentList, onEditItem, onDeleteItem }: StudentPr
         </>
     );
 }
+
+export default StudentList;
