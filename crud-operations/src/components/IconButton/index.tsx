@@ -10,7 +10,7 @@ interface IconButtonProps extends PropsWithChildren {
 /**
  * Primary UI component for user interaction
  */
-export const IconButton = (
+const IconButton = (
     {
         children,
         additionalClasses,
@@ -27,3 +27,5 @@ export const IconButton = (
         </button>
     );
 }
+
+export default IconButton;
