@@ -30,6 +30,7 @@
       "@layouts*": ["layouts*"],
       "@helpers*": ["helpers*"],
       "@interface*": ["interface*"],
+      "@mocks*": ["mocks*"],
       "@services*": ["services*"],
       "@hooks*": ["hooks*"],
       "@image*": ["assets/images*"],
