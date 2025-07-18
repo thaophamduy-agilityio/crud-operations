@@ -15,7 +15,7 @@ interface LogoProps {
 /**
  * Primary UI component for user interaction
  */
-export const Logo = ({ label, size = 'medium', additionalClasses = '' }: LogoProps): JSX.Element => {
+const Logo = ({ label, size = 'medium', additionalClasses = '' }: LogoProps): JSX.Element => {
     return (
         <div
             className={clsx('logo', `logo-${size}`, additionalClasses)}
@@ -24,3 +24,5 @@ export const Logo = ({ label, size = 'medium', additionalClasses = '' }: LogoPro
         </div>
     );
 }
+
+export default Logo;
