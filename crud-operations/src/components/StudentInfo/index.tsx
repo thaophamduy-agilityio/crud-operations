@@ -3,10 +3,10 @@ import type { JSX } from "react";
 import clsx from 'clsx';
 
 //Components
-import { Text } from '@components/Text';
+import Text from '@components/Text';
 
 //Interfaces
-interface UserInfoProps {
+interface StudentInfoProps {
     fullName: string;
     role: string;
     avatarUrl: string;
@@ -20,7 +20,7 @@ interface UserInfoProps {
 /**
  * Primary UI component for user interaction
  */
-export const UserInfo = ({ fullName, role, avatarUrl, size, additionalClasses = '' }: UserInfoProps): JSX.Element => {
+const StudentInfo = ({ fullName, role, avatarUrl, size, additionalClasses = '' }: StudentInfoProps): JSX.Element => {
     const { width, height } = size;
     return (
         <div
@@ -43,3 +43,5 @@ export const UserInfo = ({ fullName, role, avatarUrl, size, additionalClasses = 
         </div>
     );
 }
+
+export default StudentInfo;
