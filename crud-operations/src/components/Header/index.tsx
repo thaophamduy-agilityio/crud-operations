@@ -2,9 +2,8 @@
 import type { ChangeEvent, JSX } from "react";
 
 // Components
-import { IconButton } from "@components/IconButton";
+import { Input, IconButton } from "@components/";
 import { BackIcon, NotificationIcon } from "@components/Icon";
-import { Input } from "@components/Input";
 
 //Interfaces
 interface HeaderProps {
@@ -17,7 +16,7 @@ interface HeaderProps {
 /**
  * Primary UI component for user interaction
  */
-export const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotification }: HeaderProps): JSX.Element => {
+const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotification }: HeaderProps): JSX.Element => {
     return (
         <header className="header">
             <div className="header-left">
@@ -31,6 +30,8 @@ export const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotificati
             <div className="header-right">
                 <Input
                     type="search"
+                    name="search"
+                    id="search"
                     placeholder='Search ...'
                     additionalClasses="input input-search"
                     value={valueSearch}
@@ -46,3 +47,5 @@ export const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotificati
         </header>
     );
 }
+
+export default Header;
