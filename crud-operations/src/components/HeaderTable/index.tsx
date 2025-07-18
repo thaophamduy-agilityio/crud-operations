@@ -2,21 +2,19 @@
 import { JSX } from "react";
 
 // Components
-import { IconButton } from "@components/IconButton";
+import { Button, IconButton, Text } from "@components/";
 import { SortIcon } from "@components/Icon";
-import { Button } from "@components/Button";
-import { Text } from "@components/Text";
 
 //Interfaces
-interface TableHeaderProps {
+interface HeaderTableProps {
     onToggleSort: () => void;
-    onAddItem: () => void;
+    onAdd: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const TableHeader = ({ onToggleSort, onAddItem }: TableHeaderProps): JSX.Element =>
+const HeaderTable = ({ onToggleSort, onAdd }: HeaderTableProps): JSX.Element =>
     <div className="table-header">
         <div className="table-header-left">
             <Text
@@ -36,6 +34,8 @@ export const TableHeader = ({ onToggleSort, onAddItem }: TableHeaderProps): JSX.
             </IconButton>
             <Button
                 label="Add new students"
-                onClick={onAddItem} />
+                onClick={onAdd} />
         </div>
     </div>;
+    
+export default HeaderTable;
