@@ -7,6 +7,7 @@ interface ButtonProps {
     label: string;
     size?: 'small' | 'medium' | 'large';
     variant?: 'primary' | 'outline';
+    additionalClasses?: string;
     isDisabled?: boolean;
     onClick: () => void;
 }
@@ -14,21 +15,22 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = (
+const Button = (
     {
         label,
         size = 'medium',
         variant = 'primary',
         isDisabled = false,
+        additionalClasses,
         ...props
     }: ButtonProps): JSX.Element => {
     return (
         <button
-            aria-label="Aria button"
+            aria-label={`Button ${label}`}
             type="button"
             disabled={isDisabled}
             className={
-                clsx('btn', `btn-${size}`, `btn-${isDisabled ? 'disabled' : variant}`)
+                clsx('btn', `btn-${size}`, `btn-${isDisabled ? 'disabled' : variant}`, additionalClasses)
             }
             {...props}
         >
@@ -36,3 +38,5 @@ export const Button = (
         </button>
     );
 }
+
+export default Button;

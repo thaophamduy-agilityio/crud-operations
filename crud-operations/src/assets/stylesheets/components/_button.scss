@@ -49,6 +49,12 @@
     font-size: $text-xl;
     padding: .875rem 1.875rem;
   }
+  
+  &-cancel {
+    color: $bg-color-tertiary;
+    background-color: $color-login;
+    margin-right: .5rem;
+  }
 
   &-disabled {
     cursor: not-allowed;
