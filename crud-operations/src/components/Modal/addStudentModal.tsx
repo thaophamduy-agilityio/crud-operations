@@ -153,6 +153,7 @@ const AddStudentModal = ({ onAddStudent, onClose, initialStudent }: AddStudentMo
                                 placeholder="Enter your enroll number"
                                 type="string"
                                 value={formData.enrollNumber}
+                                onChange={handleChange}
                             />
                             {errors.enrollNumber && <p className="error-container">{errors.enrollNumber}</p>}
                             <Input
