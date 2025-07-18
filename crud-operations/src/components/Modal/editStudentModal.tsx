@@ -2,16 +2,15 @@
 import { ChangeEvent, useEffect, useState, type JSX } from "react";
 
 // Components
-import { Input } from "@components/Input";
-import { Button } from "@components/Button";
-import { Text } from "@components/Text";
-import { IconButton } from "@components/IconButton";
+import { Input, Button, Text, IconButton } from "@components/";
+
+// Icons
 import { CloseIcon } from "@components/Icon";
 
 // Interfaces
 import { IStudent } from "@interface/student";
 interface EditStudentModalProps {
-    onCancel: () => void;
+    onClose: () => void;
     onEditStudent: (student: IStudent) => void;
     editingStudent: IStudent;
 }
@@ -19,8 +18,36 @@ interface EditStudentModalProps {
 /**
  * Primary UI component for user interaction
  */
-export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: EditStudentModalProps): JSX.Element => {
+const EditStudentModal = ({ onEditStudent, onClose, editingStudent }: EditStudentModalProps): JSX.Element => {
     const [formData, setFormData] = useState<IStudent>(editingStudent);
+    const [errors, setErrors] = useState<{
+        firstName?: string;
+        lastName?: string;
+        email?: string;
+        phone?: string;
+        enrollNumber?: string;
+        dateAdmission?: string;
+        avatar?: string;
+        role?: string;
+    }>({});
+    
+    const validate = () => {
+        const newErrors: typeof errors = {};
+        if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
+        if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = 'Invalid email format';
+        }
+        if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = 'Enroll number number is required';
+        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = 'Date admission is required';
+        if (!formData.avatar.trim()) newErrors.avatar = 'Avatar is required';
+        if (!formData.role.trim()) newErrors.role = 'Role is required';
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
     
     useEffect(() => {
         setFormData(editingStudent);
@@ -29,14 +56,16 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [e.target.id]: e.target.value,
         });
+        setErrors({ ...errors, [e.target.name]: '' }); // clear error
     };
     
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();        
+        e.preventDefault();
+        if (!validate()) return;
         onEditStudent({ ...formData, id: editingStudent.id });
-        onCancel();
+        onClose();
     };
     
     return (        
@@ -55,7 +84,7 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                         </Text>
                         {/* Close button */}
                         <IconButton
-                            onClick={onCancel}
+                            onClick={onClose}
                             additionalClasses="icon"
                         >
                             <CloseIcon />
@@ -66,16 +95,6 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                         <form onSubmit={handleSubmit}>
                             <Input
                                 additionalClasses="input input-default"
-                                label="Avatar"
-                                name="avatar"
-                                id="avatar"
-                                placeholder="Enter your avatar"
-                                type="text"
-                                value={formData.avatar}
-                                onChange={handleChange}
-                            />
-                            <Input
-                                additionalClasses="input input-default"
                                 label="First Name"
                                 name="firstName"
                                 id="firstName"
@@ -84,6 +103,7 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                                 value={formData.firstName}
                                 onChange={handleChange}
                             />
+                            {errors.firstName && <p className="error-container">{errors.firstName}</p>}
                             <Input
                                 additionalClasses="input input-default"
                                 label="Last Name"
@@ -94,6 +114,7 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                                 value={formData.lastName}
                                 onChange={handleChange}
                             />
+                            {errors.lastName && <p className="error-container">{errors.lastName}</p>}
                             <Input
                                 additionalClasses="input input-default"
                                 label="Email"
@@ -104,13 +125,14 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                                 value={formData.email}
                                 onChange={handleChange}
                             />
+                            {errors.email && <p className="error-container">{errors.email}</p>}
                             <Input
                                 additionalClasses="input input-default"
                                 label="Phone"
                                 name="phone"
                                 id="phone"
                                 placeholder="Enter your Phone"
-                                type="number"
+                                type="string"
                                 value={formData.phone}
                                 onChange={handleChange}
                             />
@@ -120,9 +142,10 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                                 name="enrollNumber"
                                 id="enrollNumber"
                                 placeholder="Enter your enroll number"
-                                type="number"
+                                type="string"
                                 value={formData.enrollNumber}
                             />
+                            {errors.enrollNumber && <p className="error-container">{errors.enrollNumber}</p>}
                             <Input
                                 additionalClasses="input input-default"
                                 label="Date of admission"
@@ -133,9 +156,21 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                                 value={formData.dateAdmission}
                                 onChange={handleChange}
                             />
+                            {errors.dateAdmission && <p className="error-container">{errors.dateAdmission}</p>}
                             <Input
                                 additionalClasses="input input-default"
-                                label="role"
+                                label="Avatar"
+                                name="avatar"
+                                id="avatar"
+                                placeholder="Enter your avatar"
+                                type="text"
+                                value={formData.avatar}
+                                onChange={handleChange}
+                            />
+                            {errors.avatar && <p className="error-container">{errors.avatar}</p>}
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Role"
                                 name="role"
                                 id="role"
                                 placeholder="Enter your role"
@@ -143,13 +178,14 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
                                 value={formData.role}
                                 onChange={handleChange}
                             />
+                            {errors.role && <p className="error-container">{errors.role}</p>}
                         </form>
                     </div>
                     {/* Modal footer */}
                     <div className="modal-footer">
                         <Button
                             label="Cancel"
-                            onClick={onCancel}
+                            onClick={onClose}
                             additionalClasses="btn-cancel"
                         />
                         <Button
@@ -162,3 +198,5 @@ export const EditStudentModal = ({ onEditStudent, onCancel, editingStudent }: Ed
         </>
     );
 }
+
+export default EditStudentModal;

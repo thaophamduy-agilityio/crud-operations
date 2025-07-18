@@ -2,22 +2,21 @@
 import type { JSX } from "react";
 
 // Components
-import { Modal } from ".";
-import { Text } from '@components/Text';
+import { Modal, Text } from "components/";
 
 // Interfaces
 interface DeleteStudentModalProps {
-    onCancel: () => void;
+    onClose: () => void;
     onDelete: (id: number) => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const DeleteStudentModal = ({ onDelete, onCancel }: DeleteStudentModalProps): JSX.Element => {
+const DeleteStudentModal = ({ onDelete, onClose }: DeleteStudentModalProps): JSX.Element => {
     return (
         <Modal
-            onCloseModal={onCancel}
+            onClose={onClose}
             onHandle={() => onDelete}
             title="Delete Student"
             buttonLabel="Delete Student"
@@ -30,3 +29,5 @@ export const DeleteStudentModal = ({ onDelete, onCancel }: DeleteStudentModalPro
         </Modal>
     );
 }
+
+export default DeleteStudentModal;

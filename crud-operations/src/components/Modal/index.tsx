@@ -2,27 +2,25 @@
 import { JSX, ReactNode } from 'react';
 
 // Components
-import { Text } from '@components/Text';
-import { IconButton } from '@components/IconButton';
+import { Text, Button, IconButton } from '@components/';
 
 // Icons
 import { CloseIcon } from '@components/Icon';
-import { Button } from '@components/Button';
 
 // Interfaces
 interface ModalProps {
-  onCloseModal: () => void;
-  onHandle: () => void;
-  title: string;
-  children: ReactNode;
-  buttonLabel: string;
+    onClose: () => void;
+    onHandle: () => void;
+    title: string;
+    children: ReactNode;
+    buttonLabel: string;
 }
 /**
  * Primary UI component for user interaction
  */
-export const Modal = (
+const Modal = (
     ({
-    onCloseModal,
+    onClose,
     onHandle,
     title,
     children,
@@ -43,7 +41,7 @@ export const Modal = (
                     </Text>
                     {/* Close button */}
                     <IconButton
-                        onClick={onCloseModal}
+                        onClick={onClose}
                         additionalClasses="icon"
                     >
                         <CloseIcon />
@@ -57,7 +55,7 @@ export const Modal = (
                 <div className="modal-footer">
                     <Button
                         label="Cancel"
-                        onClick={onCloseModal}
+                        onClick={onClose}
                         additionalClasses="btn-cancel"
                     />
                     <Button
@@ -69,3 +67,5 @@ export const Modal = (
         </div>
     </>
 ))
+
+export default Modal;
