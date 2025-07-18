@@ -5,8 +5,8 @@ import type { ChangeEvent, JSX } from "react";
 interface InputProps {
     label?: string;
     value: string;
-    name?: string;
-    id?: string;
+    name: string;
+    id: string;
     placeholder?: string;
     additionalClasses?: string;
     isDisabled?: boolean;
@@ -17,10 +17,11 @@ interface InputProps {
 /**
  * Primary UI component for user interaction
  */
-export const Input = (
+const Input = (
     {
         label,
         name,
+        value,
         id,
         placeholder,
         additionalClasses,
@@ -30,30 +31,21 @@ export const Input = (
     }: InputProps): JSX.Element => {
     return (
         <>
-            { label ? (
-                <>
-                    <label className="input-label" htmlFor={id}>{label}:</label>
-                    <input
-                        name={name}
-                        id={id}
-                        className={additionalClasses}
-                        type={type}
-                        placeholder={placeholder}
-                        disabled={isDisabled}
-                        onChange={onChange}
-                    />
-                </>
-            ) : (
-                <input
-                    name={name}
-                    id={id}
-                    className={additionalClasses}
-                    type={type}
-                    placeholder={placeholder}
-                    disabled={isDisabled}
-                    onChange={onChange}
-                />
+            { label && (
+                <label className="input-label" htmlFor={id}>{label}</label>
             )}
+            <input
+                name={name}
+                id={id}
+                value={value}
+                className={additionalClasses}
+                type={type}
+                placeholder={placeholder}
+                disabled={isDisabled}
+                onChange={onChange}
+            />
         </>
     );
 }
+
+export default Input;
