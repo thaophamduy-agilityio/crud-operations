@@ -13,7 +13,7 @@ interface TextProps {
 /**
  * Primary UI component for user interaction
  */
-export const Text = ({ children, type = 'p', size = 'md', additionalClasses }: TextProps): JSX.Element => {
+const Text = ({ children, type = 'p', size = 'md', additionalClasses }: TextProps): JSX.Element => {
     const sizeClasses = {
         sm: 'text-sm',
         md: 'text-md',
@@ -29,3 +29,5 @@ export const Text = ({ children, type = 'p', size = 'md', additionalClasses }: T
         </TextTag>
     );
 }
+
+export default Text;
