@@ -1,11 +1,11 @@
 export interface IStudent {
-    id: number;
+    id?: number;
     firstName: string;
-    lastName?: string;
+    lastName: string;
     avatar: string;
     email: string;
-    phone: number;
-    enrollNumber: number;
+    phone: string;
+    enrollNumber: string;
     dateAdmission: string;
-    role?: string;
+    role: string;
 }

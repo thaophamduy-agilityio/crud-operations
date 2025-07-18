@@ -2,23 +2,23 @@
 import type { JSX } from "react";
 
 // Components
-import { IconButton } from "@components/IconButton";
+import { IconButton } from "@components/";
 import { EditIcon, DeleteIcon } from "@components/Icon";
 
 //Interfaces
 import { IStudent } from "@interface/student";
 interface StudentProps {
     student: IStudent;
-    onEditItem: () => void;
-    onDeleteItem: () => void;
+    onEditItem: (item: IStudent) => void;
+    onDeleteItem: (id: number) => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
+const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {    
     return (
-        <div className="student-item">
+        <li className="student-item">
             <div className="student-item-avatar">
                 <img src={student.avatar} alt={student.firstName} width={65} height={65} />
             </div>
@@ -30,7 +30,7 @@ export const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps)
             <div className="student-item-edit">
                 <IconButton
                     additionalClasses="icon-edit"
-                    onClick={onEditItem}
+                    onClick={() => onEditItem}
                 >
                     <EditIcon />
                 </IconButton>
@@ -38,11 +38,13 @@ export const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps)
             <div className="student-item-delete">
                 <IconButton
                     additionalClasses="icon-delete"
-                    onClick={onDeleteItem}
+                    onClick={() => onDeleteItem}
                 >
                     <DeleteIcon />
                 </IconButton>
             </div>
-        </div>
+        </li>
     );
 }
+
+export default StudentItem;
