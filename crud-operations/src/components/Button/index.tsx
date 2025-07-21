@@ -9,7 +9,7 @@ interface ButtonProps {
     variant?: 'primary' | 'outline';
     additionalClasses?: string;
     isDisabled?: boolean;
-    onClick: () => void;
+    onClick?: () => void;
 }
 
 /**
