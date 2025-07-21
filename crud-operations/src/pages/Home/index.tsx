@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
-import { ErrorFallback, IconButton, Logo, StudentInfo, Header, MenuBar, StudentList, HeaderTable, AddStudentModal, EditStudentModal, DeleteStudentModal } from '@components/';
+import { ErrorFallback, IconButton, Logo, StudentInfo, Header, MenuBar, StudentList, HeaderTable, Modal } from '@components/';
 
 // Icons
 import { LogoutIcon } from '@components/Icon';
@@ -12,44 +12,37 @@ import { LogoutIcon } from '@components/Icon';
 import { studentsList, menuBarList } from '@mocks/index';
 
 // Interfaces
+import { ModalType } from '@interface/modalType';
 import { IStudent } from '@interface/student';
 
 const Home = () => {
-    // throw new Error('This is a test error for the error boundary');
-    
     const [students, setStudents] = useState<IStudent[]>([]);
-    const [initialStudent, setInitialStudent] = useState<IStudent | null>(null);
     const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);
-    const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
-    const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<boolean>(false);
+    const [modalType, setModalType] = useState<ModalType | null>(null);
     
     /**
     * Handle add a student to student list
-    * @param {function} toggleModalAdd
+    * @param {function} handleAddStudent
     */
     const handleAddStudent = (student: Omit<IStudent, 'id'> | IStudent) => {
         setStudents([...students, { ...student, id: Date.now() }]);
-        setIsAddModalOpen(!isAddModalOpen);
     }
     
     /**
     * Handle update a student from student list
-    * @param {function} toggleModalAdd
+    * @param {function} handleUpdateStudent
     */
     const handleUpdateStudent = (student: IStudent) => {
         setStudents(students.map(s => s.id === student.id ? student : s));
         setInitialStudent(null);
-        setIsEditModalOpen(!isEditModalOpen);
     };
     
     /**
     * Handle delete a student from student list
-    * @param {function} toggleModalAdd
+    * @param {function} handleDeleteStudent
     */
     const handleDeleteStudent = (id: number) => {
         setStudents(students.filter(s => s.id !== id));
-        setIsDeleteModalOpen(!isDeleteModalOpen);
     }
     
     /**
@@ -57,7 +50,7 @@ const Home = () => {
     * @param {function} toggleModalAdd
     */    
     const toggleModalAdd = (): void => {
-        setIsAddModalOpen(!isAddModalOpen);
+        setIsAddModalOpen((prev) => !prev);
     };    
     
     /**
@@ -65,7 +58,7 @@ const Home = () => {
     * @param {function} toggleModalEdit
     */    
     const toggleModalEdit = (student: IStudent): void => {
-        setIsEditModalOpen(!isEditModalOpen);
+        setIsEditModalOpen((prev) => !prev);
         setEditingStudent(student);
     };
     
@@ -74,7 +67,7 @@ const Home = () => {
     * @param {function} toggleModalDelete
     */ 
     const toggleModalDelete = (): void => {
-        setIsDeleteModalOpen(!isDeleteModalOpen);
+        setIsDeleteModalOpen((prev) => !prev);
     };
     
     /**
@@ -82,7 +75,7 @@ const Home = () => {
     * @param {function} CloseAdd
     */
     const CloseAdd = () => {
-        setIsAddModalOpen(!isAddModalOpen);
+        setIsAddModalOpen((prev) => !prev);
     }
     
     /**
@@ -90,7 +83,7 @@ const Home = () => {
     * @param {function} CloseEdit
     */
     const CloseEdit = () => {
-        setIsEditModalOpen(!isEditModalOpen);
+        setIsEditModalOpen((prev) => !prev);
     }
     
     /**
@@ -98,7 +91,7 @@ const Home = () => {
     * @param {function} CloseDelete
     */
     const CloseDelete = () => {
-        setIsDeleteModalOpen(!isDeleteModalOpen);
+        setIsDeleteModalOpen((prev) => !prev);
     }
   
     return (
@@ -145,7 +138,7 @@ const Home = () => {
                     onToggleSort={function (): void {
                     throw new Error('Function not implemented.');
                     } }
-                    onAdd={toggleModalAdd}
+                    onAdd={()=>setModalType(ModalType.NEW)}
                 />
                 <div className="list-students">
                     <div className="student-header">
@@ -167,29 +160,15 @@ const Home = () => {
                 </div>
                 <StudentList
                     studentList={studentsList}
-                    onEditItem={toggleModalEdit}
-                    onDeleteItem={toggleModalDelete}
-                />
-                {   isAddModalOpen &&
-                    <AddStudentModal
-                        onClose={CloseAdd}
-                        onAddStudent={handleAddStudent}
-                        initialStudent={initialStudent}
-                    />
-                }
-                {   isEditModalOpen &&
-                    <EditStudentModal
-                        onClose={CloseEdit}
-                        onEditStudent={handleUpdateStudent}
-                        editingStudent={editingStudent}
-                    />
-                }
-                {   isDeleteModalOpen &&
-                    <DeleteStudentModal
-                        onClose={CloseDelete}
-                        onDelete={handleDeleteStudent}
-                    />
-                }
+                    onEditItem={(editingStudent: IStudent) => {
+                        setModalType(ModalType.EDIT);
+                        setEditingStudent(editingStudent);
+                    }}
+                    onDeleteItem={() => {
+                        setModalType(ModalType.DELETE);
+                    }}
+                />                
+                {modalType && <Modal modalType={modalType} editingStudent={editingStudent} onClose={()=>setModalType(null)} />}
             </main>
         </section>
     )
