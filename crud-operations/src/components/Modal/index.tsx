@@ -1,19 +1,22 @@
 // Libs
-import { JSX, ReactNode } from 'react';
+import React, { JSX } from 'react';
 
 // Components
-import { Text, Button, IconButton } from '@components/';
+import { Text, IconButton } from '@components/';
+
+// Forms
+import { AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components/';
 
 // Icons
 import { CloseIcon } from '@components/Icon';
 
 // Interfaces
+import { ModalType } from '@interface/modalType';
+import { IStudent } from "@interface/student";
 interface ModalProps {
     onClose: () => void;
-    onHandle: () => void;
-    title: string;
-    children: ReactNode;
-    buttonLabel: string;
+    modalType : ModalType;
+    editingStudent: IStudent;
 }
 /**
  * Primary UI component for user interaction
@@ -21,51 +24,63 @@ interface ModalProps {
 const Modal = (
     ({
     onClose,
-    onHandle,
-    title,
-    children,
-    buttonLabel,
-    }: ModalProps): JSX.Element => (
-    <>
-        <div className="modal-overlay"></div>
-        <div className="modal">
-            <div className="modal-container">
-                {/* Modal header */}
-                <div className="modal-header">
-                    <Text
-                        type="h2"
-                        size="lg"
-                        additionalClasses="modal-title"
-                    >
-                        {title}
-                    </Text>
-                    {/* Close button */}
-                    <IconButton
-                        onClick={onClose}
-                        additionalClasses="icon"
-                    >
-                        <CloseIcon />
-                    </IconButton>
-                </div>
-                {/* Modal content */}
-                <div className="modal-content">
-                    {children}
-                </div>
-                {/* Modal footer */}
-                <div className="modal-footer">
-                    <Button
-                        label="Cancel"
-                        onClick={onClose}
-                        additionalClasses="btn-cancel"
-                    />
-                    <Button
-                        label={buttonLabel}
-                        onClick={onHandle}
-                    />
+    modalType,
+    editingStudent,
+    }: ModalProps): JSX.Element => {
+        
+    let content = null;
+    let title = "";
+    
+    switch (modalType) {
+        case ModalType.NEW:
+            content = <AddStudentForm onClose={onClose} />;
+            title = "Add New Student";
+            break;
+
+            case ModalType.EDIT:
+            content = <EditStudentForm editingStudent={editingStudent} onClose={onClose} />;
+            title = "Edit Student";
+            break;
+
+            case ModalType.DELETE:
+            content = <DeleteStudentForm id={editingStudent.id} onClose={onClose} />;
+            title = "Delete Student";
+            break;
+
+        default:
+            break;
+    }
+    
+    return (
+        <>
+            <div className="modal-overlay"></div>
+            <div className="modal">
+                <div className="modal-container">
+                    {/* Modal header */}
+                    <div className="modal-header">
+                        <Text
+                            type="h2"
+                            size="lg"
+                            additionalClasses="modal-title"
+                        >
+                            {title}
+                        </Text>
+                        {/* Close button */}
+                        <IconButton
+                            onClick={onClose}
+                            additionalClasses="icon"
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </div>
+                    {/* Modal content */}
+                    <div className="modal-content">
+                        {content}
+                    </div>
                 </div>
             </div>
-        </div>
-    </>
-))
+        </>
+    );
+})
 
 export default Modal;
