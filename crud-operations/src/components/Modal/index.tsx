@@ -17,6 +17,8 @@ interface ModalProps {
     onClose: () => void;
     modalType : ModalType;
     editingStudent: IStudent;
+    deleteStudentId: string | undefined;
+    onActionSuccess: () => void;
 }
 /**
  * Primary UI component for user interaction
@@ -26,6 +28,8 @@ const Modal = (
     onClose,
     modalType,
     editingStudent,
+    deleteStudentId,
+    onActionSuccess,
     }: ModalProps): JSX.Element => {
         
     let content = null;
@@ -33,17 +37,17 @@ const Modal = (
     
     switch (modalType) {
         case ModalType.NEW:
-            content = <AddStudentForm onClose={onClose} />;
+            content = <AddStudentForm onActionSuccess={onActionSuccess} onClose={onClose} />;
             title = "Add New Student";
             break;
 
             case ModalType.EDIT:
-            content = <EditStudentForm editingStudent={editingStudent} onClose={onClose} />;
+            content = <EditStudentForm onActionSuccess={onActionSuccess} editingStudent={editingStudent} onClose={onClose} />;
             title = "Edit Student";
             break;
 
             case ModalType.DELETE:
-            content = <DeleteStudentForm id={editingStudent.id} onClose={onClose} />;
+            content = <DeleteStudentForm onActionSuccess={onActionSuccess} deleteStudentId={deleteStudentId} onClose={onClose} />;
             title = "Delete Student";
             break;
 
