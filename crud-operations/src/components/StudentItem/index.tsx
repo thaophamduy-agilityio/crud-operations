@@ -10,7 +10,7 @@ import { IStudent } from "@interface/student";
 interface StudentProps {
     student: IStudent;
     onEditItem: (item: IStudent) => void;
-    onDeleteItem: (id: number) => void;
+    onDeleteItem: (id: string) => void;
 }
 
 /**
