@@ -27,7 +27,7 @@ const Button = (
     return (
         <button
             aria-label={`Button ${label}`}
-            type="button"
+            type="submit"
             disabled={isDisabled}
             className={
                 clsx('btn', `btn-${size}`, `btn-${isDisabled ? 'disabled' : variant}`, additionalClasses)
