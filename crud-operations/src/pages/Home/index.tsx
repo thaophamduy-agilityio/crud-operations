@@ -1,6 +1,7 @@
 // Libs
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { withErrorBoundary } from 'react-error-boundary';
+import axios from 'axios';
 
 // Components
 import { ErrorFallback, IconButton, Logo, StudentInfo, Header, MenuBar, StudentList, HeaderTable, Modal } from '@components/';
@@ -9,7 +10,7 @@ import { ErrorFallback, IconButton, Logo, StudentInfo, Header, MenuBar, StudentL
 import { LogoutIcon } from '@components/Icon';
 
 // Mocks
-import { studentsList, menuBarList } from '@mocks/index';
+import { menuBarList } from '@mocks/index';
 
 // Interfaces
 import { ModalType } from '@interface/modalType';
@@ -18,82 +19,19 @@ import { IStudent } from '@interface/student';
 const Home = () => {
     const [students, setStudents] = useState<IStudent[]>([]);
     const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);
+    const [deleteStudentId, setDeleteStudentId] = useState<string>();
     const [modalType, setModalType] = useState<ModalType | null>(null);
     
-    /**
-    * Handle add a student to student list
-    * @param {function} handleAddStudent
-    */
-    const handleAddStudent = (student: Omit<IStudent, 'id'> | IStudent) => {
-        setStudents([...students, { ...student, id: Date.now() }]);
-    }
-    
-    /**
-    * Handle update a student from student list
-    * @param {function} handleUpdateStudent
-    */
-    const handleUpdateStudent = (student: IStudent) => {
-        setStudents(students.map(s => s.id === student.id ? student : s));
-        setInitialStudent(null);
+    // 📥 GET all students
+    const fetchStudents = async () => {
+        const res = await axios.get(`${process.env.VITE_BASE_URL}/students`);
+        setStudents(res.data);
     };
+
+    useEffect(() => {
+        fetchStudents();
+    }, []);
     
-    /**
-    * Handle delete a student from student list
-    * @param {function} handleDeleteStudent
-    */
-    const handleDeleteStudent = (id: number) => {
-        setStudents(students.filter(s => s.id !== id));
-    }
-    
-    /**
-    * Handle toggle add the modal student
-    * @param {function} toggleModalAdd
-    */    
-    const toggleModalAdd = (): void => {
-        setIsAddModalOpen((prev) => !prev);
-    };    
-    
-    /**
-    * Handle toggle edit the modal student
-    * @param {function} toggleModalEdit
-    */    
-    const toggleModalEdit = (student: IStudent): void => {
-        setIsEditModalOpen((prev) => !prev);
-        setEditingStudent(student);
-    };
-    
-    /**
-    * Handle toggle delete the modal student
-    * @param {function} toggleModalDelete
-    */ 
-    const toggleModalDelete = (): void => {
-        setIsDeleteModalOpen((prev) => !prev);
-    };
-    
-    /**
-    * Handle toggle close add the modal student
-    * @param {function} CloseAdd
-    */
-    const CloseAdd = () => {
-        setIsAddModalOpen((prev) => !prev);
-    }
-    
-    /**
-    * Handle toggle close edit the modal student
-    * @param {function} CloseEdit
-    */
-    const CloseEdit = () => {
-        setIsEditModalOpen((prev) => !prev);
-    }
-    
-    /**
-    * Handle toggle close delete the modal student
-    * @param {function} CloseDelete
-    */
-    const CloseDelete = () => {
-        setIsDeleteModalOpen((prev) => !prev);
-    }
-  
     return (
         <section className="container">
             <aside className="side-bar">
@@ -159,16 +97,17 @@ const Home = () => {
                     </div>
                 </div>
                 <StudentList
-                    studentList={studentsList}
+                    studentList={students}
                     onEditItem={(editingStudent: IStudent) => {
-                        setModalType(ModalType.EDIT);
                         setEditingStudent(editingStudent);
+                        setModalType(ModalType.EDIT);
                     }}
-                    onDeleteItem={() => {
+                    onDeleteItem={(deleteStudentId: string) => {
+                        setDeleteStudentId(deleteStudentId);
                         setModalType(ModalType.DELETE);
                     }}
                 />                
-                {modalType && <Modal modalType={modalType} editingStudent={editingStudent} onClose={()=>setModalType(null)} />}
+                {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} editingStudent={editingStudent} deleteStudentId={deleteStudentId} onClose={()=>setModalType(null)} />}
             </main>
         </section>
     )
