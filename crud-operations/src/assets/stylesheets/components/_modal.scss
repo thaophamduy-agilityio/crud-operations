@@ -58,6 +58,13 @@
         p {
             @extend %text-center;
             padding: 1.5rem;
+            
+            &.error-container {
+                @extend %text-left;
+                justify-content: unset;
+                margin-top: -.75rem;
+                padding: 0;
+            }
         }
     }
 

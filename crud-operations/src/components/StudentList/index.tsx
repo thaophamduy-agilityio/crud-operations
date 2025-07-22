@@ -13,7 +13,7 @@ import { IStudent } from "@interface/student";
 interface StudentProps {
     studentList: IStudent[] | undefined;
     onEditItem: (student: IStudent) => void;
-    onDeleteItem: (id: number) => void;
+    onDeleteItem: (id: string) => void;
 }
 
 /**

@@ -4,7 +4,7 @@ import type { ChangeEvent, JSX } from "react";
 //Interfaces
 interface InputProps {
     label?: string;
-    value: string;
+    value: string | undefined;
     name: string;
     id: string;
     placeholder?: string;
@@ -12,6 +12,7 @@ interface InputProps {
     isDisabled?: boolean;
     type: string;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    errorMessage?: string;
 }
 
 /**
@@ -28,6 +29,7 @@ const Input = (
         isDisabled = false,
         type,
         onChange,
+        errorMessage,
     }: InputProps): JSX.Element => {
     return (
         <>
@@ -44,6 +46,9 @@ const Input = (
                 disabled={isDisabled}
                 onChange={onChange}
             />
+            {errorMessage && (
+                <p className="error-container">{errorMessage}</p>
+            )}
         </>
     );
 }

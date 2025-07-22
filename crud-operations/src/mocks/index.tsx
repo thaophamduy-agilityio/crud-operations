@@ -7,7 +7,7 @@ import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon
 
 export const studentsList: IStudent[] = [
     {
-        "id": 1,
+        "id": "1",
         "firstName": "Karthi",
         "lastName": "Madesh",
         "avatar": "https://i.pravatar.cc/150?img=1",
@@ -18,7 +18,7 @@ export const studentsList: IStudent[] = [
         "role": "Admin"
     },
     {
-        "id": 2,
+        "id": "2",
         "firstName": "Karthi",
         "lastName": "Madesh",
         "avatar": "https://i.pravatar.cc/150?img=2",
@@ -29,7 +29,7 @@ export const studentsList: IStudent[] = [
         "role": "Admin"
     },
     {
-        "id": 3,
+        "id": "3",
         "firstName": "Karthi",
         "lastName": "Madesh",
         "avatar": "https://i.pravatar.cc/150?img=3",
@@ -40,7 +40,7 @@ export const studentsList: IStudent[] = [
         "role": "Admin"
     },
     {
-        "id": 4,
+        "id": "4",
         "firstName": "Karthi",
         "lastName": "Madesh",
         "avatar": "https://i.pravatar.cc/150?img=4",
@@ -51,7 +51,7 @@ export const studentsList: IStudent[] = [
         "role": "Admin"
     },
     {
-        "id": 5,
+        "id": "5",
         "firstName": "Karthi",
         "lastName": "Madesh",
         "avatar": "https://i.pravatar.cc/150?img=5",
@@ -62,7 +62,7 @@ export const studentsList: IStudent[] = [
         "role": "Admin"
     },
     {
-        "id": 6,
+        "id": "6",
         "firstName": "Karthi",
         "lastName": "Madesh",
         "avatar": "https://i.pravatar.cc/150?img=6",
@@ -73,7 +73,7 @@ export const studentsList: IStudent[] = [
         "role": "Admin"
     },
     {
-        "id": 7,
+        "id": "7",
         "firstName": "Karthi",
         "lastName": "Madesh",
         "avatar": "https://i.pravatar.cc/150?img=7",
