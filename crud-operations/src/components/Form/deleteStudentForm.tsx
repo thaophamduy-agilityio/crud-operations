@@ -1,32 +1,31 @@
 // Libs
 import { JSX } from "react";
-import axios from "axios";
 
 // Components
-import { Button, Text } from "@components/";
+import { Text } from "@components/";
 
-// Constants
-import { ENPOINT } from '@constants/endpoint';
+// Setvices
+import { deleteStudent } from '@services/studentServices';
 
 // Interfaces
 interface DeleteStudentFormProps {
     onClose: () => void;
-    deleteStudentId: string;
+    studentId: string;
     onActionSuccess: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-const DeleteStudentForm = ({ onClose, deleteStudentId, onActionSuccess }: DeleteStudentFormProps): JSX.Element => {    
+const DeleteStudentForm = ({ onClose, studentId, onActionSuccess }: DeleteStudentFormProps): JSX.Element => {    
     const handleDeleteStudent = async (id: string) => {        
-        await axios.delete(`${ENPOINT.BASE_URL}/students/${id}`);
+        await deleteStudent(id);
         onActionSuccess();
     };
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        deleteStudentId !== null && handleDeleteStudent(deleteStudentId);
+        studentId !== null && handleDeleteStudent(studentId);
         onClose();
     };
     
@@ -37,17 +36,6 @@ const DeleteStudentForm = ({ onClose, deleteStudentId, onActionSuccess }: Delete
             >
                 Do you want to delete this student?
             </Text>
-            {/* Modal footer */}
-            <div className="modal-footer">
-                <Button
-                    label="Cancel"
-                    onClick={onClose}
-                    additionalClasses="btn-cancel"
-                />
-                <Button
-                    label='Delete Student'
-                />
-            </div>
         </form>
     )
 }

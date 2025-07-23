@@ -1,8 +1,8 @@
 // Libs
-import React, { JSX } from 'react';
+import { JSX } from 'react';
 
 // Components
-import { Text, IconButton } from '@components/';
+import { Text, IconButton, Button } from '@components/';
 
 // Forms
 import { AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components/';
@@ -17,7 +17,7 @@ interface ModalProps {
     onClose: () => void;
     modalType : ModalType;
     editingStudent: IStudent;
-    deleteStudentId: string;
+    studentId: string;
     onActionSuccess: () => void;
 }
 /**
@@ -28,27 +28,31 @@ const Modal = (
     onClose,
     modalType,
     editingStudent,
-    deleteStudentId,
+    studentId,
     onActionSuccess,
     }: ModalProps): JSX.Element => {
         
     let content = null;
     let title = "";
+    let labelButton = "";
     
     switch (modalType) {
         case ModalType.NEW:
             content = <AddStudentForm onActionSuccess={onActionSuccess} onClose={onClose} />;
             title = "Add New Student";
+            labelButton = "Add New Student";
             break;
 
             case ModalType.EDIT:
             content = <EditStudentForm onActionSuccess={onActionSuccess} editingStudent={editingStudent} onClose={onClose} />;
             title = "Edit Student";
+            labelButton = "Update Student";
             break;
 
             case ModalType.DELETE:
-            content = <DeleteStudentForm onActionSuccess={onActionSuccess} deleteStudentId={deleteStudentId} onClose={onClose} />;
+            content = <DeleteStudentForm onActionSuccess={onActionSuccess} studentId={studentId} onClose={onClose} />;
             title = "Delete Student";
+            labelButton = "Delete Student";
             break;
 
         default:
@@ -80,6 +84,17 @@ const Modal = (
                     {/* Modal content */}
                     <div className="modal-content">
                         {content}
+                    </div>
+                    {/* Modal footer */}
+                    <div className="modal-footer">
+                        <Button
+                            label="Cancel"
+                            onClick={onClose}
+                            additionalClasses="btn-cancel"
+                        />
+                        <Button
+                            label={labelButton}
+                        />
                     </div>
                 </div>
             </div>

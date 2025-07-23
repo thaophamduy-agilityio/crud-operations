@@ -1,7 +1,6 @@
 // Libs
 import { useEffect, useState } from 'react';
 import { withErrorBoundary } from 'react-error-boundary';
-import axios from 'axios';
 
 // Components
 import { ErrorFallback, IconButton, Logo, StudentInfo, Header, MenuBar, StudentList, HeaderTable, Modal } from '@components/';
@@ -12,8 +11,8 @@ import { LogoutIcon } from '@components/Icon';
 // Mocks
 import { menuBarList } from '@mocks/index';
 
-// Constants
-import { ENPOINT } from '@constants/endpoint';
+// Setvices
+import { getStudent } from '@services/studentServices';
 
 // Interfaces
 import { ModalType } from '@interface/modalType';
@@ -22,13 +21,13 @@ import { IStudent } from '@interface/student';
 const Home = () => {
     const [students, setStudents] = useState<IStudent[]>([]);
     const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);
-    const [deleteStudentId, setDeleteStudentId] = useState<string | undefined>();
+    const [studentId, setStudentId] = useState<string | undefined>();
     const [modalType, setModalType] = useState<ModalType | null>(null);
     
-    // GET all students
+    // GET all students    
     const fetchStudents = async () => {
-        const res = await axios.get(`${ENPOINT.BASE_URL}/students`);
-        setStudents(res.data);
+        const data = await getStudent();
+        setStudents(data || []);
     };
 
     useEffect(() => {
@@ -105,12 +104,12 @@ const Home = () => {
                         setEditingStudent(editingStudent);
                         setModalType(ModalType.EDIT);
                     }}
-                    onDeleteItem={(deleteStudentId: string) => {
-                        setDeleteStudentId(deleteStudentId);
+                    onDeleteItem={(studentId: string) => {
+                        setStudentId(studentId);
                         setModalType(ModalType.DELETE);
                     }}
                 />                
-                {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} editingStudent={editingStudent} deleteStudentId={deleteStudentId} onClose={()=>setModalType(null)} />}
+                {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} editingStudent={editingStudent} studentId={studentId ?? ''} onClose={()=>setModalType(null)} />}
             </main>
         </section>
     )

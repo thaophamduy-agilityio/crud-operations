@@ -1,13 +1,14 @@
 // Libs
 import { ChangeEvent, useState, type JSX } from "react";
-import axios from "axios";
 
 // Components
-import { Input, Button } from "@components/";
+import { Input } from "@components/";
 
 // Constants
-import { ENPOINT } from '@constants/endpoint';
-import { FORM } from '@constants/error-messages';
+import { ERROR_MESSAGES } from '@constants/error-messages';
+
+// Setvices
+import { addNewStudent } from '@services/studentServices';
 
 // Interfaces
 import { IStudent } from "@interface/student";
@@ -36,18 +37,18 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
     
     const validate = () => {
         const newErrors: typeof errors = {};
-        if (!formData.firstName) newErrors.firstName = FORM.NO_FIRST_NAME;
-        if (!formData.lastName.trim()) newErrors.lastName = FORM.NO_LAST_NAME;
+        if (!formData.firstName) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
+        if (!formData.lastName.trim()) newErrors.lastName = ERROR_MESSAGES.NO_LAST_NAME;
         if (!formData.email.trim()) {
-            newErrors.email = FORM.NO_EMAIL;
+            newErrors.email = ERROR_MESSAGES.NO_EMAIL;
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = FORM.INVALID_EMAIL;
+            newErrors.email = ERROR_MESSAGES.INVALID_EMAIL;
         }
-        if (!formData.phone.trim()) newErrors.phone = FORM.NO_PHONE;
-        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = FORM.NO_ENROLL_NUMBER;
-        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = FORM.NO_DATE_ADMISSION;
-        if (!formData.avatar.trim()) newErrors.avatar = FORM.NO_AVATAR;
-        if (!formData.role.trim()) newErrors.role = FORM.NO_ROLL;
+        if (!formData.phone.trim()) newErrors.phone = ERROR_MESSAGES.NO_PHONE;
+        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = ERROR_MESSAGES.NO_ENROLL_NUMBER;
+        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = ERROR_MESSAGES.NO_DATE_ADMISSION;
+        if (!formData.avatar.trim()) newErrors.avatar = ERROR_MESSAGES.NO_AVATAR;
+        if (!formData.role.trim()) newErrors.role = ERROR_MESSAGES.NO_ROLL;
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -61,7 +62,7 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
     };
     
     const handleAddStudent = async (data: Omit<IStudent, 'id'> | IStudent) => {
-        await axios.post<IStudent>(`${ENPOINT.BASE_URL}/students`, data);
+        await addNewStudent(data);
         onActionSuccess();
     }
     
@@ -161,17 +162,6 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 onChange={handleChange}
                 errorMessage={errors.role}
             />
-            {/* Modal footer */}
-            <div className="modal-footer">
-                <Button
-                    label="Cancel"
-                    onClick={onClose}
-                    additionalClasses="btn-cancel"
-                />
-                <Button
-                    label='Add New Student'
-                />
-            </div>
         </form>
     );
 }
