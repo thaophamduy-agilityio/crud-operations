@@ -10,3 +10,15 @@ export const STUDENTS_MESSAGES = {
 export const MENU_BAR_MESSAGES = {
   NO_MENU_BAR: 'Not found menu bar!',
 };
+
+export const FORM = {
+  NO_FIRST_NAME: 'First name is required',
+  NO_LAST_NAME: 'Last name is required',
+  NO_EMAIL: 'Email is required',
+  INVALID_EMAIL: 'Invalid email format',
+  NO_PHONE: 'Phone number is required',
+  NO_ENROLL_NUMBER: 'Enroll number is required',
+  NO_DATE_ADMISSION: 'Date admission is required',
+  NO_AVATAR: 'Avatar is required',
+  NO_ROLL: 'Roll is required',
+};
