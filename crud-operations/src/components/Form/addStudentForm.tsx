@@ -1,19 +1,25 @@
 // Libs
-import { ChangeEvent, useEffect, useState, type JSX } from "react";
+import { ChangeEvent, useState, type JSX } from "react";
+import axios from "axios";
 
 // Components
 import { Input, Button } from "@components/";
+
+// Constants
+import { ENPOINT } from '@constants/endpoint';
+import { FORM } from '@constants/error-messages';
 
 // Interfaces
 import { IStudent } from "@interface/student";
 interface AddStudentModalProps {
     onClose: () => void;
+    onActionSuccess: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
+const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX.Element => {
     const initialStudent = { firstName: '', lastName: '', email: '', phone: '', enrollNumber: '', dateAdmission: '', avatar: '', role: '' };
     const [formData, setFormData] = useState<Omit<IStudent, 'id'>>(initialStudent);
     
@@ -30,18 +36,18 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
     
     const validate = () => {
         const newErrors: typeof errors = {};
-        if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
-        if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+        if (!formData.firstName) newErrors.firstName = FORM.NO_FIRST_NAME;
+        if (!formData.lastName.trim()) newErrors.lastName = FORM.NO_LAST_NAME;
         if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
+            newErrors.email = FORM.NO_EMAIL;
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = 'Invalid email format';
+            newErrors.email = FORM.INVALID_EMAIL;
         }
-        if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = 'Enroll number number is required';
-        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = 'Date admission is required';
-        if (!formData.avatar.trim()) newErrors.avatar = 'Avatar is required';
-        if (!formData.role.trim()) newErrors.role = 'Role is required';
+        if (!formData.phone.trim()) newErrors.phone = FORM.NO_PHONE;
+        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = FORM.NO_ENROLL_NUMBER;
+        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = FORM.NO_DATE_ADMISSION;
+        if (!formData.avatar.trim()) newErrors.avatar = FORM.NO_AVATAR;
+        if (!formData.role.trim()) newErrors.role = FORM.NO_ROLL;
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -54,8 +60,9 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
         setErrors({ ...errors, [e.target.name]: '' }); // clear error
     };
     
-    const handleAddStudent = (newStudent: Omit<IStudent, 'id'> | IStudent) => {
-        // TODO: integrate API
+    const handleAddStudent = async (data: Omit<IStudent, 'id'> | IStudent) => {
+        await axios.post<IStudent>(`${ENPOINT.BASE_URL}/students`, data);
+        onActionSuccess();
     }
     
     const handleSubmit = (e: React.FormEvent) => {
@@ -76,8 +83,8 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
                 type="text"
                 value={formData.firstName}
                 onChange={handleChange}
+                errorMessage={errors.firstName}
             />
-            {errors.firstName && <p className="error-container">{errors.firstName}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Last Name"
@@ -87,8 +94,8 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
                 type="text"
                 value={formData.lastName}
                 onChange={handleChange}
+                errorMessage={errors.lastName}
             />
-            {errors.lastName && <p className="error-container">{errors.lastName}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Email"
@@ -98,8 +105,8 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
                 type="text"
                 value={formData.email}
                 onChange={handleChange}
+                errorMessage={errors.email}
             />
-            {errors.email && <p className="error-container">{errors.email}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Phone"
@@ -119,8 +126,8 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
                 type="string"
                 value={formData.enrollNumber}
                 onChange={handleChange}
+                errorMessage={errors.enrollNumber}
             />
-            {errors.enrollNumber && <p className="error-container">{errors.enrollNumber}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Date of admission"
@@ -130,8 +137,8 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
                 type="text"
                 value={formData.dateAdmission}
                 onChange={handleChange}
+                errorMessage={errors.dateAdmission}
             />
-            {errors.dateAdmission && <p className="error-container">{errors.dateAdmission}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Avatar"
@@ -141,8 +148,8 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
                 type="text"
                 value={formData.avatar}
                 onChange={handleChange}
+                errorMessage={errors.avatar}
             />
-            {errors.avatar && <p className="error-container">{errors.avatar}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Role"
@@ -152,8 +159,8 @@ const AddStudentForm = ({ onClose }: AddStudentModalProps): JSX.Element => {
                 type="text"
                 value={formData.role}
                 onChange={handleChange}
+                errorMessage={errors.role}
             />
-            {errors.role && <p className="error-container">{errors.role}</p>}
             {/* Modal footer */}
             <div className="modal-footer">
                 <Button

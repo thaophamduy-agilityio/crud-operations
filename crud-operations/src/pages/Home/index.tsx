@@ -12,6 +12,9 @@ import { LogoutIcon } from '@components/Icon';
 // Mocks
 import { menuBarList } from '@mocks/index';
 
+// Constants
+import { ENPOINT } from '@constants/endpoint';
+
 // Interfaces
 import { ModalType } from '@interface/modalType';
 import { IStudent } from '@interface/student';
@@ -19,12 +22,12 @@ import { IStudent } from '@interface/student';
 const Home = () => {
     const [students, setStudents] = useState<IStudent[]>([]);
     const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);
-    const [deleteStudentId, setDeleteStudentId] = useState<string>();
+    const [deleteStudentId, setDeleteStudentId] = useState<string | undefined>();
     const [modalType, setModalType] = useState<ModalType | null>(null);
     
-    // 📥 GET all students
+    // GET all students
     const fetchStudents = async () => {
-        const res = await axios.get(`${process.env.VITE_BASE_URL}/students`);
+        const res = await axios.get(`${ENPOINT.BASE_URL}/students`);
         setStudents(res.data);
     };
 

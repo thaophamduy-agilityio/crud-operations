@@ -17,7 +17,7 @@ interface ModalProps {
     onClose: () => void;
     modalType : ModalType;
     editingStudent: IStudent;
-    deleteStudentId: string | undefined;
+    deleteStudentId: string;
     onActionSuccess: () => void;
 }
 /**
