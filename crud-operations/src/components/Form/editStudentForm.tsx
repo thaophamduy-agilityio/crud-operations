@@ -1,20 +1,27 @@
 // Libs
-import { ChangeEvent, useEffect, useState, type JSX } from "react";
+import { ChangeEvent, useState, type JSX } from "react";
 
 // Components
-import { Input, Button } from "@components/";
+import { Input } from "@components/";
+
+// Constants
+import { ERROR_MESSAGES } from '@constants/error-messages';
+
+// Setvices
+import { updateStudent } from '@services/studentServices';
 
 // Interfaces
 import { IStudent } from "@interface/student";
 interface EditStudentFormProps {
     onClose: () => void;
     editingStudent: IStudent;
+    onActionSuccess: () => void;
 }
 
 /**
  * Primary UI component for user interaction
  */
-const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX.Element => {
+const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStudentFormProps): JSX.Element => {
     const [formData, setFormData] = useState<IStudent>(editingStudent);
     const [errors, setErrors] = useState<{
         firstName?: string;
@@ -29,18 +36,18 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
     
     const validate = () => {
         const newErrors: typeof errors = {};
-        if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
-        if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+        if (!formData.firstName) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
+        if (!formData.lastName.trim()) newErrors.lastName = ERROR_MESSAGES.NO_LAST_NAME;
         if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
+            newErrors.email = ERROR_MESSAGES.NO_EMAIL;
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = 'Invalid email format';
+            newErrors.email = ERROR_MESSAGES.INVALID_EMAIL;
         }
-        if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = 'Enroll number number is required';
-        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = 'Date admission is required';
-        if (!formData.avatar.trim()) newErrors.avatar = 'Avatar is required';
-        if (!formData.role.trim()) newErrors.role = 'Role is required';
+        if (!formData.phone.trim()) newErrors.phone = ERROR_MESSAGES.NO_PHONE;
+        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = ERROR_MESSAGES.NO_ENROLL_NUMBER;
+        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = ERROR_MESSAGES.NO_DATE_ADMISSION;
+        if (!formData.avatar.trim()) newErrors.avatar = ERROR_MESSAGES.NO_AVATAR;
+        if (!formData.role.trim()) newErrors.role = ERROR_MESSAGES.NO_ROLL;
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -48,19 +55,21 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
-            [e.target.id]: e.target.value,
+            [e.target.name]: e.target.value,
         });
         setErrors({ ...errors, [e.target.name]: '' }); // clear error
     };
     
-    const handleUpdateStudent = (editingStudent: IStudent) => {
-        // TODO: integrate API
+    const handleUpdateStudent = async (data: IStudent, id: string) => {
+        await updateStudent(data, id);
+        onActionSuccess();
     }
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!validate()) return;
-        handleUpdateStudent({ ...formData, id: editingStudent.id });
+        handleUpdateStudent(formData, `${editingStudent.id}`);
+        onClose();
     };
     
     return (
@@ -74,8 +83,8 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
                 type="text"
                 value={formData.firstName}
                 onChange={handleChange}
+                errorMessage={errors.firstName}
             />
-            {errors.firstName && <p className="error-container">{errors.firstName}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Last Name"
@@ -85,8 +94,8 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
                 type="text"
                 value={formData.lastName}
                 onChange={handleChange}
+                errorMessage={errors.lastName}
             />
-            {errors.lastName && <p className="error-container">{errors.lastName}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Email"
@@ -96,8 +105,8 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
                 type="text"
                 value={formData.email}
                 onChange={handleChange}
+                errorMessage={errors.email}
             />
-            {errors.email && <p className="error-container">{errors.email}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Phone"
@@ -117,8 +126,8 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
                 type="string"
                 value={formData.enrollNumber}
                 onChange={handleChange}
+                errorMessage={errors.enrollNumber}
             />
-            {errors.enrollNumber && <p className="error-container">{errors.enrollNumber}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Date of admission"
@@ -128,8 +137,8 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
                 type="text"
                 value={formData.dateAdmission}
                 onChange={handleChange}
+                errorMessage={errors.dateAdmission}
             />
-            {errors.dateAdmission && <p className="error-container">{errors.dateAdmission}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Avatar"
@@ -140,7 +149,6 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
                 value={formData.avatar}
                 onChange={handleChange}
             />
-            {errors.avatar && <p className="error-container">{errors.avatar}</p>}
             <Input
                 additionalClasses="input input-default"
                 label="Role"
@@ -150,19 +158,8 @@ const EditStudentForm = ({ onClose, editingStudent }: EditStudentFormProps): JSX
                 type="text"
                 value={formData.role}
                 onChange={handleChange}
+                errorMessage={errors.role}
             />
-            {errors.role && <p className="error-container">{errors.role}</p>}
-            {/* Modal footer */}
-            <div className="modal-footer">
-                <Button
-                    label="Cancel"
-                    onClick={onClose}
-                    additionalClasses="btn-cancel"
-                />
-                <Button
-                    label='Update Student'
-                />
-            </div>
         </form>
     );
 }

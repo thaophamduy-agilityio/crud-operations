@@ -2,7 +2,7 @@ export interface IStudent {
     id: string;
     firstName: string;
     lastName: string;
-    avatar?: string;
+    avatar: string;
     email: string;
     phone: string;
     enrollNumber: string;
