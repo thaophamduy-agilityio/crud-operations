@@ -2,7 +2,7 @@
 import { JSX } from "react";
 
 // Components
-import { Text } from "@components/";
+import { Text, Button } from "@components/";
 
 // Setvices
 import { deleteStudent } from '@services/studentServices';
@@ -36,6 +36,17 @@ const DeleteStudentForm = ({ onClose, studentId, onActionSuccess }: DeleteStuden
             >
                 Do you want to delete this student?
             </Text>
+            {/* Modal footer */}
+            <div className="modal-footer">
+                <Button
+                    label="Cancel"
+                    onClick={onClose}
+                    additionalClasses="btn-cancel"
+                />
+                <Button
+                    label="Delete student"
+                />
+            </div>
         </form>
     )
 }

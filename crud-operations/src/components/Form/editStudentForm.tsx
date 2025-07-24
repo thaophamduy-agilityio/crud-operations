@@ -2,7 +2,7 @@
 import { ChangeEvent, useState, type JSX } from "react";
 
 // Components
-import { Input } from "@components/";
+import { Input, Button } from "@components/";
 
 // Constants
 import { ERROR_MESSAGES } from '@constants/error-messages';
@@ -160,6 +160,17 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 onChange={handleChange}
                 errorMessage={errors.role}
             />
+            {/* Modal footer */}
+            <div className="modal-footer">
+                <Button
+                    label="Cancel"
+                    onClick={onClose}
+                    additionalClasses="btn-cancel"
+                />
+                <Button
+                    label="Update student"
+                />
+            </div>
         </form>
     );
 }
