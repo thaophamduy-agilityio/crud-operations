@@ -39,9 +39,7 @@ const MenuBar = ({ menuBarList }: MenuBarProps): JSX.Element => {
         ));
     };
     return (
-        <>
-            <ul className="menu-bar">{renderListMenuBar()}</ul>
-        </>
+        <ul className="menu-bar">{renderListMenuBar()}</ul>
     );
 }
 
