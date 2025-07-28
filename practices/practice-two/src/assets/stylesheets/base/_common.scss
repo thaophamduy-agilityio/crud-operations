@@ -1,0 +1,60 @@
+// ======================================================
+// Base :: Global
+// ======================================================
+html,
+body {
+  @extend %padding-0;
+  @extend %margin-0;
+}
+
+body {
+  @extend %padding-0;
+  @extend %margin-0;
+  font: $font-weight-body $text-size-body $font-family-body;
+  color: $text-color-body;
+  background-color: $bg-color-body;
+  line-height: $line-height-body;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+  @extend %margin-center;
+  max-width: $page-max-width;
+  width: calc(100% - 24px);
+  padding: 50px 12px;
+
+  @include only-for-tablet() {
+    padding: 50px 30px;
+    width: calc(100% - 60px);
+  }
+}
+
+.under-construction {
+  background: url('/src/assets/images/work-in-progress.webp') 0 35% no-repeat;
+  background-size: 100px;
+  margin: 50px auto;
+  padding: 50px 50px 50px 120px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  @extend %text-decoration-none;
+  color: $color-tertiary;
+}
+
+.main-site {
+  @extend %flex;
+  @extend %flex-wrap;
+}
+
+:focus {
+  outline: 0;
+}

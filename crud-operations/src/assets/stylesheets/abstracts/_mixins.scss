@@ -1,0 +1,17 @@
+// ======================================================
+// Abstracts :: Mixins
+// ======================================================
+
+/* Set up width & height for elements */
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+/* Create mixin for text font */
+@mixin text-font($font-family, $font-size, $font-weight, $line-height) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}

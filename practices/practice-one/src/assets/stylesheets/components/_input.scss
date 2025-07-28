@@ -7,19 +7,29 @@
   @extend %flex-column;
   border: 1px solid $border-input;
   margin: 10px 0px;
-  padding: 18px;
+  padding: 13px;
   background-color: $bg-color-secondary;
   box-sizing: border-box;
   width: 100%;
 
-  &--search {
-    background: url('./src/assets/images/search.svg') 14px no-repeat;
+  @include only-for-desktop() {
+    padding: 18px;
+  }
+
+  &-search {
+    background: url('/src/assets/images/search.svg') 14px no-repeat;
     background-color: $bg-color-primary;
     padding-left: 50px;
     border-radius: 30px;
+    margin: 0 20px 0;
+
+    @include only-for-desktop() {
+      width: $width-search;
+      margin: 0 50px 0;
+    }
   }
 
-  &--default {
+  &-default {
     border-radius: 10px;
   }
 }

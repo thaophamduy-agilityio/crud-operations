@@ -1,0 +1,156 @@
+// ======================================================
+// Components :: Amazing Feature
+// ======================================================
+
+.amazing {
+  &-feature {
+    @extend %flex;
+    @extend %flex-column;
+    @extend %justify-center;
+    @extend %item-center;
+    padding: 0 15px;
+    width: 100%;
+  
+    @include only-for-tablet() {
+      padding: 0;
+    }
+
+    &-content {
+      @extend %text-center;
+  
+      @include only-for-tablet() {
+        margin-top: 70px;
+      }
+  
+      @include only-for-desktop() {
+        margin-top: 35px;
+      }
+    }
+
+    &-title {
+      @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+      @extend %text-uppercase;
+      color: $color-title;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+  
+      @include only-for-tablet() {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-container {
+      @extend %flex-column;
+      @extend %list-style-type-none;
+  
+      @include only-for-tablet() {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      &-content {
+        margin-left: 0;
+  
+        @include only-for-tablet() {
+          margin-left: 115px;
+          width: 25%;
+        }
+  
+        @include only-for-desktop() {
+          margin-left: 125px;
+        }
+      }
+
+      &-image {
+        .img-item {
+          @include only-for-tablet() {
+            width: 560px;
+            height: 480px;
+          }
+
+          @include only-for-desktop() {
+            width: 700px;
+            height: 600px;
+          }
+        }
+      }
+
+      &-icon {
+        @extend %none;
+
+        @include only-for-desktop() {
+          display: block;
+          margin-left: -55px;
+        }
+      }
+
+      &-title {
+        @include text-font($secondary-family, $text-lg, $font-weight-semi-bold, $line-height-default);
+        margin: 30px 0 20px;
+      }
+
+      &-desc {
+        @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
+        color: $color-feature-desc;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-image {
+      .img-item {
+        @include only-for-tablet() {
+          width: 750px;
+          height: 328px;
+        }
+
+        @include only-for-desktop() {
+          width: 750px;
+          height: 356px;
+        }
+      }
+    }
+
+    &-item {
+      @extend %relative;
+      @extend %flex;
+      @extend %flex-column;
+      @extend %justify-center;
+      @extend %item-center;
+      padding: 30px 0 35px;
+  
+      @include only-for-tablet() {
+        flex-direction: row;
+      }
+
+      &-pagination {
+        &-1,
+        &-2,
+        &-3 {
+          @extend %none;
+  
+          @include only-for-desktop() {
+            display: block;
+            position: absolute;
+            right: -100px;
+            width: 12px;
+            height: 93px;
+          }
+        }
+
+        &-1 {
+          background: url('/src/assets/images/amazing-feature/pagination-1.svg') no-repeat;
+        }
+
+        &-2 {
+          background: url('/src/assets/images/amazing-feature/pagination-2.svg') no-repeat;
+        }
+
+        &-3 {
+          background: url('/src/assets/images/amazing-feature/pagination-3.svg') no-repeat;
+        }
+      }
+    }
+  }
+}

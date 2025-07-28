@@ -1,0 +1,53 @@
+// ======================================================
+// Components :: Launch App Feature
+// ======================================================
+
+.launch {
+  &-app {
+    @extend %flex;
+    @extend %justify-space-between;
+    @extend %flex-column;
+    @extend %item-center;
+    margin: 40px 0;
+    width: 100%;
+
+    @include only-for-tablet() {
+      flex-direction: row;
+    }
+
+    &-content {
+      @include only-for-tablet() {
+        width: 30%;
+        order: 1;
+      }
+    }
+
+    &-title {
+      @include text-font($default-family, $text-xs, $font-weight-extra-bold, $line-height-title);
+      @extend %text-uppercase;
+      color: $color-title;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+
+      @include only-for-tablet() {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-image {
+      @extend %text-center;
+      order: 1;
+      margin-top: 50px;
+    }
+
+    .img-item {
+      @include only-for-tablet() {
+        width: 460px;
+      }
+
+      @include only-for-desktop() {
+        width: 530px;
+      }
+    }
+  }
+}

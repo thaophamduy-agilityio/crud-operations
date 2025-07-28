@@ -1,0 +1,60 @@
+// ======================================================
+// Abstracts :: Mixins
+// ======================================================
+
+/* Set up width & height for elements */
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+/* Create mixin for text font */
+@mixin text-font($font-family, $font-size, $font-weight, $line-height) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+/* Breakpoints for mobile */
+@mixin only-for-mobile() {
+  @media screen and (min-width: $small) {
+    @content;
+  }
+}
+
+/* Background sprite horizontal */
+@mixin bg-sprite-horizontal($classes, $bg-position-v, $img-width, $initial-offset: 0, $element:"") {
+  @for $i from 1 through length($classes) {
+    $class: nth($classes, $i);
+
+    &#{$class} {
+      background-position: (-(calc(($i - 1) * $img-width / 5)) + $initial-offset) $bg-position-v;
+    }
+  }
+}
+
+/* Background sprite vertical */
+@mixin bg-sprite-vertical($classes, $bg-position-h, $img-height, $initial-offset: 0, $element:"") {
+  @for $i from 1 through length($classes) {
+    $class: nth($classes, $i);
+
+    &#{$class} {
+      background-position: $bg-position-h (-($i - 1) * $img-height + $initial-offset);
+    }
+  }
+}
+
+/* Breakpoints for tablet */
+@mixin only-for-tablet() {
+  @media screen and (min-width: $medium) {
+    @content;
+  }
+}
+
+/* Breakpoints for desktop */
+@mixin only-for-desktop() {
+  @media screen and (min-width: $large) {
+    @content;
+  }
+}

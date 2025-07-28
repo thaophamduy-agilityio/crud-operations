@@ -1,0 +1,61 @@
+// ======================================================
+// Components :: Core Value
+// ======================================================
+
+.core {
+  &-value {
+    margin: 35px 20px;
+    width: 100%;
+
+    &-list {
+      @extend %flex;
+      @extend %flex-wrap;
+      @extend %list-style-type-none;
+      width: 100%;
+
+      &-content {
+        @include only-for-tablet() {
+          margin-right: 30px;
+        }
+  
+        @include only-for-tablet() {
+          margin-right: 60px;
+        }
+      }
+
+      &-title {
+        @include text-font($secondary-family, $text-lg, $font-weight-semi-bold, $line-height-default);
+        margin: 30px 0 20px;
+      }
+
+      &-divider {
+        @include size($history-divider-width, $history-divider-height);
+        background-color: $bg-color-history-divider;
+        margin: 30px 0;
+      }
+
+      &-desc {
+        @include text-font($default-family, $text-md, $font-weight-medium, $line-height-default);
+        color: $color-feature-desc;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-item {
+      @extend %relative;
+      @extend %flex;
+      @extend %flex-column;
+      margin: 16px 16px 16px 0;
+      width: calc(50% - 8px);
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+  
+      @include only-for-tablet() {
+        width: 25%;
+        margin: 0;
+      }
+    }
+  }
+}

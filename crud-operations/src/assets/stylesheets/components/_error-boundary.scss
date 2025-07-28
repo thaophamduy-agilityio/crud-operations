@@ -1,0 +1,25 @@
+// ======================================================
+// Components :: Error
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+
+.error {
+  &-container {
+    @extend %flex;
+    @extend %item-center;
+    @extend %justify-center;
+    color: $color-error;
+    padding: 3.125rem 0;
+  }
+
+  &-icon {
+    font-size: $text-xl;
+    padding: 0 .25rem;
+  }
+
+  &-message {
+    font-size: $text-xxl;
+  }
+}

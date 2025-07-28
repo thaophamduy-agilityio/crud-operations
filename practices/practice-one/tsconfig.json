@@ -12,6 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "esModuleInterop": true,
     "jsx": "react-jsx",
 
     /* Linting */
@@ -28,11 +29,12 @@
       "@constants*": ["src/constants*"],
       "@layouts*": ["src/layouts*"],
       "@helpers*": ["src/helpers*"],
+      "@interface*": ["src/interface*"],
       "@services*": ["src/services*"],
+      "@hooks*": ["src/hooks*"],
       "@fonts*": ["src/assets/fonts*"],
       "@image*": ["src/assets/images*"],
-      "@stylesheets*": ["src/assets/stylesheets*"],
-      "@stories*": ["src/stories*"]
+      "@stylesheets*": ["src/assets/stylesheets*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

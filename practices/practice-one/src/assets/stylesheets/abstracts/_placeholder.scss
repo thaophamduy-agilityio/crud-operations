@@ -37,8 +37,16 @@
   display: flex;
 }
 
+%inline-flex {
+  display: inline-flex;
+}
+
 %grid {
   display: grid;
+}
+
+%inline-grid {
+  display: inline-grid;
 }
 
 %block {
@@ -100,12 +108,20 @@
   align-items: center;
 }
 
+%item-start {
+  align-items: flex-start;
+}
+
 %item-end {
   align-items: flex-end;
 }
 
 %justify-center {
   justify-content: center;
+}
+
+%justify-end {
+  justify-content: end;
 }
 
 %justify-space-between {

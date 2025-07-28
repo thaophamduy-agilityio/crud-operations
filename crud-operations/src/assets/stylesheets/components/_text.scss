@@ -1,0 +1,32 @@
+// ======================================================
+// Components :: Text
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.text {
+  &-sm {
+    @include text-font($default-family, $text-sm, $font-weight-regular, $line-height-default);
+  }
+
+  &-md {
+    @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
+  }
+
+  &-lg {
+    @include text-font($default-family, $text-lg, $font-weight-bold, $line-height-default);
+  }
+
+  &-xl {
+    @include text-font($default-family, $text-xl, $font-weight-bold, $line-height-default);
+  }
+
+  &-2xl {
+    @include text-font($default-family, $text-xxl, $font-weight-bold, $line-height-default);
+  }
+
+  &-3xl {
+    @include text-font($default-family, $text-xxxl, $font-weight-bold, $line-height-default);
+  }
+}

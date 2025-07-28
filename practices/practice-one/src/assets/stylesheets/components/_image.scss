@@ -3,6 +3,9 @@
 // ======================================================
 
 .img {
-  @extend %flex;
-  @extend %flex-column;
+  &-item {
+    border-radius: 5px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 }

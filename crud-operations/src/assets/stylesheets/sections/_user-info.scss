@@ -1,0 +1,29 @@
+// ======================================================
+// Components :: User Info
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+@use '../abstracts/mixins' as *;
+
+.user-info {
+  @extend %flex;
+  @extend %flex-column;
+  @extend %item-center;
+  @extend %justify-center;
+  margin: 3.125rem 0 5rem;
+
+  img {
+    @include size(128px, 128px);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .user-name {
+    margin: 1rem 0 .5rem;
+  }
+
+  .user-role {
+    color: $color-reset-password;
+  }
+}

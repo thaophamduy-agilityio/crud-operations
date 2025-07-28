@@ -1,4 +1,4 @@
-# React Practice
+# React Practice One
 
 ## Author: Thao Pham
 
@@ -17,15 +17,16 @@
 - Timeline
 
   - Estimate time: 10 days
-  - Actual time: ...?
+  - Actual time: 15 days
 
 - Technical
 
-  - Reactjs (v 18.2.0)
+  - HTML5/CSS3
+  - React js (v 18.2.0)
   - Storybook (v 7.0.18)
-  - Typescript
-  - React router v6
-  - Appy [Json server](https://www.npmjs.com/package/json-server)
+  - Typescript (v 5.0.4)
+  - Vite (v 4.3.9)
+  - Apply [Json server](https://www.npmjs.com/package/json-server)
 
 - Editor: Visual Studio Code
 
@@ -47,8 +48,7 @@
 - HTML semantics
 - Apply typescript
 - Apply storybook
-- Performance minimum 98%
-- Deploy to vercel
+- [Deploy to Vercel](https://reactjs-five-pi.vercel.app/)
 
 ## Getting started
 
@@ -88,8 +88,10 @@ pnpm install
 pnpm run server
 ```
 
-- Resources: `http://localhost:3001/books` (this is by default, you can custom it)
-- Home: `http://localhost:5000`
+- Resources:
+
+  - `http://localhost:3001/books`
+  - `http://localhost:3001/categories`
 
 - Step 7: Run project
 
@@ -98,3 +100,4 @@ pnpm dev
 ```
 
 - Step 8: Open browser and access the link http://localhost:5173
+- Step 9: Run unit test and coverage `pnpm test`, `pnpm coverage`

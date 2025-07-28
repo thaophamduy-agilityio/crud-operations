@@ -1,0 +1,176 @@
+// ======================================================
+// Components :: Schedule
+// ======================================================
+
+.schedule {
+  @extend %flex;
+  @extend %justify-space-between;
+  @extend %flex-column;
+  @extend %item-center;
+  margin: 40px 0;
+  width: 100%;
+
+  @include only-for-tablet() {
+    margin: 100px 0;
+  }
+
+  @include only-for-desktop() {
+    margin: 150px 0;
+  }
+
+  &-content {
+    @extend %text-center;
+    color: $color-secondary;
+
+    @include only-for-tablet() {
+      width: 30%;
+      position: absolute;
+      text-align: left;
+      right: 70px;
+      z-index: 1;
+    }
+
+    @include only-for-tablet() {
+      right: 100px;
+    }
+  }
+
+  &-container {
+    &-content {
+      @extend %relative;
+      @extend %flex;
+      @extend %flex-column;
+      @extend %item-center;
+      background: url('/src/assets/images/schedule/bg-schedule.webp') no-repeat;
+      background-size: cover;
+      border-radius: 24px;
+      padding: 50px 20px 0;
+      width: calc(100% - 40px);
+      height: 600px;
+      
+      @include only-for-tablet() {
+        flex-direction: row;
+        padding: 0;
+        width: 100%;
+      }
+    }
+
+    &-label {
+      &-value {
+        @include size(100%, auto);
+        @extend %flex;
+        @extend %flex-column;
+        @extend %justify-center;
+        @extend %item-center;
+        background: url('/src/assets/images/schedule/bg-label-value.webp') repeat-y;
+        background-size: 100%;
+        border-radius: 0 0 24px 24px;
+        margin-top: -20px;
+      
+        @include only-for-tablet() {
+          flex-direction: row;
+          height: 260px;
+        }
+      }
+    }
+  }
+
+  &-image {
+    @extend %relative;
+    @extend %text-center;
+    bottom: -60px;
+    
+    @include only-for-tablet() {
+      margin-top: -130px;
+      margin-left: 43px;
+      text-align: left;
+      bottom: 0;
+    }
+    
+    @include only-for-desktop() {
+      margin-top: -97px;
+      margin-left: -27px;
+    }
+  }
+
+  .img-item {
+    @include only-for-tablet() {
+      width: 489px;
+    }
+
+    @include only-for-desktop() {
+      width: 580px;
+    }
+  }
+
+  &-label {
+    font-family: "Poppins", sans-serif;
+    font-size: 56px;
+    line-height: 64px;
+
+    @include only-for-tablet() {
+      font-size: 72px;
+      line-height: 80px;
+    }
+
+    &-sup,
+    &-sub {
+      font-size: 32px;
+      line-height: 40px;
+      vertical-align: top;
+    }
+
+    &-sub {
+      vertical-align: baseline;
+    }
+
+    &-value {
+      @extend %flex;
+      @extend %justify-center;
+      @extend %flex-column;
+      @extend %item-center;
+      width: 80%;
+      height: calc(100% - 20px);
+      border-bottom: 1px solid $border-label-value;
+      border-right: 0;
+      padding: 30px 0 40px;
+
+      @include only-for-tablet() {
+        padding: 20px 0 0;
+      }
+
+      &:first-child {
+        padding-top: 130px;
+
+        @include only-for-tablet() {
+          padding-top: 20px;
+        }
+      }
+
+      @include only-for-tablet() {
+        border-bottom: 0;
+        border-right: 1px solid $border-label-value;
+        padding-bottom: 0px;
+        width: 33%;
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  &-value {
+    @include text-font($default-family, $text-xs, $font-weight-bold, $line-height-btn-primary);
+    background-color: $bg-color-tertiary;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px $box-shadow-color;
+    margin-top: 10px;
+  }
+
+  .btn-secondary {
+    color: $color-secondary;
+    border-color: $color-secondary;
+  }
+}

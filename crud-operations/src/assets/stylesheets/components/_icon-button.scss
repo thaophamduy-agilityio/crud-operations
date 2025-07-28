@@ -1,0 +1,79 @@
+// ======================================================
+// Components :: Icon Button
+// ======================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholder' as *;
+@use '../abstracts/mixins' as *;
+
+.icon {    
+  @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
+  @extend %flex;
+  @extend %item-center;
+  @extend %justify-center;
+  @extend %cursor-pointer;
+  background-color: transparent;
+  border-color: transparent;
+  border-width: 2px;
+  border-radius: .25rem;
+  transition-duration: 0.4s;
+  margin: 1rem auto;
+  padding: 0.75rem 0;
+  max-width: 250px;
+  width: calc(100% - 2rem);
+  
+  &:hover:has(.icon-container),
+  &.selected:has(.icon-container) {
+    background-color: $bg-color-button;
+  }
+  
+  svg {
+    margin-right: .625rem;
+    width: 1.5rem;
+  }
+  
+  &-container {
+    @extend %flex;
+    @extend %item-center;
+    min-width: 6rem;
+    
+    &.right {
+      flex-direction: row-reverse;
+      
+      svg {
+        margin-right: 0;
+        margin-left: .625rem;
+      }
+    }
+  }
+  
+  &-back,
+  &-notification,
+  &-close,
+  &-sort,
+  &-edit,
+  &-delete {
+    @extend %flex;
+    @extend %item-center;
+    @extend %justify-center;
+    @extend %cursor-pointer;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  &-back,
+  &-notification,
+  &-close {
+    svg:hover path {
+      fill: #FEAF00;
+    }
+  }
+  
+  &-sort,
+  &-edit,
+  &-delete {
+    svg:hover path {
+      fill: #58667E;
+    }
+  }
+}
