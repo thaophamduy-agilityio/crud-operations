@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "concurrently \"pnpm run dev\" \"pnpm run server\"",
-    "server": "json-server --watch db.json  --port 3003",
+    "prod": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
