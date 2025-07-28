@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prod": "vite",
+    "start": "concurrently \"pnpm run dev\" \"pnpm run server\"",
+    "server": "json-server --watch db.json  --port 3003",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky",
+    "prepare": "cd ../ && husky install crud-operations/.husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
