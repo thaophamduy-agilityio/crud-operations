@@ -5,13 +5,14 @@ import { withErrorBoundary } from 'react-error-boundary';
 import { StudentList, ErrorFallback } from '@components/';
 
 // Layouts
-import { SideBar, Main } from '@layouts/';
+import Main from '@layouts/main';
 
 const Home = () => {    
     return (
         <div className="container">
-            <SideBar />
-            <Main children={<StudentList />} />
+            <Main>
+                <StudentList />
+            </Main>
         </div>
     )
 };
