@@ -33,11 +33,11 @@ const StudentList = (): JSX.Element => {
         fetchStudents();
     }, []);
     
-    const HandleEditStudent = () => {
+    const HandleEditStudent = (editingStudent: IStudent) => {
         setEditingStudent(editingStudent);
         setModalType(ModalType.EDIT);
     }
-    const HandleDeleteStudent = () => {
+    const HandleDeleteStudent = (studentId: string) => {
         setStudentId(studentId);
         setModalType(ModalType.DELETE);
     }

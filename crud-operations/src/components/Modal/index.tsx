@@ -2,7 +2,7 @@
 import { JSX } from 'react';
 
 // Components
-import { Text, IconButton, Button } from '@components/';
+import { Text, IconButton } from '@components/';
 
 // Forms
 import { AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components/';
