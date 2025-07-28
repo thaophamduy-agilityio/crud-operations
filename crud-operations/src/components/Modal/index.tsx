@@ -16,8 +16,7 @@ import { IStudent } from "@interface/student";
 interface ModalProps {
     onClose: () => void;
     modalType : ModalType;
-    editingStudent: IStudent;
-    studentId: string;
+    selectedStudent: IStudent;
     onActionSuccess: () => void;
 }
 
@@ -25,8 +24,7 @@ const Modal = (
     ({
     onClose,
     modalType,
-    editingStudent,
-    studentId,
+    selectedStudent,
     onActionSuccess,
     }: ModalProps): JSX.Element => {
         
@@ -40,12 +38,12 @@ const Modal = (
             break;
 
             case ModalType.EDIT:
-            content = <EditStudentForm onActionSuccess={onActionSuccess} editingStudent={editingStudent} onClose={onClose} />;
+            content = <EditStudentForm onActionSuccess={onActionSuccess} editingStudent={selectedStudent} onClose={onClose} />;
             title = "Edit Student";
             break;
 
             case ModalType.DELETE:
-            content = <DeleteStudentForm onActionSuccess={onActionSuccess} studentId={studentId} onClose={onClose} />;
+            content = <DeleteStudentForm onActionSuccess={onActionSuccess} student={selectedStudent} onClose={onClose} />;
             title = "Delete Student";
             break;
 

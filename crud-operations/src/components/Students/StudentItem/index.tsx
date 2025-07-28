@@ -8,29 +8,29 @@ import { EditIcon, DeleteIcon } from "@components/Icon";
 //Interfaces
 import { IStudent } from "@interface/student";
 interface StudentProps {
-    student: IStudent;
+    selectedStudent: IStudent;
     onEditItem: (item: IStudent) => void;
-    onDeleteItem: (id: string) => void;
+    onDeleteItem: (item: IStudent) => void;
 }
 
-const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
+const StudentItem = ({ selectedStudent, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
     const handleEditStudent = () => {
-        onEditItem(student);
+        onEditItem(selectedStudent);
     }
     const handleDeleteStudent = () => {
-        onDeleteItem(student.id);
+        onDeleteItem(selectedStudent);
     }
     
     return (
         <li className="student-item">
             <div className="student-item-avatar">
-                <img src={student.avatar} alt={student.firstName} width={65} height={65} />
+                <img src={selectedStudent.avatar} alt={selectedStudent.firstName} width={65} height={65} />
             </div>
-            <div className="student-item-name">{student.firstName}</div>
-            <div className="student-item-email">{student.email}</div>
-            <div className="student-item-phone">{student.phone}</div>
-            <div className="student-item-enroll-number">{student.enrollNumber}</div>
-            <div className="student-item-date-admission">{student.dateAdmission}</div>
+            <div className="student-item-name">{selectedStudent.firstName}</div>
+            <div className="student-item-email">{selectedStudent.email}</div>
+            <div className="student-item-phone">{selectedStudent.phone}</div>
+            <div className="student-item-enroll-number">{selectedStudent.enrollNumber}</div>
+            <div className="student-item-date-admission">{selectedStudent.dateAdmission}</div>
             <div className="student-item-edit">
                 <IconButton
                     additionalClasses="icon-edit"

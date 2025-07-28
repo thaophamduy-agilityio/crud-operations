@@ -16,8 +16,7 @@ import { ModalType } from '@interface/modalType';
 
 const StudentList = (): JSX.Element => {
     const [students, setStudents] = useState<IStudent[]>([]);
-    const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);
-    const [studentId, setStudentId] = useState<string>('');
+    const [selectedStudent, setSelectedStudent] = useState<IStudent>({} as IStudent);
     const [modalType, setModalType] = useState<ModalType | null>(null);
     
     // GET all students
@@ -30,12 +29,12 @@ const StudentList = (): JSX.Element => {
         fetchStudents();
     }, []);
     
-    const handleEditStudent = (editingStudent: IStudent) => {
-        setEditingStudent(editingStudent);
+    const handleEditStudent = (selectedStudent: IStudent) => {
+        setSelectedStudent(selectedStudent);
         setModalType(ModalType.EDIT);
     }
-    const handleDeleteStudent = (studentId: string) => {
-        setStudentId(studentId);
+    const handleDeleteStudent = (selectedStudent: IStudent) => {
+        setSelectedStudent(selectedStudent);
         setModalType(ModalType.DELETE);
     }
     return (
@@ -51,7 +50,7 @@ const StudentList = (): JSX.Element => {
                         students?.map((item) => (
                             <StudentItem
                                 key={item.id}
-                                student= {item}
+                                selectedStudent= {item}
                                 onEditItem={handleEditStudent}
                                 onDeleteItem={handleDeleteStudent}
                             />
@@ -63,7 +62,7 @@ const StudentList = (): JSX.Element => {
                 {STUDENTS_MESSAGES.NO_DATA}
                 </p>
             )}                
-            {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} editingStudent={editingStudent} studentId={studentId} onClose={()=>setModalType(null)} />}
+            {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} selectedStudent={selectedStudent} onClose={()=>setModalType(null)} />}
         </>
     );
 }
