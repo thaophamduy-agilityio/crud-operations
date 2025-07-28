@@ -2,7 +2,7 @@
 import { JSX, useState, useEffect } from "react";
 
 // Components
-import { Modal, StudentHeaderTable, StudentHeaderTitle, StudentItem } from '@components/';
+import { Modal, StudentTableHeader, StudentHeaderTitle, StudentItem } from '@components/';
 
 // Constants
 import { STUDENTS_MESSAGES } from "@constants/error-messages";
@@ -43,7 +43,7 @@ const StudentList = (): JSX.Element => {
     }
     return (
         <>
-            <StudentHeaderTable
+            <StudentTableHeader
                 onToggleSort={function (): void {}}
                 onAdd={()=>setModalType(ModalType.NEW)}
             />
