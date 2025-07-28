@@ -13,9 +13,6 @@ interface HeaderProps {
     onToggleNotification: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotification }: HeaderProps): JSX.Element => {
     const handleSearchChange = () => {
         onSearchChange(valueSearch);

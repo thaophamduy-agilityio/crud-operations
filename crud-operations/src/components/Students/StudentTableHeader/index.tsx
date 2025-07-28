@@ -11,9 +11,6 @@ interface StudentTableHeaderProps {
     onAdd: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const StudentTableHeader = ({ onToggleSort, onAdd }: StudentTableHeaderProps): JSX.Element =>
     <div className="table-header">
         <div className="table-header-left">

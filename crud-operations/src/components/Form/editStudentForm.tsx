@@ -18,9 +18,6 @@ interface EditStudentFormProps {
     onActionSuccess: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStudentFormProps): JSX.Element => {
     const [formData, setFormData] = useState<IStudent>(editingStudent);
     const [errors, setErrors] = useState<{

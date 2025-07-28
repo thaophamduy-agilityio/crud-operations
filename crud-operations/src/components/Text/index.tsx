@@ -10,9 +10,6 @@ interface TextProps {
     additionalClasses?: string;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const Text = ({ children, type = 'p', size = 'md', additionalClasses }: TextProps): JSX.Element => {
     const sizeClasses = {
         sm: 'text-sm',

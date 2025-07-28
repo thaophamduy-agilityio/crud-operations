@@ -12,9 +12,6 @@ interface LogoProps {
     additionalClasses?: string;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const Logo = ({ label, size = 'medium', additionalClasses = '' }: LogoProps): JSX.Element => {
     return (
         <div

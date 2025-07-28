@@ -13,9 +13,6 @@ interface StudentProps {
     onDeleteItem: (id: string) => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
     const handleEditStudent = () => {
         onEditItem(student);

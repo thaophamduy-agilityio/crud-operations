@@ -14,9 +14,6 @@ interface DeleteStudentFormProps {
     onActionSuccess: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const DeleteStudentForm = ({ onClose, studentId, onActionSuccess }: DeleteStudentFormProps): JSX.Element => {    
     const handleDeleteStudent = async (id: string) => {        
         await deleteStudent(id);

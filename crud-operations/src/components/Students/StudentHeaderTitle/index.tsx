@@ -1,9 +1,6 @@
 // Libs
 import type { JSX } from "react";
 
-/**
- * Primary UI component for user interaction
- */
 const StudentHeaderTitle = (): JSX.Element =>
     <div className="list-students">
         <div className="student-header">

@@ -17,9 +17,6 @@ interface StudentInfoProps {
     additionalClasses?: string;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const StudentInfo = ({ fullName, role, avatarUrl, size, additionalClasses = '' }: StudentInfoProps): JSX.Element => {
     const { width, height } = size;
     return (

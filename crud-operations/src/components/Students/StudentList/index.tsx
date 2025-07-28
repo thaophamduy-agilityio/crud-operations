@@ -14,9 +14,6 @@ import { getStudent } from '@services/studentServices';
 import { IStudent } from "@interface/student";
 import { ModalType } from '@interface/modalType';
 
-/**
- * Primary UI component for user interaction
- */
 const StudentList = (): JSX.Element => {
     const [students, setStudents] = useState<IStudent[]>([]);
     const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);

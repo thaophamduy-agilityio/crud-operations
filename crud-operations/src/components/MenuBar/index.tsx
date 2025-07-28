@@ -15,9 +15,6 @@ interface MenuBarProps {
     menuBarList: IMenuBar[];
 }
 
-/**
- * Primary UI component for user interaction
- */
 const MenuBar = ({ menuBarList }: MenuBarProps): JSX.Element => {
     const [selectedId, setSelectedId] = useState<number>(1);
     const renderListMenuBar = (): JSX.Element[] => {

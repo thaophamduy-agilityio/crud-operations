@@ -20,9 +20,7 @@ interface ModalProps {
     studentId: string;
     onActionSuccess: () => void;
 }
-/**
- * Primary UI component for user interaction
- */
+
 const Modal = (
     ({
     onClose,
