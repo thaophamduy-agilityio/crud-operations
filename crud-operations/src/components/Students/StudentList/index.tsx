@@ -33,11 +33,11 @@ const StudentList = (): JSX.Element => {
         fetchStudents();
     }, []);
     
-    const HandleEditStudent = (editingStudent: IStudent) => {
+    const handleEditStudent = (editingStudent: IStudent) => {
         setEditingStudent(editingStudent);
         setModalType(ModalType.EDIT);
     }
-    const HandleDeleteStudent = (studentId: string) => {
+    const handleDeleteStudent = (studentId: string) => {
         setStudentId(studentId);
         setModalType(ModalType.DELETE);
     }
@@ -55,8 +55,8 @@ const StudentList = (): JSX.Element => {
                             <StudentItem
                                 key={item.id}
                                 student= {item}
-                                onEditItem={HandleEditStudent}
-                                onDeleteItem={HandleDeleteStudent}
+                                onEditItem={handleEditStudent}
+                                onDeleteItem={handleDeleteStudent}
                             />
                         ))
                     }

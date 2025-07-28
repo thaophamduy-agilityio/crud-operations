@@ -17,10 +17,10 @@ interface StudentProps {
  * Primary UI component for user interaction
  */
 const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.Element => {
-    const HandleEditStudent = () => {
+    const handleEditStudent = () => {
         onEditItem(student);
     }
-    const HandleDeleteStudent = () => {
+    const handleDeleteStudent = () => {
         onDeleteItem(student.id);
     }
     
@@ -37,7 +37,7 @@ const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.E
             <div className="student-item-edit">
                 <IconButton
                     additionalClasses="icon-edit"
-                    onClick={HandleEditStudent}
+                    onClick={handleEditStudent}
                 >
                     <EditIcon />
                 </IconButton>
@@ -45,7 +45,7 @@ const StudentItem = ({ student, onEditItem, onDeleteItem }: StudentProps): JSX.E
             <div className="student-item-delete">
                 <IconButton
                     additionalClasses="icon-delete"
-                    onClick={HandleDeleteStudent}
+                    onClick={handleDeleteStudent}
                 >
                     <DeleteIcon />
                 </IconButton>
