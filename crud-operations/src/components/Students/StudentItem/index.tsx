@@ -2,8 +2,8 @@
 import type { JSX } from "react";
 
 // Components
-import { IconButton } from "@components/";
-import { EditIcon, DeleteIcon } from "@components/Icon";
+import { IconButton } from "@components";
+import { EditIcon, DeleteIcon } from "../../Icon";
 
 //Interfaces
 import { IStudent } from "@interface/student";

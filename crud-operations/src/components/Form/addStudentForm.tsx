@@ -2,7 +2,7 @@
 import { ChangeEvent, useState, type JSX } from "react";
 
 // Components
-import { Input, Button } from "@components/";
+import { Input, Button } from "@components";
 
 // Constants
 import { ERROR_MESSAGES } from '@constants/error-messages';

@@ -2,8 +2,8 @@
 import { JSX } from "react";
 
 // Components
-import { Button, IconButton, Text } from "@components/";
-import { SortIcon } from "@components/Icon";
+import { Button, IconButton, Text } from "@components";
+import { SortIcon } from "../../Icon";
 
 //Interfaces
 interface StudentTableHeaderProps {

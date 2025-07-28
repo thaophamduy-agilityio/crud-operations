@@ -2,7 +2,7 @@
 import { JSX } from "react";
 
 // Components
-import { Text, Button } from "@components/";
+import { Text, Button } from "@components";
 
 // Setvices
 import { deleteStudent } from '@services/studentServices';

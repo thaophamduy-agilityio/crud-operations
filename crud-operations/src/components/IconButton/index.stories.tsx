@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 // Components
 import IconButton from "./";
-import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon, LogoutIcon, BackIcon, NotificationIcon, SortIcon, EditIcon, DeleteIcon, CloseIcon } from '@components/Icon';
+import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon, LogoutIcon, BackIcon, NotificationIcon, SortIcon, EditIcon, DeleteIcon, CloseIcon } from '../Icon';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {

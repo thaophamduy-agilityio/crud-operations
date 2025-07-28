@@ -2,7 +2,7 @@
 import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
-import { StudentList, ErrorFallback } from '@components/';
+import { StudentList, ErrorFallback } from '@components';
 
 // Layouts
 import Main from '@layouts/main';

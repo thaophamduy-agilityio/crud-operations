@@ -3,7 +3,7 @@ import { IMenuBar } from "@interface/menu-bar";
 import { IStudent } from "@interface/student";
 
 // Icons
-import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon } from '@components/Icon';
+import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon } from '../components/Icon';
 
 export const studentsList: IStudent[] = [
     {

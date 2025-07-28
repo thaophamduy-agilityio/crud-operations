@@ -22,13 +22,13 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Path */
-    "baseUrl": "./src",
+    "baseUrl": "./src/",
     "paths": {
-      "@components*": ["components*"],
+      "@components*": ["components"],
       "@pages*": ["pages*"],
       "@constants*": ["constants*"],
       "@layouts*": ["layouts*"],
-      "@helpers*": ["helpers*"],
+      "@utils*": ["utils*"],
       "@interface*": ["interface*"],
       "@mocks*": ["mocks*"],
       "@services*": ["services*"],
