@@ -11,8 +11,10 @@ interface InputProps {
     additionalClasses?: string;
     isDisabled?: boolean;
     type: string;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     errorMessage?: string;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 const Input = (
@@ -25,8 +27,10 @@ const Input = (
         additionalClasses,
         isDisabled = false,
         type,
-        onChange,
         errorMessage,
+        onChange,
+        onFocus,
+        onBlur,
     }: InputProps): JSX.Element => {
     return (
         <>
@@ -42,6 +46,8 @@ const Input = (
                 placeholder={placeholder}
                 disabled={isDisabled}
                 onChange={onChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
             />
             {errorMessage && (
                 <p className="error-container">{errorMessage}</p>

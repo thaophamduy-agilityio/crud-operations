@@ -7,6 +7,9 @@ import { Input, Button } from "@components/index";
 // Constants
 import { ERROR_MESSAGES } from '@constants/error-messages';
 
+// Utils
+import { validateField  } from '@utils/validation-form';
+
 // Setvices
 import { addNewStudent } from '@services/studentServices';
 
@@ -17,24 +20,35 @@ interface AddStudentModalProps {
     onActionSuccess: () => void;
 }
 
+type FormErrors = {
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
+    enrollNumber?: string;
+    dateAdmission?: string;
+    avatar?: string;
+    role?: string;
+};
+
+const initialStudent = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    enrollNumber: '',
+    dateAdmission: '',
+    avatar: '',
+    role: ''
+};
+
 const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX.Element => {
-    const initialStudent = { firstName: '', lastName: '', email: '', phone: '', enrollNumber: '', dateAdmission: '', avatar: '', role: '' };
-    const [formData, setFormData] = useState<Omit<IStudent, 'id'>>(initialStudent);
+    const [formData, setFormData] = useState<Omit<IStudent, 'id'>>(initialStudent);    
+    const [errors, setErrors] = useState<FormErrors>({});
     
-    const [errors, setErrors] = useState<{
-        firstName?: string;
-        lastName?: string;
-        email?: string;
-        phone?: string;
-        enrollNumber?: string;
-        dateAdmission?: string;
-        avatar?: string;
-        role?: string;
-    }>({});
-    
-    const validate = () => {
+    const validateForm = () => {
         const newErrors: typeof errors = {};
-        if (!formData.firstName) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
+        if (!formData.firstName.trim()) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
         if (!formData.lastName.trim()) newErrors.lastName = ERROR_MESSAGES.NO_LAST_NAME;
         if (!formData.email.trim()) {
             newErrors.email = ERROR_MESSAGES.NO_EMAIL;
@@ -50,23 +64,50 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
         return Object.keys(newErrors).length === 0;
     };
     
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        const errorMsg = validateField(name, value);
+
+        setErrors(prev => ({
+        ...prev,
+        [name]: errorMsg,
+        }));
+    };
+    
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+        const { name } = e.target;
+
+        setErrors(prev => ({
+        ...prev,
+        [name]: undefined,
+        }));
+    };
+    
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
-        setErrors({ ...errors, [e.target.name]: '' }); // clear error
+        setErrors({ ...errors, [e.target.name]: '' });
     };
     
     const handleAddStudent = async (data: Omit<IStudent, 'id'> | IStudent) => {
         await addNewStudent(data);
+        onActionSuccess();
     }
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!validate()) return;
+        
+        const newErrors: FormErrors = {};
+        
+        (Object.keys(formData) as (keyof (Omit<IStudent, 'id'> | IStudent))[]).forEach((field) => {
+            const error = validateField(field, formData[field]);
+            if (error) newErrors[field] = error;
+        });
+        
+        if (!validateForm()) return;
         handleAddStudent(formData);
-        onActionSuccess();
         onClose();
     };
     
@@ -81,6 +122,8 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="text"
                 value={formData.firstName}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.firstName}
             />
             <Input
@@ -92,6 +135,8 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="text"
                 value={formData.lastName}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.lastName}
             />
             <Input
@@ -103,6 +148,8 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="text"
                 value={formData.email}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.email}
             />
             <Input
@@ -114,6 +161,9 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="string"
                 value={formData.phone}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                errorMessage={errors.phone}
             />
             <Input
                 additionalClasses="input input-default"
@@ -124,6 +174,8 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="string"
                 value={formData.enrollNumber}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.enrollNumber}
             />
             <Input
@@ -135,6 +187,8 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="text"
                 value={formData.dateAdmission}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.dateAdmission}
             />
             <Input
@@ -146,6 +200,8 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="text"
                 value={formData.avatar}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.avatar}
             />
             <Input
@@ -157,6 +213,8 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
                 type="text"
                 value={formData.role}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.role}
             />
             {/* Modal footer */}

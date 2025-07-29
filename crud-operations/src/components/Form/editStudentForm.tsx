@@ -7,6 +7,9 @@ import { Input, Button } from "@components/index";
 // Constants
 import { ERROR_MESSAGES } from '@constants/error-messages';
 
+// Utils
+import { validateField  } from '@utils/validation-form';
+
 // Setvices
 import { updateStudent } from '@services/studentServices';
 
@@ -18,20 +21,22 @@ interface EditStudentFormProps {
     onActionSuccess: () => void;
 }
 
+type FormErrors = {
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
+    enrollNumber?: string;
+    dateAdmission?: string;
+    avatar?: string;
+    role?: string;
+};
+
 const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStudentFormProps): JSX.Element => {
     const [formData, setFormData] = useState<IStudent>(editingStudent);
-    const [errors, setErrors] = useState<{
-        firstName?: string;
-        lastName?: string;
-        email?: string;
-        phone?: string;
-        enrollNumber?: string;
-        dateAdmission?: string;
-        avatar?: string;
-        role?: string;
-    }>({});
+    const [errors, setErrors] = useState<FormErrors>({});
     
-    const validate = () => {
+    const validateForm = () => {
         const newErrors: typeof errors = {};
         if (!formData.firstName.trim()) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
         if (!formData.lastName.trim()) newErrors.lastName = ERROR_MESSAGES.NO_LAST_NAME;
@@ -49,23 +54,50 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
         return Object.keys(newErrors).length === 0;
     };
     
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        const errorMsg = validateField(name, value);
+
+        setErrors(prev => ({
+        ...prev,
+        [name]: errorMsg,
+        }));
+    };
+    
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+        const { name } = e.target;
+
+        setErrors(prev => ({
+        ...prev,
+        [name]: undefined,
+        }));
+    };
+    
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
-        setErrors({ ...errors, [e.target.name]: '' }); // clear error
+        setErrors({ ...errors, [e.target.name]: '' });
     };
     
     const handleUpdateStudent = async (data: IStudent, id: string) => {
         await updateStudent(data, id);
+        onActionSuccess();
     }
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!validate()) return;
+                
+        const newErrors: FormErrors = {};
+        
+        (Object.keys(formData) as (keyof (Omit<IStudent, 'id'> | IStudent))[]).forEach((field) => {
+            const error = validateField(field, formData[field]);
+            if (error) newErrors[field] = error;
+        });
+        
+        if (!validateForm()) return;
         handleUpdateStudent(formData, `${editingStudent.id}`);
-        onActionSuccess();
         onClose();
     };
     
@@ -80,6 +112,8 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="text"
                 value={formData.firstName}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.firstName}
             />
             <Input
@@ -91,6 +125,8 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="text"
                 value={formData.lastName}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.lastName}
             />
             <Input
@@ -102,6 +138,8 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="text"
                 value={formData.email}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.email}
             />
             <Input
@@ -113,6 +151,9 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="string"
                 value={formData.phone}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                errorMessage={errors.phone}
             />
             <Input
                 additionalClasses="input input-default"
@@ -123,6 +164,8 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="string"
                 value={formData.enrollNumber}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.enrollNumber}
             />
             <Input
@@ -134,6 +177,8 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="text"
                 value={formData.dateAdmission}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.dateAdmission}
             />
             <Input
@@ -145,6 +190,9 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="text"
                 value={formData.avatar}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                errorMessage={errors.avatar}
             />
             <Input
                 additionalClasses="input input-default"
@@ -155,6 +203,8 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
                 type="text"
                 value={formData.role}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 errorMessage={errors.role}
             />
             {/* Modal footer */}
