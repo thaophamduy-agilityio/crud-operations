@@ -24,11 +24,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         studentList: studentsList,
-        onEditItem: () => {
-            console.log('handle edit logic here')
-        },
-        onDeleteItem: () => {
-            console.log('handle delete logic here')
-        },
+        onEditItem: () => {},
+        onDeleteItem: () => {},
     }
 };

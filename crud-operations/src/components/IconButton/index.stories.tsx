@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 // Components
 import IconButton from "./";
-import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon, LogoutIcon, BackIcon, NotificationIcon, SortIcon, EditIcon, DeleteIcon, CloseIcon } from '@components/Icon';
+import { HomeIcon, CourseIcon, StudentIcon, PaymentIcon, ReportIcon, SettingIcon, LogoutIcon, BackIcon, NotificationIcon, SortIcon, EditIcon, DeleteIcon, CloseIcon } from '../Icon';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -30,7 +30,7 @@ export const Home: Story = {
         </div>
         ),
         additionalClasses: 'icon',
-        onClick: () => console.log('Icon button home clicked'),
+        onClick: () => {},
     },
 };
 
@@ -43,7 +43,7 @@ export const Course: Story = {
         </div>
         ),
         additionalClasses: 'icon',
-        onClick: () => console.log('Icon button course clicked'),
+        onClick: () => {},
     },
 };
 
@@ -55,7 +55,7 @@ export const Students: Story = {
             <span>Student</span>                  
         </div>
         ),
-        onClick: () => console.log('Icon buton students clicked'),
+        onClick: () => {},
         additionalClasses: 'icon selected',
     },
 };
@@ -69,7 +69,7 @@ export const Payment: Story = {
         </div>
         ),
         additionalClasses: 'icon',
-        onClick: () => console.log('Icon buton payment clicked'),
+        onClick: () => {},
     },
 };
 
@@ -82,7 +82,7 @@ export const Report: Story = {
         </div>
         ),
         additionalClasses: 'icon',
-        onClick: () => console.log('Icon buton report clicked'),
+        onClick: () => {},
     },
 };
 
@@ -95,7 +95,7 @@ export const Settings: Story = {
         </div>
         ),
         additionalClasses: 'icon',
-        onClick: () => console.log('Icon buton settings clicked'),
+        onClick: () => {},
     },
 };
 
@@ -108,7 +108,7 @@ export const Logout: Story = {
         </div>
         ),
         additionalClasses: 'icon',
-        onClick: () => console.log('Icon buton logout clicked'),
+        onClick: () => {},
     },
 };
 
@@ -118,7 +118,7 @@ export const Back: Story = {
         <BackIcon />
         ),
         additionalClasses: 'icon-back',
-        onClick: () => console.log('Icon buton back clicked'),
+        onClick: () => {},
     },
 };
 
@@ -128,7 +128,7 @@ export const Notification: Story = {
         <NotificationIcon />
         ),
         additionalClasses: 'icon-notification',
-        onClick: () => console.log('Icon buton notification clicked'),
+        onClick: () => {},
     },
 };
 
@@ -138,7 +138,7 @@ export const Sort: Story = {
         <SortIcon />
         ),
         additionalClasses: 'icon-sort',
-        onClick: () => console.log('Icon buton sort clicked'),
+        onClick: () => {},
     },
 };
 
@@ -148,7 +148,7 @@ export const Edit: Story = {
         <EditIcon />
         ),
         additionalClasses: 'icon-edit',
-        onClick: () => console.log('Icon buton edit clicked'),
+        onClick: () => {},
     },
 };
 
@@ -158,7 +158,7 @@ export const Delete: Story = {
         <DeleteIcon />
         ),
         additionalClasses: 'icon-delete',
-        onClick: () => console.log('Icon buton delete clicked'),
+        onClick: () => {},
     },
 };
 
@@ -168,6 +168,6 @@ export const Close: Story = {
         <CloseIcon />
         ),
         additionalClasses: 'icon-close',
-        onClick: () => console.log('Icon buton close clicked'),
+        onClick: () => {},
     },
 };

@@ -3,7 +3,7 @@ import { useState, type JSX } from "react";
 import clsx from 'clsx';
 
 // Components
-import { IconButton } from "@components/";
+import { IconButton } from "@components/index";
 
 // Icons
 import { HomeIcon } from "@components/Icon";
@@ -15,9 +15,6 @@ interface MenuBarProps {
     menuBarList: IMenuBar[];
 }
 
-/**
- * Primary UI component for user interaction
- */
 const MenuBar = ({ menuBarList }: MenuBarProps): JSX.Element => {
     const [selectedId, setSelectedId] = useState<number>(1);
     const renderListMenuBar = (): JSX.Element[] => {
@@ -39,9 +36,7 @@ const MenuBar = ({ menuBarList }: MenuBarProps): JSX.Element => {
         ));
     };
     return (
-        <>
-            <ul className="menu-bar">{renderListMenuBar()}</ul>
-        </>
+        <ul className="menu-bar">{renderListMenuBar()}</ul>
     );
 }
 

@@ -1,117 +1,19 @@
 // Libs
-import { useEffect, useState } from 'react';
 import { withErrorBoundary } from 'react-error-boundary';
 
 // Components
-import { ErrorFallback, IconButton, Logo, StudentInfo, Header, MenuBar, StudentList, HeaderTable, Modal } from '@components/';
+import { StudentList, ErrorFallback } from '@components/index';
 
-// Icons
-import { LogoutIcon } from '@components/Icon';
+// Layouts
+import Main from '@layouts/main';
 
-// Mocks
-import { menuBarList } from '@mocks/index';
-
-// Setvices
-import { getStudent } from '@services/studentServices';
-
-// Interfaces
-import { ModalType } from '@interface/modalType';
-import { IStudent } from '@interface/student';
-
-const Home = () => {
-    const [students, setStudents] = useState<IStudent[]>([]);
-    const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);
-    const [studentId, setStudentId] = useState<string | undefined>();
-    const [modalType, setModalType] = useState<ModalType | null>(null);
-    
-    // GET all students    
-    const fetchStudents = async () => {
-        const data = await getStudent();
-        setStudents(data || []);
-    };
-
-    useEffect(() => {
-        fetchStudents();
-    }, []);
-    
+const Home = () => {    
     return (
-        <section className="container">
-            <aside className="side-bar">
-                <Logo
-                    label="Students Dashboard"
-                />
-                <StudentInfo
-                    fullName="Karthi Madesh"
-                    role="Admin"
-                    avatarUrl="https://i.pravatar.cc/150?img=12"
-                    size={{ width: 128, height: 128 }}
-                />
-                <nav>
-                <MenuBar
-                    menuBarList={menuBarList}
-                />
-                </nav>
-                <IconButton 
-                    onClick={() => console.log('Icon button logout clicked')}
-                    additionalClasses="icon"
-                >
-                    <div className="icon-container right">
-                        <LogoutIcon />
-                        <span>Logout</span>
-                    </div>                
-                </IconButton>
-            </aside>
-            <main>
-                <Header 
-                valueSearch={''}
-                onBack={(): void => {
-                    console.log('Handle back clicked');
-                } }
-                onSearchChange={(): void => {
-                    console.log('Handle search change');
-                } }
-                onToggleNotification={(): void => {
-                    console.log('Handle notification toggled');
-                } }
-                />
-                <HeaderTable
-                    onToggleSort={function (): void {
-                    throw new Error('Function not implemented.');
-                    } }
-                    onAdd={()=>setModalType(ModalType.NEW)}
-                />
-                <div className="list-students">
-                    <div className="student-header">
-                        <div className="student-header-avatar">
-                            &nbsp;    
-                        </div>
-                        <div className="student-header-name">Name</div>
-                        <div className="student-header-email">Email</div>
-                        <div className="student-header-phone">Phone</div>
-                        <div className="student-header-enroll-number">Enroll Number</div>
-                        <div className="student-header-date-admission">Date of Admission</div>            
-                        <div className="student-header-edit">
-                            &nbsp;
-                        </div>         
-                        <div className="student-header-delete">
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
-                <StudentList
-                    studentList={students}
-                    onEditItem={(editingStudent: IStudent) => {
-                        setEditingStudent(editingStudent);
-                        setModalType(ModalType.EDIT);
-                    }}
-                    onDeleteItem={(studentId: string) => {
-                        setStudentId(studentId);
-                        setModalType(ModalType.DELETE);
-                    }}
-                />                
-                {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} editingStudent={editingStudent} studentId={studentId ?? ''} onClose={()=>setModalType(null)} />}
-            </main>
-        </section>
+        <div className="container">
+            <Main>
+                <StudentList />
+            </Main>
+        </div>
     )
 };
 

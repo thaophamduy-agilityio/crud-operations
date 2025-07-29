@@ -15,9 +15,6 @@ interface InputProps {
     errorMessage?: string;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const Input = (
     {
         label,

@@ -2,7 +2,7 @@
 import { ChangeEvent, useState, type JSX } from "react";
 
 // Components
-import { Input, Button } from "@components/";
+import { Input, Button } from "@components/index";
 
 // Constants
 import { ERROR_MESSAGES } from '@constants/error-messages';
@@ -17,9 +17,6 @@ interface AddStudentModalProps {
     onActionSuccess: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX.Element => {
     const initialStudent = { firstName: '', lastName: '', email: '', phone: '', enrollNumber: '', dateAdmission: '', avatar: '', role: '' };
     const [formData, setFormData] = useState<Omit<IStudent, 'id'>>(initialStudent);

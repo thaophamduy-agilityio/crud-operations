@@ -7,9 +7,6 @@ interface IconButtonProps extends PropsWithChildren {
     onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const IconButton = (
     {
         children,

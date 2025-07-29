@@ -2,7 +2,7 @@
 import { ChangeEvent, useState, type JSX } from "react";
 
 // Components
-import { Input, Button } from "@components/";
+import { Input, Button } from "@components/index";
 
 // Constants
 import { ERROR_MESSAGES } from '@constants/error-messages';
@@ -18,9 +18,6 @@ interface EditStudentFormProps {
     onActionSuccess: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStudentFormProps): JSX.Element => {
     const [formData, setFormData] = useState<IStudent>(editingStudent);
     const [errors, setErrors] = useState<{
