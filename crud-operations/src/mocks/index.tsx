@@ -91,48 +91,36 @@ export const menuBarList: IMenuBar[] = [
         name: "Home",
         icon: <HomeIcon
         />,
-        onClick: () => {
-        console.log("Home menu clicked");
-        }
+        onClick: () => {}
     },
     {
         id: 2,
         name: "Course",
         icon: <CourseIcon />,
-        onClick: () => {
-        console.log("Course menu clicked");
-        }
+        onClick: () => {}
     },
     {
         id: 3,
         name: "Students",
         icon: <StudentIcon />,
-        onClick: () => {
-        console.log("Students menu clicked");
-        }
+        onClick: () => {}
     },
     {
         id: 4,
         name: "Payment",
         icon: <PaymentIcon />,
-        onClick: () => {
-        console.log("Payment menu clicked");
-        }
+        onClick: () => {}
     },
     {
         id: 5,
         name: "Report",
         icon: <ReportIcon />,
-        onClick: () => {
-        console.log("Report menu clicked");
-        }
+        onClick: () => {}
     },
     {
         id: 6,
         name: "Settings",
         icon: <SettingIcon />,
-        onClick: () => {
-        console.log("Settings menu clicked");
-        }
+        onClick: () => {}
     }
 ]

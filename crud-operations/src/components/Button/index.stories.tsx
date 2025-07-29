@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         label: 'Button',
-        onClick: () => console.log('Buton clicked'),
+        onClick: () => {},
     },
 };
 
@@ -32,7 +32,7 @@ export const PrimaryOutline: Story = {
     args: {
         label: 'Button',
         variant: 'outline',
-        onClick: () => console.log('Buton clicked'),
+        onClick: () => {},
     },
 };
 
@@ -40,7 +40,7 @@ export const Small: Story = {
     args: {
         label: 'Button',
         size: 'small',
-        onClick: () => console.log('Buton clicked'),
+        onClick: () => {},
     },
 };
 
@@ -48,7 +48,7 @@ export const Large: Story = {
     args: {
         label: 'Button',
         size: 'large',
-        onClick: () => console.log('Buton clicked'),
+        onClick: () => {},
     },
 };
 
@@ -56,6 +56,6 @@ export const Disabled: Story = {
     args: {
         label: 'Button',
         isDisabled: true,
-        onClick: () => console.log('Buton clicked'),
+        onClick: () => {},
     },
 };
