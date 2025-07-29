@@ -60,13 +60,13 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
     
     const handleAddStudent = async (data: Omit<IStudent, 'id'> | IStudent) => {
         await addNewStudent(data);
-        onActionSuccess();
     }
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!validate()) return;
         handleAddStudent(formData);
+        onActionSuccess();
         onClose();
     };
     

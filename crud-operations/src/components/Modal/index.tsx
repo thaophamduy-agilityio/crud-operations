@@ -1,83 +1,15 @@
 // Libs
-import { JSX } from 'react';
-
-// Components
-import { Text, IconButton, AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components/index';
-
-// Icons
-import { CloseIcon } from '@components/Icon';
+import { JSX, PropsWithChildren } from 'react';
 
 // Interfaces
-import { ModalType } from '@interface/modalType';
-import { IStudent } from "@interface/student";
-interface ModalProps {
-    onClose: () => void;
-    modalType : ModalType;
-    selectedStudent: IStudent;
-    onActionSuccess: () => void;
-}
+interface ModalProps extends PropsWithChildren {};
 
-const Modal = (
-    ({
-    onClose,
-    modalType,
-    selectedStudent,
-    onActionSuccess,
-    }: ModalProps): JSX.Element => {
-        
-    let content = null;
-    let title = "";
-    
-    switch (modalType) {
-        case ModalType.NEW:
-            content = <AddStudentForm onActionSuccess={onActionSuccess} onClose={onClose} />;
-            title = "Add New Student";
-            break;
-
-            case ModalType.EDIT:
-            content = <EditStudentForm onActionSuccess={onActionSuccess} editingStudent={selectedStudent} onClose={onClose} />;
-            title = "Edit Student";
-            break;
-
-            case ModalType.DELETE:
-            content = <DeleteStudentForm onActionSuccess={onActionSuccess} student={selectedStudent} onClose={onClose} />;
-            title = "Delete Student";
-            break;
-
-        default:
-            break;
-    }
-    
+const Modal = (({children}: ModalProps): JSX.Element => {
     return (
         <>
-            <div className="modal-overlay"></div>
-            <div className="modal">
-                <div className="modal-container">
-                    {/* Modal header */}
-                    <div className="modal-header">
-                        <Text
-                            type="h2"
-                            size="lg"
-                            additionalClasses="modal-title"
-                        >
-                            {title}
-                        </Text>
-                        {/* Close button */}
-                        <IconButton
-                            onClick={onClose}
-                            additionalClasses="icon"
-                        >
-                            <CloseIcon />
-                        </IconButton>
-                    </div>
-                    {/* Modal content */}
-                    <div className="modal-content">
-                        {content}
-                    </div>
-                </div>
-            </div>
+            {children}
         </>
     );
-})
+});
 
 export default Modal;

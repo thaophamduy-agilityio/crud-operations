@@ -13,8 +13,8 @@ import { updateStudent } from '@services/studentServices';
 // Interfaces
 import { IStudent } from "@interface/student";
 interface EditStudentFormProps {
-    onClose: () => void;
     editingStudent: IStudent;
+    onClose: () => void;
     onActionSuccess: () => void;
 }
 
@@ -33,7 +33,7 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
     
     const validate = () => {
         const newErrors: typeof errors = {};
-        if (!formData.firstName) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
+        if (!formData.firstName.trim()) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
         if (!formData.lastName.trim()) newErrors.lastName = ERROR_MESSAGES.NO_LAST_NAME;
         if (!formData.email.trim()) {
             newErrors.email = ERROR_MESSAGES.NO_EMAIL;
@@ -59,13 +59,13 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
     
     const handleUpdateStudent = async (data: IStudent, id: string) => {
         await updateStudent(data, id);
-        onActionSuccess();
     }
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!validate()) return;
         handleUpdateStudent(formData, `${editingStudent.id}`);
+        onActionSuccess();
         onClose();
     };
     

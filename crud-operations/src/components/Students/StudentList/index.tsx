@@ -2,7 +2,7 @@
 import { JSX, useState, useEffect } from "react";
 
 // Components
-import { Modal, StudentTableHeader, StudentHeaderTitle, StudentItem } from '@components/index';
+import { Modal, ModalForm, StudentTableHeader, StudentHeaderTitle, StudentItem } from '@components/index';
 
 // Constants
 import { STUDENTS_MESSAGES } from "@constants/error-messages";
@@ -33,17 +33,21 @@ const StudentList = (): JSX.Element => {
         setSelectedStudent(selectedStudent);
         setModalType(ModalType.EDIT);
     }
+    
     const handleDeleteStudent = (selectedStudent: IStudent) => {
         setSelectedStudent(selectedStudent);
         setModalType(ModalType.DELETE);
     }
+    
     return (
         <>
             <StudentTableHeader
                 onToggleSort={function (): void {}}
                 onAdd={()=>setModalType(ModalType.NEW)}
             />
+            
             <StudentHeaderTitle />
+            
             {students?.length ? (
                 <div className="list-students">
                     {
@@ -61,8 +65,11 @@ const StudentList = (): JSX.Element => {
                 <p className="student-item not-found">
                 {STUDENTS_MESSAGES.NO_DATA}
                 </p>
-            )}                
-            {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} selectedStudent={selectedStudent} onClose={()=>setModalType(null)} />}
+            )}
+            
+            <Modal>
+                {modalType && <ModalForm modalType={modalType} onActionSuccess={fetchStudents} selectedStudent={selectedStudent} onClose={()=>setModalType(null)} />}
+            </Modal>
         </>
     );
 }

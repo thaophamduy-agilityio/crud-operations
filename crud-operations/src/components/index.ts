@@ -7,6 +7,7 @@ import { default as MenuBar } from "./MenuBar";
 import { default as Header } from "./Header";
 import { default as SideBar } from "./SideBar";
 import { default as Modal } from "./Modal";
+import { default as ModalForm } from "./Form/modalForm";
 import { default as AddStudentForm } from "./Form/addStudentForm";
 import { default as EditStudentForm } from "./Form/editStudentForm";
 import { default as DeleteStudentForm } from "./Form/deleteStudentForm";
@@ -17,4 +18,4 @@ import { default as StudentList } from "./Students/StudentList";
 import { default as StudentInfo } from "./Students/StudentInfo";
 import { default as Text } from "./Text";
 
-export { Button, ErrorFallback, IconButton, Input, Logo, MenuBar, Header, SideBar, Modal, AddStudentForm, EditStudentForm, DeleteStudentForm, StudentTableHeader, StudentHeaderTitle, StudentItem, StudentList, StudentInfo, Text };
+export { Button, ErrorFallback, IconButton, Input, Logo, MenuBar, Header, SideBar, Modal, ModalForm, AddStudentForm, EditStudentForm, DeleteStudentForm, StudentTableHeader, StudentHeaderTitle, StudentItem, StudentList, StudentInfo, Text };

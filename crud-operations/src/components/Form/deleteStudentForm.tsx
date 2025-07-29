@@ -10,20 +10,20 @@ import { deleteStudent } from '@services/studentServices';
 // Interfaces
 import { IStudent } from "@interface/student";
 interface DeleteStudentFormProps {
-    onClose: () => void;
     student: IStudent;
+    onClose: () => void;
     onActionSuccess: () => void;
 }
 
 const DeleteStudentForm = ({ onClose, student, onActionSuccess }: DeleteStudentFormProps): JSX.Element => {    
     const handleDeleteStudent = async (student: IStudent) => {        
         await deleteStudent(student.id);
-        onActionSuccess();
     };
     
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         student !== null && handleDeleteStudent(student);
+        onActionSuccess();
         onClose();
     };
     
