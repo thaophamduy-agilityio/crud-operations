@@ -2,13 +2,10 @@
 import { JSX } from 'react';
 
 // Components
-import { Text, IconButton } from '@components';
-
-// Forms
-import { AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components';
+import { Text, IconButton, AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components/index';
 
 // Icons
-import { CloseIcon } from '../Icon';
+import { CloseIcon } from '@components/Icon';
 
 // Interfaces
 import { ModalType } from '@interface/modalType';

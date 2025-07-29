@@ -2,8 +2,8 @@
 import type { JSX } from "react";
 
 // Components
-import { Input, IconButton } from "@components";
-import { BackIcon, NotificationIcon } from "../Icon";
+import { Input, IconButton } from "@components/index";
+import { BackIcon, NotificationIcon } from "@components/Icon";
 
 //Interfaces
 interface HeaderProps {

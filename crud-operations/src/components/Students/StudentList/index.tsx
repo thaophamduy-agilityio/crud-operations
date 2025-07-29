@@ -2,7 +2,7 @@
 import { JSX, useState, useEffect } from "react";
 
 // Components
-import { Modal, StudentTableHeader, StudentHeaderTitle, StudentItem } from '@components';
+import { Modal, StudentTableHeader, StudentHeaderTitle, StudentItem } from '@components/index';
 
 // Constants
 import { STUDENTS_MESSAGES } from "@constants/error-messages";

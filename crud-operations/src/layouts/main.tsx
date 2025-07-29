@@ -2,7 +2,7 @@
 import { JSX, PropsWithChildren } from 'react';
 
 // Layout
-import { Header, SideBar } from '@components';
+import { Header, SideBar } from '@components/index';
 
 // Interfaces
 interface MainProps extends PropsWithChildren {};

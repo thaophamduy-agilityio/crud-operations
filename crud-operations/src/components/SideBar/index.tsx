@@ -2,10 +2,10 @@
 import { JSX } from 'react';
 
 // Components
-import { IconButton, Logo, StudentInfo, MenuBar } from '@components';
+import { IconButton, Logo, StudentInfo, MenuBar } from '@components/index';
 
 // Icons
-import { LogoutIcon } from '../Icon';
+import { LogoutIcon } from '@components/Icon';
 
 // Mocks
 import { menuBarList } from '@mocks/index';

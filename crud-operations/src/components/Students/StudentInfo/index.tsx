@@ -3,7 +3,7 @@ import type { JSX } from "react";
 import clsx from 'clsx';
 
 //Components
-import { Text } from '@components';
+import { Text } from '@components/index';
 
 //Interfaces
 interface StudentInfoProps {

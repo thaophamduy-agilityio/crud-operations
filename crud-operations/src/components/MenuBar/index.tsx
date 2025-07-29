@@ -3,10 +3,10 @@ import { useState, type JSX } from "react";
 import clsx from 'clsx';
 
 // Components
-import { IconButton } from "@components";
+import { IconButton } from "@components/index";
 
 // Icons
-import { HomeIcon } from "../Icon";
+import { HomeIcon } from "@components/Icon";
 
 //Interfaces
 import { IMenuBar } from "@interface/menu-bar";
