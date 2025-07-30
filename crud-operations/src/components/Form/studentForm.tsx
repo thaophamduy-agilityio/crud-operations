@@ -10,20 +10,20 @@ import { CloseIcon } from '@components/Icon';
 // Interfaces
 import { ModalType } from '@interface/modalType';
 import { IStudent } from "@interface/student";
-interface ModalFormProps {
+interface StudentFormProps {
     modalType : ModalType;
     selectedStudent: IStudent;
     onClose: () => void;
     onActionSuccess: () => void;
 }
 
-const ModalForm = (
+const StudentForm = (
     ({
     onClose,
     modalType,
     selectedStudent,
     onActionSuccess,
-    }: ModalFormProps): JSX.Element => {
+    }: StudentFormProps): JSX.Element => {
         
     let content = null;
     let title = "";
@@ -80,4 +80,4 @@ const ModalForm = (
     );
 })
 
-export default ModalForm;
+export default StudentForm;

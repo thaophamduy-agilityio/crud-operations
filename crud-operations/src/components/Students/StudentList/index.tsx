@@ -2,7 +2,7 @@
 import { JSX, useState, useEffect } from "react";
 
 // Components
-import { Modal, ModalForm, StudentTableHeader, StudentHeaderTitle, StudentItem } from '@components/index';
+import { Modal, StudentForm, StudentTableHeader, StudentHeaderTitle, StudentItem } from '@components/index';
 
 // Constants
 import { STUDENTS_MESSAGES } from "@constants/error-messages";
@@ -68,7 +68,7 @@ const StudentList = (): JSX.Element => {
             )}
             
             <Modal>
-                {modalType && <ModalForm modalType={modalType} onActionSuccess={fetchStudents} selectedStudent={selectedStudent} onClose={()=>setModalType(null)} />}
+                {modalType && <StudentForm modalType={modalType} onActionSuccess={fetchStudents} selectedStudent={selectedStudent} onClose={()=>setModalType(null)} />}
             </Modal>
         </>
     );
