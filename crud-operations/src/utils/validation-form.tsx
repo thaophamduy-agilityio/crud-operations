@@ -1,6 +1,10 @@
 // Constants
 import { ERROR_MESSAGES } from '@constants/error-messages';
 
+// Interfaces
+import { IStudent } from "@interface/student";
+import { FormErrors } from "@interface/form-error";
+
 export const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
         case 'firstName':
@@ -35,4 +39,17 @@ export const validateField = (name: string, value: string): string | undefined =
             if (!value.trim()) return ERROR_MESSAGES.NO_ROLL;
             break;
     }
+};
+
+export const validateForm = (formData: Omit<IStudent, 'id'> | IStudent, setErrors: any) => {    
+    const formErrors: FormErrors = {};
+    
+    (Object.keys(formData) as (keyof (Omit<IStudent, 'id'> | IStudent))[]).forEach((field) => {
+        const error = validateField(field, formData[field]);
+        if (error) formErrors[field] = error;
+    });
+        
+    setErrors(formErrors);
+    
+    return Object.keys(formErrors).length === 0;
 };

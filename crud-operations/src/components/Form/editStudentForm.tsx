@@ -4,55 +4,24 @@ import { ChangeEvent, useState, type JSX } from "react";
 // Components
 import { Input, Button } from "@components/index";
 
-// Constants
-import { ERROR_MESSAGES } from '@constants/error-messages';
-
 // Utils
-import { validateField  } from '@utils/validation-form';
+import { validateField, validateForm  } from '@utils/validation-form';
 
 // Setvices
 import { updateStudent } from '@services/studentServices';
 
 // Interfaces
 import { IStudent } from "@interface/student";
+import { FormErrors } from "@interface/form-error";
 interface EditStudentFormProps {
     editingStudent: IStudent;
     onClose: () => void;
     onActionSuccess: () => void;
 }
 
-type FormErrors = {
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    phone?: string;
-    enrollNumber?: string;
-    dateAdmission?: string;
-    avatar?: string;
-    role?: string;
-};
-
 const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStudentFormProps): JSX.Element => {
     const [formData, setFormData] = useState<IStudent>(editingStudent);
     const [errors, setErrors] = useState<FormErrors>({});
-    
-    const validateForm = () => {
-        const newErrors: typeof errors = {};
-        if (!formData.firstName.trim()) newErrors.firstName = ERROR_MESSAGES.NO_FIRST_NAME;
-        if (!formData.lastName.trim()) newErrors.lastName = ERROR_MESSAGES.NO_LAST_NAME;
-        if (!formData.email.trim()) {
-            newErrors.email = ERROR_MESSAGES.NO_EMAIL;
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = ERROR_MESSAGES.INVALID_EMAIL;
-        }
-        if (!formData.phone.trim()) newErrors.phone = ERROR_MESSAGES.NO_PHONE;
-        if (!formData.enrollNumber.trim()) newErrors.enrollNumber = ERROR_MESSAGES.NO_ENROLL_NUMBER;
-        if (!formData.dateAdmission.trim()) newErrors.dateAdmission = ERROR_MESSAGES.NO_DATE_ADMISSION;
-        if (!formData.avatar.trim()) newErrors.avatar = ERROR_MESSAGES.NO_AVATAR;
-        if (!formData.role.trim()) newErrors.role = ERROR_MESSAGES.NO_ROLL;
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
     
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -87,16 +56,8 @@ const EditStudentForm = ({ onClose, editingStudent, onActionSuccess }: EditStude
     }
     
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-                
-        const newErrors: FormErrors = {};
-        
-        (Object.keys(formData) as (keyof (Omit<IStudent, 'id'> | IStudent))[]).forEach((field) => {
-            const error = validateField(field, formData[field]);
-            if (error) newErrors[field] = error;
-        });
-        
-        if (!validateForm()) return;
+        e.preventDefault();        
+        if (!validateForm(formData, setErrors)) return;
         handleUpdateStudent(formData, `${editingStudent.id}`);
         onClose();
     };
