@@ -10,9 +10,15 @@ import { STUDENTS_MESSAGES } from "@constants/error-messages";
 // Setvices
 import { getStudent } from '@services/studentServices';
 
+// Utils
+import { handleAxiosError } from "@utils/handle-axios-error";
+
 //Interfaces
 import { IStudent } from "@interface/student";
 import { ModalType } from '@interface/modalType';
+
+// Toast
+import { ToastContainer } from "react-toastify";
 
 const StudentList = (): JSX.Element => {
     const [students, setStudents] = useState<IStudent[]>([]);
@@ -21,8 +27,12 @@ const StudentList = (): JSX.Element => {
     
     // GET all students
     const fetchStudents = async () => {
-        const data = await getStudent();
-        setStudents(data || []);
+        try {
+            const data = await getStudent();
+            setStudents(data || []);
+        } catch (error) {
+            handleAxiosError(error);
+        }
     };
 
     useEffect(() => {
@@ -63,6 +73,7 @@ const StudentList = (): JSX.Element => {
                 </p>
             )}                
             {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} selectedStudent={selectedStudent} onClose={()=>setModalType(null)} />}
+            <ToastContainer />
         </>
     );
 }
