@@ -13,7 +13,7 @@ const meta = {
     component: StudentItem,
     tags: ['autodocs'],
     argTypes: {
-        student: { description: "Student object containing all student details" },
+        selectedStudent: { description: "Student object containing all student details" },
         onEditItem: { description: "call edit student" },
         onDeleteItem: { description: "call delete student" },
     },
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        student: studentsList[0],
+        selectedStudent: studentsList[0],
         onEditItem: () => {},
         onDeleteItem: () => {},
     },
