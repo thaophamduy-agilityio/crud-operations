@@ -1,8 +1,5 @@
-// Libs
-import axios from "axios";
-
 // Constants
-import { endpoint } from '@constants/endpoint';
+import { API } from '@constants/api';
 
 // Interface
 import { IStudent } from "@interface/student";
@@ -10,16 +7,12 @@ import { IStudent } from "@interface/student";
 // Utils
 import { handleAxiosError } from "@utils/handle-axios-error";
 
-const axiosInstance = axios.create({
-    baseURL: `${endpoint.ENPOINT}`,
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+// Services
+import { axiosInstance } from "@services/axiosInstance";
 
 export const getStudent = async () => {
     try {
-        const res = await axiosInstance.get<IStudent[]>(`/${endpoint.API_ROUTES}`);
+        const res = await axiosInstance.get<IStudent[]>(API.ENPOINT);
         return res.data;
     } catch (error) {
         handleAxiosError(error);
@@ -29,7 +22,7 @@ export const getStudent = async () => {
 
 export const addNewStudent = async (data: Omit<IStudent, 'id'> | IStudent) => {
     try {
-        const res = await axiosInstance.post<IStudent>(`/${endpoint.API_ROUTES}`, data);
+        const res = await axiosInstance.post<IStudent>(API.ENPOINT, data);
         return res.data;
     } catch (error) {
         handleAxiosError(error);
@@ -39,7 +32,7 @@ export const addNewStudent = async (data: Omit<IStudent, 'id'> | IStudent) => {
 
 export const updateStudent = async (data: IStudent, id: string ) => {
     try {        
-        const res = await axiosInstance.put<IStudent>(`/${endpoint.API_ROUTES}/${id}`, data);
+        const res = await axiosInstance.put<IStudent>(`${API.ENPOINT}/${id}`, data);
         return res.data;
     } catch (error) {
         handleAxiosError(error);
@@ -49,7 +42,7 @@ export const updateStudent = async (data: IStudent, id: string ) => {
 
 export const deleteStudent = async (id: string ) => {
     try {
-        const res = await axiosInstance.delete<IStudent>(`/${endpoint.API_ROUTES}/${id}`);
+        const res = await axiosInstance.delete<IStudent>(`${API.ENPOINT}/${id}`);
         return res.data;
     } catch (error) {
         handleAxiosError(error);
