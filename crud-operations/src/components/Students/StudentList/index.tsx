@@ -10,6 +10,9 @@ import { STUDENTS_MESSAGES } from "@constants/error-messages";
 // Setvices
 import { getStudent } from '@services/studentServices';
 
+// Utils
+import { handleAxiosError } from "@utils/handle-axios-error";
+
 //Interfaces
 import { ModalType } from '@interface/modal-type';
 import { IStudent } from "@interface/student";
@@ -21,8 +24,12 @@ const StudentList = (): JSX.Element => {
     
     // GET all students
     const fetchStudents = async () => {
-        const data = await getStudent();
-        setStudents(data || []);
+        try {
+            const data = await getStudent();
+            setStudents(data || []);
+        } catch (error) {
+            handleAxiosError(error);
+        }
     };
 
     useEffect(() => {
