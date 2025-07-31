@@ -2,7 +2,7 @@
 import { JSX, useState, useEffect } from "react";
 
 // Components
-import { Modal, StudentHeaderTable, StudentHeaderTitle, StudentItem } from '@components/';
+import { Modal, StudentTableHeader, StudentHeaderTitle, StudentItem, AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components/index';
 
 // Constants
 import { STUDENTS_MESSAGES } from "@constants/error-messages";
@@ -10,53 +10,62 @@ import { STUDENTS_MESSAGES } from "@constants/error-messages";
 // Setvices
 import { getStudent } from '@services/studentServices';
 
-//Interfaces
-import { IStudent } from "@interface/student";
-import { ModalType } from '@interface/modalType';
+// Utils
+import { handleAxiosError } from "@utils/handle-axios-error";
 
-/**
- * Primary UI component for user interaction
- */
+//Interfaces
+import { ModalType } from '@interface/modal-type';
+import { IStudent } from "@interface/student";
+
 const StudentList = (): JSX.Element => {
     const [students, setStudents] = useState<IStudent[]>([]);
-    const [editingStudent, setEditingStudent] = useState<IStudent>({} as IStudent);
-    const [studentId, setStudentId] = useState<string>('');
-    const [modalType, setModalType] = useState<ModalType | null>(null);
+    const [selectedStudent, setSelectedStudent] = useState<IStudent>({} as IStudent);
+    const [modalType, setModalType] = useState<ModalType>(ModalType.NULL);
     
     // GET all students
     const fetchStudents = async () => {
-        const data = await getStudent();
-        setStudents(data || []);
+        try {
+            const data = await getStudent();
+            setStudents(data || []);
+        } catch (error) {
+            handleAxiosError(error);
+        }
     };
 
     useEffect(() => {
         fetchStudents();
     }, []);
     
-    const HandleEditStudent = (editingStudent: IStudent) => {
-        setEditingStudent(editingStudent);
+    const handleEditStudent = (selectedStudent: IStudent) => {
+        setSelectedStudent(selectedStudent);
         setModalType(ModalType.EDIT);
     }
-    const HandleDeleteStudent = (studentId: string) => {
-        setStudentId(studentId);
+    
+    const handleDeleteStudent = (selectedStudent: IStudent) => {
+        setSelectedStudent(selectedStudent);
         setModalType(ModalType.DELETE);
     }
+    
+    const closeModal = () => setModalType(ModalType.NULL);
+    
     return (
         <>
-            <StudentHeaderTable
+            <StudentTableHeader
                 onToggleSort={function (): void {}}
-                onAdd={()=>setModalType(ModalType.NEW)}
+                onAdd={() => setModalType(ModalType.ADD)}
             />
+            
             <StudentHeaderTitle />
+            
             {students?.length ? (
                 <div className="list-students">
                     {
                         students?.map((item) => (
                             <StudentItem
                                 key={item.id}
-                                student= {item}
-                                onEditItem={HandleEditStudent}
-                                onDeleteItem={HandleDeleteStudent}
+                                selectedStudent= {item}
+                                onEditItem={handleEditStudent}
+                                onDeleteItem={handleDeleteStudent}
                             />
                         ))
                     }
@@ -65,8 +74,25 @@ const StudentList = (): JSX.Element => {
                 <p className="student-item not-found">
                 {STUDENTS_MESSAGES.NO_DATA}
                 </p>
-            )}                
-            {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} editingStudent={editingStudent} studentId={studentId} onClose={()=>setModalType(null)} />}
+            )}
+            
+            { modalType === ModalType.ADD &&
+                <Modal title="Add New Student" onClose={closeModal}>
+                    <AddStudentForm onActionSuccess={fetchStudents} onClose={closeModal} />
+                </Modal>
+            }
+            
+            { modalType === ModalType.EDIT &&
+                <Modal title="Edit Student" onClose={closeModal}>
+                    <EditStudentForm onActionSuccess={fetchStudents} editingStudent={selectedStudent} onClose={closeModal} />
+                </Modal>
+            }
+            
+            { modalType === ModalType.DELETE &&
+                <Modal title="Delete Student" onClose={closeModal}>
+                    <DeleteStudentForm onActionSuccess={fetchStudents} student={selectedStudent} onClose={closeModal} />
+                </Modal>
+            }
         </>
     );
 }

@@ -24,8 +24,8 @@ type Story = StoryObj<typeof meta>;
 export const Defaule: Story = {
     args: {
         valueSearch: 'Karthi',
-        onBack: () => console.log('Handle back clicked'),
-        onSearchChange: () => console.log('Handle search change'),
-        onToggleNotification: () => console.log('Handle notification toggled'),
+        onBack: () => {},
+        onSearchChange: () => {},
+        onToggleNotification: () => {},
     },
 };

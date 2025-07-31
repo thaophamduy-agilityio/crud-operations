@@ -1,22 +1,23 @@
 // Libs
-import type { ChangeEvent, JSX } from "react";
+import type { JSX } from "react";
 
 // Components
-import { Input, IconButton } from "@components/";
+import { Input, IconButton } from "@components/index";
 import { BackIcon, NotificationIcon } from "@components/Icon";
 
 //Interfaces
 interface HeaderProps {
     valueSearch: string;
     onBack: () => void;
-    onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    onSearchChange: (valueSearch: string) => void;
     onToggleNotification: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotification }: HeaderProps): JSX.Element => {
+    const handleSearchChange = () => {
+        onSearchChange(valueSearch);
+    }
+    
     return (
         <header className="header">
             <div className="header-left">
@@ -35,7 +36,7 @@ const Header = ({ valueSearch, onBack, onSearchChange, onToggleNotification }: H
                     placeholder='Search ...'
                     additionalClasses="input input-search"
                     value={valueSearch}
-                    onChange={onSearchChange}
+                    onChange={handleSearchChange}
                 />
                 <IconButton
                     additionalClasses="icon-notification"

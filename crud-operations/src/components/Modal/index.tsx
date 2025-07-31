@@ -1,60 +1,19 @@
 // Libs
-import { JSX } from 'react';
+import { JSX, PropsWithChildren } from 'react';
 
 // Components
-import { Text, IconButton } from '@components/';
-
-// Forms
-import { AddStudentForm, EditStudentForm, DeleteStudentForm } from '@components/';
+import { Text, IconButton } from "@components/index";
 
 // Icons
-import { CloseIcon } from '@components/Icon';
+import { CloseIcon } from "@components/Icon";
 
 // Interfaces
-import { ModalType } from '@interface/modalType';
-import { IStudent } from "@interface/student";
-interface ModalProps {
+interface ModalProps extends PropsWithChildren {
+    title: string;
     onClose: () => void;
-    modalType : ModalType;
-    editingStudent: IStudent;
-    studentId: string;
-    onActionSuccess: () => void;
-}
-/**
- * Primary UI component for user interaction
- */
-const Modal = (
-    ({
-    onClose,
-    modalType,
-    editingStudent,
-    studentId,
-    onActionSuccess,
-    }: ModalProps): JSX.Element => {
-        
-    let content = null;
-    let title = "";
-    
-    switch (modalType) {
-        case ModalType.NEW:
-            content = <AddStudentForm onActionSuccess={onActionSuccess} onClose={onClose} />;
-            title = "Add New Student";
-            break;
+};
 
-            case ModalType.EDIT:
-            content = <EditStudentForm onActionSuccess={onActionSuccess} editingStudent={editingStudent} onClose={onClose} />;
-            title = "Edit Student";
-            break;
-
-            case ModalType.DELETE:
-            content = <DeleteStudentForm onActionSuccess={onActionSuccess} studentId={studentId} onClose={onClose} />;
-            title = "Delete Student";
-            break;
-
-        default:
-            break;
-    }
-    
+const Modal = (({title, onClose, children}: ModalProps): JSX.Element => {
     return (
         <>
             <div className="modal-overlay"></div>
@@ -77,14 +36,11 @@ const Modal = (
                             <CloseIcon />
                         </IconButton>
                     </div>
-                    {/* Modal content */}
-                    <div className="modal-content">
-                        {content}
-                    </div>
+                    {children}
                 </div>
             </div>
         </>
     );
-})
+});
 
 export default Modal;

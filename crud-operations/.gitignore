@@ -22,7 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.yaml
+.env
 
 *storybook.log
 storybook-static

@@ -1,5 +1,6 @@
 export enum ModalType {
-    NEW = 'new',
+    ADD = 'add',
     EDIT = 'edit',
     DELETE = 'delete',
+    NULL = 'null',
 }

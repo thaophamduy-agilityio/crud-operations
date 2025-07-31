@@ -3,7 +3,7 @@ import type { JSX } from "react";
 import clsx from 'clsx';
 
 //Components
-import Text from '@components/Text';
+import { Text } from '@components/index';
 
 //Interfaces
 interface StudentInfoProps {
@@ -17,9 +17,6 @@ interface StudentInfoProps {
     additionalClasses?: string;
 }
 
-/**
- * Primary UI component for user interaction
- */
 const StudentInfo = ({ fullName, role, avatarUrl, size, additionalClasses = '' }: StudentInfoProps): JSX.Element => {
     const { width, height } = size;
     return (
