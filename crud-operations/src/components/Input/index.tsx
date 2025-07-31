@@ -12,9 +12,9 @@ interface InputProps {
     isDisabled?: boolean;
     type: string;
     errorMessage?: string;
-    onChange?: () => void;
-    onFocus?: () => void;
-    onBlur?: () => void;
+    onChange?: (e: any) => void;
+    onFocus?: (e: any) => void;
+    onBlur?: (e: any) => void;
 }
 
 const Input = (
