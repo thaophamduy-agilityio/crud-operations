@@ -49,6 +49,7 @@
     &-footer {
         @extend %flex;
         @extend %justify-end;
+        padding: 1.5rem 0;
     }
 
     /* Modal content */

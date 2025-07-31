@@ -17,7 +17,7 @@ import { IStudent } from "@interface/student";
 const StudentList = (): JSX.Element => {
     const [students, setStudents] = useState<IStudent[]>([]);
     const [selectedStudent, setSelectedStudent] = useState<IStudent>({} as IStudent);
-    const [modalType, setModalType] = useState<ModalType>(null);
+    const [modalType, setModalType] = useState<ModalType>(ModalType.NULL);
     
     // GET all students
     const fetchStudents = async () => {
@@ -31,21 +31,21 @@ const StudentList = (): JSX.Element => {
     
     const handleEditStudent = (selectedStudent: IStudent) => {
         setSelectedStudent(selectedStudent);
-        setModalType("edit");
+        setModalType(ModalType.EDIT);
     }
     
     const handleDeleteStudent = (selectedStudent: IStudent) => {
         setSelectedStudent(selectedStudent);
-        setModalType("delete");
+        setModalType(ModalType.DELETE);
     }
     
-    const closeModal = () => setModalType(null);
+    const closeModal = () => setModalType(ModalType.NULL);
     
     return (
         <>
             <StudentTableHeader
                 onToggleSort={function (): void {}}
-                onAdd={() => setModalType("add")}
+                onAdd={() => setModalType(ModalType.ADD)}
             />
             
             <StudentHeaderTitle />
@@ -70,15 +70,15 @@ const StudentList = (): JSX.Element => {
             )}
             
             <Modal>
-                {modalType === "add" && <AddStudentForm onActionSuccess={fetchStudents} onClose={closeModal} /> }
+                {modalType === ModalType.ADD && <AddStudentForm onActionSuccess={fetchStudents} onClose={closeModal} /> }
             </Modal>
             
             <Modal>
-                {modalType === "edit" && <EditStudentForm onActionSuccess={fetchStudents} editingStudent={selectedStudent} onClose={closeModal} /> }
+                {modalType === ModalType.EDIT && <EditStudentForm onActionSuccess={fetchStudents} editingStudent={selectedStudent} onClose={closeModal} /> }
             </Modal>
             
             <Modal>
-                {modalType === "delete" && <DeleteStudentForm onActionSuccess={fetchStudents} student={selectedStudent} onClose={closeModal} /> }
+                {modalType === ModalType.DELETE && <DeleteStudentForm onActionSuccess={fetchStudents} student={selectedStudent} onClose={closeModal} /> }
             </Modal>
         </>
     );
