@@ -69,17 +69,23 @@ const StudentList = (): JSX.Element => {
                 </p>
             )}
             
-            <Modal>
-                {modalType === ModalType.ADD && <AddStudentForm onActionSuccess={fetchStudents} onClose={closeModal} /> }
-            </Modal>
+            { modalType === ModalType.ADD &&
+                <Modal title="Add New Student" onClose={closeModal}>
+                    <AddStudentForm onActionSuccess={fetchStudents} onClose={closeModal} />
+                </Modal>
+            }
             
-            <Modal>
-                {modalType === ModalType.EDIT && <EditStudentForm onActionSuccess={fetchStudents} editingStudent={selectedStudent} onClose={closeModal} /> }
-            </Modal>
+            { modalType === ModalType.EDIT &&
+                <Modal title="Edit Student" onClose={closeModal}>
+                    <EditStudentForm onActionSuccess={fetchStudents} editingStudent={selectedStudent} onClose={closeModal} />
+                </Modal>
+            }
             
-            <Modal>
-                {modalType === ModalType.DELETE && <DeleteStudentForm onActionSuccess={fetchStudents} student={selectedStudent} onClose={closeModal} /> }
-            </Modal>
+            { modalType === ModalType.DELETE &&
+                <Modal title="Delete Student" onClose={closeModal}>
+                    <DeleteStudentForm onActionSuccess={fetchStudents} student={selectedStudent} onClose={closeModal} />
+                </Modal>
+            }
         </>
     );
 }
