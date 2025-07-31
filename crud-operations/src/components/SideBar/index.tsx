@@ -13,7 +13,7 @@ import { menuBarList } from '@mocks/index';
 const SideBar = (): JSX.Element => {
     return (
         <>
-            <div className='side-bar'>
+            <div className='side-bar-container'>
                 <Logo
                     label="Students Dashboard" />
                 <StudentInfo
