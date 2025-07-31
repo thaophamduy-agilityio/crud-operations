@@ -10,8 +10,8 @@ import { deleteStudent } from '@services/studentServices';
 // Interfaces
 import { IStudent } from "@interface/student";
 interface DeleteStudentFormProps {
-    onClose: () => void;
     student: IStudent;
+    onClose: () => void;
     onActionSuccess: () => void;
 }
 
@@ -26,26 +26,28 @@ const DeleteStudentForm = ({ onClose, student, onActionSuccess }: DeleteStudentF
         student !== null && handleDeleteStudent(student);
         onClose();
     };
-    
     return (
-        <form onSubmit={handleSubmit}>
-            <Text
-                type="p"
-            >
-                Do you want to delete this student?
-            </Text>
-            {/* Modal footer */}
-            <div className="modal-footer">
-                <Button
-                    label="Cancel"
-                    onClick={onClose}
-                    additionalClasses="btn-cancel"
-                />
-                <Button
-                    label="Delete student"
-                />
-            </div>
-        </form>
+        /* Modal content */
+        <div className="modal-content">
+            <form onSubmit={handleSubmit}>
+                <Text
+                    type="p"
+                >
+                    Do you want to delete this student?
+                </Text>
+                {/* Modal footer */}
+                <div className="modal-footer">
+                    <Button
+                        label="Cancel"
+                        onClick={onClose}
+                        additionalClasses="btn-cancel"
+                    />
+                    <Button
+                        label="Delete student"
+                    />
+                </div>
+            </form>
+        </div>
     )
 }
 
