@@ -17,9 +17,6 @@ import { handleAxiosError } from "@utils/handle-axios-error";
 import { IStudent } from "@interface/student";
 import { ModalType } from '@interface/modalType';
 
-// Toast
-import { ToastContainer } from "react-toastify";
-
 const StudentList = (): JSX.Element => {
     const [students, setStudents] = useState<IStudent[]>([]);
     const [selectedStudent, setSelectedStudent] = useState<IStudent>({} as IStudent);
@@ -73,7 +70,6 @@ const StudentList = (): JSX.Element => {
                 </p>
             )}                
             {modalType && <Modal modalType={modalType} onActionSuccess={fetchStudents} selectedStudent={selectedStudent} onClose={()=>setModalType(null)} />}
-            <ToastContainer />
         </>
     );
 }
