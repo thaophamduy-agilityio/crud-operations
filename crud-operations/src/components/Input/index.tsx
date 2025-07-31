@@ -1,5 +1,5 @@
 // Libs
-import type { ChangeEvent, JSX } from "react";
+import type { JSX } from "react";
 
 //Interfaces
 interface InputProps {
@@ -12,9 +12,9 @@ interface InputProps {
     isDisabled?: boolean;
     type: string;
     errorMessage?: string;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-    onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onChange?: () => void;
+    onFocus?: () => void;
+    onBlur?: () => void;
 }
 
 const Input = (
