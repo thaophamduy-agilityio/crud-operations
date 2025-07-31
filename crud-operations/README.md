@@ -17,7 +17,7 @@
 
 - Timeline
 
-  - Estimate time: 15 days
+  - Estimate time: 20 days
 
 - Technical
 
@@ -47,9 +47,10 @@
 
 ## Target
 
-- HTML semantics
-- Apply typescript
-- Apply storybook
+- Get familiar with JSX syntax and be able to implement React components based on real UI design
+- Know how a React application works and accomplish a single React page
+- Understand simple flow in React: Using React hooks
+- Set up and get to know with Storybook which will assist to manage components system in the development environment
 
 ## Getting started
 
