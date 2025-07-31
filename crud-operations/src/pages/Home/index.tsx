@@ -9,11 +9,9 @@ import Main from '@layouts/main';
 
 const Home = () => {    
     return (
-        <div className="container">
-            <Main>
-                <StudentList />
-            </Main>
-        </div>
+        <Main>
+            <StudentList />
+        </Main>
     )
 };
 

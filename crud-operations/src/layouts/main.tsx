@@ -9,7 +9,7 @@ interface MainProps extends PropsWithChildren {};
 
 const Main = (({children}: MainProps): JSX.Element => {
     return (
-        <>
+        <div className="container">
             <aside className="side-bar">
                 <SideBar />
             </aside>
@@ -22,7 +22,7 @@ const Main = (({children}: MainProps): JSX.Element => {
                 />
                 {children}
             </main>
-        </>
+        </div>
     );
 });
 
