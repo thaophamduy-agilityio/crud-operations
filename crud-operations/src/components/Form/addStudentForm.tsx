@@ -2,7 +2,10 @@
 import { ChangeEvent, useState, type JSX } from "react";
 
 // Components
-import { Input, Button } from "@components/index";
+import { Input, Button, Text, IconButton } from "@components/index";
+
+// Icons
+import { CloseIcon } from "@components/Icon";
 
 // Utils
 import { validateField, validateForm  } from '@utils/validation-form';
@@ -73,123 +76,150 @@ const AddStudentForm = ({ onClose, onActionSuccess }: AddStudentModalProps): JSX
     };
     
     return (
-        <form onSubmit={handleSubmit}>
-            <Input
-                additionalClasses="input input-default"
-                label="First Name"
-                name="firstName"
-                id="firstName"
-                placeholder="Enter your name"
-                type="text"
-                value={formData.firstName}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.firstName}
-            />
-            <Input
-                additionalClasses="input input-default"
-                label="Last Name"
-                name="lastName"
-                id="lastName"
-                placeholder="Enter your name"
-                type="text"
-                value={formData.lastName}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.lastName}
-            />
-            <Input
-                additionalClasses="input input-default"
-                label="Email"
-                name="email"
-                id="email"
-                placeholder="Enter your email"
-                type="text"
-                value={formData.email}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.email}
-            />
-            <Input
-                additionalClasses="input input-default"
-                label="Phone"
-                name="phone"
-                id="phone"
-                placeholder="Enter your Phone"
-                type="string"
-                value={formData.phone}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.phone}
-            />
-            <Input
-                additionalClasses="input input-default"
-                label="Enroll number"
-                name="enrollNumber"
-                id="enrollNumber"
-                placeholder="Enter your enroll number"
-                type="string"
-                value={formData.enrollNumber}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.enrollNumber}
-            />
-            <Input
-                additionalClasses="input input-default"
-                label="Date of admission"
-                name="dateAdmission"
-                id="dateAdmission"
-                placeholder="Enter your date of admission"
-                type="text"
-                value={formData.dateAdmission}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.dateAdmission}
-            />
-            <Input
-                additionalClasses="input input-default"
-                label="Avatar"
-                name="avatar"
-                id="avatar"
-                placeholder="Enter your avatar"
-                type="text"
-                value={formData.avatar}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.avatar}
-            />
-            <Input
-                additionalClasses="input input-default"
-                label="Role"
-                name="role"
-                id="role"
-                placeholder="Enter your role"
-                type="text"
-                value={formData.role}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                errorMessage={errors.role}
-            />
-            {/* Modal footer */}
-            <div className="modal-footer">
-                <Button
-                    label="Cancel"
-                    onClick={onClose}
-                    additionalClasses="btn-cancel"
-                />
-                <Button
-                    label="Add student"
-                />
+        <>
+            <div className="modal-overlay"></div>
+            <div className="modal">
+                <div className="modal-container">
+                    {/* Modal header */}
+                    <div className="modal-header">
+                        <Text
+                            type="h2"
+                            size="lg"
+                            additionalClasses="modal-title"
+                        >
+                            Add New Student
+                        </Text>
+                        {/* Close button */}
+                        <IconButton
+                            onClick={onClose}
+                            additionalClasses="icon"
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </div>
+                    {/* Modal content */}
+                    <div className="modal-content">
+                        <form onSubmit={handleSubmit}>
+                            <Input
+                                additionalClasses="input input-default"
+                                label="First Name"
+                                name="firstName"
+                                id="firstName"
+                                placeholder="Enter your name"
+                                type="text"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.firstName}
+                            />
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Last Name"
+                                name="lastName"
+                                id="lastName"
+                                placeholder="Enter your name"
+                                type="text"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.lastName}
+                            />
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Email"
+                                name="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                type="text"
+                                value={formData.email}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.email}
+                            />
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Phone"
+                                name="phone"
+                                id="phone"
+                                placeholder="Enter your Phone"
+                                type="string"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.phone}
+                            />
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Enroll number"
+                                name="enrollNumber"
+                                id="enrollNumber"
+                                placeholder="Enter your enroll number"
+                                type="string"
+                                value={formData.enrollNumber}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.enrollNumber}
+                            />
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Date of admission"
+                                name="dateAdmission"
+                                id="dateAdmission"
+                                placeholder="Enter your date of admission"
+                                type="text"
+                                value={formData.dateAdmission}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.dateAdmission}
+                            />
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Avatar"
+                                name="avatar"
+                                id="avatar"
+                                placeholder="Enter your avatar"
+                                type="text"
+                                value={formData.avatar}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.avatar}
+                            />
+                            <Input
+                                additionalClasses="input input-default"
+                                label="Role"
+                                name="role"
+                                id="role"
+                                placeholder="Enter your role"
+                                type="text"
+                                value={formData.role}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                errorMessage={errors.role}
+                            />
+                            {/* Modal footer */}
+                            <div className="modal-footer">
+                                <Button
+                                    label="Cancel"
+                                    onClick={onClose}
+                                    additionalClasses="btn-cancel"
+                                />
+                                <Button
+                                    label="Add student"
+                                />
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </form>
+        </>
     );
 }
 
