@@ -7,34 +7,34 @@
 @use '../abstracts/mixins' as *;
 
 .input {
-    @extend %flex;
-    @extend %flex-column;
-    @include text-font($default-family, $text-sm, $font-weight-regular, $line-height-default);
+  @extend %flex;
+  @extend %flex-column;
+  @include text-font($default-family, $text-sm, $font-weight-regular, $line-height-default);
+  color: $color-login;
+  border: 1px solid $border-input;
+  border-radius: .25rem;
+  padding: .625rem;
+  margin-bottom: .75rem;
+  background-color: $bg-color-secondary;
+  box-sizing: border-box;
+  width: 100%;
+  
+  &-label {
+    @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
     color: $color-login;
-    border: 1px solid $border-input;
-    border-radius: .25rem;
-    padding: .625rem;
-    margin-bottom: .75rem;
-    background-color: $bg-color-secondary;
-    box-sizing: border-box;
-    width: 100%;
-    
-    &-label {
-        @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
-        color: $color-login;
-    }
+  }
 
-    &-search {
-        @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
-        background: url('/src/assets/images/icon-search.svg') no-repeat calc(100% - 1rem) center;
-        background-color: $bg-color-secondary;
-        border-radius: .5rem;
-        margin: 0 1.5rem 0;
-        padding-left: 1rem;
-        width: 212px;
-    }
-    
-    &::placeholder {
-        color: $color-header;
-    }
+  &-search {
+    @include text-font($default-family, $text-md, $font-weight-regular, $line-height-default);
+    background: url('/src/assets/images/icon-search.svg') no-repeat calc(100% - 1rem) center;
+    background-color: $bg-color-secondary;
+    border-radius: .5rem;
+    margin: 0 1.5rem 0;
+    padding-left: 1rem;
+    width: 212px;
+  }
+  
+  &::placeholder {
+    color: $color-header;
+  }
 }

@@ -6,16 +6,16 @@
 @use '../abstracts/placeholder' as *;
 
 .header {
+  @extend %flex;
+  @extend %item-center;
+  @extend %justify-space-between;
+  background-color: $bg-color-secondary;
+  padding: 0.5rem 2rem .5rem 1.5rem;
+  height: 2.75rem;
+  
+  &-right {
     @extend %flex;
     @extend %item-center;
     @extend %justify-space-between;
-    background-color: $bg-color-secondary;
-    padding: 0.5rem 2rem .5rem 1.5rem;
-    height: 2.75rem;
-    
-    &-right {
-        @extend %flex;
-        @extend %item-center;
-        @extend %justify-space-between;
-    }
+  }
 }

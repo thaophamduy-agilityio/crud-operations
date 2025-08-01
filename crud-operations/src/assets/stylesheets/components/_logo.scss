@@ -6,25 +6,25 @@
 @use '../abstracts/placeholder' as *;
 
 .logo {
-    border-left-color: $color-logo-line;
-    border-style: solid;
-    text-transform: uppercase;
-    font-weight: 700;
-    line-height: 100%;
-    padding-left: .625rem;
-    
-    a {
-        @extend %text-decoration-none;
-        color: $color-primary;
-    }
-    
-    &-medium {
-        border-left-width: .25rem;
-        font-size: $text-xl;
-    }
+  border-left-color: $color-logo-line;
+  border-style: solid;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 100%;
+  padding-left: .625rem;
+  
+  a {
+    @extend %text-decoration-none;
+    color: $color-primary;
+  }
+  
+  &-medium {
+    border-left-width: .25rem;
+    font-size: $text-xl;
+  }
 
-    &-large {
-        border-left-width: .375rem;
-        font-size: $text-xxxl;
-    }
+  &-large {
+    border-left-width: .375rem;
+    font-size: $text-xxxl;
+  }
 }

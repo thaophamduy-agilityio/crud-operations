@@ -8,11 +8,11 @@ import { StudentList, ErrorFallback } from '@components/index';
 import Main from '@layouts/main';
 
 const Home = () => {    
-    return (
-        <Main>
-            <StudentList />
-        </Main>
-    )
+  return (
+    <Main>
+      <StudentList />
+    </Main>
+  )
 };
 
 const HomeWithErrorBoundary = withErrorBoundary(Home, {
