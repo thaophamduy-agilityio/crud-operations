@@ -10,33 +10,32 @@ import { LogoutIcon } from '@components/Icon';
 // Mocks
 import { menuBarList } from '@mocks/index';
 
-const SideBar = (): JSX.Element => {
-    return (
-        <>
-            <div className='side-bar-container'>
-                <Logo
-                    label="Students Dashboard" />
-                <StudentInfo
-                    fullName="Karthi Madesh"
-                    role="Admin"
-                    avatarUrl="https://i.pravatar.cc/150?img=12"
-                    size={{ width: 128, height: 128 }} />
-                <nav>
-                    <MenuBar
-                        menuBarList={menuBarList} />
-                </nav>
-            </div>
-            <IconButton
-                onClick={() => {}}
-                additionalClasses="icon"
-            >
-                <div className="icon-container right">
-                    <LogoutIcon />
-                    <span>Logout</span>
-                </div>
-            </IconButton>
-        </>
-    );
-}
+const SideBar = (): JSX.Element =>
+  <aside className="side-bar">
+    <div className='side-bar-container'>
+      <Logo label="Students Dashboard" />
+      
+      <StudentInfo
+        fullName="Karthi Madesh"
+        role="Admin"
+        avatarUrl="https://i.pravatar.cc/150?img=12"
+        size={{ width: 128, height: 128 }}
+      />
+      
+      <nav>
+        <MenuBar menuBarList={menuBarList} />
+      </nav>
+    </div>
+    
+    <IconButton
+      onClick={() => {}}
+      additionalClasses="icon"
+    >
+      <div className="icon-container right">
+        <LogoutIcon />
+        <span>Logout</span>
+      </div>
+    </IconButton>
+  </aside>
 
 export default SideBar;

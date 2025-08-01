@@ -1,29 +1,29 @@
 // Libs
-import { JSX, PropsWithChildren } from 'react';
+import { JSX, ReactNode } from 'react';
 
 // Layout
 import { Header, SideBar } from '@components/index';
 
 // Interfaces
-interface MainProps extends PropsWithChildren {};
+interface MainProps {
+    children: ReactNode;
+};
 
 const Main = (({children}: MainProps): JSX.Element => {
-    return (
-        <div className="container">
-            <aside className="side-bar">
-                <SideBar />
-            </aside>
-            <main>
-                <Header 
-                    valueSearch=''
-                    onBack={(): void => {}}
-                    onSearchChange={(): void => {}}
-                    onToggleNotification={(): void => {}}
-                />
-                {children}
-            </main>
-        </div>
-    );
+  return (
+    <div className="container">
+      <SideBar />
+      <main>
+        <Header 
+          valueSearch=''
+          onBack={(): void => {}}
+          onSearchChange={(): void => {}}
+          onToggleNotification={(): void => {}}
+        />
+        {children}
+      </main>
+    </div>
+  );
 });
 
 export default Main;
