@@ -22,10 +22,9 @@
 - Technical
 
   - HTML5/CSS3
-  - React js (v 19.1.0)
   - Storybook (v 9.0.15)
   - Typescript (v 5.8.3)
-  - Apply [Json server](https://www.npmjs.com/package/json-server)
+  - Apply [Mock API](https://mockapi.io/)
 
 - Editor: Visual Studio Code
 
@@ -36,7 +35,6 @@
 - react-error-boundary: v6.0.0
 - react-icons: v5.5.0
 - axios: v1.10.0
-- json-server: v1.0.0-beta.3
 - concurrently: v9.2.0
 - sass: v1.89.2
 - prettier: v3.6.2
@@ -84,7 +82,7 @@ cd crud-operations
 pnpm i
 ```
 
-- Step 6: Create file .env with content `VITE_BASE_URL = http://localhost:3003`
+- Step 6: Create file .env with content `VITE_BASE_URL = https://640aadf281d8a32198cddbcc.mockapi.io`
 
 - Step 7: Run Storybook
 
@@ -95,7 +93,7 @@ pnpm storybook
 - Step 8: Run project
 
 ```
-pnpm start
+pnpm dev
 ```
 
 - Step 9: Open browser and access the link http://localhost:5173
